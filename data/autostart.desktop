@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Elementary Settings Daemon
+Comment=Elementary Settings Daemon
+Exec=io.elementary.settings-daemon
+Terminal=false
+Categories=System;Core;
+NoDisplay=true
+StartupNotify=true
+X-GNOME-AutoRestart=true
+X-GNOME-Autostart-Notify=true
+X-GNOME-Autostart-Phase=Initialization
+OnlyShowIn=Pantheon
