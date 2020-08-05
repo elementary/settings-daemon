@@ -1,0 +1,25 @@
+<node>
+  <interface name="io.elementary.SettingsDaemon.AccountsService">
+
+    <annotation name="org.freedesktop.Accounts.VendorExtension" value="true"/>
+
+    <annotation name="org.freedesktop.Accounts.Authentication.ChangeOwn"
+                value="io.elementary.pantheon.AccountsService.ModifyOwn"/>
+
+    <annotation name="org.freedesktop.Accounts.Authentication.ReadAny"
+                value="io.elementary.pantheon.AccountsService.ReadAny"/>
+
+    <annotation name="org.freedesktop.Accounts.Authentication.ChangeAny"
+                value="io.elementary.pantheon.AccountsService.ModifyAny"/>
+
+    <property name="KeyboardLayouts" type="a(ss)" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="[]"/>
+    </property>
+
+    <property name="ActiveKeyboardLayout" type="u" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0"/>
+    </property>
+
+  </interface>
+</node>
+
