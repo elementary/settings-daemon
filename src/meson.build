@@ -9,8 +9,10 @@ config_file = configure_file(
 )
 
 sources = files(
+    'AccountsService.vala',
     'Application.vala',
-    'SessionManager.vala'
+    'SessionManager.vala',
+    'Backends/KeyboardSettings.vala',
 )
 
 executable(

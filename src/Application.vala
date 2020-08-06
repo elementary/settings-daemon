@@ -30,6 +30,10 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private SessionClient? session_client;
 
+    private AccountsService? accounts_service;
+
+    private Backends.KeyboardSettings keyboard_settings;
+
     construct {
         application_id = Build.PROJECT_NAME;
 
@@ -47,6 +51,7 @@ public class SettingsDaemon.Application : GLib.Application {
 
     public override void activate () {
         register_with_session_manager.begin ();
+        setup_accountsservice.begin ();
 
         hold ();
     }
@@ -59,6 +64,26 @@ public class SettingsDaemon.Application : GLib.Application {
         session_client.stop.connect (() => end_session (true));
 
         return true;
+    }
+
+    private async void setup_accountsservice () {
+        try {
+            var act_service = yield GLib.Bus.get_proxy<FDO.Accounts> (GLib.BusType.SYSTEM,
+                                                                      "org.freedesktop.Accounts",
+                                                                      "/org/freedesktop/Accounts");
+            var user_path = act_service.find_user_by_name (GLib.Environment.get_user_name ());
+
+            accounts_service = yield GLib.Bus.get_proxy (GLib.BusType.SYSTEM,
+                                                         "org.freedesktop.Accounts",
+                                                         user_path,
+                                                         GLib.DBusProxyFlags.GET_INVALIDATED_PROPERTIES);
+        } catch (Error e) {
+            warning ("Could not connect to AccountsService. Settings will not be synced to the greeter");
+        }
+
+        if (accounts_service != null) {
+            keyboard_settings = new Backends.KeyboardSettings (accounts_service);
+        }
     }
 
     void end_session (bool quit) {
