@@ -28,8 +28,6 @@ public class SettingsDaemon.Backends.KeyboardSettings : GLib.Object {
     }
 
     construct {
-        debug ("Constructing keyboard settings backend");
-
         keyboard_settings = new GLib.Settings ("org.gnome.desktop.input-sources");
 
         // If the user hasn't set any keyboard layouts of their own
@@ -52,8 +50,6 @@ public class SettingsDaemon.Backends.KeyboardSettings : GLib.Object {
     }
 
     private void sync_accountsservice_to_gsettings () {
-        debug ("Saving accountsservice values to keyboard GSettings");
-
         Variant[] entries = {};
         foreach (var layout in accounts_service.keyboard_layouts) {
             entries += new Variant ("(ss)", layout.backend, layout.name);
