@@ -1,0 +1,14 @@
+Source: io.elementary.settings-daemon
+Section: x11
+Priority: extra
+Maintainer: elementary, Inc. <builds@elementary.io>
+Build-Depends: debhelper (>= 10.5.1),
+               meson,
+               valac
+Standards-Version: 4.1.1
+
+Package: io.elementary.settings-daemon
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Keep session settings in sync
+ elementary Settings Daemon keeps settings in sync between various session components

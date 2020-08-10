@@ -1,0 +1,5 @@
+io.elementary.settings-daemon (1.0.0) focal; urgency=medium
+
+  * Initial release.
+
+ -- Daniel Foré <daniel@elementary.io>  Mon, 10 Aug 2020 10:53:50 -0700
