@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <enum id="PreferDarkScheduleType">
+        <value nick='disabled' value='0'/>
+        <value nick='sunset-to-sunrise' value='1'/>
+        <value nick='manual' value='2'/>
+    </enum>
+
+    <schema path="/io/elementary/settings-daemon/plugins/color/" id="io.elementary.settings-daemon.plugins.color">
+        <key enum="PreferDarkScheduleType" name="prefer-dark-schedule">
+			<default>'disabled'</default>
+			<summary>Algorithm for prefer dark schedule</summary>
+			<description>Choose the algorithm used for prefer dark schedule.</description>
+		</key>
+	    <key type="d" name="prefer-dark-schedule-from">
+            <default>20.0</default>
+            <summary>The start time</summary>
+            <description></description>
+        </key>
+        <key type="d" name="prefer-dark-schedule-to">
+            <default>6.0</default>
+            <summary>The stop time</summary>
+            <description></description>
+        </key>
+    </schema>
+</schemalist>
