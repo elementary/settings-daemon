@@ -36,7 +36,7 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private Backends.KeyboardSettings keyboard_settings;
 
-    private Backends.ColorSettings color_settings;
+    private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
 
     construct {
         application_id = Build.PROJECT_NAME;
@@ -104,7 +104,7 @@ public class SettingsDaemon.Application : GLib.Application {
         }
 
         if (pantheon_accounts_service != null) {
-            color_settings = new Backends.ColorSettings (pantheon_accounts_service);
+            prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_accounts_service);
         }
     }
 

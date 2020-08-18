@@ -13,7 +13,7 @@ sources = files(
     'Application.vala',
     'SessionManager.vala',
     'Backends/KeyboardSettings.vala',
-    'Backends/ColorSettings.vala',
+    'Backends/PrefersColorSchemeSettings.vala',
 )
 
 executable(

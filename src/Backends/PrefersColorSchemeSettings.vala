@@ -18,12 +18,12 @@
 *
 */
 
-public class SettingsDaemon.Backends.ColorSettings : GLib.Object {
+public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     public unowned PantheonShell.Pantheon.AccountsService accounts_service { get; construct; }
 
     private GLib.Settings color_settings;
 
-    public ColorSettings (PantheonShell.Pantheon.AccountsService accounts_service) {
+    public PrefersColorSchemeSettings (PantheonShell.Pantheon.AccountsService accounts_service) {
         Object (accounts_service: accounts_service);
     }
 
