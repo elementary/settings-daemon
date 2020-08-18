@@ -4,6 +4,8 @@ project('io.elementary.settings-daemon',
     license: 'GPL3',
 )
 
+granite_dep = dependency('granite', version: '>= 5.3.0')
+
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 
