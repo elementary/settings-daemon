@@ -28,7 +28,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     }
 
     construct {
-        color_settings = new GLib.Settings ("io.elementary.settings-daemon.color");
+        color_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
 
         var time = new TimeoutSource (1000);
 
