@@ -38,8 +38,17 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
 
             double from, to;
             if (schedule == "sunset-to-sunrise") {
-                from = 20.0;
-                to = 6.0;
+                var dt = new DateTime.now_local ();
+                double pos_lat = -1.0;
+                double pos_long = -1.0;
+                double sunrise, sunset;
+
+                bool success = SettingsDaemon.Utils.SunriseSunsetCalculator.get_sunrise_and_sunset (dt, pos_lat, pos_long, out sunrise, out sunset);
+
+                if (success) {
+                    from = sunset;
+                    to = sunrise;
+                }
             } else if (schedule == "manual") {
                 from = color_settings.get_double ("prefer-dark-schedule-from");
                 to = color_settings.get_double ("prefer-dark-schedule-to");
