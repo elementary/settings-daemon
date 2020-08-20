@@ -29,7 +29,7 @@ public class SettingsDaemon.Utils.SunriseSunsetCalculator {
         sunrise = -1.0;
         sunset = -1.0;
 
-        var dt_zero = new DateTime.from_unix_utc (0);
+        var dt_zero = new DateTime.utc (1900, 1, 1, 0, 0, 0);
         var ts = dt.difference (dt_zero);
 
         const int _G_USEC_PER_SEC = 1000000;
