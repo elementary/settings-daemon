@@ -42,17 +42,18 @@ public class SettingsDaemon.Utils.SunriseSunsetCalculator {
             return false;
         }
 
-        double tz_offset = (double) (dt.get_utc_offset () / _G_USEC_PER_SEC / 60 / 60); // B5
+        double tz_offset =  (double) dt.get_utc_offset () / _G_USEC_PER_SEC / 60 / 60; // B5
         double date_as_number = ts / _G_USEC_PER_SEC / 24 / 60 / 60 + 2;  // B7
         double time_past_local_midnight = 0;  // E2, unused in this calculation
-        double julian_day = date_as_number + 2415018.5 + time_past_local_midnight - tz_offset / 24;
+        double julian_day = date_as_number + 2415018.5 +
+                            time_past_local_midnight - tz_offset / 24;
         double julian_century = (julian_day - 2451545) / 36525;
         double geom_mean_long_sun = Math.fmod (280.46646 + julian_century *
                             (36000.76983 + julian_century * 0.0003032), 360);
         double geom_mean_anom_sun = 357.52911 + julian_century *
                             (35999.05029 - 0.0001537 * julian_century);  // J2
         double eccent_earth_orbit = 0.016708634 - julian_century *
-                            (0.000042037 + 0.0000001267 * julian_century);
+                            (0.000042037 + 0.0000001267 * julian_century); // K2
         double sun_eq_of_ctr = Math.sin (deg2rad (geom_mean_anom_sun)) *
                             (1.914602 - julian_century * (0.004817 + 0.000014 * julian_century)) +
                             Math.sin (deg2rad (2 * geom_mean_anom_sun)) * (0.019993 - 0.000101 * julian_century) +
