@@ -24,7 +24,8 @@ executable(
     dependencies: [
         dependency ('gio-2.0'),
         granite_dep,
-        m_dep
+        m_dep,
+        libgeoclue_dep
     ],
     install: true,
 )

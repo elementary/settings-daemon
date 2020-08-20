@@ -23,6 +23,8 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     public unowned PantheonShell.Pantheon.AccountsService accounts_service { get; construct; }
 
     private GLib.Settings color_settings;
+    private double pos_lat = -1.0;
+    private double pos_long = -1.0;
 
     public PrefersColorSchemeSettings (PantheonShell.Pantheon.AccountsService accounts_service) {
         Object (accounts_service: accounts_service);
@@ -30,6 +32,8 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
 
     construct {
         color_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
+
+        get_location.begin ();
 
         var time = new TimeoutSource (1000);
 
@@ -39,8 +43,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
             double from, to;
             if (schedule == "sunset-to-sunrise") {
                 var dt = new DateTime.now_local ();
-                double pos_lat = -1.0;
-                double pos_long = -1.0;
                 double sunrise, sunset;
 
                 bool success = SettingsDaemon.Utils.SunriseSunsetCalculator.get_sunrise_and_sunset (dt, pos_lat, pos_long, out sunrise, out sunset);
@@ -74,6 +76,26 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         });
 
         time.attach (null);
+    }
+
+    private async void get_location () {
+        try {
+            var simple = yield new GClue.Simple (Build.PROJECT_NAME, GClue.AccuracyLevel.CITY, null);
+
+            simple.notify["location"].connect (() => {
+                on_location_updated (simple.location.latitude, simple.location.longitude);
+            });
+
+            on_location_updated (simple.location.latitude, simple.location.longitude);
+        } catch (Error e) {
+            warning ("Failed to connect to GeoClue2 service: %s", e.message);
+            return;
+        }
+    }
+
+    private void on_location_updated (double latitude, double longitude) {
+        pos_lat = latitude;
+        pos_long = longitude;
     }
 
     private enum State {
