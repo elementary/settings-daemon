@@ -40,12 +40,12 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         time.set_callback (() => {
             var schedule = color_settings.get_string ("prefer-dark-schedule");
 
+            var now = new DateTime.now_local ();
             double from, to;
             if (schedule == "sunset-to-sunrise") {
-                var dt = new DateTime.now_local ();
                 double sunrise, sunset;
 
-                bool success = SettingsDaemon.Utils.SunriseSunsetCalculator.get_sunrise_and_sunset (dt, pos_lat, pos_long, out sunrise, out sunset);
+                bool success = SettingsDaemon.Utils.SunriseSunsetCalculator.get_sunrise_and_sunset (now, pos_lat, pos_long, out sunrise, out sunset);
 
                 if (success) {
                     from = sunset;
@@ -57,8 +57,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
             } else {
                 return true;
             }
-
-            var now = new DateTime.now_local ();
 
             var state = get_state (date_time_double (now), from, to);
             var new_color_scheme = Granite.Settings.ColorScheme.NO_PREFERENCE;
