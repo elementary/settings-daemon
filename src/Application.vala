@@ -105,4 +105,3 @@ public class SettingsDaemon.Application : GLib.Application {
     }
 }
 
-
