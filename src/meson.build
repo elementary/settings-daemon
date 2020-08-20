@@ -14,6 +14,7 @@ sources = files(
     'SessionManager.vala',
     'Backends/KeyboardSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
+    'Utils/SunriseSunsetCalculator.vala',
 )
 
 executable(
@@ -22,7 +23,8 @@ executable(
     config_file,
     dependencies: [
         dependency ('gio-2.0'),
-        granite_dep
+        granite_dep,
+        m_dep
     ],
     install: true,
 )

@@ -6,6 +6,9 @@ project('io.elementary.settings-daemon',
 
 granite_dep = dependency('granite', version: '>= 5.3.0')
 
+cc = meson.get_compiler('c')
+m_dep = cc.find_library('m', required : false)
+
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 
