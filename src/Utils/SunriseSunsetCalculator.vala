@@ -34,11 +34,11 @@ public class SettingsDaemon.Utils.SunriseSunsetCalculator {
 
         const int _G_USEC_PER_SEC = 1000000;
 
-        if (pos_lat <= 90.0f && pos_lat >= -90.0f) {
+        if (!(pos_lat <= 90.0f && pos_lat >= -90.0f)) {
             return false;
         }
 
-        if (pos_long <= 180.0f && pos_long >= -180.0f) {
+        if (!(pos_long <= 180.0f && pos_long >= -180.0f)) {
             return false;
         }
 
