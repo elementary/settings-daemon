@@ -126,5 +126,3 @@ public class SettingsDaemon.Application : GLib.Application {
         return application.run (args);
     }
 }
-
-
