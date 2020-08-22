@@ -42,7 +42,7 @@ public class SettingsDaemon.Utils.SunriseSunsetCalculator {
             return false;
         }
 
-        double tz_offset =  (double) dt.get_utc_offset () / _G_USEC_PER_SEC / 60 / 60; // B5
+        double tz_offset = (double) dt.get_utc_offset () / _G_USEC_PER_SEC / 60 / 60; // B5
         double date_as_number = ts / _G_USEC_PER_SEC / 24 / 60 / 60 + 2;  // B7
         double time_past_local_midnight = 0;  // E2, unused in this calculation
         double julian_day = date_as_number + 2415018.5 +
@@ -61,13 +61,13 @@ public class SettingsDaemon.Utils.SunriseSunsetCalculator {
         double sun_true_long = geom_mean_long_sun + sun_eq_of_ctr; // M2
         double sun_app_long = sun_true_long - 0.00569 - 0.00478 *
                             Math.sin (deg2rad (125.04 - 1934.136 * julian_century)); // P2
-        double mean_obliq_ecliptic = 23 +  (26 +  ((21.448 - julian_century *
+        double mean_obliq_ecliptic = 23 + (26 + ((21.448 - julian_century *
                             (46.815 + julian_century * (0.00059 - julian_century * 0.001813)))) / 60) / 60; // Q2
         double obliq_corr = mean_obliq_ecliptic + 0.00256 *
                             Math.cos (deg2rad (125.04 - 1934.136 * julian_century)); // R2
         double sun_declin = rad2deg (Math.asin (Math.sin (deg2rad (obliq_corr)) *
                                                 Math.sin (deg2rad (sun_app_long)))); // T2
-        double var_y = Math.tan (deg2rad (obliq_corr/2)) * Math.tan (deg2rad (obliq_corr / 2)); // U2
+        double var_y = Math.tan (deg2rad (obliq_corr / 2)) * Math.tan (deg2rad (obliq_corr / 2)); // U2
         double eq_of_time = 4 * rad2deg (var_y * Math.sin (2 * deg2rad (geom_mean_long_sun)) -
                             2 * eccent_earth_orbit * Math.sin (deg2rad (geom_mean_anom_sun)) +
                             4 * eccent_earth_orbit * var_y *
@@ -79,7 +79,7 @@ public class SettingsDaemon.Utils.SunriseSunsetCalculator {
         double ha_sunrise = rad2deg (Math.acos (Math.cos (deg2rad (90.833)) / (Math.cos (deg2rad (pos_lat)) *
                             Math.cos (deg2rad (sun_declin))) - Math.tan (deg2rad (pos_lat)) *
                             Math.tan (deg2rad (sun_declin)))); // W2
-        double solar_noon =  (720 - 4 * pos_long - eq_of_time + tz_offset * 60) / 1440; // X2
+        double solar_noon = (720 - 4 * pos_long - eq_of_time + tz_offset * 60) / 1440; // X2
         double sunrise_time = solar_noon - ha_sunrise * 4 / 1440; //  Y2
         double sunset_time = solar_noon + ha_sunrise * 4 / 1440; // Z2
 
@@ -89,13 +89,11 @@ public class SettingsDaemon.Utils.SunriseSunsetCalculator {
         return true;
     }
 
-    private static double deg2rad (double degrees)
-    {
+    private static double deg2rad (double degrees) {
         return (Math.PI * degrees) / 180.0f;
     }
 
-    private static double rad2deg (double radians)
-    {
+    private static double rad2deg (double radians) {
         return radians * (180.0f / Math.PI);
     }
 }
