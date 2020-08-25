@@ -21,7 +21,7 @@
 
 /*
 * The following code was ported from gnome-settings-daemon
-* https://gitlab.gnome.org/GNOME/gnome-settings-daemon/blob/master/plugins/color/gsd-night-light-common.c
+* https://gitlab.gnome.org/GNOME/gnome-settings-daemon/-/blob/02295dee94bebcdd246c40ccf0120eb2ab714416/plugins/color/gsd-night-light-common.c
 */
 
 public class SettingsDaemon.Utils.SunriseSunsetCalculator {
