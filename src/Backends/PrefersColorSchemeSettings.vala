@@ -58,9 +58,9 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
                 return true;
             }
 
-            var state = get_state (date_time_double (now), from, to);
+            var is_in = is_in_time_window (date_time_double (now), from, to);
             var new_color_scheme = Granite.Settings.ColorScheme.NO_PREFERENCE;
-            if (state == State.IN) {
+            if (is_in) {
                 new_color_scheme = Granite.Settings.ColorScheme.DARK;
             }
 
@@ -96,21 +96,15 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         pos_long = longitude;
     }
 
-    private enum State {
-        UNKNOWN,
-        IN,
-        OUT
-    }
-
-    private State get_state (double time_double, double from, double to) {
+    public static bool is_in_time_window (double time_double, double from, double to) {
         if (from >= 0.0 && time_double >= from || time_double >= 0.0 && time_double < to) {
-            return State.IN;
+            return true;
         }
 
-        return State.OUT;
+        return false;
     }
 
-    private double date_time_double (DateTime date_time) {
+    public static double date_time_double (DateTime date_time) {
         double time_double = 0;
         time_double += date_time.get_hour ();
         time_double += (double) date_time.get_minute () / 60;
