@@ -26,6 +26,10 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     private double pos_lat = -1.0;
     private double pos_long = -1.0;
 
+    private AsyncResult async_result;
+    private bool time_running = false;
+    private uint time_id;
+
     public PrefersColorSchemeSettings (PantheonShell.Pantheon.AccountsService accounts_service) {
         Object (accounts_service: accounts_service);
     }
@@ -33,47 +37,41 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     construct {
         color_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
 
-        get_location.begin ();
+        color_settings.changed["prefer-dark-schedule"].connect (update);
 
-        var time = new TimeoutSource (1000);
+        update ();
+    }
 
-        time.set_callback (() => {
-            var schedule = color_settings.get_string ("prefer-dark-schedule");
+    private void update () {
+        var schedule = color_settings.get_string ("prefer-dark-schedule");
 
-            var now = new DateTime.now_local ();
-            double from, to;
-            if (schedule == "sunset-to-sunrise") {
-                double sunrise, sunset;
+        if (schedule == "sunset-to-sunrise") {
+            get_location.begin ((obj, res) => {
+                async_result = res;
+            });
 
-                bool success = SettingsDaemon.Utils.SunriseSunsetCalculator.get_sunrise_and_sunset (now, pos_lat, pos_long, out sunrise, out sunset);
+            start_timer ();
+        } else if (schedule == "manual") {
+            start_timer ();
+        } else {
+            get_location.end (async_result);
+            stop_timer ();
+        }
+    }
 
-                if (success) {
-                    from = sunset;
-                    to = sunrise;
-                }
-            } else if (schedule == "manual") {
-                from = color_settings.get_double ("prefer-dark-schedule-from");
-                to = color_settings.get_double ("prefer-dark-schedule-to");
-            } else {
-                return true;
-            }
+    private void start_timer () {
+        if (!time_running) {
+            var time = new TimeoutSource (1000);
+            time.set_callback (time_callback);
+            time_id = time.attach (null);
+            time_running = true;
+        }
+    }
 
-            var is_in = is_in_time_window (date_time_double (now), from, to);
-            var new_color_scheme = Granite.Settings.ColorScheme.NO_PREFERENCE;
-            if (is_in) {
-                new_color_scheme = Granite.Settings.ColorScheme.DARK;
-            }
-
-            if (new_color_scheme == accounts_service.prefers_color_scheme) {
-                return true;
-            }
-
-            accounts_service.prefers_color_scheme = new_color_scheme;
-
-            return true;
-        });
-
-        time.attach (null);
+    private void stop_timer () {
+        if (time_running) {
+            time_running = !Source.remove (time_id);
+        }
     }
 
     private async void get_location () {
@@ -89,6 +87,38 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
             warning ("Failed to connect to GeoClue2 service: %s", e.message);
             return;
         }
+    }
+
+    private bool time_callback () {
+        var schedule = color_settings.get_string ("prefer-dark-schedule");
+
+        var now = new DateTime.now_local ();
+        double from, to;
+        if (schedule == "sunset-to-sunrise") {
+            from = 20.0;
+            to = 6.0;
+
+            SettingsDaemon.Utils.SunriseSunsetCalculator.get_sunrise_and_sunset (now, pos_lat, pos_long, out to, out from);
+        } else if (schedule == "manual") {
+            from = color_settings.get_double ("prefer-dark-schedule-from");
+            to = color_settings.get_double ("prefer-dark-schedule-to");
+        } else {
+            return true;
+        }
+
+        var is_in = is_in_time_window (date_time_double (now), from, to);
+        var new_color_scheme = Granite.Settings.ColorScheme.NO_PREFERENCE;
+        if (is_in) {
+            new_color_scheme = Granite.Settings.ColorScheme.DARK;
+        }
+
+        if (new_color_scheme == accounts_service.prefers_color_scheme) {
+            return true;
+        }
+
+        accounts_service.prefers_color_scheme = new_color_scheme;
+
+        return true;
     }
 
     private void on_location_updated (double latitude, double longitude) {
