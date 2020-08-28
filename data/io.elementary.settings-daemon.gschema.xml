@@ -22,5 +22,10 @@
             <summary>The stop time</summary>
             <description></description>
         </key>
+        <key type="(dd)" name="last-coordinates">
+            <default>(91,181)</default>
+            <summary>The last detected position</summary>
+            <description>When location services are available this represents the last detected location. The default value is an invalid value to ensure it is always updated at startup.</description>
+        </key>
     </schema>
 </schemalist>

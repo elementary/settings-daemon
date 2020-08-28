@@ -23,8 +23,8 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     public unowned PantheonShell.Pantheon.AccountsService accounts_service { get; construct; }
 
     private GLib.Settings color_settings;
-    private double pos_lat = -1.0;
-    private double pos_long = -1.0;
+    private double sunrise = -1.0;
+    private double sunset = -1.0;
 
     private uint time_id = 0;
 
@@ -44,6 +44,8 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         var schedule = color_settings.get_string ("prefer-dark-schedule");
 
         if (schedule == "sunset-to-sunrise") {
+            var variant = color_settings.get_value ("last-coordinates");
+            on_location_updated (variant.get_child_value (0).get_double (), variant.get_child_value (1).get_double ());
             get_location.begin ();
 
             start_timer ();
@@ -90,10 +92,13 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         var now = new DateTime.now_local ();
         double from, to;
         if (schedule == "sunset-to-sunrise") {
-            from = 20.0;
-            to = 6.0;
-
-            SettingsDaemon.Utils.SunriseSunsetCalculator.get_sunrise_and_sunset (now, pos_lat, pos_long, out to, out from);
+            if (sunrise >= 0 && sunset >= 0) {
+                from = sunset;
+                to = sunrise;
+            } else {
+                from = 20.0;
+                to = 6.0;
+            }
         } else if (schedule == "manual") {
             from = color_settings.get_double ("prefer-dark-schedule-from");
             to = color_settings.get_double ("prefer-dark-schedule-to");
@@ -117,8 +122,14 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     }
 
     private void on_location_updated (double latitude, double longitude) {
-        pos_lat = latitude;
-        pos_long = longitude;
+        color_settings.set_value ("last-coordinates", new Variant.tuple ({latitude, longitude}));
+
+        var now = new DateTime.now_local ();
+        double _sunrise, _sunset;
+        if (SettingsDaemon.Utils.SunriseSunsetCalculator.get_sunrise_and_sunset (now, latitude, longitude, out _sunrise, out _sunset)) {
+            sunrise = _sunrise;
+            sunset = _sunset;
+        }
     }
 
     public static bool is_in_time_window (double time_double, double from, double to) {
