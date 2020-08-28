@@ -37,6 +37,9 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
 
         color_settings.changed["prefer-dark-schedule"].connect (update);
 
+        var variant = color_settings.get_value ("last-coordinates");
+        on_location_updated (variant.get_child_value (0).get_double (), variant.get_child_value (1).get_double ());
+
         update ();
     }
 
@@ -44,8 +47,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         var schedule = color_settings.get_string ("prefer-dark-schedule");
 
         if (schedule == "sunset-to-sunrise") {
-            var variant = color_settings.get_value ("last-coordinates");
-            on_location_updated (variant.get_child_value (0).get_double (), variant.get_child_value (1).get_double ());
             get_location.begin ();
 
             start_timer ();
