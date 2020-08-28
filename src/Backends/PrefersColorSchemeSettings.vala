@@ -26,9 +26,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     private double pos_lat = -1.0;
     private double pos_long = -1.0;
 
-    private AsyncResult async_result;
-    private bool time_running = false;
-    private uint time_id;
+    private uint time_id = 0;
 
     public PrefersColorSchemeSettings (PantheonShell.Pantheon.AccountsService accounts_service) {
         Object (accounts_service: accounts_service);
@@ -46,31 +44,28 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         var schedule = color_settings.get_string ("prefer-dark-schedule");
 
         if (schedule == "sunset-to-sunrise") {
-            get_location.begin ((obj, res) => {
-                async_result = res;
-            });
+            get_location.begin ();
 
             start_timer ();
         } else if (schedule == "manual") {
             start_timer ();
         } else {
-            get_location.end (async_result);
             stop_timer ();
         }
     }
 
     private void start_timer () {
-        if (!time_running) {
+        if (time_id == 0) {
             var time = new TimeoutSource (1000);
             time.set_callback (time_callback);
             time_id = time.attach (null);
-            time_running = true;
         }
     }
 
     private void stop_timer () {
-        if (time_running) {
-            time_running = !Source.remove (time_id);
+        if (time_id != 0) {
+            Source.remove (time_id);
+            time_id = 0;
         }
     }
 
