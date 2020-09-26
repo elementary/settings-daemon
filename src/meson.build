@@ -13,6 +13,7 @@ sources = files(
     'Application.vala',
     'SessionManager.vala',
     'Backends/KeyboardSettings.vala',
+    'Backends/TimeSettings.vala',
 )
 
 executable(

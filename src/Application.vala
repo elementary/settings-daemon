@@ -33,6 +33,7 @@ public class SettingsDaemon.Application : GLib.Application {
     private AccountsService? accounts_service;
 
     private Backends.KeyboardSettings keyboard_settings;
+    private Backends.TimeSettings time_settings;
 
     construct {
         application_id = Build.PROJECT_NAME;
@@ -83,6 +84,7 @@ public class SettingsDaemon.Application : GLib.Application {
 
         if (accounts_service != null) {
             keyboard_settings = new Backends.KeyboardSettings (accounts_service);
+            time_settings = new Backends.TimeSettings (accounts_service);
         }
     }
 
