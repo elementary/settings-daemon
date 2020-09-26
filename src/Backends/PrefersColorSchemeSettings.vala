@@ -97,6 +97,8 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
                 from = sunset;
                 to = sunrise;
             } else {
+                // fallback times (6AM and 8PM) for when an invalid result was returned
+                // from the calculation (i.e. probably wasn't able to get a location)
                 from = 20.0;
                 to = 6.0;
             }
