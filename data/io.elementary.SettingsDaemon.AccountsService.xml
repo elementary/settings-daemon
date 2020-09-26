@@ -20,6 +20,10 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="0"/>
     </property>
 
+    <property name="ClockFormat" type="s" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="24h"/>
+    </property>
+
   </interface>
 </node>
 
