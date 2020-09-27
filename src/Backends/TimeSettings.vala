@@ -30,6 +30,10 @@ public class SettingsDaemon.Backends.TimeSettings : GLib.Object {
     construct {
         clock_settings = new GLib.Settings ("org.gnome.desktop.interface");
 
+        if (accounts_service.clock_format != clock_settings.get_string ("clock-format")) {
+            sync_accountsservice_to_gsettings ();
+        }
+
         sync_gsettings_to_accountsservice ();
 
         clock_settings.changed.connect ((key) => {
