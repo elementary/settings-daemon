@@ -13,6 +13,8 @@ sources = files(
     'Application.vala',
     'SessionManager.vala',
     'Backends/KeyboardSettings.vala',
+    'Backends/PrefersColorSchemeSettings.vala',
+    'Utils/SunriseSunsetCalculator.vala',
 )
 
 executable(
@@ -20,7 +22,10 @@ executable(
     sources,
     config_file,
     dependencies: [
-        dependency ('gio-2.0')
+        dependency ('gio-2.0'),
+        granite_dep,
+        m_dep,
+        libgeoclue_dep
     ],
     install: true,
 )

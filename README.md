@@ -6,7 +6,9 @@ You'll need the following dependencies:
 * glib-2.0
 * gobject-2.0
 * libaccountsservice-dev
-* libdbus-1-dev 
+* libdbus-1-dev
+* libgranite-dev
+* libgeoclue-2-dev
 * meson
 * valac
 

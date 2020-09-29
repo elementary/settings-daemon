@@ -32,7 +32,11 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private AccountsService? accounts_service;
 
+    private PantheonShell.Pantheon.AccountsService pantheon_accounts_service;
+
     private Backends.KeyboardSettings keyboard_settings;
+
+    private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
 
     construct {
         application_id = Build.PROJECT_NAME;
@@ -83,6 +87,24 @@ public class SettingsDaemon.Application : GLib.Application {
 
         if (accounts_service != null) {
             keyboard_settings = new Backends.KeyboardSettings (accounts_service);
+        }
+
+        try {
+            var act_service = yield GLib.Bus.get_proxy<FDO.Accounts> (GLib.BusType.SYSTEM,
+                                                                      "org.freedesktop.Accounts",
+                                                                      "/org/freedesktop/Accounts");
+            var user_path = act_service.find_user_by_name (GLib.Environment.get_user_name ());
+
+            pantheon_accounts_service = yield GLib.Bus.get_proxy (GLib.BusType.SYSTEM,
+                                                                  "org.freedesktop.Accounts",
+                                                                  user_path,
+                                                                  GLib.DBusProxyFlags.GET_INVALIDATED_PROPERTIES);
+        } catch (Error e) {
+            warning ("Unable to get AccountsService proxy, color scheme preference may be incorrect");
+        }
+
+        if (pantheon_accounts_service != null) {
+            prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_accounts_service);
         }
     }
 

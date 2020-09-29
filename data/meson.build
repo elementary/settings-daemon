@@ -20,3 +20,8 @@ meson.add_install_script(
     join_paths(dbus_interfaces_dir, 'io.elementary.SettingsDaemon.AccountsService.xml'),
     join_paths(act_interfacesdir, 'io.elementary.SettingsDaemon.AccountsService.xml'),
 )
+
+install_data(
+    'io.elementary.settings-daemon.gschema.xml',
+    install_dir: join_paths(datadir, 'glib-2.0', 'schemas')
+)
