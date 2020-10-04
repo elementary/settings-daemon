@@ -24,9 +24,19 @@ namespace SettingsDaemon {
     public class PrefersColorSchemeServer : Object {
         public bool snoozed { get; set; }
 
+        static PrefersColorSchemeServer? instance = null;
         private weak DBusConnection connection;
 
-        public PrefersColorSchemeServer (DBusConnection connection) {
+        public static PrefersColorSchemeServer get_default () {
+            if (instance == null) {
+                instance = new PrefersColorSchemeServer ();
+            }
+
+            return instance;
+        }
+
+        [DBus (visible = false)]
+        public void register_connection (DBusConnection connection) {
             this.connection = connection;
             notify.connect (send_property_change);
         }

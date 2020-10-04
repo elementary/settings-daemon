@@ -31,17 +31,18 @@ public class SettingsDaemon.Application : GLib.Application {
     private Application () {}
 
     public override bool dbus_register (DBusConnection connection, string object_path) throws Error {
-		base.dbus_register (connection, object_path);
+        base.dbus_register (connection, object_path);
 
         try {
-            this.prefers_color_scheme_server = new PrefersColorSchemeServer (connection);
+            prefers_color_scheme_server = PrefersColorSchemeServer.get_default ();
+            prefers_color_scheme_server.register_connection (connection);
             connection.register_object ("/io/elementary/settings_daemon", prefers_color_scheme_server);
         } catch (IOError e) {
             warning ("%s\n", e.message);
         }
 
-		return true;
-	}
+        return true;
+    }
 
     private SessionClient? session_client;
 
