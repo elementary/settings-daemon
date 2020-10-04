@@ -23,6 +23,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     public unowned PantheonShell.Pantheon.AccountsService accounts_service { get; construct; }
 
     private GLib.Settings color_settings;
+    private PrefersColorSchemeServer prefers_color_scheme_server;
     private double sunrise = -1.0;
     private double sunset = -1.0;
 
@@ -34,9 +35,10 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
 
     construct {
         color_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
+        prefers_color_scheme_server = PrefersColorSchemeServer.get_default ();
 
         color_settings.changed["prefer-dark-schedule"].connect (update);
-        color_settings.changed["snoozed"].connect (update);
+        prefers_color_scheme_server.notify.connect (update);
 
         var schedule = color_settings.get_string ("prefer-dark-schedule");
         if (schedule == "sunset-to-sunrise") {
@@ -49,7 +51,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
 
     private void update () {
         var schedule = color_settings.get_string ("prefer-dark-schedule");
-        var snoozed = color_settings.get_boolean ("snoozed");
+        var snoozed = prefers_color_scheme_server.snoozed;
 
         if (snoozed) {
             stop_timer ();
