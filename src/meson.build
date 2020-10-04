@@ -11,6 +11,7 @@ config_file = configure_file(
 sources = files(
     'AccountsService.vala',
     'Application.vala',
+    'PrefersColorSchemeServer.vala',
     'SessionManager.vala',
     'Backends/KeyboardSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',

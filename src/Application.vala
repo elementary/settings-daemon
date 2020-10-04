@@ -19,6 +19,8 @@
 */
 
 public class SettingsDaemon.Application : GLib.Application {
+    private PrefersColorSchemeServer prefers_color_scheme_server;
+
     public const OptionEntry[] OPTIONS = {
         { "version", 'v', 0, OptionArg.NONE, out show_version, "Display the version", null},
         { null }
@@ -27,6 +29,19 @@ public class SettingsDaemon.Application : GLib.Application {
     public static bool show_version;
 
     private Application () {}
+
+    public override bool dbus_register (DBusConnection connection, string object_path) throws Error {
+		base.dbus_register (connection, object_path);
+
+        try {
+            this.prefers_color_scheme_server = new PrefersColorSchemeServer (connection);
+            connection.register_object ("/io/elementary/settings_daemon", prefers_color_scheme_server);
+        } catch (IOError e) {
+            warning ("%s\n", e.message);
+        }
+
+		return true;
+	}
 
     private SessionClient? session_client;
 
