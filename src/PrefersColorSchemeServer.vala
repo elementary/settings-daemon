@@ -20,49 +20,13 @@
 */
 
 namespace SettingsDaemon {
-    [DBus (name = "io.elementary.SettingsDaemon.PrefersColorScheme")]
+    [DBus (name="io.elementary.SettingsDaemon.PrefersColorScheme")]
     public class PrefersColorSchemeServer : Object {
+        private static GLib.Once<PrefersColorSchemeServer> instance;
+        public static unowned PrefersColorSchemeServer get_default () {
+            return instance.once (() => { return new PrefersColorSchemeServer (); });
+        }
+
         public bool snoozed { get; set; }
-
-        static PrefersColorSchemeServer? instance = null;
-        private weak DBusConnection connection;
-
-        public static PrefersColorSchemeServer get_default () {
-            if (instance == null) {
-                instance = new PrefersColorSchemeServer ();
-            }
-
-            return instance;
-        }
-
-        [DBus (visible = false)]
-        public void register_connection (DBusConnection connection) {
-            this.connection = connection;
-            notify.connect (send_property_change);
-        }
-
-        private void send_property_change (ParamSpec p) {
-            var builder = new VariantBuilder (VariantType.ARRAY);
-            var invalid_builder = new VariantBuilder (new VariantType ("as"));
-
-            if (p.name == "snoozed") {
-                Variant i = snoozed;
-                builder.add ("{bv}", "snoozed", i);
-            }
-
-            try {
-                connection.emit_signal (null,
-                                "/io/elementary/settings_daemon",
-                                "org.freedesktop.DBus.Properties",
-                                "PropertiesChanged",
-                                new Variant ("(sa{bv}as)",
-                                            "io.elementary.SettingsDaemon.PrefersColorScheme",
-                                            builder,
-                                            invalid_builder)
-                                );
-            } catch (Error e) {
-                warning ("%s\n", e.message);
-            }
-        }
     }
 }

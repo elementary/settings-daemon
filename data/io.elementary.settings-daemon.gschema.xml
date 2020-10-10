@@ -27,10 +27,5 @@
             <summary>The last detected position</summary>
             <description>When location services are available this represents the last detected location. The default value is an invalid value to ensure it is always updated at startup.</description>
         </key>
-        <key type="b" name="snoozed">
-            <default>false</default>
-            <summary>Should to automatic schedule snooze</summary>
-            <description></description>
-        </key>
     </schema>
 </schemalist>

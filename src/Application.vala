@@ -19,8 +19,6 @@
 */
 
 public class SettingsDaemon.Application : GLib.Application {
-    private PrefersColorSchemeServer prefers_color_scheme_server;
-
     public const OptionEntry[] OPTIONS = {
         { "version", 'v', 0, OptionArg.NONE, out show_version, "Display the version", null},
         { null }
@@ -29,20 +27,6 @@ public class SettingsDaemon.Application : GLib.Application {
     public static bool show_version;
 
     private Application () {}
-
-    public override bool dbus_register (DBusConnection connection, string object_path) throws Error {
-        base.dbus_register (connection, object_path);
-
-        try {
-            prefers_color_scheme_server = PrefersColorSchemeServer.get_default ();
-            prefers_color_scheme_server.register_connection (connection);
-            connection.register_object ("/io/elementary/settings_daemon", prefers_color_scheme_server);
-        } catch (IOError e) {
-            warning ("%s\n", e.message);
-        }
-
-        return true;
-    }
 
     private SessionClient? session_client;
 
@@ -53,6 +37,8 @@ public class SettingsDaemon.Application : GLib.Application {
     private Backends.KeyboardSettings keyboard_settings;
 
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
+
+    private uint prefers_color_scheme_id = 0;
 
     construct {
         application_id = Build.PROJECT_NAME;
@@ -74,6 +60,27 @@ public class SettingsDaemon.Application : GLib.Application {
         setup_accountsservice.begin ();
 
         hold ();
+    }
+
+    public override bool dbus_register (DBusConnection connection, string object_path) throws Error {
+        base.dbus_register (connection, object_path);
+
+        try {
+            prefers_color_scheme_id = connection.register_object (object_path, PrefersColorSchemeServer.get_default ());
+        } catch (Error e) {
+            warning (e.message);
+        }
+
+        return true;
+    }
+
+    public override void dbus_unregister (DBusConnection connection, string object_path) {
+        if (prefers_color_scheme_id != 0) {
+            connection.unregister_object (prefers_color_scheme_id);
+            prefers_color_scheme_id = 0;
+        }
+
+        base.dbus_unregister (connection, object_path);
     }
 
     private async bool register_with_session_manager () {

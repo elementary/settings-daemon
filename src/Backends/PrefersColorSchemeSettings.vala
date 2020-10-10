@@ -36,7 +36,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         color_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
 
         color_settings.changed["prefer-dark-schedule"].connect (update);
-        color_settings.changed["snoozed"].connect (update);
+        PrefersColorSchemeServer.get_default ().notify.connect (update);
 
         var schedule = color_settings.get_string ("prefer-dark-schedule");
         if (schedule == "sunset-to-sunrise") {
@@ -49,7 +49,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
 
     private void update () {
         var schedule = color_settings.get_string ("prefer-dark-schedule");
-        var snoozed = color_settings.get_boolean ("snoozed");
+        var snoozed = PrefersColorSchemeServer.get_default ().snoozed;
 
         if (snoozed) {
             stop_timer ();
