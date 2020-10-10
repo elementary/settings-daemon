@@ -27,6 +27,21 @@ namespace SettingsDaemon {
             return instance.once (() => { return new PrefersColorSchemeServer (); });
         }
 
+        private bool _active { get; set; }
+
+        public signal void active_changed (bool value);
+
+        public bool active {
+            get {
+                return _active;
+            }
+        }
         public bool snoozed { get; set; }
+
+        [DBus (visible = false)]
+        public void set_active (bool value) {
+            _active = value;
+            active_changed (value);
+        }
     }
 }
