@@ -127,7 +127,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         var new_color_scheme = Granite.Settings.ColorScheme.NO_PREFERENCE;
         if (is_in) {
             new_color_scheme = Granite.Settings.ColorScheme.DARK;
-            PrefersColorSchemeServer.get_default ().set_active (true);
         }
 
         if (new_color_scheme == accounts_service.prefers_color_scheme) {
@@ -135,6 +134,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         }
 
         accounts_service.prefers_color_scheme = new_color_scheme;
+        PrefersColorSchemeServer.get_default ().set_active (true);
 
         return true;
     }
