@@ -77,8 +77,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     }
 
     private void stop_timer () {
-        PrefersColorSchemeServer.get_default ().set_active (false);
-
         if (time_id != 0) {
             Source.remove (time_id);
             time_id = 0;
@@ -119,7 +117,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
             from = color_settings.get_double ("prefer-dark-schedule-from");
             to = color_settings.get_double ("prefer-dark-schedule-to");
         } else {
-            PrefersColorSchemeServer.get_default ().set_active (false);
             return true;
         }
 
@@ -134,7 +131,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
         }
 
         accounts_service.prefers_color_scheme = new_color_scheme;
-        PrefersColorSchemeServer.get_default ().set_active (true);
 
         return true;
     }
