@@ -22,10 +22,11 @@ executable(
     sources,
     config_file,
     dependencies: [
-        dependency ('gio-2.0'),
+        gio_dep,
+        glib_dep,
         granite_dep,
+        libgeoclue_dep,
         m_dep,
-        libgeoclue_dep
     ],
     install: true,
 )
