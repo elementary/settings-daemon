@@ -1,5 +1,5 @@
 /*
-* Copyright 2020 elementary, Inc. (https://elementary.io)
+* Copyright 2020–2021 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -42,6 +42,14 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
             var variant = color_settings.get_value ("last-coordinates");
             on_location_updated (variant.get_child_value (0).get_double (), variant.get_child_value (1).get_double ());
         }
+
+        var desktop_settings = new GLib.Settings ("org.freedesktop");
+        desktop_settings.bind (
+            "prefers-color-scheme",
+            accounts_service,
+            "prefers-color-scheme",
+            SettingsBindFlags.DEFAULT
+        );
 
         update ();
     }
