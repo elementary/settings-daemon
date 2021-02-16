@@ -19,10 +19,11 @@
 * Authored by: Marius Meisenzahl <mariusmeisenzahl@gmail.com>
 */
 
-public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
+public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     public unowned PantheonShell.Pantheon.AccountsService accounts_service { get; construct; }
 
-    private GLib.Settings color_settings;
+    private Settings color_settings;
+    private Settings desktop_settings;
     private double sunrise = -1.0;
     private double sunset = -1.0;
 
@@ -33,9 +34,8 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     }
 
     construct {
-        color_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
-
-        color_settings.changed["prefer-dark-schedule"].connect (update);
+        color_settings = new Settings ("io.elementary.settings-daemon.prefers-color-scheme");
+        desktop_settings = new Settings ("org.freedesktop");
 
         var schedule = color_settings.get_string ("prefer-dark-schedule");
         if (schedule == "sunset-to-sunrise") {
@@ -43,18 +43,25 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
             on_location_updated (variant.get_child_value (0).get_double (), variant.get_child_value (1).get_double ());
         }
 
-        var desktop_settings = new GLib.Settings ("org.freedesktop");
-        desktop_settings.bind (
-            "prefers-color-scheme",
-            accounts_service,
-            "prefers-color-scheme",
-            SettingsBindFlags.DEFAULT
-        );
+        color_settings.changed["prefer-dark-schedule"].connect (update_timer);
+        // TODO: Basically, accounts_service.changed["prefers-color-scheme"].connect (update_color_scheme);
 
-        update ();
+        update_timer ();
+        update_color_scheme ();
     }
 
-    private void update () {
+    private void update_color_scheme () {
+        switch (accounts_service.prefers_color_scheme) {
+            case Granite.Settings.ColorScheme.DARK:
+                desktop_settings.set_string ("prefers-color-scheme", "dark");
+                break;
+            default:
+                desktop_settings.set_string ("prefers-color-scheme", "no-preference");
+                break;
+        }
+    }
+
+    private void update_timer () {
         var schedule = color_settings.get_string ("prefer-dark-schedule");
 
         if (schedule == "sunset-to-sunrise") {
