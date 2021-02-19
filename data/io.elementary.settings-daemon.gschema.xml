@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <enum id="PreferDarkScheduleType">
-        <value nick='disabled' value='0'/>
-        <value nick='sunset-to-sunrise' value='1'/>
-        <value nick='manual' value='2'/>
-    </enum>
+  <enum id="PreferDarkScheduleType">
+    <value nick='disabled' value='0'/>
+    <value nick='sunset-to-sunrise' value='1'/>
+    <value nick='manual' value='2'/>
+  </enum>
 
-    <schema path="/io/elementary/settings-daemon/prefers-color-scheme/" id="io.elementary.settings-daemon.prefers-color-scheme">
-        <key enum="PreferDarkScheduleType" name="prefer-dark-schedule">
-			<default>'disabled'</default>
-			<summary>Algorithm for prefer dark schedule</summary>
-			<description>Choose the algorithm used for prefer dark schedule.</description>
-		</key>
-	    <key type="d" name="prefer-dark-schedule-from">
-            <default>20.0</default>
-            <summary>The start time</summary>
-            <description></description>
-        </key>
-        <key type="d" name="prefer-dark-schedule-to">
-            <default>6.0</default>
-            <summary>The stop time</summary>
-            <description></description>
-        </key>
-        <key type="(dd)" name="last-coordinates">
-            <default>(91,181)</default>
-            <summary>The last detected position</summary>
-            <description>When location services are available this represents the last detected location. The default value is an invalid value to ensure it is always updated at startup.</description>
-        </key>
-    </schema>
+  <enum id="ColorSchemes">
+    <value nick='no-preference' value='0'/>
+    <value nick='dark' value='1'/>
+    <value nick='light' value='2'/>
+  </enum>
+
+  <schema path="/io/elementary/settings-daemon/prefers-color-scheme/" id="io.elementary.settings-daemon.prefers-color-scheme">
+    <key enum="PreferDarkScheduleType" name="prefer-dark-schedule">
+      <default>'disabled'</default>
+      <summary>Algorithm for prefer dark schedule</summary>
+      <description>Choose the algorithm used for prefer dark schedule.</description>
+    </key>
+    <key type="d" name="prefer-dark-schedule-from">
+      <default>20.0</default>
+      <summary>The start time</summary>
+      <description></description>
+    </key>
+    <key type="d" name="prefer-dark-schedule-to">
+      <default>6.0</default>
+      <summary>The stop time</summary>
+      <description></description>
+    </key>
+    <key type="(dd)" name="last-coordinates">
+      <default>(91,181)</default>
+      <summary>The last detected position</summary>
+      <description>When location services are available this represents the last detected location. The default value is an invalid value to ensure it is always updated at startup.</description>
+    </key>
+  </schema>
+
+  <schema path="/org/freedesktop/" id="org.freedesktop">
+    <key enum="ColorSchemes" name="prefers-color-scheme">
+      <default>'no-preference'</default>
+      <summary>Prefers color scheme</summary>
+      <description>The user's preferred visual style for the user interface.</description>
+    </key>
+  </schema>
 </schemalist>

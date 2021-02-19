@@ -1,5 +1,5 @@
 /*
-* Copyright 2020 elementary, Inc. (https://elementary.io)
+* Copyright 2020–2021 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -19,10 +19,10 @@
 * Authored by: Marius Meisenzahl <mariusmeisenzahl@gmail.com>
 */
 
-public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
+public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     public unowned PantheonShell.Pantheon.AccountsService accounts_service { get; construct; }
 
-    private GLib.Settings color_settings;
+    private Settings color_settings;
     private double sunrise = -1.0;
     private double sunset = -1.0;
 
@@ -33,9 +33,9 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
     }
 
     construct {
-        color_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
-
-        color_settings.changed["prefer-dark-schedule"].connect (update);
+        color_settings = new Settings ("io.elementary.settings-daemon.prefers-color-scheme");
+        var desktop_settings = new Settings ("org.freedesktop");
+        var granite_settings = Granite.Settings.get_default ();
 
         var schedule = color_settings.get_string ("prefer-dark-schedule");
         if (schedule == "sunset-to-sunrise") {
@@ -43,10 +43,13 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : GLib.Object {
             on_location_updated (variant.get_child_value (0).get_double (), variant.get_child_value (1).get_double ());
         }
 
-        update ();
+        color_settings.changed["prefer-dark-schedule"].connect (update_timer);
+        desktop_settings.bind ("prefers-color-scheme", granite_settings, "prefers-color-scheme", SettingsBindFlags.SET);
+
+        update_timer ();
     }
 
-    private void update () {
+    private void update_timer () {
         var schedule = color_settings.get_string ("prefer-dark-schedule");
 
         if (schedule == "sunset-to-sunrise") {
