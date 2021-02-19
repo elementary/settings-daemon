@@ -23,7 +23,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     public unowned PantheonShell.Pantheon.AccountsService accounts_service { get; construct; }
 
     private Settings color_settings;
-    private Settings desktop_settings;
     private double sunrise = -1.0;
     private double sunset = -1.0;
 
@@ -35,7 +34,8 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
 
     construct {
         color_settings = new Settings ("io.elementary.settings-daemon.prefers-color-scheme");
-        desktop_settings = new Settings ("org.freedesktop");
+        var desktop_settings = new Settings ("org.freedesktop");
+        var granite_settings = Granite.Settings.get_default ();
 
         var schedule = color_settings.get_string ("prefer-dark-schedule");
         if (schedule == "sunset-to-sunrise") {
@@ -44,21 +44,11 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         }
 
         color_settings.changed["prefer-dark-schedule"].connect (update_timer);
-        // TODO: Basically, accounts_service.changed["prefers-color-scheme"].connect (update_color_scheme);
+
+
+        desktop_settings.bind ("prefers-color-scheme", granite_settings, "prefers-color-scheme", SettingsBindFlags.SET);
 
         update_timer ();
-        update_color_scheme ();
-    }
-
-    private void update_color_scheme () {
-        switch (accounts_service.prefers_color_scheme) {
-            case Granite.Settings.ColorScheme.DARK:
-                desktop_settings.set_string ("prefers-color-scheme", "dark");
-                break;
-            default:
-                desktop_settings.set_string ("prefers-color-scheme", "no-preference");
-                break;
-        }
     }
 
     private void update_timer () {
