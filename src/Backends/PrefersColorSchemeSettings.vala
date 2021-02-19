@@ -44,8 +44,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         }
 
         color_settings.changed["prefer-dark-schedule"].connect (update_timer);
-
-
         desktop_settings.bind ("prefers-color-scheme", granite_settings, "prefers-color-scheme", SettingsBindFlags.SET);
 
         update_timer ();
