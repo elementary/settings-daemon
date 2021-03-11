@@ -145,9 +145,9 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         /* Time range cases
         AM–AM (time_double > from && time_double < to)
         PM–PM (^ same as above)
-        AM–PM (see first case)
-        PM–AM (time_double > from && time_double < to + 24)
-        so only one odd case.*/
+        AM–PM (^ same as above)
+        PM–AM (time_double > from && time_double < to + 24) so only one odd case.
+        */
 
         if (to < from) {
             return (time_double > from && time_double < (to + 24));
