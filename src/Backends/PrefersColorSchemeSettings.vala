@@ -146,15 +146,14 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         AM–AM (time_double > from && time_double < to)
         PM–PM (^ same as above)
         AM–PM (^ same as above)
-        PM–AM (time_double > from && time_double < to + 24) so only one odd case.
+        PM–AM (time_double > from && time_double < (to + 24)) so only one odd case.
         */
 
         if (to < from) {
             return (time_double > from && time_double < (to + 24));
-        } else {
-            return (time_double > from && time_double < to);
         }
 
+        return (time_double > from && time_double < to);
     }
 
     public static double date_time_double (DateTime date_time) {
