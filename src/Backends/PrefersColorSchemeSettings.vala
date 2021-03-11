@@ -142,17 +142,12 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     }
 
     public static bool is_in_time_window (double time_double, double from, double to) {
-        /* Time range cases
-        AM–AM (time_double > from && time_double < to)
-        PM–PM (^ same as above)
-        AM–PM (^ same as above)
-        PM–AM (time_double > from && time_double < (to + 24)) so only one odd case.
-        */
-
+        // PM to AM
         if (to < from) {
             return (time_double > from && time_double < (to + 24));
         }
 
+        // AM to AM, PM to PM, AM to PM
         return (time_double > from && time_double < to);
     }
 
