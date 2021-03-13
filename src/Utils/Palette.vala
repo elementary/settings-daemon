@@ -145,7 +145,7 @@ public class SettingsDaemon.Utils.Palette : Object {
     }
 
     private uint16 _max_colors = DEFAULT_COLORS;
-    public uint16 max_colors { 
+    public uint16 max_colors {
         get {
             return _max_colors;
         }
@@ -452,7 +452,7 @@ public class SettingsDaemon.Utils.Palette : Object {
             if (l <= 0.5) {
                 s = chroma / (2 * l);
             } else {
-                s = chroma / (2 - 2 *l);
+                s = chroma / (2 - 2 * l);
             }
         }
 
