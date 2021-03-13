@@ -38,6 +38,8 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
 
+    private Backends.AccentColorSettings accent_color_settings;
+
     construct {
         application_id = Build.PROJECT_NAME;
 
@@ -106,6 +108,8 @@ public class SettingsDaemon.Application : GLib.Application {
         if (pantheon_accounts_service != null) {
             prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_accounts_service);
         }
+
+        accent_color_settings = new Backends.AccentColorSettings ();
     }
 
     void end_session (bool quit) {
