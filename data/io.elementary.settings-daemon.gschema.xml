@@ -35,6 +35,14 @@
     </key>
   </schema>
 
+  <schema path="/io/elementary/settings-daemon/accent-color/" id="io.elementary.settings-daemon.accent-color">
+    <key type="b" name="set-accent-color-based-on-wallpaper">
+      <default>false</default>
+      <summary>Set accent color based on wallpaper</summary>
+      <description></description>
+    </key>
+  </schema>
+
   <schema path="/org/freedesktop/" id="org.freedesktop">
     <key enum="ColorSchemes" name="prefers-color-scheme">
       <default>'no-preference'</default>
