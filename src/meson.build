@@ -15,6 +15,7 @@ sources = files(
     'Backends/AccentColorSettings.vala',
     'Backends/KeyboardSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
+    'Utils/Palette.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
