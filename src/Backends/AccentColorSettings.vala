@@ -20,12 +20,61 @@
  */
 
 public class SettingsDaemon.Backends.AccentColorSettings : Object {
+    private const string INTERFACE_SCHEMA = "org.gnome.desktop.interface";
+    private const string STYLESHEET_KEY = "gtk-theme";
+    private const string STYLESHEET_PREFIX = "io.elementary.stylesheet.";
+
     private Settings color_settings;
     private Settings background_settings;
+    private Settings interface_settings;
+
+    private NamedColor[] theme_colors = {
+        new NamedColor () {
+            name = "blueberry",
+            hex = "#3689e6"
+        },
+        new NamedColor () {
+            name = "mint",
+            hex = "#28bca3"
+        },
+        new NamedColor () {
+            name = "lime",
+            hex = "#68b723"
+        },
+        new NamedColor () {
+            name = "banana",
+            hex = "#f9c440"
+        },
+        new NamedColor () {
+            name = "orange",
+            hex = "#ffa154"
+        },
+        new NamedColor () {
+            name = "strawberry",
+            hex = "#ed5353"
+        },
+        new NamedColor () {
+            name = "bubblegum",
+            hex = "#de3e80"
+        },
+        new NamedColor () {
+            name = "grape",
+            hex = "#a56de2"
+        },
+        new NamedColor () {
+            name = "cocoa",
+            hex = "#8a715e"
+        },
+        new NamedColor () {
+            name = "slate",
+            hex = "#667885"
+        }
+    };
 
     construct {
         color_settings = new Settings ("io.elementary.settings-daemon.accent-color");
         background_settings = new Settings ("org.gnome.desktop.background");
+        interface_settings = new Settings (INTERFACE_SCHEMA);
 
         color_settings.changed["set-accent-color-based-on-wallpaper"].connect (update_accent_color);
         background_settings.changed["picture-uri"].connect (update_accent_color);
@@ -39,15 +88,87 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
         if (set_accent_color_based_on_wallpaper) {
             var picture_uri = background_settings.get_string ("picture-uri");
 
-            // TODO(meisenzahl): set accent color
-            // https://github.com/elementary/granite/pull/122
-            // https://github.com/elementary/switchboard-plug-pantheon-shell/blob/master/src/Views/Appearance.vala#L22
-            var interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
-            var current_stylesheet = interface_settings.get_string ("gtk-theme");
-            var current_accent = current_stylesheet.replace ("io.elementary.stylesheet.", "");
+            var current_stylesheet = interface_settings.get_string (STYLESHEET_KEY);
+            var current_accent = current_stylesheet.replace (STYLESHEET_PREFIX, "");
 
-            debug ("Changed wallpaper to: %s", picture_uri);
+            debug ("Current wallpaper: %s", picture_uri);
             debug ("Current accent color: %s", current_accent);
+
+            var file = File.new_for_uri (picture_uri);
+
+            try {
+                var pixbuf = new Gdk.Pixbuf.from_file (file.get_path ());
+
+                var palette = new Utils.Palette.from_pixbuf (pixbuf);
+                palette.generate_async.begin (() => {
+                    var swatch = palette.vibrant_swatch;
+                    if (swatch == null) {
+                        return;
+                    }
+
+                    Gdk.RGBA rgba = {swatch.R, swatch.G, swatch.B, swatch.A};
+                    var wallpaper_color = new NamedColor.from_rgba (rgba);
+                    debug ("Color of wallpaper: %s", wallpaper_color.hex);
+
+                    NamedColor new_color = null;
+                    double best_match = 0.0;
+                    for (int i = 0; i < theme_colors.length; i++) {
+                        var match = theme_colors[i].compare (wallpaper_color);
+                        if (match > best_match) {
+                            new_color = theme_colors[i];
+                            best_match = match;
+                        }
+                    }
+
+                    debug ("New accent color: %s", new_color.name);
+
+                    if (current_accent != new_color.name) {
+                        interface_settings.set_string (
+                            STYLESHEET_KEY,
+                            STYLESHEET_PREFIX + new_color.name
+                        );
+                    }
+                });
+            } catch (Error e) {
+                warning ("Error on file input: %s", e.message);
+            }
+        }
+    }
+
+    private class NamedColor : Object {
+        public string name { get; set; }
+        public string hex { get; set; }
+
+        public NamedColor.from_rgba (Gdk.RGBA rgba) {
+            hex = "#%02x%02x%02x".printf (
+                (int) (rgba.red * 255),
+                (int) (rgba.green * 255),
+                (int) (rgba.blue * 255)
+            );
+        }
+
+        public double compare (NamedColor other) {
+            var rgba1 = to_rgba ();
+            var rgba2 = other.to_rgba ();
+
+            var distance = Math.sqrt (
+                Math.pow ((rgba2.red - rgba1.red), 2) +
+                Math.pow ((rgba2.green - rgba1.green), 2) +
+                Math.pow ((rgba2.blue - rgba1.blue), 2)
+            );
+
+            return 1.0 - distance / Math.sqrt (
+                Math.pow (255, 2) +
+                Math.pow (255, 2) +
+                Math.pow (255, 2)
+            );
+        }
+
+        public Gdk.RGBA to_rgba () {
+            Gdk.RGBA rgba = { 0, 0, 0, 0 };
+            rgba.parse (hex);
+
+            return rgba;
         }
     }
 }
