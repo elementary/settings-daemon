@@ -94,48 +94,44 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
             debug ("Current wallpaper: %s", picture_uri);
             debug ("Current accent color: %s", current_accent);
 
-            var file = File.new_for_uri (picture_uri);
+            NamedColor? new_color = null;
+            new_color = get_accent_color_of_picture_simple (picture_uri);
 
-            try {
-                var pixbuf = new Gdk.Pixbuf.from_file (file.get_path ());
+            debug ("New accent color: %s", new_color.name);
 
-                var palette = new Utils.Palette.from_pixbuf (pixbuf);
-                palette.generate_async.begin (() => {
-                    var swatch = palette.vibrant_swatch;
-                    if (swatch == null) {
-                        return;
-                    }
-
-                    Gdk.RGBA rgba = {swatch.R, swatch.G, swatch.B, swatch.A};
-                    var wallpaper_color = new NamedColor.from_rgba (rgba);
-                    debug ("Color of wallpaper: %s", wallpaper_color.hex);
-
-                    NamedColor new_color = null;
-                    double best_match = 0.0;
-                    for (int i = 0; i < theme_colors.length; i++) {
-                        var match = theme_colors[i].compare (wallpaper_color);
-                        if (match > best_match) {
-                            new_color = theme_colors[i];
-                            best_match = match;
-                        }
-                    }
-
-                    debug ("New accent color: %s", new_color.name);
-
-                    if (current_accent != new_color.name) {
-                        interface_settings.set_string (
-                            STYLESHEET_KEY,
-                            STYLESHEET_PREFIX + new_color.name
-                        );
-                    }
-                });
-            } catch (Error e) {
-                warning ("Error on file input: %s", e.message);
+            if (new_color != null && new_color.name != current_accent) {
+                interface_settings.set_string (
+                    STYLESHEET_KEY,
+                    STYLESHEET_PREFIX + new_color.name
+                );
             }
         }
     }
 
-    private class NamedColor : Object {
+    public NamedColor? get_accent_color_of_picture_simple (string picture_uri) {
+        NamedColor new_color = null;
+
+        var file = File.new_for_uri (picture_uri);
+
+        try {
+            var pixbuf = new Gdk.Pixbuf.from_file (file.get_path ());
+            var color_extractor = new Utils.ColorExtractor (pixbuf);
+
+            var palette = new Gee.ArrayList<Granite.Drawing.Color> ();
+            for (int i = 0; i < theme_colors.length; i++) {
+                palette.add (new Granite.Drawing.Color.from_string (theme_colors[i].hex));
+            }
+
+            var index = color_extractor.get_dominant_color_index (palette);
+            new_color = theme_colors[index];
+        } catch (Error e) {
+            warning (e.message);
+        }
+
+        return new_color;
+    }
+
+    public class NamedColor : Object {
         public string name { get; set; }
         public string hex { get; set; }
 
