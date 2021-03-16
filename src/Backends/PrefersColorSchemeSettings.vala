@@ -143,7 +143,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
 
     public static bool is_in_time_window (double time_double, double from, double to) {
         // PM to AM
-        if (to < from) {
+        if (from > to) {
             return (time_double >= from && time_double <= (to + 24));
         }
 
