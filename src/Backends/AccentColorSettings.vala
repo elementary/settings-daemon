@@ -71,10 +71,28 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
         }
     };
 
+    private Gee.HashMap<string, string> preseeded_colors;
+
     construct {
         color_settings = new Settings ("io.elementary.settings-daemon.accent-color");
         background_settings = new Settings ("org.gnome.desktop.background");
         interface_settings = new Settings (INTERFACE_SCHEMA);
+
+        preseeded_colors = new Gee.HashMap<string, string> ();
+        preseeded_colors.set ("file:///usr/share/backgrounds/Ashim%20DSilva.jpg", "orange");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Canazei%20Granite%20Ridges.jpg", "cocoa");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Jonas%20Nilsson%20Lee.jpg", "blueberry");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Julia%20Craice.jpg", "slate");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Martin%20Adams.jpg", "banana");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Morskie%20Oko.jpg", "lime");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Mr.%20Lee.jpg", "strawberry");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Nattu%20Adnan.jpg", "blueberry");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Photo%20by%20SpaceX.jpg", "slate");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Snow-Capped%20Mountain.jpg", "blueberry");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Sunset%20by%20the%20Pier.jpg", "orange");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Tj%20Holowaychuk.jpg", "grape");
+        preseeded_colors.set ("file:///usr/share/backgrounds/Viktor%20Forgacs.jpg", "bubblegum");
+        preseeded_colors.set ("file:///usr/share/backgrounds/leigh-kendell-581.jpg", "orange");
 
         color_settings.changed["set-accent-color-based-on-wallpaper"].connect (update_accent_color);
         background_settings.changed["picture-uri"].connect (update_accent_color);
@@ -95,8 +113,19 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
             debug ("Current accent color: %s", current_accent);
 
             NamedColor? new_color = null;
-            new_color = get_accent_color_of_picture_simple (picture_uri);
+            if (preseeded_colors.has_key (picture_uri)) {
+                var color_name = preseeded_colors.get (picture_uri);
+
+                for (int i = 0; i < theme_colors.length; i++) {
+                    if (theme_colors[i].name == color_name) {
+                        new_color = theme_colors[i];
+                        break;
+                    }
+                }
+            } else {
+                new_color = get_accent_color_of_picture_simple (picture_uri);
             //  new_color = get_accent_color_of_picture_from_palette (picture_uri);
+            }
 
             debug ("New accent color: %s", new_color.name);
 
