@@ -113,11 +113,10 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
             debug ("Current accent color: %s", current_accent);
 
             NamedColor? new_color = null;
-            if (preseeded_colors.has_key (picture_uri)) {
-                var color_name = preseeded_colors.get (picture_uri);
-
+            var accent_color_name = read_accent_color_name_from_exif (picture_uri);
+            if (accent_color_name != null) {
                 for (int i = 0; i < theme_colors.length; i++) {
-                    if (theme_colors[i].name == color_name) {
+                    if (theme_colors[i].name == accent_color_name) {
                         new_color = theme_colors[i];
                         break;
                     }
@@ -136,6 +135,21 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
                 );
             }
         }
+    }
+
+    private string? read_accent_color_name_from_exif (string picture_uri) {
+        string path = "";
+        GExiv2.Metadata metadata;
+        try {
+            path = Filename.from_uri (picture_uri);
+            metadata = new GExiv2.Metadata ();
+            metadata.open_path (path);
+        } catch (Error e) {
+            warning ("Error parsing exif metadata of \"%s\": %s", path, e.message);
+            return null;
+        }
+
+        return metadata.get_tag_string ("Xmp.xmp.AccentColor");
     }
 
     public NamedColor? get_accent_color_of_picture_simple (string picture_uri) {
