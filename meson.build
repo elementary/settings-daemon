@@ -11,6 +11,7 @@ granite_dep = dependency('granite', version: '>= 5.3.0')
 cc = meson.get_compiler('c')
 m_dep = cc.find_library('m', required : false)
 libgeoclue_dep = dependency ('libgeoclue-2.0')
+gexiv2_dep = dependency('gexiv2')
 
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))

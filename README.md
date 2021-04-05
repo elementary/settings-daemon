@@ -9,6 +9,7 @@ You'll need the following dependencies:
 * libdbus-1-dev
 * libgranite-dev
 * libgeoclue-2-dev
+* libgexiv2-dev
 * meson
 * valac
 

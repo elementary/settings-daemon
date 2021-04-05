@@ -15,7 +15,7 @@ jobs:
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y libaccountsservice-dev libdbus-1-dev libgranite-dev libgeoclue-2-dev meson valac
+        apt install -y libaccountsservice-dev libdbus-1-dev libgranite-dev libgeoclue-2-dev libgexiv2-dev meson valac
     - name: Build
       env:
         DESTDIR: out
