@@ -16,6 +16,7 @@ sources = files(
     'Backends/KeyboardSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
     'Utils/ColorExtractor.vala',
+    'Utils/Palette.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
@@ -38,6 +39,7 @@ executable(
     [
         'Backends/AccentColorSettings.vala',
         'Utils/ColorExtractor.vala',
+        'Utils/Palette.vala',
         'Demo.vala',
     ],
     config_file,

@@ -96,6 +96,7 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
 
             NamedColor? new_color = null;
             new_color = get_accent_color_of_picture_simple (picture_uri);
+            //  new_color = get_accent_color_of_picture_from_palette (picture_uri);
 
             debug ("New accent color: %s", new_color.name);
 
@@ -124,6 +125,44 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
 
             var index = color_extractor.get_dominant_color_index (palette);
             new_color = theme_colors[index];
+        } catch (Error e) {
+            warning (e.message);
+        }
+
+        return new_color;
+    }
+
+    public NamedColor? get_accent_color_of_picture_from_palette (string picture_uri) {
+        NamedColor new_color = null;
+
+        var file = File.new_for_uri (picture_uri);
+
+        try {
+            var pixbuf = new Gdk.Pixbuf.from_file (file.get_path ());
+
+            var palette = new Utils.Palette.from_pixbuf (pixbuf);
+            palette.generate_sync ();
+            var swatch = palette.vibrant_swatch;
+            if (swatch == null) {
+                swatch = palette.dominant_swatch;
+            }
+
+            if (swatch == null) {
+                return null;
+            }
+
+            Gdk.RGBA rgba = {swatch.R, swatch.G, swatch.B, swatch.A};
+            var wallpaper_color = new NamedColor.from_rgba (rgba);
+            debug ("Color of wallpaper: %s", wallpaper_color.hex);
+
+            double best_match = 0.0;
+            for (int i = 0; i < theme_colors.length; i++) {
+                var match = theme_colors[i].compare (wallpaper_color);
+                if (match > best_match) {
+                    new_color = theme_colors[i];
+                    best_match = match;
+                }
+            }
         } catch (Error e) {
             warning (e.message);
         }
