@@ -23,6 +23,7 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
     private const string INTERFACE_SCHEMA = "org.gnome.desktop.interface";
     private const string STYLESHEET_KEY = "gtk-theme";
     private const string STYLESHEET_PREFIX = "io.elementary.stylesheet.";
+    private const string TAG_ACCENT_COLOR = "Xmp.xmp.io.elementary.AccentColor";
 
     private Settings color_settings;
     private Settings background_settings;
@@ -30,43 +31,53 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
 
     private NamedColor[] theme_colors = {
         new NamedColor () {
-            name = "blueberry",
+            name = "Blue",
+            theme = "blueberry",
             hex = "#3689e6"
         },
         new NamedColor () {
-            name = "mint",
+            name = "Mint",
+            theme = "mint",
             hex = "#28bca3"
         },
         new NamedColor () {
-            name = "lime",
+            name = "Green",
+            theme = "lime",
             hex = "#68b723"
         },
         new NamedColor () {
-            name = "banana",
+            name = "Yellow",
+            theme = "banana",
             hex = "#f9c440"
         },
         new NamedColor () {
-            name = "orange",
+            name = "Orange",
+            theme = "orange",
             hex = "#ffa154"
         },
         new NamedColor () {
-            name = "strawberry",
+            name = "Red",
+            theme = "strawberry",
             hex = "#ed5353"
         },
         new NamedColor () {
-            name = "bubblegum",
+            name = "Pink",
+            theme = "bubblegum",
             hex = "#de3e80"
         },
         new NamedColor () {
-            name = "grape",
+            name = "Purple",
+            theme = "grape",
             hex = "#a56de2"
         },
         new NamedColor () {
-            name = "cocoa",
+            name = "Brown",
+            theme = "cocoa",
             hex = "#8a715e"
         },
         new NamedColor () {
-            name = "slate",
+            name = "Gray",
+            theme = "slate",
             hex = "#667885"
         }
     };
@@ -108,12 +119,12 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
             //  new_color = get_accent_color_of_picture_from_palette (picture_uri);
             }
 
-            debug ("New accent color: %s", new_color.name);
+            debug ("New accent color: %s", new_color.theme);
 
-            if (new_color != null && new_color.name != current_accent) {
+            if (new_color != null && new_color.theme != current_accent) {
                 interface_settings.set_string (
                     STYLESHEET_KEY,
-                    STYLESHEET_PREFIX + new_color.name
+                    STYLESHEET_PREFIX + new_color.theme
                 );
             }
         }
@@ -131,7 +142,7 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
             return null;
         }
 
-        return metadata.get_tag_string ("Xmp.xmp.AccentColor");
+        return metadata.get_tag_string (TAG_ACCENT_COLOR);
     }
 
     public NamedColor? get_accent_color_of_picture_simple (string picture_uri) {
@@ -196,6 +207,7 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
     }
 
     public class NamedColor : Object {
+        public string theme { get; set; }
         public string name { get; set; }
         public string hex { get; set; }
 
