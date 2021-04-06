@@ -15,8 +15,8 @@ sources = files(
     'Backends/AccentColorSettings.vala',
     'Backends/KeyboardSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
+    'Objects/NamedColor.vala',
     'Utils/ColorExtractor.vala',
-    'Utils/Palette.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
@@ -33,24 +33,4 @@ executable(
         m_dep,
     ],
     install: true,
-)
-
-executable(
-    meson.project_name() + '.demo',
-    [
-        'Backends/AccentColorSettings.vala',
-        'Utils/ColorExtractor.vala',
-        'Utils/Palette.vala',
-        'Demo.vala',
-    ],
-    config_file,
-    dependencies: [
-        gio_dep,
-        glib_dep,
-        granite_dep,
-        libgeoclue_dep,
-        gexiv2_dep,
-        m_dep,
-    ],
-    install: false,
 )

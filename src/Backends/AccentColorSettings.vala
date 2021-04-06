@@ -116,7 +116,6 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
                 }
             } else {
                 new_color = get_accent_color_of_picture_simple (picture_uri);
-            //  new_color = get_accent_color_of_picture_from_palette (picture_uri);
             }
 
             debug ("New accent color: %s", new_color.theme);
@@ -166,81 +165,5 @@ public class SettingsDaemon.Backends.AccentColorSettings : Object {
         }
 
         return new_color;
-    }
-
-    public NamedColor? get_accent_color_of_picture_from_palette (string picture_uri) {
-        NamedColor new_color = null;
-
-        var file = File.new_for_uri (picture_uri);
-
-        try {
-            var pixbuf = new Gdk.Pixbuf.from_file (file.get_path ());
-
-            var palette = new Utils.Palette.from_pixbuf (pixbuf);
-            palette.generate_sync ();
-            var swatch = palette.vibrant_swatch;
-            if (swatch == null) {
-                swatch = palette.dominant_swatch;
-            }
-
-            if (swatch == null) {
-                return null;
-            }
-
-            Gdk.RGBA rgba = {swatch.R, swatch.G, swatch.B, swatch.A};
-            var wallpaper_color = new NamedColor.from_rgba (rgba);
-            debug ("Color of wallpaper: %s", wallpaper_color.hex);
-
-            double best_match = 0.0;
-            for (int i = 0; i < theme_colors.length; i++) {
-                var match = theme_colors[i].compare (wallpaper_color);
-                if (match > best_match) {
-                    new_color = theme_colors[i];
-                    best_match = match;
-                }
-            }
-        } catch (Error e) {
-            warning (e.message);
-        }
-
-        return new_color;
-    }
-
-    public class NamedColor : Object {
-        public string theme { get; set; }
-        public string name { get; set; }
-        public string hex { get; set; }
-
-        public NamedColor.from_rgba (Gdk.RGBA rgba) {
-            hex = "#%02x%02x%02x".printf (
-                (int) (rgba.red * 255),
-                (int) (rgba.green * 255),
-                (int) (rgba.blue * 255)
-            );
-        }
-
-        public double compare (NamedColor other) {
-            var rgba1 = to_rgba ();
-            var rgba2 = other.to_rgba ();
-
-            var distance = Math.sqrt (
-                Math.pow ((rgba2.red - rgba1.red), 2) +
-                Math.pow ((rgba2.green - rgba1.green), 2) +
-                Math.pow ((rgba2.blue - rgba1.blue), 2)
-            );
-
-            return 1.0 - distance / Math.sqrt (
-                Math.pow (255, 2) +
-                Math.pow (255, 2) +
-                Math.pow (255, 2)
-            );
-        }
-
-        public Gdk.RGBA to_rgba () {
-            Gdk.RGBA rgba = { 0, 0, 0, 0 };
-            rgba.parse (hex);
-
-            return rgba;
-        }
     }
 }
