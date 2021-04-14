@@ -35,6 +35,18 @@
     </key>
   </schema>
 
+  <schema path="/io/elementary/settings-daemon/housekeeping/" id="io.elementary.settings-daemon.housekeeping">
+    <key type="b" name="cleanup-downloads-folder">
+      <default>false</default>
+      <summary>Whether the Downloads folder should be automatically cleaned up.</summary>
+      <description></description>
+    </key>
+    <key type="i" name="downloads-max-age-days">
+      <default>30</default>
+      <summary>How old an item should be in the downloads folder before it is cleaned up.</summary>
+      <description></description>
+    </key>
+  </schema>
   <schema path="/org/freedesktop/" id="org.freedesktop">
     <key enum="ColorSchemes" name="prefers-color-scheme">
       <default>'no-preference'</default>

@@ -38,10 +38,14 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
 
+    private Backends.Housekeeping housekeeping;
+
     construct {
         application_id = Build.PROJECT_NAME;
 
         add_main_option_entries (OPTIONS);
+
+        housekeeping = new Backends.Housekeeping ();
     }
 
     public override int handle_local_options (VariantDict options) {
