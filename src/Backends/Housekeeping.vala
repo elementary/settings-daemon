@@ -38,8 +38,9 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
 
         if (housekeeping_settings.get_boolean ("cleanup-downloads-folder")) {
             enable_systemd_tmpfiles.begin ();
-            write_systemd_tmpfiles_config.begin ();
         }
+
+        write_systemd_tmpfiles_config.begin ();
     }
 
     // The systemd-tmpfiles-clean user timer that runs every day and cleans up files based on user config files
