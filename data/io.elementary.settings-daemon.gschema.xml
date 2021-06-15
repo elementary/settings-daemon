@@ -43,7 +43,7 @@
     </key>
     <key type="i" name="downloads-max-age-days">
       <default>30</default>
-      <summary>How old an item should be in the downloads folder before it is cleaned up.</summary>
+      <summary>How many days an item should be in the downloads folder before it is cleaned up.</summary>
       <description></description>
     </key>
   </schema>
