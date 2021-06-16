@@ -98,7 +98,7 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
             }
         }
 
-        int downloads_cleanup_days = housekeeping_settings.get_int ("downloads-max-age-days");
+        int downloads_cleanup_days = housekeeping_settings.get_int ("old-files-age");
 
         // Delete the systemd-tmpfiles config if download cleanup is disabled
         if (!downloads_cleanup_enabled || downloads_cleanup_days < 1) {
