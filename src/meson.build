@@ -14,6 +14,7 @@ sources = files(
     'SessionManager.vala',
     'Backends/Housekeeping.vala',
     'Backends/KeyboardSettings.vala',
+    'Backends/TimeSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )

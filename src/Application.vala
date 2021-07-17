@@ -35,6 +35,7 @@ public class SettingsDaemon.Application : GLib.Application {
     private PantheonShell.Pantheon.AccountsService pantheon_accounts_service;
 
     private Backends.KeyboardSettings keyboard_settings;
+    private Backends.TimeSettings time_settings;
 
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
 
@@ -91,6 +92,7 @@ public class SettingsDaemon.Application : GLib.Application {
 
         if (accounts_service != null) {
             keyboard_settings = new Backends.KeyboardSettings (accounts_service);
+            time_settings = new Backends.TimeSettings (accounts_service);
         }
 
         try {
