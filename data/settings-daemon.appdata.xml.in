@@ -7,7 +7,7 @@
   <name>Settings Daemon</name>
   <summary>Manage settings and background tasks</summary>
   <description>
-    <p>Syncs settings to the greeter and manages background tasks, like scheduling dark mode and housekeeping.</p>
+    <p>Syncs settings to the greeter and manages background tasks, like scheduling dark style and housekeeping.</p>
   </description>
   <releases>
     <release version="1.0.0" date="2021-07-15" urgency="medium">
