@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 16:16-0700\n"
-"PO-Revision-Date: 2021-07-21 07:57+0000\n"
+"PO-Revision-Date: 2021-07-21 15:01+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/de/>\n"
@@ -21,17 +21,20 @@ msgstr ""
 
 #: data/settings-daemon.appdata.xml.in:7
 msgid "Settings Daemon"
-msgstr ""
+msgstr "Daemon für Einstellungen"
 
 #: data/settings-daemon.appdata.xml.in:8
 msgid "Manage settings and background tasks"
-msgstr ""
+msgstr "Einstellungen und Hintergrundtasks verwalten"
 
 #: data/settings-daemon.appdata.xml.in:10
 msgid ""
 "This process sync settings to the greeter and manages background tasks like "
 "scheduling dark mode and Housekeeping."
 msgstr ""
+"Dieser Vorgang synchronisiert Einstellungen zum Willkommensbildschirm und "
+"verwaltet Hintergrundtasks wie z.B. den Zeitplan für den Dark Mode und "
+"Wartungsskripts."
 
 #: data/settings-daemon.appdata.xml.in:18
 msgid "elementary, Inc."
