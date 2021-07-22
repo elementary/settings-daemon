@@ -8,30 +8,34 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 16:16-0700\n"
-"PO-Revision-Date: 2021-07-15 16:16-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-07-22 23:06+0000\n"
+"Last-Translator: DartDeaDia <jorydit@gmail.com>\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/settings-daemon.appdata.xml.in:7
 msgid "Settings Daemon"
-msgstr ""
+msgstr "Фоновая служба настроек"
 
 #: data/settings-daemon.appdata.xml.in:8
 msgid "Manage settings and background tasks"
-msgstr ""
+msgstr "Управление настройками и фоновыми задачами"
 
 #: data/settings-daemon.appdata.xml.in:10
 msgid ""
 "This process sync settings to the greeter and manages background tasks like "
 "scheduling dark mode and Housekeeping."
 msgstr ""
+"Этот процесс синхронизирует настройки с экрана приведствия и управляет "
+"фоновыми задачами, такими как планирование темного режима и домоводства."
 
 #: data/settings-daemon.appdata.xml.in:18
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
