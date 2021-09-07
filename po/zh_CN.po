@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 16:16-0700\n"
-"PO-Revision-Date: 2021-09-07 02:12+0000\n"
+"PO-Revision-Date: 2021-09-07 10:26+0000\n"
 "Last-Translator: XXTXTOP <xxtxtop@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "desktop/settings-daemon/zh_Hans/>\n"
@@ -35,4 +35,4 @@ msgstr "此过程将设置同步到使用者并管理后台任务，例如黑暗
 
 #: data/settings-daemon.appdata.xml.in:18
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
