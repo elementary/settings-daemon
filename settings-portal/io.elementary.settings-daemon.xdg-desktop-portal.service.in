@@ -1,0 +1,7 @@
+[Unit]
+Description=Portal service (Pantheon Settings Daemon)
+
+[Service]
+Type=dbus
+BusName=org.freedesktop.impl.portal.desktop.elementary.settings-daemon
+ExecStart=@libexecdir@/io.elementary.settings-daemon.xdg-desktop-portal

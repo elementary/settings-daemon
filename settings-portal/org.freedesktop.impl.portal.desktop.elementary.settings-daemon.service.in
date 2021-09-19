@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.freedesktop.impl.portal.desktop.elementary.settings-daemon
+Exec=@libexecdir@/io.elementary.settings-daemon.xdg-desktop-portal
+SystemdService=io.elementary.settings-daemon.xdg-desktop-portal.service
