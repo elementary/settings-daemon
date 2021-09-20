@@ -17,6 +17,17 @@
  * Boston, MA 02110-1335 USA.
  */
 
+[DBus (name = "org.freedesktop.portal.Error")]
+public errordomain PortalError {
+    FAILED,
+    INVALID_ARGUMENT,
+    NOT_FOUND,
+    EXISTS,
+    NOT_ALLOWED,
+    CANCELLED,
+    WINDOW_DESTROYED
+}
+
 [DBus (name = "io.elementary.pantheon.AccountsService")]
 private interface Pantheon.AccountsService : Object {
     public abstract int prefers_color_scheme { owned get; set; }
@@ -95,7 +106,6 @@ public class SettingsDaemon.Settings : GLib.Object {
     construct {
         monitor = new AccountsServiceMonitor ();
         monitor.notify["color-scheme"].connect (() => {
-            var color_scheme = new Variant.uint32 (monitor.color_scheme);
             setting_changed ("org.freedesktop.appearance", "color-scheme", get_color_scheme ());
         });
     }
@@ -111,7 +121,7 @@ public class SettingsDaemon.Settings : GLib.Object {
             }
 
             int pattern_len = pattern.length;
-            if (pattern[pattern_len - 1] == '*' && Posix.strncmp (namespace, pattern, pattern_len - 1) == 0) {
+            if (pattern[pattern_len - 1] == '*' && namespace.has_prefix (pattern.slice (0, pattern_len - 1))) {
                 return true;
             }
         }
@@ -123,34 +133,27 @@ public class SettingsDaemon.Settings : GLib.Object {
         return new GLib.Variant.uint32 (monitor.color_scheme);
     }
 
-    public async void read_all (string[] namespaces, out GLib.Variant value) throws GLib.DBusError, GLib.IOError {
-        var builder = new GLib.VariantBuilder (new GLib.VariantType ("(a{sa{sv}})"));
-
-        builder.open (new GLib.VariantType ("a{sa{sv}}"));
+    public async GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> read_all (string[] namespaces) throws GLib.DBusError, GLib.IOError {
+        var ret = new GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> (str_hash, str_equal);
 
         if (namespace_matches ("org.freedesktop.appearance", namespaces)) {
-            var dict = new VariantDict ();
+            var dict = new HashTable<string, Variant> (str_hash, str_equal);
 
-            dict.insert_value ("color-scheme", get_color_scheme ());
+            dict.insert ("color-scheme", get_color_scheme ());
 
-            builder.add ("{sa{sv}}", "org.freedesktop.appearance", dict.end ());
+            ret.insert ("org.freedesktop.appearance", dict);
         }
 
-        builder.close ();
-
-        value = builder.end ();
+        return ret;
     }
 
-    public async void read (string namespace, string key, out GLib.Variant value) throws GLib.DBusError, GLib.Error {
-        debug ("Read %s %s", namespace, key);
-
+    public async GLib.Variant read (string namespace, string key) throws GLib.DBusError, GLib.Error {
         if (namespace == "org.freedesktop.appearance" && key == "color-scheme") {
-            value = get_color_scheme ();
-            return;
+            return get_color_scheme ();
         }
 
         debug ("Attempted to read unknown namespace/key pair: %s %s", namespace, key);
 
-        throw XdgDesktopPortal.create_error (NOT_FOUND, "Requested setting not found");
+        throw new PortalError.NOT_FOUND ("Requested setting not found");
     }
 }

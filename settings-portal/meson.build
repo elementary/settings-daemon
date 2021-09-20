@@ -1,7 +1,6 @@
 libexec_dir = join_paths(get_option('prefix'), get_option ('libexecdir'))
 
 portal_sources = files(
-    'Error.vala',
     'Main.vala',
     'Settings.vala',
 )
