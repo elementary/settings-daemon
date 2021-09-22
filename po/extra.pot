@@ -1,0 +1,36 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-15 16:16-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/settings-daemon.appdata.xml.in:7
+msgid "Settings Daemon"
+msgstr ""
+
+#: data/settings-daemon.appdata.xml.in:8
+msgid "Manage settings and background tasks"
+msgstr ""
+
+#: data/settings-daemon.appdata.xml.in:10
+msgid ""
+"This process sync settings to the greeter and manages background tasks like "
+"scheduling dark mode and Housekeeping."
+msgstr ""
+
+#: data/settings-daemon.appdata.xml.in:18
+msgid "elementary, Inc."
+msgstr ""

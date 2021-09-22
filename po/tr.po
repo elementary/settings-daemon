@@ -1,0 +1,40 @@
+# Turkish translations for extra package.
+# Copyright (C) 2021 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-15 16:16-0700\n"
+"PO-Revision-Date: 2021-07-20 22:48+0000\n"
+"Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
+"Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/tr/>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
+
+#: data/settings-daemon.appdata.xml.in:7
+msgid "Settings Daemon"
+msgstr "Ayarlar Arka Plan Programı"
+
+#: data/settings-daemon.appdata.xml.in:8
+msgid "Manage settings and background tasks"
+msgstr "Ayarları ve arka plan görevlerini yönetin"
+
+#: data/settings-daemon.appdata.xml.in:10
+msgid ""
+"This process sync settings to the greeter and manages background tasks like "
+"scheduling dark mode and Housekeeping."
+msgstr ""
+"Bu işlem, ayarları greeter ile senkronize eder ve karanlık modu planlama ve "
+"Bakım ve Temizlik gibi arka plan görevlerini yönetir."
+
+#: data/settings-daemon.appdata.xml.in:18
+msgid "elementary, Inc."
+msgstr "elementary, Inc."

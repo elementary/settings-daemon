@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2021 elementary, Inc. <contact@elementary.io> -->
+<component>
+  <id>io.elementary.settings-daemon</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>Settings Daemon</name>
+  <summary>Manage settings and background tasks</summary>
+  <description>
+    <p>Syncs settings to the greeter and manages background tasks, like scheduling dark style and housekeeping.</p>
+  </description>
+  <releases>
+    <release version="1.0.0" date="2021-07-15" urgency="medium">
+      <p>Initial release</p>
+    </release>
+  </releases>
+  <compulsory_for_desktop>Pantheon</compulsory_for_desktop>
+  <developer_name>elementary, Inc.</developer_name>
+  <url type="homepage">https://elementary.io</url>
+  <url type="bugtracker">https://github.com/elementary/settings-daemon/issues</url>
+</component>
