@@ -99,10 +99,6 @@ public class SettingsDaemon.Settings : GLib.Object {
 
     private AccountsServiceMonitor monitor;
 
-    public Settings (GLib.DBusConnection connection) {
-        this.connection = connection;
-    }
-
     construct {
         monitor = new AccountsServiceMonitor ();
         monitor.notify["color-scheme"].connect (() => {
