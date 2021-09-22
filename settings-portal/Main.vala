@@ -1,5 +1,5 @@
 /*-
- * Copyright 2021 Alexander Mikhaylenko <alexm@gnome.org>
+ * Copyright 2020 elementary LLC <https://elementary.io>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -15,6 +15,8 @@
  * License along with this library; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor
  * Boston, MA 02110-1335 USA.
+ *
+ * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
 private static bool opt_replace = false;
@@ -30,7 +32,7 @@ private const GLib.OptionEntry[] ENTRIES = {
 
 private void on_bus_acquired (GLib.DBusConnection connection, string name) {
     try {
-        connection.register_object ("/org/freedesktop/portal/desktop", new SettingsDaemon.Settings (connection));
+        connection.register_object ("/org/freedesktop/portal/desktop", new SettingsDaemon.Settings ());
     } catch (GLib.Error e) {
         critical ("Unable to register the object: %s", e.message);
     }

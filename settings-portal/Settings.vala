@@ -1,4 +1,5 @@
- /*-
+/*-
+ * Copyright 2021 elementary, Inc. (https://elementary.io)
  * Copyright 2021 Alexander Mikhaylenko <alexm@gnome.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -38,6 +39,7 @@ interface FDO.Accounts : Object {
     public abstract string find_user_by_name (string username) throws GLib.Error;
 }
 
+/* Copied from Granite.Settings */
 private class AccountsServiceMonitor : GLib.Object {
     private FDO.Accounts? accounts_service = null;
     private Pantheon.AccountsService? pantheon_act = null;
@@ -89,8 +91,6 @@ private class AccountsServiceMonitor : GLib.Object {
 
 [DBus (name = "org.freedesktop.impl.portal.Settings")]
 public class SettingsDaemon.Settings : GLib.Object {
-    private GLib.DBusConnection connection;
-
     public uint32 version {
         get { return 1; }
     }
