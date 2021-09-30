@@ -5,9 +5,6 @@ portal_sources = files(
     'Settings.vala',
 )
 
-valac = meson.get_compiler('vala')
-posix_dep = valac.find_library('posix')
-
 executable(
     'io.elementary.settings-daemon.xdg-desktop-portal',
     portal_sources,
@@ -15,7 +12,6 @@ executable(
         config_dep,
         glib_dep,
         gio_dep,
-        posix_dep,
     ],
     install: true,
     install_dir: libexec_dir,
