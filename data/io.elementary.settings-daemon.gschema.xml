@@ -47,11 +47,4 @@
       <description></description>
     </key>
   </schema>
-  <schema path="/org/freedesktop/" id="org.freedesktop">
-    <key enum="ColorSchemes" name="prefers-color-scheme">
-      <default>'no-preference'</default>
-      <summary>Prefers color scheme</summary>
-      <description>The user's preferred visual style for the user interface.</description>
-    </key>
-  </schema>
 </schemalist>
