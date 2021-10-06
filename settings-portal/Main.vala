@@ -52,7 +52,7 @@ public int main (string[] args) {
     }
 
     if (show_version) {
-      print ("0.0 \n");
+      print ("%s \n", Build.VERSION);
       return 0;
     }
 
