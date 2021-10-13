@@ -10,7 +10,7 @@
     <p>Syncs settings to the greeter and manages background tasks, like scheduling dark style and housekeeping.</p>
   </description>
   <releases>
-    <release version="1.1.0" date="2021-10-13" urgency="medium">
+    <release version="1.1.0" date="2021-10-30" urgency="medium">
       <p>New features:</p>
       <ul>
         <li>Provide the Settings portal</li>
