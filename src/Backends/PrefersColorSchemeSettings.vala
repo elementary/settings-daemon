@@ -34,8 +34,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
 
     construct {
         color_settings = new Settings ("io.elementary.settings-daemon.prefers-color-scheme");
-        var desktop_settings = new Settings ("org.freedesktop");
-        var granite_settings = Granite.Settings.get_default ();
 
         var schedule = color_settings.get_string ("prefer-dark-schedule");
         if (schedule == "sunset-to-sunrise") {
@@ -44,7 +42,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         }
 
         color_settings.changed["prefer-dark-schedule"].connect (update_timer);
-        desktop_settings.bind ("prefers-color-scheme", granite_settings, "prefers-color-scheme", SettingsBindFlags.SET);
 
         update_timer ();
     }
