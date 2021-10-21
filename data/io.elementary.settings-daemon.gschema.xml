@@ -41,4 +41,12 @@
       <description></description>
     </key>
   </schema>
+
+  <schema path="/io/elementary/settings-daemon/datetime/" id="io.elementary.settings-daemon.datetime">
+    <key type="b" name="show-weeks">
+      <default>false</default>
+      <summary>show week numbers.</summary>
+      <description>If this is set to true, week numbers will be shown in the calendar.</description>
+    </key>
+  </schema>
 </schemalist>
