@@ -6,12 +6,6 @@
     <value nick='manual' value='2'/>
   </enum>
 
-  <enum id="ColorSchemes">
-    <value nick='no-preference' value='0'/>
-    <value nick='dark' value='1'/>
-    <value nick='light' value='2'/>
-  </enum>
-
   <schema path="/io/elementary/settings-daemon/prefers-color-scheme/" id="io.elementary.settings-daemon.prefers-color-scheme">
     <key enum="PreferDarkScheduleType" name="prefer-dark-schedule">
       <default>'disabled'</default>
@@ -47,11 +41,12 @@
       <description></description>
     </key>
   </schema>
-  <schema path="/org/freedesktop/" id="org.freedesktop">
-    <key enum="ColorSchemes" name="prefers-color-scheme">
-      <default>'no-preference'</default>
-      <summary>Prefers color scheme</summary>
-      <description>The user's preferred visual style for the user interface.</description>
+
+  <schema path="/io/elementary/settings-daemon/datetime/" id="io.elementary.settings-daemon.datetime">
+    <key type="b" name="show-weeks">
+      <default>false</default>
+      <summary>show week numbers.</summary>
+      <description>If this is set to true, week numbers will be shown in the calendar.</description>
     </key>
   </schema>
 </schemalist>
