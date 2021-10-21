@@ -17,6 +17,7 @@
       </ul>
       <p>Improvements:</p>
       <ul>
+        <li>Remove unused dark style gsettings schema</li>
         <li>Updated translations</li>
       </ul>
     </release>
