@@ -1,3 +1,9 @@
+io.elementary.settings-daemon (1.1.0) focal; urgency=medium
+
+  * New upstream release
+
+ -- Danielle Foré <danielle@elementary.io>  Mon, 25 Oct 2021 09:25:15 -0700
+
 io.elementary.settings-daemon (1.0.0) focal; urgency=medium
 
   * no changes since last release.
