@@ -97,13 +97,30 @@ public class SettingsDaemon.Settings : GLib.Object {
 
     public signal void setting_changed (string namespace, string key, GLib.Variant value);
 
+    private HashTable<string, GLib.Settings> settings;
     private AccountsServiceMonitor monitor;
+
+    private const string[] SUPPORTED_SCHEMAS = {
+        "io.elementary.settings-daemon.datetime",
+        "org.freedesktop.appearance"
+    };
 
     construct {
         monitor = new AccountsServiceMonitor ();
         monitor.notify["color-scheme"].connect (() => {
             setting_changed ("org.freedesktop.appearance", "color-scheme", get_color_scheme ());
         });
+
+        settings = new HashTable<string, GLib.Settings> (str_hash, str_equal);
+        foreach (var schema in SUPPORTED_SCHEMAS) {
+            if (SettingsSchemaSource.get_default ().lookup (schema, true) != null) {
+                settings[schema] = new GLib.Settings (schema);
+                settings[schema].changed.connect ((key) => {
+                    var @value = settings[schema].get_value (key);
+                    setting_changed (schema, key, value);
+                });
+            }
+        }
     }
 
     private bool namespace_matches (string namespace, string[] patterns) {
@@ -132,20 +149,35 @@ public class SettingsDaemon.Settings : GLib.Object {
     public async GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> read_all (string[] namespaces) throws GLib.DBusError, GLib.IOError {
         var ret = new GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> (str_hash, str_equal);
 
-        if (namespace_matches ("org.freedesktop.appearance", namespaces)) {
-            var dict = new HashTable<string, Variant> (str_hash, str_equal);
+        foreach (var schema in SUPPORTED_SCHEMAS) {
+            if (namespace_matches (schema, namespaces)) {
+                var dict = new HashTable<string, Variant> (str_hash, str_equal);
 
-            dict.insert ("color-scheme", get_color_scheme ());
+                if (schema == "org.freedesktop.appearance") {
+                    dict.insert ("color-scheme", get_color_scheme ());
+                } else {
+                    var setting = settings[schema];
+                    foreach (var key in setting.settings_schema.list_keys ()) {
+                        dict.insert (key, setting.get_value (key));
+                    }
+                }
 
-            ret.insert ("org.freedesktop.appearance", dict);
+                ret.insert (schema, dict);
+            }
         }
 
         return ret;
     }
 
     public async GLib.Variant read (string namespace, string key) throws GLib.DBusError, GLib.Error {
-        if (namespace == "org.freedesktop.appearance" && key == "color-scheme") {
-            return get_color_scheme ();
+        if (namespace in SUPPORTED_SCHEMAS) {
+            if (namespace == "org.freedesktop.appearance" && key == "color-scheme") {
+                return get_color_scheme ();
+            } else {
+                if (settings[namespace].settings_schema.has_key (key)) {
+                    return settings[namespace].get_value (key);
+                }
+            }
         }
 
         debug ("Attempted to read unknown namespace/key pair: %s %s", namespace, key);

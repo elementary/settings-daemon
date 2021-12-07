@@ -41,4 +41,28 @@
       <description></description>
     </key>
   </schema>
+
+  <!-- Keep this synchronized with GDateWeekday. -->
+  <enum id='week-day'>
+    <value nick='monday' value='1'/>
+    <value nick='tuesday' value='2'/>
+    <value nick='wednesday' value='3'/>
+    <value nick='thursday' value='4'/>
+    <value nick='friday' value='5'/>
+    <value nick='saturday' value='6'/>
+    <value nick='sunday' value='7'/>
+  </enum>
+
+  <schema path="/io/elementary/settings-daemon/datetime/" id="io.elementary.settings-daemon.datetime">
+    <key type="b" name="show-weeks">
+      <default>false</default>
+      <summary>show week numbers.</summary>
+      <description>If this is set to true, week numbers will be shown in the calendar.</description>
+    </key>
+    <key name='week-start-day-name' enum='week-day'>
+      <default>'sunday'</default>
+      <summary>The first day of the week.</summary>
+      <description>The day for calendars to use as the first day of the week</description>
+     </key>
+  </schema>
 </schemalist>
