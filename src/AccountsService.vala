@@ -27,6 +27,7 @@ public interface SettingsDaemon.AccountsService : Object {
 
     public abstract KeyboardLayout[] keyboard_layouts { owned get; set; }
     public abstract uint active_keyboard_layout { get; set; }
+    public abstract bool left_handed { get; set; }
 }
 
 [DBus (name = "io.elementary.pantheon.AccountsService")]
