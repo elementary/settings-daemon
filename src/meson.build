@@ -1,7 +1,10 @@
 sources = files(
     'AccountsService.vala',
     'Application.vala',
+    'AsyncMutex.vala',
+    'FirmwareClient.vala',
     'SessionManager.vala',
+    'Backends/Firmware.vala',
     'Backends/Housekeeping.vala',
     'Backends/KeyboardSettings.vala',
     'Backends/MouseSettings.vala',

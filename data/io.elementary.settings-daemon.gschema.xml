@@ -65,4 +65,12 @@
       <description>The day for calendars to use as the first day of the week</description>
      </key>
   </schema>
+
+  <schema path="/io/elementary/settings-daemon/firmware/" id="io.elementary.settings-daemon.firmware">
+    <key type="x" name="last-refresh-time">
+      <default>0</default>
+      <summary>Unix UTC time of last cache refresh</summary>
+      <description>Used to determine when settings daemon last refreshed its caches and checked for firmware updates</description>
+    </key>
+  </schema>
 </schemalist>

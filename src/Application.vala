@@ -42,12 +42,30 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private Backends.Housekeeping housekeeping;
 
+    private Backends.Firmware firmware;
+
     construct {
         application_id = Build.PROJECT_NAME;
 
         add_main_option_entries (OPTIONS);
 
         housekeeping = new Backends.Housekeeping ();
+
+        firmware = new Backends.Firmware (this);
+
+        var show_firmware_updates_action = new SimpleAction ("show-firmware-updates", null);
+        show_firmware_updates_action.activate.connect (() => {
+            var uri = "settings://about/firmware";
+            AppInfo.launch_default_for_uri_async.begin (uri, null, null, (obj, res) => {
+                try {
+                    AppInfo.launch_default_for_uri_async.end (res);
+                } catch (Error e) {
+                    critical (e.message);
+                }
+            });
+        });
+
+        add_action (show_firmware_updates_action);
     }
 
     public override int handle_local_options (VariantDict options) {
