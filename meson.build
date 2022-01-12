@@ -4,6 +4,7 @@ project('io.elementary.settings-daemon',
     license: 'GPL3',
 )
 
+fwupd = dependency('fwupd')
 gio_dep = dependency ('gio-2.0')
 glib_dep = dependency('glib-2.0')
 granite_dep = dependency('granite', version: '>= 5.3.0')

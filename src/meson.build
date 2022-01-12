@@ -14,6 +14,7 @@ executable(
     sources,
     dependencies: [
         config_dep,
+        fwupd,
         gio_dep,
         glib_dep,
         granite_dep,
