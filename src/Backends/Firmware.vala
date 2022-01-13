@@ -28,7 +28,6 @@ public class SettingsDaemon.Backends.Firmware : GLib.Object {
     public uint firmware_updates_number { get; private set; default = 0U; }
 
     private AsyncMutex update_notification_mutex = new AsyncMutex ();
-    private AsyncMutex firmware_update_notification_mutex = new AsyncMutex ();
 
     public GLib.Application application { get; construct; }
 
@@ -62,7 +61,7 @@ public class SettingsDaemon.Backends.Firmware : GLib.Object {
     }
 
     private async void refresh_firmware_updates () {
-        yield firmware_update_notification_mutex.lock ();
+        yield update_notification_mutex.lock ();
 
         bool was_empty = firmware_updates_number == 0U;
 
