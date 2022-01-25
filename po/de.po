@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 16:16-0700\n"
-"PO-Revision-Date: 2021-10-28 21:40+0000\n"
+"PO-Revision-Date: 2022-01-25 03:08+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/de/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/settings-daemon.appdata.xml.in:7
 msgid "Settings Daemon"
-msgstr "Daemon für Einstellungen"
+msgstr "Einstellungsdienst"
 
 #: data/settings-daemon.appdata.xml.in:8
 msgid "Manage settings and background tasks"
