@@ -55,14 +55,11 @@ public class SettingsDaemon.Application : GLib.Application {
 
         var show_firmware_updates_action = new SimpleAction ("show-firmware-updates", null);
         show_firmware_updates_action.activate.connect (() => {
-            var uri = "settings://about/firmware";
-            AppInfo.launch_default_for_uri_async.begin (uri, null, null, (obj, res) => {
-                try {
-                    AppInfo.launch_default_for_uri_async.end (res);
-                } catch (Error e) {
-                    critical (e.message);
-                }
-            });
+            try {
+                Gtk.show_uri_on_window (null, "settings://about/firmware", Gdk.CURRENT_TIME);
+            } catch (Error e) {
+                critical (e.message);
+            }
         });
 
         add_action (show_firmware_updates_action);
