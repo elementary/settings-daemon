@@ -11,7 +11,7 @@ def update_third_party_repository(current, next, repository_file):
     if os.path.isfile(repository_file):
         should_delete = False
         should_update = False
-        with repository_file.open("r") as f:
+        with open(repository_file, "r") as f:
             content = []
             for line in f.read().split("\n"):
                 if r.match(line):
@@ -25,10 +25,10 @@ def update_third_party_repository(current, next, repository_file):
                         should_delete = True
 
         if should_delete:
-            repository_file.unlink()
+            os.remove(repository_file)
 
         if should_update:
-            with repository_file.open("w") as f:
+            with open(repository_file, "w") as f:
                 f.write("\n".join(content))
 
 

@@ -29,9 +29,10 @@ public class SettingsDaemon.Utils.SystemUpgradeHelper : GLib.Object {
 
         var cmd = "update-third-party-repository";
 
-        if (!run ("pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s --current %s --next %s --repository-file %s".printf (
-            "/usr/share/io.elementary.settings-daemon", cmd, current, next, repository_file)
-        )) {
+        var command = "pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s --current %s --next %s --repository-file %s".printf (
+            "/usr/share/io.elementary.settings-daemon", cmd, current, next, repository_file);
+
+        if (!run (command)) {
             on_error ();
             return false;
         }
@@ -49,9 +50,10 @@ public class SettingsDaemon.Utils.SystemUpgradeHelper : GLib.Object {
 
         var cmd = "install-files";
 
-        if (!run ("pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s --next %s ".printf (
-            "/usr/share/io.elementary.settings-daemon", cmd, next)
-        )) {
+        var command = "pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s --next %s ".printf (
+            "/usr/share/io.elementary.settings-daemon", cmd, next);
+
+        if (!run (command)) {
             on_error ();
             return false;
         }
