@@ -4,6 +4,11 @@ project('io.elementary.settings-daemon',
     license: 'GPL3',
 )
 
+add_project_arguments(
+    '-DI_KNOW_THE_PACKAGEKIT_GLIB2_API_IS_SUBJECT_TO_CHANGE',
+    language:'c'
+)
+
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 pkgdatadir = join_paths(datadir, meson.project_name())
@@ -16,7 +21,9 @@ i18n = import('i18n')
 cc = meson.get_compiler('c')
 m_dep = cc.find_library('m', required : false)
 libgeoclue_dep = dependency ('libgeoclue-2.0')
+packagekit_dep = dependency('packagekit-glib2')
 polkit_dep = dependency('polkit-gobject-1')
+posix_dep = meson.get_compiler('vala').find_library('posix')
 
 polkit_actiondir = polkit_dep.get_pkgconfig_variable('actiondir', define_variable: ['prefix', prefix])
 
