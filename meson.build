@@ -4,6 +4,10 @@ project('io.elementary.settings-daemon',
     license: 'GPL3',
 )
 
+prefix = get_option('prefix')
+datadir = join_paths(prefix, get_option('datadir'))
+pkgdatadir = join_paths(datadir, meson.project_name())
+
 gio_dep = dependency ('gio-2.0')
 glib_dep = dependency('glib-2.0')
 granite_dep = dependency('granite', version: '>= 5.3.0')
@@ -12,6 +16,9 @@ i18n = import('i18n')
 cc = meson.get_compiler('c')
 m_dep = cc.find_library('m', required : false)
 libgeoclue_dep = dependency ('libgeoclue-2.0')
+polkit_dep = dependency('polkit-gobject-1')
+
+polkit_actiondir = polkit_dep.get_pkgconfig_variable('actiondir', define_variable: ['prefix', prefix])
 
 conf_data = configuration_data()
 conf_data.set('PROJECT_NAME', meson.project_name())

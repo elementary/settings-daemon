@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+import argparse
+import os
+import re
+import shutil
+
+
+def update_third_party_repository(current, next, repository_file):
+    r = re.compile("[deb|deb-src].* ({}).*$".format(current))
+
+    if os.path.isfile(repository_file):
+        should_delete = False
+        should_update = False
+        with repository_file.open("r") as f:
+            content = []
+            for line in f.read().split("\n"):
+                if r.match(line):
+                    should_update = True
+                    line = line.replace(current, next)
+                    content.append(line)
+
+                    if "ppa.launchpad.net/elementary-os" in line:
+                        should_delete = True
+                    elif "packages.elementary.io" in line:
+                        should_delete = True
+
+        if should_delete:
+            repository_file.unlink()
+
+        if should_update:
+            with repository_file.open("w") as f:
+                f.write("\n".join(content))
+
+
+def install_files(next):
+    update_files = os.path.join(
+        "/", "usr", "share", "io.elementary.settings-daemon", "system-upgrades", next)
+    shutil.copytree(update_files, "/", dirs_exist_ok=True)
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Helper to upgrade elementary OS")
+
+    parser.add_argument("--update-third-party-repository", action="store_true")
+    parser.add_argument("--install-files", action="store_true")
+
+    parser.add_argument("--current", nargs="?", default=None)
+    parser.add_argument("--next", nargs="?", default=None)
+    parser.add_argument("--repository-file", nargs="?", default=None)
+
+    args = parser.parse_args()
+
+    if args.update_third_party_repository and args.current and args.next and args.repository_file:
+        return update_third_party_repository(args.current, args.next, args.repository_file)
+    elif args.install_files and args.next:
+        return install_files(args.next)
+
+
+if __name__ == "__main__":
+    main()
