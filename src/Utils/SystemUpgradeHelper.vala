@@ -50,7 +50,7 @@ public class SettingsDaemon.Utils.SystemUpgradeHelper : GLib.Object {
 
         var cmd = "install-files";
 
-        var command = "pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s --next %s ".printf (
+        var command = "pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s --next %s".printf (
             "/usr/share/io.elementary.settings-daemon", cmd, next);
 
         if (!run (command)) {
