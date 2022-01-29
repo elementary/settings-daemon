@@ -69,11 +69,11 @@ public class SettingsDaemon.Utils.SystemUpgradeHelper : GLib.Object {
         if (permission == null) {
             try {
                 permission = new Polkit.Permission.sync (
-                    "io.elementary.upgrade",
+                    "io.elementary.settings-daemon.system-upgrade",
                     new Polkit.UnixProcess (Posix.getpid ())
                 );
             } catch (Error e) {
-                //  warning ("Can't get permission to upgrade without prompting for admin: %s", e.message);
+                warning ("Can't get permission to upgrade without prompting for admin: %s", e.message);
                 return false;
             }
         }
@@ -83,7 +83,7 @@ public class SettingsDaemon.Utils.SystemUpgradeHelper : GLib.Object {
                 permission.acquire (null);
             }
         } catch (Error e) {
-            //  warning ("Can't get permission to upgrade without prompting for admin: %s", e.message);
+            warning ("Can't get permission to upgrade without prompting for admin: %s", e.message);
             return false;
         }
 

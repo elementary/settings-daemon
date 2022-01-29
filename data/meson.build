@@ -35,22 +35,17 @@ i18n.merge_file(
     install_dir: join_paths(get_option('datadir'), 'metainfo'),
 )
 
-conf = configuration_data()
-conf.set('PKGDATADIR', pkgdatadir)
-conf.set('GETTEXT_PACKAGE', meson.project_name())
-
-gettext_declaration = configure_file(
-    configuration: conf,
+i18n.merge_file(
     input: meson.project_name() + '.policy.in',
-    output: '@BASENAME@'
+    output: meson.project_name() + '.policy',
+    po_dir: join_paths(meson.source_root (), 'po'),
+    install_dir: join_paths(get_option('datadir'), 'polkit-1', 'actions'),
+    install: true
 )
 
-i18n.merge_file(
-    input: gettext_declaration,
-    output: '@BASENAME@',
-    po_dir: join_paths(meson.source_root(), 'po'),
-    install: true,
-    install_dir: polkit_actiondir
+install_subdir(
+    'system-upgrades',
+    install_dir: pkgdatadir
 )
 
 install_data(
