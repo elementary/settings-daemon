@@ -35,6 +35,8 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
     }
 
     private async void upgrade_async () {
+        Inhibitor.get_instance ().inhibit ();
+
         Pk.Results? results = null;
 
         debug ("Refresh cache");
@@ -144,6 +146,8 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
         debug ("Ready to reboot");
 
         system_upgrade_finished ();
+
+        Inhibitor.get_instance ().uninhibit ();
     }
 
     construct {
