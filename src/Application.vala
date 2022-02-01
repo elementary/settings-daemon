@@ -129,22 +129,22 @@ public class SettingsDaemon.Application : GLib.Application {
     }
 
     public override bool dbus_register (DBusConnection connection, string object_path) throws Error {
-		// We must chain up to the parent class:
-		base.dbus_register (connection, object_path);
+        // We must chain up to the parent class:
+        base.dbus_register (connection, object_path);
 
-		// Now we can do our own stuff here. For example, we could export some D-Bus objects
+        // Now we can do our own stuff here. For example, we could export some D-Bus objects
         connection.register_object (object_path, new Backends.SystemUpgrade ());
 
-		return true;
-	}
+        return true;
+    }
 
-	public override void dbus_unregister (DBusConnection connection, string object_path) {
-		// Do our own stuff here, e.g. unexport any D-Bus objects we exported in the dbus_register
-		//  hook above. Be sure to check that we actually did export them, since the hook
-		//  above might have returned early due to the parent class' hook returning false!
+    public override void dbus_unregister (DBusConnection connection, string object_path) {
+        // Do our own stuff here, e.g. unexport any D-Bus objects we exported in the dbus_register
+        //  hook above. Be sure to check that we actually did export them, since the hook
+        //  above might have returned early due to the parent class' hook returning false!
 
-		base.dbus_unregister (connection, object_path);
-	}
+        base.dbus_unregister (connection, object_path);
+    }
 
     public static int main (string[] args) {
         var application = new Application ();
