@@ -100,6 +100,18 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
 
         int downloads_cleanup_days = housekeeping_settings.get_int ("old-files-age");
 
+        var downloads_folder = GLib.Environment.get_user_special_dir (
+            GLib.UserDirectory.DOWNLOAD
+        );
+
+        var home_folder = GLib.Environment.get_home_dir ();
+        if (File.new_for_path (home_folder).equal (File.new_for_path (downloads_folder))) {
+            // TODO: Possibly throw a notification as a warning here? This will currently just silently fail
+            // and no downloads will be cleaned up, despite the setting being enabled
+            warning ("Downloads folder seems to point to home directory, not enabling cleanup");
+            downloads_cleanup_enabled = false;
+        }
+
         // Delete the systemd-tmpfiles config if download cleanup is disabled
         if (!downloads_cleanup_enabled || downloads_cleanup_days < 1) {
             try {
@@ -113,15 +125,11 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
             return;
         }
 
-        var downloads_folder = GLib.Environment.get_user_special_dir (
-            GLib.UserDirectory.DOWNLOAD
-        );
-
         FileIOStream config_stream;
         try {
             config_stream = yield config_file.replace_readwrite_async (null, false, FileCreateFlags.NONE);
         } catch (Error e) {
-            warning ("Unable to open systemd-tmpfiles config file for writng: %s", e.message);
+            warning ("Unable to open systemd-tmpfiles config file for writing: %s", e.message);
             return;
         }
 
