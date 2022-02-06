@@ -42,16 +42,12 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private Backends.Housekeeping housekeeping;
 
-    private Backends.Firmware firmware;
-
     construct {
         application_id = Build.PROJECT_NAME;
 
         add_main_option_entries (OPTIONS);
 
         housekeeping = new Backends.Housekeeping ();
-
-        firmware = new Backends.Firmware (this);
 
         var show_firmware_updates_action = new SimpleAction ("show-firmware-updates", null);
         show_firmware_updates_action.activate.connect (() => {

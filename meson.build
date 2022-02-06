@@ -37,6 +37,7 @@ config_dep = declare_dependency(
 
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
+libexecdir = join_paths(prefix, get_option('libexecdir'))
 
 symlink = join_paths(meson.current_source_dir (), 'meson', 'create-symlink.sh')
 
@@ -44,5 +45,6 @@ subdir('data')
 subdir('po')
 subdir('src')
 subdir('settings-portal')
+subdir('periodic-tasks')
 
 meson.add_install_script('meson/post_install.py')

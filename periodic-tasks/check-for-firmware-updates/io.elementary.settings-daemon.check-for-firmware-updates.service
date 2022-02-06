@@ -1,0 +1,8 @@
+[Unit]
+Description=Check for firmware updates daily
+ConditionACPower=true
+After=network.target network-online.target systemd-networkd.service NetworkManager.service connman.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/io.elementary.settings-daemon.check-for-firmware-updates

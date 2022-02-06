@@ -1,10 +1,7 @@
 sources = files(
     'AccountsService.vala',
     'Application.vala',
-    'AsyncMutex.vala',
-    'FirmwareClient.vala',
     'SessionManager.vala',
-    'Backends/Firmware.vala',
     'Backends/Housekeeping.vala',
     'Backends/KeyboardSettings.vala',
     'Backends/MouseSettings.vala',
@@ -17,7 +14,6 @@ executable(
     sources,
     dependencies: [
         config_dep,
-        fwupd,
         gio_dep,
         glib_dep,
         granite_dep,
