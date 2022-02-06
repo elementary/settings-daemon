@@ -32,11 +32,21 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
 
     public signal void system_upgrade_failed (string text);
 
+    public signal void system_upgrade_cancelled ();
+
     public void start_upgrade () throws Error {
         upgrade_async.begin ();
     }
 
+    public void cancel () throws Error {
+        cancellable.cancel ();
+    }
+
     private async void upgrade_async () {
+        if (cancellable.is_cancelled ()) {
+            cancellable.reset ();
+        }
+
         Inhibitor.get_instance ().inhibit ();
 
         Pk.Results? results = null;
@@ -156,6 +166,8 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
     construct {
         task = new Pk.Task ();
         cancellable = new Cancellable ();
+
+        cancellable.cancelled.connect (() => { system_upgrade_cancelled (); });
     }
 
     private static Pk.Task task;
