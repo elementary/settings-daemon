@@ -40,12 +40,22 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
 
     public void cancel () throws Error {
         cancellable.cancel ();
+
+        if (is_system_upgrade_running) {
+            is_system_upgrade_running = false;
+        }
     }
 
     private async void upgrade_async () {
+        if (is_system_upgrade_running) {
+            return;
+        }
+
         if (cancellable.is_cancelled ()) {
             cancellable.reset ();
         }
+
+        is_system_upgrade_running = true;
 
         Inhibitor.get_instance ().inhibit ();
 
@@ -55,8 +65,18 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
             debug ("Refresh cache");
             results = yield task.refresh_cache_async (true, cancellable, (t, p) => { });
 
+            if (cancellable.is_cancelled ()) {
+                Inhibitor.get_instance ().uninhibit ();
+                return;
+            }
+
             debug ("Get repositories");
             results = yield task.get_repo_list_async (Pk.Bitfield.from_enums (Pk.Filter.NONE), cancellable, (p, t) => { });
+
+            if (cancellable.is_cancelled ()) {
+                Inhibitor.get_instance ().uninhibit ();
+                return;
+            }
 
             var repo_files = new Array<string> ();
             var repos = results.get_repo_detail_array ();
@@ -104,12 +124,22 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
             debug ("Refresh cache");
             results = yield task.refresh_cache_async (true, cancellable, (p, t) => { });
 
+            if (cancellable.is_cancelled ()) {
+                Inhibitor.get_instance ().uninhibit ();
+                return;
+            }
+
             if (results == null) {
                 throw new Error (0, 0, "Could not refresh cache");
             }
 
             debug ("Get updates");
             results = yield task.get_updates_async (Pk.Bitfield.from_enums (Pk.Filter.NEWEST), cancellable, (t, p) => { });
+
+            if (cancellable.is_cancelled ()) {
+                Inhibitor.get_instance ().uninhibit ();
+                return;
+            }
 
             if (results == null) {
                 throw new Error (0, 0, "Could not get updates");
@@ -144,12 +174,22 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
                 }
             }));
 
+            if (cancellable.is_cancelled ()) {
+                Inhibitor.get_instance ().uninhibit ();
+                return;
+            }
+
             if (results == null) {
                 throw new Error (0, 0, "Could not download packages");
             }
 
             debug ("Set PackageKit reboot action");
             Pk.offline_trigger (Pk.OfflineAction.REBOOT, cancellable);
+
+            if (cancellable.is_cancelled ()) {
+                Inhibitor.get_instance ().uninhibit ();
+                return;
+            }
 
             debug ("Ready to reboot");
 
@@ -159,6 +199,8 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
 
             system_upgrade_failed (e.message);
         }
+
+        is_system_upgrade_running = false;
 
         Inhibitor.get_instance ().uninhibit ();
     }
@@ -172,6 +214,8 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
 
     private static Pk.Task task;
     private static Cancellable cancellable;
+
+    private bool is_system_upgrade_running = false;
 
     private bool update_system_filter_helper (Pk.Package package) {
         var info = package.get_info ();
