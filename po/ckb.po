@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-15 16:16-0700\n"
-"PO-Revision-Date: 2022-04-04 21:19+0000\n"
+"PO-Revision-Date: 2022-04-15 22:18+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
 "desktop/settings-daemon/ckb/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/settings-daemon.appdata.xml.in:7
 msgid "Settings Daemon"
-msgstr ""
+msgstr "فریشتەی ڕێکخستنەکان"
 
 #: data/settings-daemon.appdata.xml.in:8
 msgid "Manage settings and background tasks"
