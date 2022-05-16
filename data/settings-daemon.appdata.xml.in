@@ -10,7 +10,7 @@
     <p>Syncs settings to the greeter and manages background tasks, like scheduling dark style and housekeeping.</p>
   </description>
   <releases>
-    <release version="1.2.0" date="2021-12-23" urgency="medium">
+    <release version="1.2.0" date="2022-05-16" urgency="medium">
       <p>New features:</p>
       <ul>
         <li>Add First day of the week setting</li>
