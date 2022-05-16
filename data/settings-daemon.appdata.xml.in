@@ -13,7 +13,9 @@
     <release version="1.2.0" date="2021-12-23" urgency="medium">
       <p>New features:</p>
       <ul>
+        <li>Add First day of the week setting</li>
         <li>Add left-handed mouse click setting</li>
+        <li>Don't Housekeep Downloads if it's also Home</li>
       </ul>
       <p>Improvements:</p>
       <ul>
