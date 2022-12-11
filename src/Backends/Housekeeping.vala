@@ -19,18 +19,18 @@
 */
 
 [DBus (name = "org.freedesktop.systemd1.Manager")]
-public interface SystemdManager : GLib.Object {
-    public abstract async string get_unit_file_state (string unit_file) throws GLib.Error;
-    public abstract async void enable_unit_files (string[] unit_files, bool runtime, bool replace) throws GLib.Error;
-    public abstract async void start_unit (string name, string mode) throws GLib.Error;
+public interface SystemdManager : Object {
+    public abstract async string get_unit_file_state (string unit_file) throws Error;
+    public abstract async void enable_unit_files (string[] unit_files, bool runtime, bool replace) throws Error;
+    public abstract async void start_unit (string name, string mode) throws Error;
 }
 
-public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
-    private GLib.Settings housekeeping_settings;
+public class SettingsDaemon.Backends.Housekeeping : Object {
+    private Settings housekeeping_settings;
     private SystemdManager? systemd;
 
     construct {
-        housekeeping_settings = new GLib.Settings ("io.elementary.settings-daemon.housekeeping");
+        housekeeping_settings = new Settings ("io.elementary.settings-daemon.housekeeping");
         housekeeping_settings.changed.connect (() => {
             enable_systemd_tmpfiles.begin ();
             write_systemd_tmpfiles_config.begin ();
@@ -48,8 +48,8 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
     private async void enable_systemd_tmpfiles () {
         if (systemd == null) {
             try {
-                systemd = yield GLib.Bus.get_proxy (
-                    GLib.BusType.SESSION,
+                systemd = yield Bus.get_proxy (
+                    BusType.SESSION,
                     "org.freedesktop.systemd1",
                     "/org/freedesktop/systemd1"
                 );
@@ -75,15 +75,15 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
     // Write (or delete) a config file in ~/.config/user-tmpfiles.d to configure the systemd timer for cleaning up the user's
     // downloads folder based on the configured age in GSettings
     private async void write_systemd_tmpfiles_config () {
-        var config_path = GLib.Path.build_filename (
-            GLib.Environment.get_user_config_dir (),
+        var config_path = Path.build_filename (
+            Environment.get_user_config_dir (),
             "user-tmpfiles.d",
             "io.elementary.settings-daemon.downloads-folder.conf"
         );
 
         var downloads_cleanup_enabled = housekeeping_settings.get_boolean ("cleanup-downloads-folder");
 
-        var config_file = GLib.File.new_for_path (config_path);
+        var config_file = File.new_for_path (config_path);
         if (!config_file.get_parent ().query_exists ()) {
             if (!downloads_cleanup_enabled) {
                 // No point continuing if cleanup isn't enabled
@@ -100,11 +100,11 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
 
         int downloads_cleanup_days = housekeeping_settings.get_int ("old-files-age");
 
-        var downloads_folder = GLib.Environment.get_user_special_dir (
-            GLib.UserDirectory.DOWNLOAD
+        var downloads_folder = Environment.get_user_special_dir (
+            UserDirectory.DOWNLOAD
         );
 
-        var home_folder = GLib.Environment.get_home_dir ();
+        var home_folder = Environment.get_home_dir ();
         if (File.new_for_path (home_folder).equal (File.new_for_path (downloads_folder))) {
             // TODO: Possibly throw a notification as a warning here? This will currently just silently fail
             // and no downloads will be cleaned up, despite the setting being enabled
@@ -117,7 +117,7 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
             try {
                 yield config_file.delete_async ();
             } catch (Error e) {
-                if (!(e is GLib.IOError.NOT_FOUND)) {
+                if (!(e is IOError.NOT_FOUND)) {
                     warning ("Unable to delete systemd-tmpfiles config: %s", e.message);
                 }
             }
@@ -140,7 +140,7 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
 
         FileOutputStream os = config_stream.output_stream as FileOutputStream;
         try {
-            yield os.write_all_async (config.data, GLib.Priority.DEFAULT, null, null);
+            yield os.write_all_async (config.data, Priority.DEFAULT, null, null);
         } catch (Error e) {
             warning ("Unable to write systemd-tmpfiles config: %s", e.message);
         }
