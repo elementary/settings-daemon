@@ -28,8 +28,6 @@ public class CheckForFirmwareUpdates.Application : GLib.Application {
     }
 
     public override void activate () {
-        bool was_empty = firmware_updates_number == 0U;
-
         var fwupd_client = new Fwupd.Client ();
         var num_updates = 0;
         try {
@@ -57,7 +55,7 @@ public class CheckForFirmwareUpdates.Application : GLib.Application {
             warning (e.message);
         }
 
-        if (was_empty && num_updates != 0U) {
+        if (firmware_updates_number == 0U && num_updates != 0U) {
             string title = ngettext ("Firmware Update Available", "Firmware Updates Available", num_updates);
             string body = ngettext ("%u update is available for your hardware", "%u updates are available for your hardware", num_updates).printf (num_updates);
 
