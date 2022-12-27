@@ -42,8 +42,6 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private Backends.Housekeeping housekeeping;
 
-    public uint firmware_updates_number { get; private set; default = 0U; }
-
     construct {
         application_id = Build.PROJECT_NAME;
 
@@ -80,7 +78,7 @@ public class SettingsDaemon.Application : GLib.Application {
                 warning (e.message);
             }
 
-            if (firmware_updates_number == 0U && num_updates != 0U) {
+            if (num_updates != 0U) {
                 string title = ngettext ("Firmware Update Available", "Firmware Updates Available", num_updates);
                 string body = ngettext ("%u update is available for your hardware", "%u updates are available for your hardware", num_updates).printf (num_updates);
 
