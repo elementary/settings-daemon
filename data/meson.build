@@ -34,3 +34,16 @@ i18n.merge_file(
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo'),
 )
+
+systemd = dependency('systemd')
+systemd_system_unit_dir = systemd.get_pkgconfig_variable('systemdsystemunitdir')
+
+install_data(
+    meson.project_name() + '.check-for-firmware-updates.service',
+    install_dir: systemd_system_unit_dir
+)
+
+install_data(
+    meson.project_name() + '.check-for-firmware-updates.timer',
+    install_dir: systemd_system_unit_dir
+)

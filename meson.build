@@ -4,7 +4,7 @@ project('io.elementary.settings-daemon',
     license: 'GPL3',
 )
 
-fwupd = dependency('fwupd')
+fwupd_dep = dependency('fwupd')
 gio_dep = dependency ('gio-2.0')
 glib_dep = dependency('glib-2.0')
 granite_dep = dependency('granite', version: '>= 5.3.0')
@@ -37,7 +37,6 @@ config_dep = declare_dependency(
 
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
-libexecdir = join_paths(prefix, get_option('libexecdir'))
 
 symlink = join_paths(meson.current_source_dir (), 'meson', 'create-symlink.sh')
 
@@ -45,6 +44,5 @@ subdir('data')
 subdir('po')
 subdir('src')
 subdir('settings-portal')
-subdir('periodic-tasks')
 
 meson.add_install_script('meson/post_install.py')

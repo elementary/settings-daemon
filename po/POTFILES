@@ -1,2 +1,2 @@
 data/settings-daemon.appdata.xml.in
-src/Backends/Firmware.vala
+src/Application.vala
