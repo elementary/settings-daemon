@@ -85,7 +85,7 @@ public class SettingsDaemon.Application : GLib.Application {
                 var notification = new Notification (title);
                 notification.set_body (body);
                 notification.set_icon (new ThemedIcon ("application-x-firmware"));
-                notification.set_default_action ("io.elementary.settings-daemon.show-firmware-updates");
+                notification.set_default_action ("app.show-firmware-updates");
 
                 send_notification ("io.elementary.settings-daemon.firmware.updates", notification);
             } else {
