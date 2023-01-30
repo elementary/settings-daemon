@@ -184,7 +184,7 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
             }
 
             debug ("Set PackageKit reboot action");
-            Pk.offline_trigger (Pk.OfflineAction.REBOOT, cancellable);
+            Pk.offline_trigger_with_flags (Pk.OfflineAction.REBOOT, Pk.OfflineFlags.NONE, cancellable);
 
             if (cancellable.is_cancelled ()) {
                 Inhibitor.get_instance ().uninhibit ();
