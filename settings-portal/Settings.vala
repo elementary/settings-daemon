@@ -32,6 +32,7 @@ public errordomain PortalError {
 [DBus (name = "io.elementary.pantheon.AccountsService")]
 private interface Pantheon.AccountsService : Object {
     public abstract int prefers_color_scheme { owned get; set; }
+    public abstract int prefers_accent_color { owned get; set; }
 }
 
 [DBus (name = "org.freedesktop.Accounts")]
@@ -46,6 +47,7 @@ private class AccountsServiceMonitor : GLib.Object {
     private string user_path;
 
     public int32 color_scheme { get; set; }
+    public int32 accent_color { get; set; }
 
     construct {
         setup_user_path ();
@@ -76,11 +78,17 @@ private class AccountsServiceMonitor : GLib.Object {
             );
 
             color_scheme = pantheon_act.prefers_color_scheme;
+            accent_color = pantheon_act.prefers_accent_color;
 
             ((GLib.DBusProxy) pantheon_act).g_properties_changed.connect ((changed, invalid) => {
                 var value = changed.lookup_value ("PrefersColorScheme", new VariantType ("i"));
                 if (value != null) {
                     color_scheme = value.get_int32 ();
+                }
+
+                value = changed.lookup_value ("PrefersAccentColor", new VariantType ("i"));
+                if (value != null) {
+                    accent_color = value.get_int32 ();
                 }
             });
         } catch (Error e) {
@@ -109,6 +117,9 @@ public class SettingsDaemon.Settings : GLib.Object {
         monitor = new AccountsServiceMonitor ();
         monitor.notify["color-scheme"].connect (() => {
             setting_changed ("org.freedesktop.appearance", "color-scheme", get_color_scheme ());
+        });
+        monitor.notify["accent-color"].connect (() => {
+            setting_changed ("org.freedesktop.appearance", "accent-color", get_accent_color ());
         });
 
         settings = new HashTable<string, GLib.Settings> (str_hash, str_equal);
@@ -146,6 +157,50 @@ public class SettingsDaemon.Settings : GLib.Object {
         return new GLib.Variant.uint32 (monitor.color_scheme);
     }
 
+    private inline GLib.Variant rgb_to_variant (int rgb) {
+        double r = ((rgb >> 16) & 255) / 255.0;
+        double g = ((rgb >> 8) & 255) / 255.0;
+        double b = (rgb & 255) / 255.0;
+
+        return new GLib.Variant ("(ddd)", r, g, b);
+    }
+
+    private GLib.Variant get_accent_color () {
+        switch (monitor.accent_color) {
+            case 1: // Strawberry
+                return rgb_to_variant (0xed5353);
+
+            case 2: // Orange
+                return rgb_to_variant (0xffa154);
+
+            case 3: // Banana
+                return rgb_to_variant (0xf9c440);
+
+            case 4: // Lime
+                return rgb_to_variant (0x68b723);
+
+            case 5: // Mint
+                return rgb_to_variant (0x28bca3);
+
+            case 6: // Blueberry
+                return rgb_to_variant (0x3689e6);
+
+            case 7: // Grape
+                return rgb_to_variant (0xa56de2);
+
+            case 8: // Bubblegum
+                return rgb_to_variant (0xde3e80);
+
+            case 9: // Cocoa
+                return rgb_to_variant (0x8a715e);
+
+            case 10: // Slate
+                return rgb_to_variant (0x667885);
+        }
+
+        return rgb_to_variant (0);
+    }
+
     public async GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> read_all (string[] namespaces) throws GLib.DBusError, GLib.IOError {
         var ret = new GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> (str_hash, str_equal);
 
@@ -155,6 +210,7 @@ public class SettingsDaemon.Settings : GLib.Object {
 
                 if (schema == "org.freedesktop.appearance") {
                     dict.insert ("color-scheme", get_color_scheme ());
+                    dict.insert ("accent-color", get_accent_color ());
                 } else {
                     var setting = settings[schema];
                     foreach (var key in setting.settings_schema.list_keys ()) {
@@ -171,12 +227,18 @@ public class SettingsDaemon.Settings : GLib.Object {
 
     public async GLib.Variant read (string namespace, string key) throws GLib.DBusError, GLib.Error {
         if (namespace in SUPPORTED_SCHEMAS) {
-            if (namespace == "org.freedesktop.appearance" && key == "color-scheme") {
-                return get_color_scheme ();
-            } else {
-                if (settings[namespace].settings_schema.has_key (key)) {
-                    return settings[namespace].get_value (key);
+            if (namespace == "org.freedesktop.appearance") {
+                if (key == "color-scheme") {
+                    return get_color_scheme ();
                 }
+
+                if (key == "accent-color") {
+                    return get_accent_color ();
+                }
+            }
+
+            if (settings[namespace].settings_schema.has_key (key)) {
+                return settings[namespace].get_value (key);
             }
         }
 
