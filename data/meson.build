@@ -34,3 +34,32 @@ i18n.merge_file(
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo'),
 )
+
+conf = configuration_data()
+conf.set('PKGDATADIR', pkgdatadir)
+conf.set('GETTEXT_PACKAGE', meson.project_name())
+
+gettext_declaration = configure_file(
+    configuration: conf,
+    input: meson.project_name() + '.policy.in',
+    output: meson.project_name() + '.policy.in'
+)
+
+i18n.merge_file(
+    input: gettext_declaration,
+    output: meson.project_name() + '.policy',
+    po_dir: join_paths(meson.source_root(), 'po'),
+    install: true,
+    install_dir: polkit_actiondir
+)
+
+install_subdir(
+    'system-upgrades',
+    install_dir: pkgdatadir
+)
+
+install_data(
+    meson.project_name() + '.system-upgrade.helper',
+    install_mode: 'r-xr--r--',
+    install_dir: pkgdatadir
+)

@@ -6,7 +6,10 @@ sources = files(
     'Backends/KeyboardSettings.vala',
     'Backends/MouseSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
+    'Backends/SystemUpgrade.vala',
+    'Utils/Inhibitor.vala',
     'Utils/SunriseSunsetCalculator.vala',
+    'Utils/SystemUpgradeHelper.vala',
 )
 
 executable(
@@ -19,6 +22,9 @@ executable(
         granite_dep,
         libgeoclue_dep,
         m_dep,
+        packagekit_dep,
+        polkit_dep,
+        posix_dep,
     ],
     install: true,
 )
