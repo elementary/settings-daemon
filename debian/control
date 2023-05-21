@@ -5,6 +5,7 @@ Maintainer: elementary, Inc. <builds@elementary.io>
 Build-Depends: debhelper (>= 10.5.1),
                libaccountsservice-dev,
                libdbus-1-dev,
+               libfwupd-dev,
                libgranite-dev,
                libgeoclue-2-dev,
                meson,
@@ -14,5 +15,6 @@ Standards-Version: 4.1.1
 Package: io.elementary.settings-daemon
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: fwupd
 Description: Keep session settings in sync
  elementary Settings Daemon keeps settings in sync between session components
