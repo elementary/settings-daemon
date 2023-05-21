@@ -7,8 +7,9 @@ You'll need the following dependencies:
 * gobject-2.0
 * libaccountsservice-dev
 * libdbus-1-dev
-* libgranite-dev
+* libfwupd-dev
 * libgeoclue-2-dev
+* libgranite-dev
 * meson
 * valac
 

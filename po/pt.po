@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 16:16-0700\n"
+"POT-Creation-Date: 2023-05-21 08:02+0000\n"
 "PO-Revision-Date: 2021-08-02 21:09+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/desktop/"
@@ -28,13 +28,30 @@ msgid "Manage settings and background tasks"
 msgstr "Gerir definições e tarefas de segundo plano"
 
 #: data/settings-daemon.appdata.xml.in:10
+#, fuzzy
+#| msgid ""
+#| "This process sync settings to the greeter and manages background tasks "
+#| "like scheduling dark mode and Housekeeping."
 msgid ""
-"This process sync settings to the greeter and manages background tasks like "
-"scheduling dark mode and Housekeeping."
+"Syncs settings to the greeter and manages background tasks, like scheduling "
+"dark style and housekeeping."
 msgstr ""
 "Este processo sincroniza as definições com o ecrã de acesso e gere tarefas "
 "de segundo plano como a programação do modo escuro, manutenção e limpeza."
 
-#: data/settings-daemon.appdata.xml.in:18
+#: data/settings-daemon.appdata.xml.in:41
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#: src/Application.vala:82
+msgid "Firmware Update Available"
+msgid_plural "Firmware Updates Available"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Application.vala:83
+#, c-format
+msgid "%u update is available for your hardware"
+msgid_plural "%u updates are available for your hardware"
+msgstr[0] ""
+msgstr[1] ""

@@ -1,7 +1,13 @@
 install_data(
     'autostart.desktop',
-    install_dir: join_paths(get_option('sysconfdir'), 'xdg', 'autostart'),
+    install_dir: join_paths(get_option('datadir'), 'applications'),
     rename: meson.project_name() + '.desktop'
+)
+
+meson.add_install_script(
+    symlink,
+    join_paths(get_option('datadir'), 'applications', meson.project_name() + '.desktop'),
+    join_paths(get_option('sysconfdir'), 'xdg', 'autostart', meson.project_name() + '.desktop'),
 )
 
 dbus_dep = dependency('dbus-1')
@@ -34,3 +40,31 @@ i18n.merge_file(
     install: true,
     install_dir: join_paths(get_option('datadir'), 'metainfo'),
 )
+
+systemd = dependency('systemd')
+systemd_system_unit_dir = systemd.get_pkgconfig_variable('systemdsystemunitdir')
+
+install_data(
+    meson.project_name() + '.check-for-firmware-updates.service',
+    install_dir: systemd_system_unit_dir
+)
+
+install_data(
+    meson.project_name() + '.check-for-firmware-updates.timer',
+    install_dir: systemd_system_unit_dir
+)
+
+icon_sizes = ['24', '32', '48', '64', '128']
+
+foreach i : icon_sizes
+    install_data(
+        join_paths('icons', i + '.svg'),
+        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps'),
+        rename: meson.project_name() + '.svg'
+    )
+    install_data(
+        join_paths('icons', i + '.svg'),
+        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps'),
+        rename: meson.project_name() + '.svg'
+    )
+endforeach

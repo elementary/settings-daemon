@@ -1,0 +1,8 @@
+[Unit]
+Description=Check for firmware updates daily
+ConditionACPower=true
+After=network.target network-online.target systemd-networkd.service NetworkManager.service connman.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/busctl --user call io.elementary.settings-daemon /io/elementary/settings_daemon org.freedesktop.Application ActivateAction sava{sv} "check-firmware-updates" 0 0

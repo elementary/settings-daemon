@@ -48,6 +48,62 @@ public class SettingsDaemon.Application : GLib.Application {
         add_main_option_entries (OPTIONS);
 
         housekeeping = new Backends.Housekeeping ();
+
+        var check_firmware_updates_action = new SimpleAction ("check-firmware-updates", null);
+        check_firmware_updates_action.activate.connect (() => {
+            var fwupd_client = new Fwupd.Client ();
+            var num_updates = 0;
+            try {
+                var devices = fwupd_client.get_devices ();
+                for (int i = 0; i < devices.length; i++) {
+                    var device = devices[i];
+                    if (device.has_flag (Fwupd.DEVICE_FLAG_UPDATABLE)) {
+                        Fwupd.Release? release = null;
+                        try {
+                            var upgrades = fwupd_client.get_upgrades (device.get_id ());
+
+                            if (upgrades != null) {
+                                release = upgrades[0];
+                            }
+                        } catch (Error e) {
+                            warning (e.message);
+                        }
+
+                        if (release != null && device.get_version () != release.get_version ()) {
+                            num_updates++;
+                        }
+                    }
+                }
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            if (num_updates != 0U) {
+                string title = ngettext ("Firmware Update Available", "Firmware Updates Available", num_updates);
+                string body = ngettext ("%u update is available for your hardware", "%u updates are available for your hardware", num_updates).printf (num_updates);
+
+                var notification = new Notification (title);
+                notification.set_body (body);
+                notification.set_icon (new ThemedIcon ("application-x-firmware"));
+                notification.set_default_action ("app.show-firmware-updates");
+
+                send_notification ("io.elementary.settings-daemon.firmware.updates", notification);
+            } else {
+                withdraw_notification ("io.elementary.settings-daemon.firmware.updates");
+            }
+        });
+
+        var show_firmware_updates_action = new SimpleAction ("show-firmware-updates", null);
+        show_firmware_updates_action.activate.connect (() => {
+            try {
+                Gtk.show_uri_on_window (null, "settings://about/firmware", Gdk.CURRENT_TIME);
+            } catch (Error e) {
+                critical (e.message);
+            }
+        });
+
+        add_action (check_firmware_updates_action);
+        add_action (show_firmware_updates_action);
     }
 
     public override int handle_local_options (VariantDict options) {

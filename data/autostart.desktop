@@ -3,6 +3,7 @@ Type=Application
 Name=Elementary Settings Daemon
 Comment=Elementary Settings Daemon
 Exec=io.elementary.settings-daemon
+Icon=io.elementary.settings-daemon
 Terminal=false
 Categories=System;Core;
 NoDisplay=true
