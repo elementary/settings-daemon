@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-21 08:02+0000\n"
-"PO-Revision-Date: 2022-01-25 03:08+0000\n"
+"PO-Revision-Date: 2023-05-30 18:07+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
-"Language-Team: German <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/de/>\n"
+"Language-Team: German <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #: data/settings-daemon.appdata.xml.in:7
 msgid "Settings Daemon"
@@ -28,17 +28,13 @@ msgid "Manage settings and background tasks"
 msgstr "Einstellungen und Hintergrundaufgaben verwalten"
 
 #: data/settings-daemon.appdata.xml.in:10
-#, fuzzy
-#| msgid ""
-#| "This process sync settings to the greeter and manages background tasks "
-#| "like scheduling dark mode and Housekeeping."
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
-"Dieser Vorgang synchronisiert Einstellungen zum Willkommensbildschirm und "
-"verwaltet Hintergrundaufgaben wie beispielsweise den Zeitplan für den "
-"»Dunklen Modus« und Wartungsskripts."
+"Synchronisiert die Einstellungen des Willkommensbildschirms und verwaltet "
+"Hintergrundaufgaben wie beispielsweise den Zeitplan für den »Dunklen Stil« "
+"und Wartungsskripts."
 
 #: data/settings-daemon.appdata.xml.in:41
 msgid "elementary, Inc."
@@ -47,12 +43,12 @@ msgstr "elementary, Inc."
 #: src/Application.vala:82
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Firmware-Aktualisierung verfügbar"
+msgstr[1] "Firmware-Aktualisierungen verfügbar"
 
 #: src/Application.vala:83
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u Aktualisierung für Ihre Geräte verfügbar"
+msgstr[1] "%u Aktualisierungen für Ihre Geräte verfügbar"
