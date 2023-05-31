@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-21 08:02+0000\n"
-"PO-Revision-Date: 2023-05-20 18:06+0000\n"
+"PO-Revision-Date: 2023-06-01 14:07+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/desktop/"
@@ -29,16 +29,12 @@ msgid "Manage settings and background tasks"
 msgstr "Kelola pengaturan dan tugas latar belakang"
 
 #: data/settings-daemon.appdata.xml.in:10
-#, fuzzy
-#| msgid ""
-#| "This process sync settings to the greeter and manages background tasks "
-#| "like scheduling dark mode and Housekeeping."
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
-"Proses ini menyinkronkan pengaturan ke penyambut dan mengelola tugas latar "
-"belakang seperti menjadwalkan mode gelap dan Pembenahan."
+"Menyinkronkan pengaturan ke penyambut dan mengelola tugas latar belakang, "
+"seperti penjadwalan gaya gelap dan tata graha."
 
 #: data/settings-daemon.appdata.xml.in:41
 msgid "elementary, Inc."
@@ -47,10 +43,10 @@ msgstr "elementary, Inc."
 #: src/Application.vala:82
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
+msgstr[0] "Pembaruan Firmware Tersedia"
 
 #: src/Application.vala:83
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
+msgstr[0] "%u pembaruan tersedia untuk perangkat keras Anda"
