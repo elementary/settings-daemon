@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2021 elementary, Inc. <contact@elementary.io> -->
+<!-- Copyright 2021-2023 elementary, Inc. <contact@elementary.io> -->
 <component>
   <id>io.elementary.settings-daemon</id>
+  <translation type="gettext">io.elementary.settings-daemon</translation>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
+  <compulsory_for_desktop>Pantheon</compulsory_for_desktop>
+
   <name>Settings Daemon</name>
   <summary>Manage settings and background tasks</summary>
   <description>
     <p>Syncs settings to the greeter and manages background tasks, like scheduling dark style and housekeeping.</p>
   </description>
+
+  <content_rating type="oars-1.1" />
+
+  <provides>
+    <binary>io.elementary.settings-daemon</binary>
+  </provides>
+
+  <url type="bugtracker">https://github.com/elementary/settings-daemon/issues</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://github.com/elementary/settings-daemon/discussions</url>
+  <url type="homepage">https://elementary.io</url>
+  <url type="translate">https://l10n.elementary.io/projects/desktop</url>
+
+  <developer_name>elementary, Inc.</developer_name>
+  <project_group>elementary</project_group>
+  <update_contact>contact_at_elementary.io</update_contact>
+
   <releases>
     <release version="1.2.0" date="2022-05-16" urgency="medium">
       <p>New features:</p>
@@ -22,6 +42,7 @@
         <li>Updated translations</li>
       </ul>
     </release>
+
     <release version="1.1.0" date="2021-10-21" urgency="medium">
       <p>New features:</p>
       <ul>
@@ -33,12 +54,9 @@
         <li>Updated translations</li>
       </ul>
     </release>
+
     <release version="1.0.0" date="2021-07-15" urgency="medium">
       <p>Initial release</p>
     </release>
   </releases>
-  <compulsory_for_desktop>Pantheon</compulsory_for_desktop>
-  <developer_name>elementary, Inc.</developer_name>
-  <url type="homepage">https://elementary.io</url>
-  <url type="bugtracker">https://github.com/elementary/settings-daemon/issues</url>
 </component>
