@@ -19,18 +19,18 @@
 */
 
 [DBus (name = "org.freedesktop.systemd1.Manager")]
-public interface SystemdManager : GLib.Object {
-    public abstract async string get_unit_file_state (string unit_file) throws GLib.Error;
-    public abstract async void enable_unit_files (string[] unit_files, bool runtime, bool replace) throws GLib.Error;
-    public abstract async void start_unit (string name, string mode) throws GLib.Error;
+public interface SystemdManager : Object {
+    public abstract async string get_unit_file_state (string unit_file) throws Error;
+    public abstract async void enable_unit_files (string[] unit_files, bool runtime, bool replace) throws Error;
+    public abstract async void start_unit (string name, string mode) throws Error;
 }
 
-public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
-    private GLib.Settings housekeeping_settings;
+public class SettingsDaemon.Backends.Housekeeping : Object {
+    private Settings housekeeping_settings;
     private SystemdManager? systemd;
 
     construct {
-        housekeeping_settings = new GLib.Settings ("io.elementary.settings-daemon.housekeeping");
+        housekeeping_settings = new Settings ("io.elementary.settings-daemon.housekeeping");
         housekeeping_settings.changed.connect (() => {
             enable_systemd_tmpfiles.begin ();
             write_systemd_tmpfiles_config.begin ();
@@ -48,8 +48,8 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
     private async void enable_systemd_tmpfiles () {
         if (systemd == null) {
             try {
-                systemd = yield GLib.Bus.get_proxy (
-                    GLib.BusType.SESSION,
+                systemd = yield Bus.get_proxy (
+                    BusType.SESSION,
                     "org.freedesktop.systemd1",
                     "/org/freedesktop/systemd1"
                 );
@@ -75,18 +75,18 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
     // Write (or delete) a config file in ~/.config/user-tmpfiles.d to configure the systemd timer for cleaning up the user's
     // downloads folder based on the configured age in GSettings
     private async void write_systemd_tmpfiles_config () {
-        var config_path = GLib.Path.build_filename (
-            GLib.Environment.get_user_config_dir (),
+        var config_path = Path.build_filename (
+            Environment.get_user_config_dir (),
             "user-tmpfiles.d",
             "io.elementary.settings-daemon.downloads-folder.conf"
         );
 
-        var downloads_cleanup_enabled = housekeeping_settings.get_boolean ("cleanup-downloads-folder");
+        var cleanup_config = new CleanupConfig (housekeeping_settings);
 
-        var config_file = GLib.File.new_for_path (config_path);
+        var config_file = File.new_for_path (config_path);
         if (!config_file.get_parent ().query_exists ()) {
-            if (!downloads_cleanup_enabled) {
-                // No point continuing if cleanup isn't enabled
+            if (cleanup_config.is_disabled) {
+                // No point continuing if cleanup is disabled
                 return;
             }
 
@@ -98,26 +98,12 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
             }
         }
 
-        int downloads_cleanup_days = housekeeping_settings.get_int ("old-files-age");
-
-        var downloads_folder = GLib.Environment.get_user_special_dir (
-            GLib.UserDirectory.DOWNLOAD
-        );
-
-        var home_folder = GLib.Environment.get_home_dir ();
-        if (File.new_for_path (home_folder).equal (File.new_for_path (downloads_folder))) {
-            // TODO: Possibly throw a notification as a warning here? This will currently just silently fail
-            // and no downloads will be cleaned up, despite the setting being enabled
-            warning ("Downloads folder seems to point to home directory, not enabling cleanup");
-            downloads_cleanup_enabled = false;
-        }
-
-        // Delete the systemd-tmpfiles config if download cleanup is disabled
-        if (!downloads_cleanup_enabled || downloads_cleanup_days < 1) {
+        // Delete the systemd-tmpfiles config if cleanup is disabled
+        if (cleanup_config.is_disabled) {
             try {
                 yield config_file.delete_async ();
             } catch (Error e) {
-                if (!(e is GLib.IOError.NOT_FOUND)) {
+                if (!(e is IOError.NOT_FOUND)) {
                     warning ("Unable to delete systemd-tmpfiles config: %s", e.message);
                 }
             }
@@ -133,16 +119,59 @@ public class SettingsDaemon.Backends.Housekeeping : GLib.Object {
             return;
         }
 
-        // See https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html for details
-        // Results in a config line like:
-        // e "/home/david/Downloads" - - - 30d
-        string config = "e \"%s\" - - - %dd".printf (downloads_folder, downloads_cleanup_days);
-
         FileOutputStream os = config_stream.output_stream as FileOutputStream;
         try {
-            yield os.write_all_async (config.data, GLib.Priority.DEFAULT, null, null);
+            yield os.write_all_async (cleanup_config.data (), Priority.DEFAULT, null, null);
         } catch (Error e) {
             warning ("Unable to write systemd-tmpfiles config: %s", e.message);
+        }
+    }
+
+    private class CleanupConfig : Object {
+        public bool clean_downloads { private get; public construct; }
+        public bool clean_screenshots { private get; public construct; }
+        public int clean_after_days { private get; public construct; }
+
+        public bool is_disabled { get {
+            return (!clean_downloads && !clean_screenshots) || clean_after_days < 1;
+        }}
+
+        public CleanupConfig (Settings settings) {
+            Object (
+                clean_downloads: settings.get_boolean ("cleanup-downloads-folder")
+                    && downloads_are_not_home (),
+                clean_screenshots: settings.get_boolean ("cleanup-screenshots-folder"),
+                clean_after_days: settings.get_int ("old-files-age")
+            );
+        }
+
+        private static bool downloads_are_not_home () {
+            var home_dir = Environment.get_home_dir ();
+            var home = File.new_for_path (home_dir);
+            var downloads_dir = Environment.get_user_special_dir (UserDirectory.DOWNLOAD);
+            var downloads = File.new_for_path (downloads_dir);
+            return !home.equal (downloads);
+        }
+
+        public uint8[] data () {
+            // See https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html for details
+            // Results in a config line like:
+            // e "/home/david/Downloads" - - - 30d
+            var template = "e \"%s\" - - - %dd";
+            string[] lines = {};
+
+            if (clean_downloads) {
+                var downloads_dir = Environment.get_user_special_dir (UserDirectory.DOWNLOAD);
+                lines += template.printf (downloads_dir, clean_after_days);
+            }
+
+            if (clean_screenshots) {
+                var pictures_dir = Environment.get_user_special_dir (UserDirectory.PICTURES);
+                var screenshots_dir = Path.build_filename (pictures_dir, _("Screenshots"));
+                lines += template.printf (screenshots_dir, clean_after_days);
+            }
+
+            return string.joinv ("\n", lines).data;
         }
     }
 }

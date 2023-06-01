@@ -16,6 +16,13 @@ add_project_arguments(
     language:'c'
 )
 
+# Relying on Gala translations for screenshots directory name:
+gettext_package = 'gala'
+add_global_arguments(
+    '-DGETTEXT_PACKAGE="@0@"'.format(gettext_package),
+    language:'c'
+)
+
 cc = meson.get_compiler('c')
 m_dep = cc.find_library('m', required : false)
 libgeoclue_dep = dependency ('libgeoclue-2.0')
@@ -23,6 +30,8 @@ libgeoclue_dep = dependency ('libgeoclue-2.0')
 conf_data = configuration_data()
 conf_data.set('PROJECT_NAME', meson.project_name())
 conf_data.set('VERSION', meson.project_version())
+conf_data.set('GETTEXT_PACKAGE', gettext_package)
+conf_data.set('LOCALEDIR', join_paths (get_option('prefix'), get_option('localedir')))
 
 config_file = configure_file(
     input: 'config.vala.in',

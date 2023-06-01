@@ -185,6 +185,11 @@ public class SettingsDaemon.Application : GLib.Application {
     }
 
     public static int main (string[] args) {
+        GLib.Intl.setlocale (LocaleCategory.ALL, "");
+        GLib.Intl.bindtextdomain (Build.GETTEXT_PACKAGE, Build.LOCALEDIR);
+        GLib.Intl.bind_textdomain_codeset (Build.GETTEXT_PACKAGE, "UTF-8");
+        GLib.Intl.textdomain (Build.GETTEXT_PACKAGE);
+
         var application = new Application ();
         return application.run (args);
     }
