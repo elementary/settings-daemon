@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-21 08:02+0000\n"
-"PO-Revision-Date: 2023-05-05 21:06+0000\n"
+"PO-Revision-Date: 2023-06-07 18:23+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/hu/>\n"
@@ -28,16 +28,12 @@ msgid "Manage settings and background tasks"
 msgstr "Beállítások és háttérben futó folyamatok kezelése"
 
 #: data/settings-daemon.appdata.xml.in:10
-#, fuzzy
-#| msgid ""
-#| "This process sync settings to the greeter and manages background tasks "
-#| "like scheduling dark mode and Housekeeping."
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
-"Ez a folyamat szinkronizálja a beállításokat a bejelentkezőképernyővel és "
-"kezeli az olyan háttérfeladatokat, mint a sötét téma vagy a Karbantartás."
+"Szinkronizálja a beállításokat a bejelentkezőképernyővel és kezeli az olyan "
+"háttérfeladatokat, mint a sötét téma vagy a Karbantartás."
 
 #: data/settings-daemon.appdata.xml.in:41
 msgid "elementary, Inc."
@@ -46,12 +42,12 @@ msgstr "elementary, Inc."
 #: src/Application.vala:82
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Firmwarefrissítés érhető el"
+msgstr[1] "Firmwarefrissítések érhetők el"
 
 #: src/Application.vala:83
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u frissítés érhető el a hardveréhez"
+msgstr[1] "%u frissítés érhető el a hardveréhez"
