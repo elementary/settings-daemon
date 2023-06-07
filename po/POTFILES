@@ -1,2 +1,2 @@
-data/settings-daemon.appdata.xml.in
+data/settings-daemon.metainfo.xml.in
 src/Application.vala
