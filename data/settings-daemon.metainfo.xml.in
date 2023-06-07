@@ -34,7 +34,6 @@
       <description>
         <p>New features:</p>
         <ul>
-          <li>Notify when firmware updates are available</li>
           <li>Provide accent colors on the settings portal</li>
         </ul>
         <p>Improvements:</p>
@@ -43,6 +42,7 @@
         </ul>
       </description>
       <issues>
+        <issue url="https://github.com/elementary/settings-daemon/issues/54">Notify when firmware updates are available</issue>
         <issue url="https://github.com/elementary/settings-daemon/issues/55">Add screenshots to housekeeping</issue>
       </issues>
     </release>
