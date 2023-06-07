@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-21 08:02+0000\n"
+"POT-Creation-Date: 2023-06-07 18:13+0000\n"
 "PO-Revision-Date: 2021-07-15 16:16-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,22 +18,68 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
 
-#: data/settings-daemon.appdata.xml.in:7
+#: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
 msgstr ""
 
-#: data/settings-daemon.appdata.xml.in:8
+#: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
 msgstr ""
 
-#: data/settings-daemon.appdata.xml.in:10
+#: data/settings-daemon.metainfo.xml.in:13
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
 
-#: data/settings-daemon.appdata.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:28
 msgid "elementary, Inc."
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:35
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:67
+msgid "New features:"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:37
+msgid "Provide accent colors on the settings portal"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:39
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:71
+msgid "Improvements:"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:74
+msgid "Updated translations"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Add First day of the week setting"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:55
+msgid "Add left-handed mouse click setting"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Don't Housekeep Downloads if it's also Home"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:69
+msgid "Provide the Settings portal"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:73
+msgid "Remove unused dark style gsettings schema"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:81
+msgid "Initial release"
 msgstr ""
 
 #: src/Application.vala:82
