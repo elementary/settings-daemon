@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-07 18:13+0000\n"
-"PO-Revision-Date: 2023-05-24 20:06+0000\n"
+"PO-Revision-Date: 2023-06-08 11:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ja/>\n"
@@ -43,47 +43,48 @@ msgstr "elementary, Inc."
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:67
 msgid "New features:"
-msgstr ""
+msgstr "新機能:"
 
 #: data/settings-daemon.metainfo.xml.in:37
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "設定ポータルでアクセントカラーの設定を取得できる機能を追加"
 
 #: data/settings-daemon.metainfo.xml.in:39
 #: data/settings-daemon.metainfo.xml.in:58
 #: data/settings-daemon.metainfo.xml.in:71
 msgid "Improvements:"
-msgstr ""
+msgstr "改善点:"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:60
 #: data/settings-daemon.metainfo.xml.in:74
 msgid "Updated translations"
-msgstr ""
+msgstr "翻訳の更新"
 
 #: data/settings-daemon.metainfo.xml.in:54
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "週の最初の曜日の設定を追加"
 
 #: data/settings-daemon.metainfo.xml.in:55
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "利き手に応じたマウスのクリック設定を追加"
 
 #: data/settings-daemon.metainfo.xml.in:56
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
+msgstr "“ダウンロード”フォルダーがホームフォルダーでもある場合、自動削除しないように"
+"修正"
 
 #: data/settings-daemon.metainfo.xml.in:69
 msgid "Provide the Settings portal"
-msgstr ""
+msgstr "設定ポータルを追加"
 
 #: data/settings-daemon.metainfo.xml.in:73
 msgid "Remove unused dark style gsettings schema"
-msgstr ""
+msgstr "ダークスタイル用の GSettings スキーマが未使用のため削除"
 
 #: data/settings-daemon.metainfo.xml.in:81
 msgid "Initial release"
-msgstr ""
+msgstr "最初のリリース"
 
 #: src/Application.vala:82
 msgid "Firmware Update Available"
