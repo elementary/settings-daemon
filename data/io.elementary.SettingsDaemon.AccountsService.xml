@@ -24,5 +24,28 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
     </property>
 
+    <property name="MouseNaturalScroll" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <property name="TouchpadNaturalScroll" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <property name="MouseSpeed" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0.0"/>
+    </property>
+
+    <property name="TouchpadSpeed" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0.0"/>
+    </property>
+
+    <!--
+      AccelProfile matches org.gnome.desktop.peripherals.mouse accel-profile
+    -->
+
+    <property name="AccelProfile" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="default"/>
+    </property>
   </interface>
 </node>

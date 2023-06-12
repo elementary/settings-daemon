@@ -22,6 +22,7 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
     public unowned AccountsService accounts_service { get; construct; }
 
     private GLib.Settings mouse_settings;
+    private GLib.Settings touchpad_settings;
 
     public MouseSettings (AccountsService accounts_service) {
         Object (accounts_service: accounts_service);
@@ -29,25 +30,34 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
 
     construct {
         mouse_settings = new GLib.Settings ("org.gnome.desktop.peripherals.mouse");
-
-        if (accounts_service.left_handed != mouse_settings.get_boolean ("left-handed")) {
-            sync_accountsservice_to_gsettings ();
-        }
+        touchpad_settings = new GLib.Settings ("org.gnome.desktop.peripherals.touchpad");
 
         sync_gsettings_to_accountsservice ();
 
         mouse_settings.changed.connect ((key) => {
-            if (key == "left-handed") {
+            if (key == "accel-profile" ||
+                key == "left-handed" ||
+                key == "natural-scroll" ||
+                key == "speed") {
+                sync_gsettings_to_accountsservice ();
+            }
+        });
+
+        touchpad_settings.changed.connect ((key) => {
+            if (key == "natural-scroll" ||
+                key == "speed") {
                 sync_gsettings_to_accountsservice ();
             }
         });
     }
 
-    private void sync_accountsservice_to_gsettings () {
-        mouse_settings.set_boolean ("left-handed", accounts_service.left_handed);
-    }
-
     private void sync_gsettings_to_accountsservice () {
+        accounts_service.accel_profile = mouse_settings.get_enum ("accel-profile");
         accounts_service.left_handed = mouse_settings.get_boolean ("left-handed");
+        accounts_service.mouse_natural_scroll = mouse_settings.get_boolean ("natural-scroll");
+        accounts_service.mouse_speed = mouse_settings.get_double ("speed");
+
+        accounts_service.touchpad_natural_scroll = touchpad_settings.get_boolean ("natural-scroll");
+        accounts_service.touchpad_speed = touchpad_settings.get_double ("speed");
     }
 }
