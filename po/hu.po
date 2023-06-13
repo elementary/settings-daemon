@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-07 18:13+0000\n"
-"PO-Revision-Date: 2023-06-07 18:23+0000\n"
+"PO-Revision-Date: 2023-06-15 00:07+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/hu/>\n"
@@ -43,47 +43,47 @@ msgstr "elementary, Inc."
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:67
 msgid "New features:"
-msgstr ""
+msgstr "Új funkciók:"
 
 #: data/settings-daemon.metainfo.xml.in:37
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "Kiemelőszínek elérhetővé tétele a hozzáférési portálon keresztül"
 
 #: data/settings-daemon.metainfo.xml.in:39
 #: data/settings-daemon.metainfo.xml.in:58
 #: data/settings-daemon.metainfo.xml.in:71
 msgid "Improvements:"
-msgstr ""
+msgstr "Fejlesztések:"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:60
 #: data/settings-daemon.metainfo.xml.in:74
 msgid "Updated translations"
-msgstr ""
+msgstr "Frissített fordítások"
 
 #: data/settings-daemon.metainfo.xml.in:54
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "A hét kezdőnapjának beállítása"
 
 #: data/settings-daemon.metainfo.xml.in:55
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "Balkezes egérkattintás beállítás"
 
 #: data/settings-daemon.metainfo.xml.in:56
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
+msgstr "Ne legyen karbantartva a Letöltések, ha az egyben a Saját mappa"
 
 #: data/settings-daemon.metainfo.xml.in:69
 msgid "Provide the Settings portal"
-msgstr ""
+msgstr "Beállítások portál elérhetővé tétele"
 
 #: data/settings-daemon.metainfo.xml.in:73
 msgid "Remove unused dark style gsettings schema"
-msgstr ""
+msgstr "Nem használt sötét stílus gsettings séma eltávolítva"
 
 #: data/settings-daemon.metainfo.xml.in:81
 msgid "Initial release"
-msgstr ""
+msgstr "Első kiadás"
 
 #: src/Application.vala:82
 msgid "Firmware Update Available"
