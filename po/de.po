@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-07 18:13+0000\n"
-"PO-Revision-Date: 2023-05-30 18:07+0000\n"
+"PO-Revision-Date: 2023-06-15 00:07+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
-"Language-Team: German <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/de/>\n"
+"Language-Team: German <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +44,7 @@ msgstr "elementary, Inc."
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:67
 msgid "New features:"
-msgstr ""
+msgstr "Neue Funktionen:"
 
 #: data/settings-daemon.metainfo.xml.in:37
 msgid "Provide accent colors on the settings portal"
@@ -54,13 +54,13 @@ msgstr ""
 #: data/settings-daemon.metainfo.xml.in:58
 #: data/settings-daemon.metainfo.xml.in:71
 msgid "Improvements:"
-msgstr ""
+msgstr "Verbesserungen:"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:60
 #: data/settings-daemon.metainfo.xml.in:74
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualisierte Übersetzungen"
 
 #: data/settings-daemon.metainfo.xml.in:54
 msgid "Add First day of the week setting"
