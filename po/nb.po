@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-07 18:13+0000\n"
-"PO-Revision-Date: 2021-07-22 02:17+0000\n"
+"PO-Revision-Date: 2023-06-15 00:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -45,57 +45,60 @@ msgstr "elementary, Inc."
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:67
 msgid "New features:"
-msgstr ""
+msgstr "Nye funksjoner:"
 
 #: data/settings-daemon.metainfo.xml.in:37
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "Aksentfarger tilbudt i innstillingsportalen"
 
 #: data/settings-daemon.metainfo.xml.in:39
 #: data/settings-daemon.metainfo.xml.in:58
 #: data/settings-daemon.metainfo.xml.in:71
 msgid "Improvements:"
-msgstr ""
+msgstr "Forbedringer:"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:60
 #: data/settings-daemon.metainfo.xml.in:74
 msgid "Updated translations"
-msgstr ""
+msgstr "Oppdaterte oversettelser"
 
 #: data/settings-daemon.metainfo.xml.in:54
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "Tillagt innstilling for ukestartsdag"
 
 #: data/settings-daemon.metainfo.xml.in:55
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "Innstilling for venstrehendt museklikk"
 
 #: data/settings-daemon.metainfo.xml.in:56
+#, fuzzy
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
+msgstr "Ikke behold nedlastninger som også finnes i hjemmemappen"
 
 #: data/settings-daemon.metainfo.xml.in:69
 msgid "Provide the Settings portal"
-msgstr ""
+msgstr "Tilby innstillingsportal"
 
 #: data/settings-daemon.metainfo.xml.in:73
+#, fuzzy
 msgid "Remove unused dark style gsettings schema"
-msgstr ""
+msgstr "Fjern ubrukt mørk stil for gsettings-forvaltning"
 
 #: data/settings-daemon.metainfo.xml.in:81
 msgid "Initial release"
-msgstr ""
+msgstr "Første utgave"
 
 #: src/Application.vala:82
+#, fuzzy
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fastvareoppgradering tilgjengelig"
+msgstr[1] "Fastvareoppgraderinger tilgjengelig"
 
 #: src/Application.vala:83
-#, c-format
+#, c-format, fuzzy
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u oppgradering tilgjengelig for din maskinvare"
+msgstr[1] "%u oppgraderinger tilgjengelig for din maskinvare"
