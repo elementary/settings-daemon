@@ -76,7 +76,7 @@ public class SettingsDaemon.Backends.KeyboardSettings : GLib.Object {
             accounts_service.keyboard_layouts = act_layouts;
             accounts_service.active_keyboard_layout = keyboard_settings.get_uint ("current");
         } else {
-            warning ("Unkown keyboard layouts type, unable to save to AccountsService");
+            warning ("Unknown keyboard layouts type, unable to save to AccountsService");
         }
     }
 }

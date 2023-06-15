@@ -20,6 +20,7 @@
 
 [DBus (name = "io.elementary.SettingsDaemon.AccountsService")]
 public interface SettingsDaemon.AccountsService : Object {
+    /* Keyboard */
     public struct KeyboardLayout {
         public string backend;
         public string name;
@@ -28,6 +29,7 @@ public interface SettingsDaemon.AccountsService : Object {
     public abstract KeyboardLayout[] keyboard_layouts { owned get; set; }
     public abstract uint active_keyboard_layout { get; set; }
 
+    /* Mouse and Touchpad */
     public abstract bool left_handed { get; set; }
     public abstract int accel_profile { get; set; }
 
@@ -44,6 +46,19 @@ public interface SettingsDaemon.AccountsService : Object {
     public abstract bool touchpad_two_finger_scrolling { get; set; }
 
     public abstract int cursor_size { get; set; }
+
+    /* Night Light */
+    public struct Coordinates {
+        public double first;
+        public double second;
+    }
+
+    public abstract bool night_light_enabled { get; set; }
+    public abstract Coordinates night_light_last_coordinates { get; set; }
+    public abstract bool night_light_schedule_automatic { get; set; }
+    public abstract double night_light_schedule_from { get; set; }
+    public abstract double night_light_schedule_to { get; set; }
+    public abstract uint night_light_temperature { get; set; }
 }
 
 [DBus (name = "io.elementary.pantheon.AccountsService")]
