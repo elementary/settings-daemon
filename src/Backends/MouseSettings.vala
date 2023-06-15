@@ -68,10 +68,10 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
     private void sync_gsettings_to_accountsservice () {
         accounts_service.left_handed = mouse_settings.get_boolean ("left-handed");
         accounts_service.accel_profile = mouse_settings.get_enum ("accel-profile");
-        
+
         accounts_service.mouse_natural_scroll = mouse_settings.get_boolean ("natural-scroll");
         accounts_service.mouse_speed = mouse_settings.get_double ("speed");
-        
+
         accounts_service.touchpad_click_method = touchpad_settings.get_enum ("click-method");
         accounts_service.touchpad_disable_while_typing = touchpad_settings.get_boolean ("disable-while-typing");
         accounts_service.touchpad_edge_scrolling = touchpad_settings.get_boolean ("edge-scrolling-enabled");
