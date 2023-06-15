@@ -81,7 +81,7 @@ public class SettingsDaemon.Backends.KeyboardSettings : GLib.Object {
         } else {
             warning ("Unkown keyboard layouts type, unable to save to AccountsService");
         }
-        
+
         var xkb_options = keyboard_settings.get_strv ("xkb-options");
         AccountsService.XkbOption[] act_options = {};
         for (size_t i = 0; i < xkb_options.length; i++) {
