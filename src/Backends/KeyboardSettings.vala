@@ -43,7 +43,9 @@ public class SettingsDaemon.Backends.KeyboardSettings : GLib.Object {
         sync_gsettings_to_accountsservice ();
 
         keyboard_settings.changed.connect ((key) => {
-            if (key == "current" || key == "sources") {
+            if (key == "current" ||
+                key == "sources" ||
+                key == "xkb-options") {
                 sync_gsettings_to_accountsservice ();
             }
         });
@@ -58,6 +60,7 @@ public class SettingsDaemon.Backends.KeyboardSettings : GLib.Object {
         var sources = new Variant.array (new VariantType ("(ss)"), entries);
         keyboard_settings.set_value ("sources", sources);
         keyboard_settings.set_value ("current", accounts_service.active_keyboard_layout);
+        keyboard_settings.set_value ("xkb-options", accounts_service.xkb_options);
     }
 
     private void sync_gsettings_to_accountsservice () {
@@ -78,5 +81,14 @@ public class SettingsDaemon.Backends.KeyboardSettings : GLib.Object {
         } else {
             warning ("Unknown keyboard layouts type, unable to save to AccountsService");
         }
+
+        var xkb_options = keyboard_settings.get_strv ("xkb-options");
+        AccountsService.XkbOption[] act_options = {};
+        for (size_t i = 0; i < xkb_options.length; i++) {
+            act_options += AccountsService.XkbOption () {
+                option = xkb_options[i]
+            };
+        }
+        accounts_service.xkb_options = act_options;
     }
 }
