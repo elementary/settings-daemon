@@ -22,6 +22,8 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
     public unowned AccountsService accounts_service { get; construct; }
 
     private GLib.Settings mouse_settings;
+    private GLib.Settings touchpad_settings;
+    private GLib.Settings interface_settings;
 
     public MouseSettings (AccountsService accounts_service) {
         Object (accounts_service: accounts_service);
@@ -29,25 +31,56 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
 
     construct {
         mouse_settings = new GLib.Settings ("org.gnome.desktop.peripherals.mouse");
-
-        if (accounts_service.left_handed != mouse_settings.get_boolean ("left-handed")) {
-            sync_accountsservice_to_gsettings ();
-        }
+        touchpad_settings = new GLib.Settings ("org.gnome.desktop.peripherals.touchpad");
+        interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
 
         sync_gsettings_to_accountsservice ();
 
         mouse_settings.changed.connect ((key) => {
-            if (key == "left-handed") {
+            if (key == "accel-profile" ||
+                key == "left-handed" ||
+                key == "natural-scroll" ||
+                key == "speed") {
+                sync_gsettings_to_accountsservice ();
+            }
+        });
+
+        touchpad_settings.changed.connect ((key) => {
+            if (key == "click-method" ||
+                key == "disable-while-typing" ||
+                key == "edge-scrolling-enabled" ||
+                key == "natural-scroll" ||
+                key == "send-events" ||
+                key == "speed" ||
+                key == "tap-to-click" ||
+                key == "two-finger-scrolling-enabled") {
+                sync_gsettings_to_accountsservice ();
+            }
+        });
+
+        interface_settings.changed.connect ((key) => {
+            if (key == "cursor-size") {
                 sync_gsettings_to_accountsservice ();
             }
         });
     }
 
-    private void sync_accountsservice_to_gsettings () {
-        mouse_settings.set_boolean ("left-handed", accounts_service.left_handed);
-    }
-
     private void sync_gsettings_to_accountsservice () {
         accounts_service.left_handed = mouse_settings.get_boolean ("left-handed");
+        accounts_service.accel_profile = mouse_settings.get_enum ("accel-profile");
+
+        accounts_service.mouse_natural_scroll = mouse_settings.get_boolean ("natural-scroll");
+        accounts_service.mouse_speed = mouse_settings.get_double ("speed");
+
+        accounts_service.touchpad_click_method = touchpad_settings.get_enum ("click-method");
+        accounts_service.touchpad_disable_while_typing = touchpad_settings.get_boolean ("disable-while-typing");
+        accounts_service.touchpad_edge_scrolling = touchpad_settings.get_boolean ("edge-scrolling-enabled");
+        accounts_service.touchpad_natural_scroll = touchpad_settings.get_boolean ("natural-scroll");
+        accounts_service.touchpad_send_events = touchpad_settings.get_enum ("send-events");
+        accounts_service.touchpad_speed = touchpad_settings.get_double ("speed");
+        accounts_service.touchpad_tap_to_click = touchpad_settings.get_boolean ("tap-to-click");
+        accounts_service.touchpad_two_finger_scrolling = touchpad_settings.get_boolean ("two-finger-scrolling-enabled");
+
+        accounts_service.cursor_size = interface_settings.get_int ("cursor-size");
     }
 }
