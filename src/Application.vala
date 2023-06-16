@@ -38,6 +38,8 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private Backends.MouseSettings mouse_settings;
 
+    private Backends.NightLightSetting night_light_settings;
+
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
 
     private Backends.Housekeeping housekeeping;
@@ -150,6 +152,7 @@ public class SettingsDaemon.Application : GLib.Application {
         if (accounts_service != null) {
             keyboard_settings = new Backends.KeyboardSettings (accounts_service);
             mouse_settings = new Backends.MouseSettings (accounts_service);
+            night_light_settings = new Backends.NightLightSetting (accounts_service);
         }
 
         try {
