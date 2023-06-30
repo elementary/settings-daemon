@@ -85,7 +85,5 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
         accounts_service.touchpad_speed = touchpad_settings.get_double ("speed");
         accounts_service.touchpad_tap_to_click = touchpad_settings.get_boolean ("tap-to-click");
         accounts_service.touchpad_two_finger_scrolling = touchpad_settings.get_boolean ("two-finger-scrolling-enabled");
-
-        accounts_service.cursor_size = interface_settings.get_int ("cursor-size");
     }
 }

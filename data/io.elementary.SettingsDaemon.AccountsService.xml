@@ -84,8 +84,28 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
     </property>
 
+    <property name="CursorBlink" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
+    </property>
+
+    <property name="CursorBlinkTime" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="1200"/>
+    </property>
+
+    <property name="CursorBlinkTimeout" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="10"/>
+    </property>
+
     <property name="CursorSize" type="i" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="24"/>
+    </property>
+
+    <property name="LocatePointer" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <property name="TextScalingFactor" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="1.0"/>
     </property>
   </interface>
 </node>
