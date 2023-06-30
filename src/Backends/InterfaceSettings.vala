@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 elementary, Inc. (https://elementary.io)
+ * Copyright 2023 elementary, Inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -15,7 +15,6 @@
  * License along with this program; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301 USA
- * Authored by: Marius Meisenzahl <mariusmeisenzahl@gmail.com>
  */
 
 public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
