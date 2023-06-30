@@ -67,7 +67,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 sync_gsettings_to_accountsservice ();
                 return;
             }
-            if (key == PICTURE_URI || 
+            if (key == PICTURE_URI ||
                 key == PICTURE_URI_DARK) {
                 sync_background_to_greeter ();
             }
