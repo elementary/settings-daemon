@@ -23,7 +23,6 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
 
     private GLib.Settings mouse_settings;
     private GLib.Settings touchpad_settings;
-    private GLib.Settings interface_settings;
 
     public MouseSettings (AccountsService accounts_service) {
         Object (accounts_service: accounts_service);
@@ -32,7 +31,6 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
     construct {
         mouse_settings = new GLib.Settings ("org.gnome.desktop.peripherals.mouse");
         touchpad_settings = new GLib.Settings ("org.gnome.desktop.peripherals.touchpad");
-        interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
 
         // This is used by installer to set left-handed mode
         if (accounts_service.left_handed != mouse_settings.get_boolean ("left-handed")) {
@@ -59,12 +57,6 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
                 key == "speed" ||
                 key == "tap-to-click" ||
                 key == "two-finger-scrolling-enabled") {
-                sync_gsettings_to_accountsservice ();
-            }
-        });
-
-        interface_settings.changed.connect ((key) => {
-            if (key == "cursor-size") {
                 sync_gsettings_to_accountsservice ();
             }
         });
