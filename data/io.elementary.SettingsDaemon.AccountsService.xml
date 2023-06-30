@@ -107,5 +107,13 @@
     <property name="TextScalingFactor" type="d" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="1.0"/>
     </property>
+
+    <property name="PictureOptions" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="5"/>
+    </property>
+
+    <property name="PrimaryColor" type="s" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="#000000"/>
+    </property>
   </interface>
 </node>
