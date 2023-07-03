@@ -34,6 +34,8 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private PantheonShell.Pantheon.AccountsService pantheon_accounts_service;
 
+    private Backends.InterfaceSettings interface_settings;
+
     private Backends.KeyboardSettings keyboard_settings;
 
     private Backends.MouseSettings mouse_settings;
@@ -152,6 +154,7 @@ public class SettingsDaemon.Application : GLib.Application {
         if (accounts_service != null) {
             keyboard_settings = new Backends.KeyboardSettings (accounts_service);
             mouse_settings = new Backends.MouseSettings (accounts_service);
+            interface_settings = new Backends.InterfaceSettings (accounts_service);
             night_light_settings = new Backends.NightLightSetting (accounts_service);
         }
 
