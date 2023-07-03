@@ -34,6 +34,11 @@ public class SettingsDaemon.Backends.MouseSettings : GLib.Object {
         touchpad_settings = new GLib.Settings ("org.gnome.desktop.peripherals.touchpad");
         interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
 
+        // This is used by installer to set left-handed mode
+        if (accounts_service.left_handed != mouse_settings.get_boolean ("left-handed")) {
+            mouse_settings.set_boolean ("left-handed", accounts_service.left_handed);
+        }
+
         sync_gsettings_to_accountsservice ();
 
         mouse_settings.changed.connect ((key) => {
