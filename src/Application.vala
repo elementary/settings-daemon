@@ -35,7 +35,7 @@ public class SettingsDaemon.Application : GLib.Application {
     private PantheonShell.Pantheon.AccountsService pantheon_accounts_service;
 
     private Backends.KeyboardSettings keyboard_settings;
-    
+
     private Backends.MouseSettings mouse_settings;
 
     private Backends.InterfaceSettings interface_settings;
