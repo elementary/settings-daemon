@@ -115,5 +115,29 @@
     <property name="PrimaryColor" type="s" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="#000000"/>
     </property>
+
+    <property name="NightLightEnabled" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <property name="NightLightLastCoordinates" type="(dd)" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="(91.0, 181.0)"/>
+    </property>
+
+    <property name="NightLightScheduleAutomatic" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
+    </property>
+
+    <property name="NightLightScheduleFrom" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="20"/>
+    </property>
+
+    <property name="NightLightScheduleTo" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="6"/>
+    </property>
+
+    <property name="NightLightTemperature" type="u" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="4500"/>
+    </property>
   </interface>
 </node>

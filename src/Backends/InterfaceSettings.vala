@@ -42,11 +42,6 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
         background_settings = new GLib.Settings ("org.gnome.desktop.background");
 
-        // in case user changes text scaling in greeter session using a11y indicator
-        if (accounts_service.text_scaling_factor != interface_settings.get_double (TEXT_SCALING_FACTOR)) {
-            interface_settings.set_value (TEXT_SCALING_FACTOR, accounts_service.text_scaling_factor);
-        }
-
         sync_gsettings_to_accountsservice ();
         sync_background_to_greeter ();
 
@@ -72,7 +67,6 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 sync_background_to_greeter ();
             }
         });
-
     }
 
     private void sync_gsettings_to_accountsservice () {
