@@ -54,8 +54,8 @@ public interface SettingsDaemon.AccountsService : Object {
 
     /* Night Light */
     public struct Coordinates {
-        public double first;
-        public double second;
+        public double latitude;
+        public double longitude;
     }
 
     public abstract bool night_light_enabled { get; set; }

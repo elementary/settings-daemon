@@ -34,14 +34,14 @@
 
         var last_coordinates_value = night_light_settings.get_value ("night-light-last-coordinates");
         if (last_coordinates_value.is_of_type (GLib.VariantType.TUPLE)) {
-            double first;
-            double second;
+            double latitude;
+            double longitude;
 
-            last_coordinates_value.@get ("(dd)", out first, out second);
+            last_coordinates_value.@get ("(dd)", out latitude, out longitude);
 
             accounts_service.night_light_last_coordinates = AccountsService.Coordinates () {
-                first = first,
-                second = second
+                latitude = latitude,
+                longitude = longitude
             };
         } else {
             warning ("Unknown night light coordinates type, unable to save to AccountsService");
