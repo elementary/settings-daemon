@@ -29,6 +29,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string PRIMARY_COLOR = "primary-color";
 
     public unowned AccountsService accounts_service { get; construct; }
+    public unowned DisplayManager.AccountsService display_manager_accounts_service { get; construct; }
 
     private GLib.Settings interface_settings;
     private GLib.Settings background_settings;
@@ -80,11 +81,17 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     }
 
     private void sync_background_to_greeter () {
+        // File.new_for_uri creates file with broken get_basename method, so do this
+        var wallpaper_uri = background_settings.get_string (PICTURE_URI);
+        var wallpaper_path = File.new_for_uri (wallpaper_uri).get_path ();
+        var source = File.new_for_path (wallpaper_path);
+
         var greeter_data_dir = Path.build_filename (Environment.get_variable ("XDG_GREETER_DATA_DIR"), "wallpaper");
         if (greeter_data_dir == "") {
             greeter_data_dir = Path.build_filename ("/var/lib/lightdm-data/", Environment.get_user_name (), "wallpaper");
         }
         var folder = File.new_for_path (greeter_data_dir);
+        var dest = File.new_for_path (Path.build_filename (greeter_data_dir, source.get_basename ()));
 
         try {
             if (folder.query_exists ()) {
@@ -97,16 +104,15 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 folder.make_directory_with_parents ();
             }
 
-            var source = File.new_for_uri (background_settings.get_string (PICTURE_URI));
-            var dest = File.new_for_path (Path.build_filename (greeter_data_dir, "wallpaper"));
-
             source.copy (dest, FileCopyFlags.OVERWRITE | FileCopyFlags.ALL_METADATA);
-
-            // Ensure wallpaper is readable by greeter user (owner rw, others r)
-            FileUtils.chmod (dest.get_path (), 0604);
         } catch (Error e) {
             warning (e.message);
             return;
         }
+
+        // Ensure wallpaper is readable by greeter user (owner rw, others r)
+        FileUtils.chmod (dest.get_path (), 0604);
+
+        display_manager_accounts_service.background_file = dest.get_path ();
     }
 }

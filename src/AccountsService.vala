@@ -79,6 +79,11 @@ public interface PantheonShell.Pantheon.AccountsService : Object {
     public abstract int prefers_color_scheme { get; set; }
 }
 
+[DBus (name = "org.freedesktop.DisplayManager.AccountsService")]
+public interface DisplayManager.AccountsService : Object {
+    public abstract string background_file { owned get; set; }
+}
+
 [DBus (name = "org.freedesktop.Accounts")]
 public interface SettingsDaemon.FDO.Accounts : Object {
     public abstract string find_user_by_name (string username) throws GLib.Error;
