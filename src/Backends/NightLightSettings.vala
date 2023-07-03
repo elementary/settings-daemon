@@ -4,6 +4,14 @@
  */
 
  public class SettingsDaemon.Backends.NightLightSettings : GLib.Object {
+    private const string NIGHT_LIGHT_SCHEMA = "org.gnome.settings-daemon.plugins.color";
+    private const string NIGHT_LIGHT_ENABLED = "night-light-enabled";
+    private const string NIGHT_LIGHT_LAST_COORDINATES = "night-light-last-coordinates";
+    private const string NIGHT_LIGHT_SCHEDULE_AUTOMATIC = "night-light-schedule-automatic";
+    private const string NIGHT_LIGHT_SCHEDULE_FROM = "night-light-schedule-from";
+    private const string NIGHT_LIGHT_SCHEDULE_TO = "night-light-schedule-to";
+    private const string NIGHT_LIGHT_TEMPERATURE = "night-light-temperature";
+
     public unowned AccountsService accounts_service { get; construct; }
 
     private GLib.Settings night_light_settings;
@@ -13,26 +21,32 @@
     }
 
     construct {
-        night_light_settings = new GLib.Settings ("org.gnome.settings-daemon.plugins.color");
+        var night_light_schema = SettingsSchemaSource.get_default ().lookup (NIGHT_LIGHT_SCHEMA, true);
+        if (night_light_schema == null) {
+            warning ("GSD color not found");
+            return;
+        }
+
+        night_light_settings = new GLib.Settings (NIGHT_LIGHT_SCHEMA);
 
         sync_gsettings_to_accountsservice ();
 
         night_light_settings.changed.connect ((key) => {
-            if (key == "night-light-enabled" ||
-                key == "night-light-last-coordinates" ||
-                key == "night-light-schedule-automatic" ||
-                key == "night-light-schedule-from" ||
-                key == "night-light-schedule-to" ||
-                key == "night-light-temperature") {
+            if (key == NIGHT_LIGHT_ENABLED ||
+                key == NIGHT_LIGHT_LAST_COORDINATES ||
+                key == NIGHT_LIGHT_SCHEDULE_AUTOMATIC ||
+                key == NIGHT_LIGHT_SCHEDULE_FROM ||
+                key == NIGHT_LIGHT_SCHEDULE_TO ||
+                key == NIGHT_LIGHT_TEMPERATURE) {
                 sync_gsettings_to_accountsservice ();
             }
         });
     }
 
     private void sync_gsettings_to_accountsservice () {
-        accounts_service.night_light_enabled = night_light_settings.get_boolean ("night-light-enabled");
+        accounts_service.night_light_enabled = night_light_settings.get_boolean (NIGHT_LIGHT_ENABLED);
 
-        var last_coordinates_value = night_light_settings.get_value ("night-light-last-coordinates");
+        var last_coordinates_value = night_light_settings.get_value (NIGHT_LIGHT_LAST_COORDINATES);
         if (last_coordinates_value.is_of_type (GLib.VariantType.TUPLE)) {
             double latitude;
             double longitude;
@@ -47,9 +61,9 @@
             warning ("Unknown night light coordinates type, unable to save to AccountsService");
         }
 
-        accounts_service.night_light_schedule_automatic = night_light_settings.get_boolean ("night-light-schedule-automatic");
-        accounts_service.night_light_schedule_from = night_light_settings.get_double ("night-light-schedule-from");
-        accounts_service.night_light_schedule_to = night_light_settings.get_double ("night-light-schedule-to");
-        accounts_service.night_light_temperature = night_light_settings.get_uint ("night-light-temperature");
+        accounts_service.night_light_schedule_automatic = night_light_settings.get_boolean (NIGHT_LIGHT_SCHEDULE_AUTOMATIC);
+        accounts_service.night_light_schedule_from = night_light_settings.get_double (NIGHT_LIGHT_SCHEDULE_FROM);
+        accounts_service.night_light_schedule_to = night_light_settings.get_double (NIGHT_LIGHT_SCHEDULE_TO);
+        accounts_service.night_light_temperature = night_light_settings.get_uint (NIGHT_LIGHT_TEMPERATURE);
     }
 }
