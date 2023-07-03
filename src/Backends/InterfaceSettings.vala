@@ -34,8 +34,11 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private GLib.Settings interface_settings;
     private GLib.Settings background_settings;
 
-    public InterfaceSettings (AccountsService accounts_service) {
-        Object (accounts_service: accounts_service);
+    public InterfaceSettings (AccountsService accounts_service, DisplayManager.AccountsService display_manager_accounts_service) {
+        Object (
+            accounts_service: accounts_service,
+            display_manager_accounts_service: display_manager_accounts_service
+        );
     }
 
     construct {
