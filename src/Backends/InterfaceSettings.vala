@@ -36,11 +36,6 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     construct {
         interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
 
-        // in case user changes text scaling in greeter session using a11y indicator
-        if (accounts_service.text_scaling_factor != interface_settings.get_double (TEXT_SCALING_FACTOR)) {
-            interface_settings.set_value (TEXT_SCALING_FACTOR, accounts_service.text_scaling_factor);
-        }
-
         sync_gsettings_to_accountsservice ();
 
         interface_settings.changed.connect ((key) => {
