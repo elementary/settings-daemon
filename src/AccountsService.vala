@@ -48,7 +48,12 @@ public interface SettingsDaemon.AccountsService : Object {
     public abstract bool touchpad_tap_to_click { get; set; }
     public abstract bool touchpad_two_finger_scrolling { get; set; }
 
+    public abstract bool cursor_blink { get; set; }
+    public abstract int cursor_blink_time { get; set; }
+    public abstract int cursor_blink_timeout { get; set; }
     public abstract int cursor_size { get; set; }
+    public abstract bool locate_pointer { get; set; }
+    public abstract double text_scaling_factor { get; set; }
 }
 
 [DBus (name = "io.elementary.pantheon.AccountsService")]
