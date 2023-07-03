@@ -26,7 +26,6 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string TEXT_SCALING_FACTOR = "text-scaling-factor";
     private const string PICTURE_OPTIONS = "picture-options";
     private const string PICTURE_URI = "picture-uri";
-    private const string PICTURE_URI_DARK = "picture-uri-dark";
     private const string PRIMARY_COLOR = "primary-color";
 
     public unowned AccountsService accounts_service { get; construct; }
@@ -62,8 +61,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 sync_gsettings_to_accountsservice ();
                 return;
             }
-            if (key == PICTURE_URI ||
-                key == PICTURE_URI_DARK) {
+            if (key == PICTURE_URI) {
                 sync_background_to_greeter ();
             }
         });
@@ -83,7 +81,9 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
 
     private void sync_background_to_greeter () {
         // File.new_for_uri creates file with broken get_basename method, so do this
-        var source = File.new_for_path (File.new_for_uri (background_settings.get_string (PICTURE_URI)).get_parse_name ());
+        var wallpaper_uri = background_settings.get_string (PICTURE_URI);
+        var wallpaper_path = File.new_for_uri (wallpaper_uri).get_path ();
+        var source = File.new_for_path (wallpaper_path);
 
         var greeter_data_dir = Path.build_filename (Environment.get_variable ("XDG_GREETER_DATA_DIR"), "wallpaper");
         if (greeter_data_dir == "") {
