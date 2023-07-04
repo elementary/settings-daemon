@@ -84,34 +84,26 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     }
 
     private void sync_background_to_greeter () {
-        // File.new_for_uri creates file with broken get_basename method, so do this
-        var wallpaper_uri = background_settings.get_string (PICTURE_URI);
-        var wallpaper_path = File.new_for_uri (wallpaper_uri).get_path ();
-        var source = File.new_for_path (wallpaper_path);
+        var source = File.new_for_uri (background_settings.get_string (PICTURE_URI));
+        var wallpaper_name = source.get_basename ();
 
         var greeter_data_dir = Environment.get_variable ("XDG_GREETER_DATA_DIR") ?? Path.build_filename ("/var/lib/lightdm-data", Environment.get_user_name ());
         var folder = File.new_build_filename (greeter_data_dir, "wallpaper");
 
         try {
-            if (folder.query_exists ()) {
-                var enumerator = folder.enumerate_children ("standard::*", FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
-                FileInfo? info = null;
-                while ((info = enumerator.next_file ()) != null) {
-                    enumerator.get_child (info).@delete ();
-                }
-            } else {
+            if (!folder.query_exists ()) {
                 folder.make_directory_with_parents ();
             }
 
-            source.copy (dest, FileCopyFlags.OVERWRITE | FileCopyFlags.ALL_METADATA);
+            source.copy (folder.get_child (wallpaper_name), FileCopyFlags.OVERWRITE | FileCopyFlags.ALL_METADATA);
         } catch (Error e) {
             warning (e.message);
             return;
         }
 
         // Ensure wallpaper is readable by greeter user (owner rw, others r)
-        FileUtils.chmod (dest.get_path (), 0604);
+        FileUtils.chmod (folder.get_child (wallpaper_name).get_path (), 0604);
 
-        display_manager_accounts_service.background_file = dest.get_path ();
+        display_manager_accounts_service.background_file = folder.get_child (wallpaper_name).get_path ();
     }
 }
