@@ -89,12 +89,8 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         var wallpaper_path = File.new_for_uri (wallpaper_uri).get_path ();
         var source = File.new_for_path (wallpaper_path);
 
-        var greeter_data_dir = Path.build_filename (Environment.get_variable ("XDG_GREETER_DATA_DIR"), "wallpaper");
-        if (greeter_data_dir == "") {
-            greeter_data_dir = Path.build_filename ("/var/lib/lightdm-data/", Environment.get_user_name (), "wallpaper");
-        }
-        var folder = File.new_for_path (greeter_data_dir);
-        var dest = File.new_for_path (Path.build_filename (greeter_data_dir, source.get_basename ()));
+        var greeter_data_dir = Environment.get_variable ("XDG_GREETER_DATA_DIR") ?? Path.build_filename ("/var/lib/lightdm-data", Environment.get_user_name ());
+        var folder = File.new_build_filename (greeter_data_dir, "wallpaper");
 
         try {
             if (folder.query_exists ()) {
