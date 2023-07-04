@@ -85,6 +85,11 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
 
     private void sync_background_to_greeter () {
         var source = File.new_for_uri (background_settings.get_string (PICTURE_URI));
+        if (!FileUtils.test (source.get_path (), EXISTS)) {
+            display_manager_accounts_service.background_file = "";
+            return;
+        }
+
         var wallpaper_name = source.get_basename ();
 
         var greeter_data_dir = Environment.get_variable ("XDG_GREETER_DATA_DIR") ?? Path.build_filename ("/var/lib/lightdm-data", Environment.get_user_name ());
