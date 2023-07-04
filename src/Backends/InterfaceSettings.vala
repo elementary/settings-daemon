@@ -101,14 +101,15 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
             }
 
             source.copy (folder.get_child (wallpaper_name), FileCopyFlags.OVERWRITE | FileCopyFlags.ALL_METADATA);
+
+            // Ensure wallpaper is readable by greeter user (owner rw, others r)
+            FileUtils.chmod (folder.get_child (wallpaper_name).get_path (), 0604);
+
+            display_manager_accounts_service.background_file = folder.get_child (wallpaper_name).get_path ();
         } catch (Error e) {
             warning (e.message);
+            display_manager_accounts_service.background_file = "";
             return;
         }
-
-        // Ensure wallpaper is readable by greeter user (owner rw, others r)
-        FileUtils.chmod (folder.get_child (wallpaper_name).get_path (), 0604);
-
-        display_manager_accounts_service.background_file = folder.get_child (wallpaper_name).get_path ();
     }
 }
