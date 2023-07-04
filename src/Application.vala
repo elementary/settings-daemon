@@ -173,7 +173,7 @@ public class SettingsDaemon.Application : GLib.Application {
             warning ("Unable to get AccountsService proxy, background file might be incorrect");
         }
 
-        if (display_manager_accounts_service != null) {
+        if (accounts_service != null && display_manager_accounts_service != null) {
             interface_settings = new Backends.InterfaceSettings (accounts_service, display_manager_accounts_service);
         }
 
