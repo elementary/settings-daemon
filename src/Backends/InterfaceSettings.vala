@@ -24,6 +24,9 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string CURSOR_SIZE = "cursor-size";
     private const string LOCATE_POINTER = "locate-pointer";
     private const string TEXT_SCALING_FACTOR = "text-scaling-factor";
+    private const string DOCUMENT_FONT_NAME = "document-font-name";
+    private const string FONT_NAME = "font-name";
+    private const string MONOSPACE_FONT_NAME = "monospace-font-name";
 
     public unowned AccountsService accounts_service { get; construct; }
 
@@ -44,7 +47,10 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 key == CURSOR_BLINK_TIMEOUT ||
                 key == CURSOR_SIZE ||
                 key == LOCATE_POINTER ||
-                key == TEXT_SCALING_FACTOR) {
+                key == TEXT_SCALING_FACTOR ||
+                key == DOCUMENT_FONT_NAME ||
+                key == FONT_NAME ||
+                key == MONOSPACE_FONT_NAME) {
                 sync_gsettings_to_accountsservice ();
             }
         });
@@ -57,5 +63,8 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         accounts_service.cursor_size = interface_settings.get_int (CURSOR_SIZE);
         accounts_service.locate_pointer = interface_settings.get_boolean (LOCATE_POINTER);
         accounts_service.text_scaling_factor = interface_settings.get_double (TEXT_SCALING_FACTOR);
+        accounts_service.document_font_name = interface_settings.get_string (DOCUMENT_FONT_NAME);
+        accounts_service.font_name = interface_settings.get_string (FONT_NAME);
+        accounts_service.monospace_font_name = interface_settings.get_string (MONOSPACE_FONT_NAME);
     }
 }
