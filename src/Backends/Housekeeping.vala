@@ -167,7 +167,7 @@ public class SettingsDaemon.Backends.Housekeeping : Object {
 
             if (clean_screenshots) {
                 var pictures_dir = Environment.get_user_special_dir (UserDirectory.PICTURES);
-                var screenshots_dir = Path.build_filename (pictures_dir, _("Screenshots"));
+                var screenshots_dir = Path.build_filename (pictures_dir, dgettext ("gala", "Screenshots"));
                 lines += template.printf (screenshots_dir, clean_after_days);
             }
 
