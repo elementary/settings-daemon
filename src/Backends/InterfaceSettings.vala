@@ -88,16 +88,14 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
 
     private void sync_background_to_greeter () {
         var source = File.new_for_uri (background_settings.get_string (PICTURE_URI));
-        var source_dark = File.new_for_uri (background_settings.get_string (PICTURE_URI_DARK));
 
-        if (!FileUtils.test (source.get_path (), EXISTS)) {
+        if (!source.query_exists ()) {
             debug ("Wallpaper path is invalid");
             display_manager_accounts_service.background_file = "";
             return;
         }
 
         var wallpaper_name = "wallpaper";
-        var wallpaper_dark_name = "wallpaper-dark";
 
         var greeter_data_dir = Environment.get_variable ("XDG_GREETER_DATA_DIR") ?? Path.build_filename ("/var/lib/lightdm-data", Environment.get_user_name ());
         var folder = File.new_for_path (greeter_data_dir);
@@ -110,12 +108,6 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
             source.copy (folder.get_child (wallpaper_name), FileCopyFlags.OVERWRITE | FileCopyFlags.ALL_METADATA);
             // Ensure wallpaper is readable by greeter user (owner rw, others r)
             FileUtils.chmod (folder.get_child (wallpaper_name).get_path (), 0604);
-
-            if (FileUtils.test (source_dark.get_path (), EXISTS)) {
-                source_dark.copy (folder.get_child (wallpaper_dark_name), FileCopyFlags.OVERWRITE | FileCopyFlags.ALL_METADATA);
-                // Ensure wallpaper is readable by greeter user (owner rw, others r)
-                FileUtils.chmod (folder.get_child (wallpaper_dark_name).get_path (), 0604);
-            }
 
             display_manager_accounts_service.background_file = folder.get_child (wallpaper_name).get_path ();
         } catch (Error e) {
