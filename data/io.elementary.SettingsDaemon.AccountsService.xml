@@ -116,6 +116,18 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="#000000"/>
     </property>
 
+    <property name="DocumentFontName" type="s" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="Open Sans 10"/>
+    </property>
+
+    <property name="FontName" type="s" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="Inter 9"/>
+    </property>
+
+    <property name="MonospaceFontName" type="s" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="Roboto Mono 10"/>
+    </property>
+
     <property name="NightLightEnabled" type="b" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
     </property>

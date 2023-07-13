@@ -59,6 +59,9 @@ public interface SettingsDaemon.AccountsService : Object {
     public abstract double text_scaling_factor { get; set; }
     public abstract int picture_options { get; set; }
     public abstract string primary_color { owned get; set; }
+    public abstract string document_font_name { owned get; set; }
+    public abstract string font_name { owned get; set; }
+    public abstract string monospace_font_name { owned get; set; }
 
     /* Night Light */
     public struct Coordinates {
