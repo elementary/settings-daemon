@@ -92,7 +92,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
 
         accounts_service.picture_options = background_settings.get_enum (PICTURE_OPTIONS);
         accounts_service.primary_color = background_settings.get_string (PRIMARY_COLOR);
-        
+
         accounts_service.document_font_name = interface_settings.get_string (DOCUMENT_FONT_NAME);
         accounts_service.font_name = interface_settings.get_string (FONT_NAME);
         accounts_service.monospace_font_name = interface_settings.get_string (MONOSPACE_FONT_NAME);
