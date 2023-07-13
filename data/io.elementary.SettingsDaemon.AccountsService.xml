@@ -20,9 +20,116 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="0"/>
     </property>
 
+    <property name="XkbOptions" type="a(s)" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="['grp:alt_shift_toggle']"/>
+    </property>
+
     <property name="LeftHanded" type="b" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
     </property>
 
+    <!--
+      AccelProfile matches org.gnome.desktop.peripherals.mouse accel-profile
+    -->
+
+    <property name="AccelProfile" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0"/>
+    </property>
+
+    <property name="MouseNaturalScroll" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <property name="MouseSpeed" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0.0"/>
+    </property>
+
+    <!--
+      TouchpadClickMethod matches org.gnome.desktop.peripherals.touchpad click-method
+    -->
+
+    <property name="TouchpadClickMethod" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="3"/>
+    </property>
+
+    <property name="TouchpadDisableWhileTyping" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
+    </property>
+
+    <property name="TouchpadEdgeScrolling" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <property name="TouchpadNaturalScroll" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <!--
+      TouchpadSendEvents matches org.gnome.desktop.peripherals.touchpad send-events
+    -->
+
+    <property name="TouchpadSendEvents" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0"/>
+    </property>
+
+    <property name="TouchpadSpeed" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0.0"/>
+    </property>
+
+    <property name="TouchpadTapToClick" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
+    </property>
+
+    <property name="TouchpadTwoFingerScrolling" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
+    </property>
+
+    <property name="CursorBlink" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
+    </property>
+
+    <property name="CursorBlinkTime" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="1200"/>
+    </property>
+
+    <property name="CursorBlinkTimeout" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="10"/>
+    </property>
+
+    <property name="CursorSize" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="24"/>
+    </property>
+
+    <property name="LocatePointer" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <property name="TextScalingFactor" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="1.0"/>
+    </property>
+
+    <property name="NightLightEnabled" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
+    <property name="NightLightLastCoordinates" type="(dd)" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="(91.0, 181.0)"/>
+    </property>
+
+    <property name="NightLightScheduleAutomatic" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
+    </property>
+
+    <property name="NightLightScheduleFrom" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="20"/>
+    </property>
+
+    <property name="NightLightScheduleTo" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="6"/>
+    </property>
+
+    <property name="NightLightTemperature" type="u" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="4500"/>
+    </property>
   </interface>
 </node>

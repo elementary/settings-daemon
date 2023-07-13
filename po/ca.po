@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-21 08:02+0000\n"
-"PO-Revision-Date: 2023-05-24 20:06+0000\n"
+"POT-Creation-Date: 2023-06-07 18:13+0000\n"
+"PO-Revision-Date: 2023-06-15 00:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ca/>\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.17\n"
 
-#: data/settings-daemon.appdata.xml.in:7
+#: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
 msgstr "Dimoni de configuració"
 
-#: data/settings-daemon.appdata.xml.in:8
+#: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
 msgstr "Gestioneu la configuració i les tasques en segon pla"
 
-#: data/settings-daemon.appdata.xml.in:10
+#: data/settings-daemon.metainfo.xml.in:13
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
@@ -35,9 +35,55 @@ msgstr ""
 "Sincronitza la configuració amb el missatge de benvinguda i gestiona tasques "
 "en segon pla, com ara programar l'estil fosc i la neteja."
 
-#: data/settings-daemon.appdata.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:28
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#: data/settings-daemon.metainfo.xml.in:35
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:67
+msgid "New features:"
+msgstr "Característiques noves:"
+
+#: data/settings-daemon.metainfo.xml.in:37
+msgid "Provide accent colors on the settings portal"
+msgstr "Proporciona colors d'accent al portal de configuració"
+
+#: data/settings-daemon.metainfo.xml.in:39
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:71
+msgid "Improvements:"
+msgstr "Millores:"
+
+#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:74
+msgid "Updated translations"
+msgstr "Traduccions actualitzades"
+
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Add First day of the week setting"
+msgstr "Afegeix la configuració del primer dia de la setmana"
+
+#: data/settings-daemon.metainfo.xml.in:55
+msgid "Add left-handed mouse click setting"
+msgstr "Afegeix la configuració de clic del ratolí amb la mà esquerra"
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Don't Housekeep Downloads if it's also Home"
+msgstr "No neteja les descàrregues si també és l'inici"
+
+#: data/settings-daemon.metainfo.xml.in:69
+msgid "Provide the Settings portal"
+msgstr "Proporciona el portal de configuració"
+
+#: data/settings-daemon.metainfo.xml.in:73
+msgid "Remove unused dark style gsettings schema"
+msgstr "Supressió de l'esquema de gsettings d'estil fosc no utilitzat"
+
+#: data/settings-daemon.metainfo.xml.in:81
+msgid "Initial release"
+msgstr "Versió inicial"
 
 #: src/Application.vala:82
 msgid "Firmware Update Available"

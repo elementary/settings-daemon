@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-21 08:02+0000\n"
-"PO-Revision-Date: 2023-05-24 20:06+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"POT-Creation-Date: 2023-06-07 18:13+0000\n"
+"PO-Revision-Date: 2023-06-24 08:07+0000\n"
+"Last-Translator: Corentin Noël <tintou@noel.tf>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/fr/>\n"
 "Language: fr\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.17\n"
 
-#: data/settings-daemon.appdata.xml.in:7
+#: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
 msgstr "Service des paramètres"
 
-#: data/settings-daemon.appdata.xml.in:8
+#: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
 msgstr "Gère les paramètres et les tâches en arrière-plan"
 
-#: data/settings-daemon.appdata.xml.in:10
+#: data/settings-daemon.metainfo.xml.in:13
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
@@ -35,9 +35,57 @@ msgstr ""
 "Synchronise les paramètres avec greeter et gère les tâches en arrière-plan "
 "telles que la mise en place du thème sombre ou le nettoyage automatique."
 
-#: data/settings-daemon.appdata.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:28
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#: data/settings-daemon.metainfo.xml.in:35
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:67
+msgid "New features:"
+msgstr "Nouvelles fonctionnalités :"
+
+#: data/settings-daemon.metainfo.xml.in:37
+msgid "Provide accent colors on the settings portal"
+msgstr "Fournis les couleurs d'accentuation dans le portail des paramètres"
+
+#: data/settings-daemon.metainfo.xml.in:39
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:71
+msgid "Improvements:"
+msgstr "Améliorations :"
+
+#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:74
+msgid "Updated translations"
+msgstr "Mise à jour des traductions"
+
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Add First day of the week setting"
+msgstr "Ajout du premier jour de la semaine dans les paramètres de semaine"
+
+#: data/settings-daemon.metainfo.xml.in:55
+msgid "Add left-handed mouse click setting"
+msgstr "Ajout d'un paramètre de clic de souris pour gaucher"
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Don't Housekeep Downloads if it's also Home"
+msgstr ""
+"Ne pas nettoyer automatiquement le dossier des téléchargements si c'est "
+"aussi le dossier personnel"
+
+#: data/settings-daemon.metainfo.xml.in:69
+msgid "Provide the Settings portal"
+msgstr "Fournis le portail des paramètres"
+
+#: data/settings-daemon.metainfo.xml.in:73
+msgid "Remove unused dark style gsettings schema"
+msgstr "Suppression du schéma gsettings inutilisé du style sombre"
+
+#: data/settings-daemon.metainfo.xml.in:81
+msgid "Initial release"
+msgstr "Version initiale"
 
 #: src/Application.vala:82
 msgid "Firmware Update Available"

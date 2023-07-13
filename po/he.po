@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-21 08:02+0000\n"
-"PO-Revision-Date: 2023-05-24 20:06+0000\n"
+"POT-Creation-Date: 2023-06-07 18:13+0000\n"
+"PO-Revision-Date: 2023-06-10 08:07+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/he/>\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 4.17\n"
 
-#: data/settings-daemon.appdata.xml.in:7
+#: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
 msgstr "סוכן ההגדרות"
 
-#: data/settings-daemon.appdata.xml.in:8
+#: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
 msgstr "ניהול הגדרות ומשימות רקע"
 
-#: data/settings-daemon.appdata.xml.in:10
+#: data/settings-daemon.metainfo.xml.in:13
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
@@ -35,9 +35,55 @@ msgstr ""
 "מסנכרן את ההגדרות למסך קבלת הפנים ומנהל את משימות הרקע כגון תזמון מצב כהה "
 "ותחזוקה."
 
-#: data/settings-daemon.appdata.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:28
 msgid "elementary, Inc."
 msgstr "elementary בע״מ."
+
+#: data/settings-daemon.metainfo.xml.in:35
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:67
+msgid "New features:"
+msgstr "יכולות חדשות:"
+
+#: data/settings-daemon.metainfo.xml.in:37
+msgid "Provide accent colors on the settings portal"
+msgstr "אספקת צבעים משניים בשער ההגדרות"
+
+#: data/settings-daemon.metainfo.xml.in:39
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:71
+msgid "Improvements:"
+msgstr "שיפורים:"
+
+#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:74
+msgid "Updated translations"
+msgstr "התרגומים עודכנו"
+
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Add First day of the week setting"
+msgstr "הוספת הגדרת יום ראשון בשבוע"
+
+#: data/settings-daemon.metainfo.xml.in:55
+msgid "Add left-handed mouse click setting"
+msgstr "הוספת הגדרת לחיצה שמאלית בעכבר"
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Don't Housekeep Downloads if it's also Home"
+msgstr "לא לטפל בפריטים שבהורדות אם זה גם הבית"
+
+#: data/settings-daemon.metainfo.xml.in:69
+msgid "Provide the Settings portal"
+msgstr "אספקת שער ההגדרות"
+
+#: data/settings-daemon.metainfo.xml.in:73
+msgid "Remove unused dark style gsettings schema"
+msgstr "הסרת סכמות gsettings של סגנון כהה שאינן בשימוש"
+
+#: data/settings-daemon.metainfo.xml.in:81
+msgid "Initial release"
+msgstr "מהדורה ראשונית"
 
 #: src/Application.vala:82
 msgid "Firmware Update Available"
