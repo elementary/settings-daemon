@@ -28,7 +28,6 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string PICTURE_OPTIONS = "picture-options";
     private const string PRIMARY_COLOR = "primary-color";
     private const string PICTURE_URI = "picture-uri";
-    private const string PICTURE_URI_DARK = "picture-uri-dark";
 
     private const string DOCUMENT_FONT_NAME = "document-font-name";
     private const string FONT_NAME = "font-name";
@@ -52,7 +51,6 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         background_settings = new GLib.Settings ("org.gnome.desktop.background");
 
         sync_gsettings_to_accountsservice ();
-        sync_background_to_greeter ();
 
         interface_settings.changed.connect ((key) => {
             if (key == CURSOR_BLINK ||
@@ -75,8 +73,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 return;
             }
 
-            if (key == PICTURE_URI ||
-                key == PICTURE_URI_DARK) {
+            if (key == PICTURE_URI) {
                 sync_background_to_greeter ();
             }
         });
