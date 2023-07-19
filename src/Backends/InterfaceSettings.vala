@@ -127,10 +127,10 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
             display_manager_accounts_service.background_file = dest.get_path ();
         } catch (IOError.IS_DIRECTORY e) {
             critical ("Migration failed %s", e.message);
+            display_manager_accounts_service.background_file = "";
         } catch (Error e) {
             warning (e.message);
             display_manager_accounts_service.background_file = "";
-            return;
         }
     }
 
