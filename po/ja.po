@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-07 18:13+0000\n"
+"POT-Creation-Date: 2023-07-20 17:46+0000\n"
 "PO-Revision-Date: 2023-06-08 11:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
@@ -40,8 +40,8 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:35
-#: data/settings-daemon.metainfo.xml.in:52
-#: data/settings-daemon.metainfo.xml.in:67
+#: data/settings-daemon.metainfo.xml.in:54
+#: data/settings-daemon.metainfo.xml.in:69
 msgid "New features:"
 msgstr "新機能:"
 
@@ -49,49 +49,56 @@ msgstr "新機能:"
 msgid "Provide accent colors on the settings portal"
 msgstr "設定ポータルでアクセントカラーの設定を取得できる機能を追加"
 
-#: data/settings-daemon.metainfo.xml.in:39
-#: data/settings-daemon.metainfo.xml.in:58
-#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:38
+msgid ""
+"Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
+"the Login &amp; Lock scren"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:40
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:73
 msgid "Improvements:"
 msgstr "改善点:"
 
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:42
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:76
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/settings-daemon.metainfo.xml.in:54
+#: data/settings-daemon.metainfo.xml.in:56
 msgid "Add First day of the week setting"
 msgstr "週の最初の曜日の設定を追加"
 
-#: data/settings-daemon.metainfo.xml.in:55
+#: data/settings-daemon.metainfo.xml.in:57
 msgid "Add left-handed mouse click setting"
 msgstr "利き手に応じたマウスのクリック設定を追加"
 
-#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:58
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr "“ダウンロード”フォルダーがホームフォルダーでもある場合、自動削除しないように"
+msgstr ""
+"“ダウンロード”フォルダーがホームフォルダーでもある場合、自動削除しないように"
 "修正"
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:71
 msgid "Provide the Settings portal"
 msgstr "設定ポータルを追加"
 
-#: data/settings-daemon.metainfo.xml.in:73
+#: data/settings-daemon.metainfo.xml.in:75
 msgid "Remove unused dark style gsettings schema"
 msgstr "ダークスタイル用の GSettings スキーマが未使用のため削除"
 
-#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:83
 msgid "Initial release"
 msgstr "最初のリリース"
 
-#: src/Application.vala:82
+#: src/Application.vala:88
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "ファームウェアアップデートが利用可能です"
 
-#: src/Application.vala:83
+#: src/Application.vala:89
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
