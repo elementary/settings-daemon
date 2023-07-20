@@ -57,6 +57,8 @@ public interface SettingsDaemon.AccountsService : Object {
     public abstract int cursor_size { get; set; }
     public abstract bool locate_pointer { get; set; }
     public abstract double text_scaling_factor { get; set; }
+    public abstract int picture_options { get; set; }
+    public abstract string primary_color { owned get; set; }
     public abstract string document_font_name { owned get; set; }
     public abstract string font_name { owned get; set; }
     public abstract string monospace_font_name { owned get; set; }
@@ -78,6 +80,11 @@ public interface SettingsDaemon.AccountsService : Object {
 [DBus (name = "io.elementary.pantheon.AccountsService")]
 public interface PantheonShell.Pantheon.AccountsService : Object {
     public abstract int prefers_color_scheme { get; set; }
+}
+
+[DBus (name = "org.freedesktop.DisplayManager.AccountsService")]
+public interface DisplayManager.AccountsService : Object {
+    public abstract string background_file { owned get; set; }
 }
 
 [DBus (name = "org.freedesktop.Accounts")]

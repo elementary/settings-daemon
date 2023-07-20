@@ -24,20 +24,31 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string CURSOR_SIZE = "cursor-size";
     private const string LOCATE_POINTER = "locate-pointer";
     private const string TEXT_SCALING_FACTOR = "text-scaling-factor";
+
+    private const string PICTURE_OPTIONS = "picture-options";
+    private const string PRIMARY_COLOR = "primary-color";
+    private const string PICTURE_URI = "picture-uri";
+
     private const string DOCUMENT_FONT_NAME = "document-font-name";
     private const string FONT_NAME = "font-name";
     private const string MONOSPACE_FONT_NAME = "monospace-font-name";
 
     public unowned AccountsService accounts_service { get; construct; }
+    public unowned DisplayManager.AccountsService display_manager_accounts_service { get; construct; }
 
     private GLib.Settings interface_settings;
+    private GLib.Settings background_settings;
 
-    public InterfaceSettings (AccountsService accounts_service) {
-        Object (accounts_service: accounts_service);
+    public InterfaceSettings (AccountsService accounts_service, DisplayManager.AccountsService display_manager_accounts_service) {
+        Object (
+            accounts_service: accounts_service,
+            display_manager_accounts_service: display_manager_accounts_service
+        );
     }
 
     construct {
         interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
+        background_settings = new GLib.Settings ("org.gnome.desktop.background");
 
         sync_gsettings_to_accountsservice ();
 
@@ -54,6 +65,18 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 sync_gsettings_to_accountsservice ();
             }
         });
+
+        background_settings.changed.connect ((key) => {
+            if (key == PICTURE_OPTIONS ||
+                key == PRIMARY_COLOR) {
+                sync_gsettings_to_accountsservice ();
+                return;
+            }
+
+            if (key == PICTURE_URI) {
+                sync_background_to_greeter ();
+            }
+        });
     }
 
     private void sync_gsettings_to_accountsservice () {
@@ -63,8 +86,71 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         accounts_service.cursor_size = interface_settings.get_int (CURSOR_SIZE);
         accounts_service.locate_pointer = interface_settings.get_boolean (LOCATE_POINTER);
         accounts_service.text_scaling_factor = interface_settings.get_double (TEXT_SCALING_FACTOR);
+
+        accounts_service.picture_options = background_settings.get_enum (PICTURE_OPTIONS);
+        accounts_service.primary_color = background_settings.get_string (PRIMARY_COLOR);
+
         accounts_service.document_font_name = interface_settings.get_string (DOCUMENT_FONT_NAME);
         accounts_service.font_name = interface_settings.get_string (FONT_NAME);
         accounts_service.monospace_font_name = interface_settings.get_string (MONOSPACE_FONT_NAME);
+    }
+
+    private void sync_background_to_greeter () {
+        var source = File.new_for_uri (background_settings.get_string (PICTURE_URI));
+
+        if (!source.query_exists ()) {
+            debug ("Wallpaper path is invalid");
+            display_manager_accounts_service.background_file = "";
+            return;
+        }
+
+        var wallpaper_name = "wallpaper";
+
+        var greeter_data_dir = Environment.get_variable ("XDG_GREETER_DATA_DIR") ?? Path.build_filename ("/var/lib/lightdm-data", Environment.get_user_name ());
+        var folder = File.new_for_path (greeter_data_dir);
+        var dest = folder.get_child (wallpaper_name);
+
+        try {
+            if (!folder.query_exists ()) {
+                folder.make_directory_with_parents ();
+            }
+
+            if (FileUtils.test (dest.get_path (), IS_DIR)) {
+                debug ("Migrating to new wallpaper directory");
+                remove_directory (dest);
+            }
+
+            source.copy (dest, OVERWRITE | ALL_METADATA);
+            // Ensure wallpaper is readable by greeter user (owner rw, others r)
+            FileUtils.chmod (dest.get_path (), 0604);
+
+            display_manager_accounts_service.background_file = dest.get_path ();
+        } catch (IOError.IS_DIRECTORY e) {
+            critical ("Migration failed %s", e.message);
+            display_manager_accounts_service.background_file = "";
+        } catch (Error e) {
+            warning (e.message);
+            display_manager_accounts_service.background_file = "";
+        }
+    }
+
+    private void remove_directory (File directory) {
+        try {
+            var enumerator = directory.enumerate_children (
+                FileAttribute.STANDARD_NAME, NOFOLLOW_SYMLINKS
+            );
+
+            FileInfo file_info;
+            while ((file_info = enumerator.next_file ()) != null) {
+                var file = directory.get_child (file_info.get_name ());
+                if (file_info.get_file_type () == DIRECTORY) {
+                    remove_directory (file);
+                }
+                file.delete ();
+            }
+            directory.delete ();
+        } catch (Error e) {
+            critical ("Couldn't remove directory %s: %s", directory.get_path (), e.message);
+        }
     }
 }
