@@ -34,6 +34,8 @@ public class SettingsDaemon.Application : GLib.Application {
 
     private PantheonShell.Pantheon.AccountsService pantheon_accounts_service;
 
+    private DisplayManager.AccountsService display_manager_accounts_service;
+
     private Backends.KeyboardSettings keyboard_settings;
 
     private Backends.MouseSettings mouse_settings;
@@ -154,8 +156,25 @@ public class SettingsDaemon.Application : GLib.Application {
         if (accounts_service != null) {
             keyboard_settings = new Backends.KeyboardSettings (accounts_service);
             mouse_settings = new Backends.MouseSettings (accounts_service);
-            interface_settings = new Backends.InterfaceSettings (accounts_service);
             night_light_settings = new Backends.NightLightSettings (accounts_service);
+        }
+
+        try {
+            var act_service = yield GLib.Bus.get_proxy<FDO.Accounts> (GLib.BusType.SYSTEM,
+                                                                      "org.freedesktop.Accounts",
+                                                                      "/org/freedesktop/Accounts");
+            var user_path = act_service.find_user_by_name (GLib.Environment.get_user_name ());
+
+            display_manager_accounts_service = yield GLib.Bus.get_proxy (GLib.BusType.SYSTEM,
+                                                                         "org.freedesktop.Accounts",
+                                                                         user_path,
+                                                                         GLib.DBusProxyFlags.GET_INVALIDATED_PROPERTIES);
+        } catch (Error e) {
+            warning ("Unable to get AccountsService proxy, background file might be incorrect");
+        }
+
+        if (accounts_service != null && display_manager_accounts_service != null) {
+            interface_settings = new Backends.InterfaceSettings (accounts_service, display_manager_accounts_service);
         }
 
         try {
