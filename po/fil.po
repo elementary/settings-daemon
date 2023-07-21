@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-07 18:13+0000\n"
+"POT-Creation-Date: 2023-07-20 17:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -35,8 +35,8 @@ msgid "elementary, Inc."
 msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:35
-#: data/settings-daemon.metainfo.xml.in:52
-#: data/settings-daemon.metainfo.xml.in:67
+#: data/settings-daemon.metainfo.xml.in:54
+#: data/settings-daemon.metainfo.xml.in:69
 msgid "New features:"
 msgstr ""
 
@@ -44,49 +44,55 @@ msgstr ""
 msgid "Provide accent colors on the settings portal"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:39
-#: data/settings-daemon.metainfo.xml.in:58
-#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:38
+msgid ""
+"Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
+"the Login &amp; Lock scren"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:40
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:73
 msgid "Improvements:"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:42
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:76
 msgid "Updated translations"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:54
+#: data/settings-daemon.metainfo.xml.in:56
 msgid "Add First day of the week setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:55
+#: data/settings-daemon.metainfo.xml.in:57
 msgid "Add left-handed mouse click setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:58
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:71
 msgid "Provide the Settings portal"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:73
+#: data/settings-daemon.metainfo.xml.in:75
 msgid "Remove unused dark style gsettings schema"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:83
 msgid "Initial release"
 msgstr ""
 
-#: src/Application.vala:82
+#: src/Application.vala:88
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Application.vala:83
+#: src/Application.vala:89
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
