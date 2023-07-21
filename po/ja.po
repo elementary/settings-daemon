@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 17:46+0000\n"
+"POT-Creation-Date: 2023-07-21 09:28+0100\n"
 "PO-Revision-Date: 2023-07-21 08:29+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
@@ -50,10 +50,15 @@ msgid "Provide accent colors on the settings portal"
 msgstr "設定ポータルでアクセントカラーの設定を取得できる機能を追加"
 
 #: data/settings-daemon.metainfo.xml.in:38
+#, fuzzy
+#| msgid ""
+#| "Sync font, mouse, keyboard, nightlight, and some accessibility settings "
+#| "to the Login &amp; Lock scren"
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
-"the Login &amp; Lock scren"
-msgstr "フォント・マウス・キーボード・夜間モード・一部アクセシビリティー設定が、ログ"
+"the Login &amp; Lock screen"
+msgstr ""
+"フォント・マウス・キーボード・夜間モード・一部アクセシビリティー設定が、ログ"
 "イン・ロック画面と同期するように変更"
 
 #: data/settings-daemon.metainfo.xml.in:40

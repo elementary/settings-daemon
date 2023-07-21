@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 17:46+0000\n"
+"POT-Creation-Date: 2023-07-21 09:28+0100\n"
 "PO-Revision-Date: 2022-05-07 01:26+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/desktop/settings-"
@@ -50,7 +50,7 @@ msgstr ""
 #: data/settings-daemon.metainfo.xml.in:38
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
-"the Login &amp; Lock scren"
+"the Login &amp; Lock screen"
 msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:40
