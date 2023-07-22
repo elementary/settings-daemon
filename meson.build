@@ -2,6 +2,7 @@ project('io.elementary.settings-daemon',
     'c', 'vala',
     version: '1.3.0',
     license: 'GPL3',
+    meson_version: '>= 0.54.0',
 )
 
 fwupd_dep = dependency('fwupd')
@@ -46,6 +47,7 @@ config_dep = declare_dependency(
 
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
+sysconfdir = get_option('sysconfdir')
 
 symlink = join_paths(meson.current_source_dir (), 'meson', 'create-symlink.sh')
 
