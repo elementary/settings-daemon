@@ -1,12 +1,12 @@
 install_data(
     'autostart.desktop',
-    install_dir: join_paths(get_option('datadir'), 'applications'),
+    install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'applications'),
     rename: meson.project_name() + '.desktop'
 )
 
 meson.add_install_script(
     symlink,
-    join_paths(get_option('datadir'), 'applications', meson.project_name() + '.desktop'),
+    join_paths(get_option('prefix'), get_option('datadir'), 'applications', meson.project_name() + '.desktop'),
     join_paths(get_option('sysconfdir'), 'xdg', 'autostart', meson.project_name() + '.desktop'),
 )
 
