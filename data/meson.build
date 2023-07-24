@@ -1,13 +1,13 @@
 install_data(
     'autostart.desktop',
-    install_dir: prefix / data_dir / 'applications',
+    install_dir: datadir / 'applications',
     rename: meson.project_name() + '.desktop'
 )
 
-meson.add_install_script(
-    symlink,
-    join_paths(get_option('prefix'), get_option('datadir'), 'applications', meson.project_name() + '.desktop'),
-    join_paths(get_option('sysconfdir'), 'xdg', 'autostart', meson.project_name() + '.desktop'),
+install_symlink(
+    meson.project_name() + '.desktop',
+    install_dir: get_option('sysconfdir') / 'xdg' / 'autostart',
+    pointing_to: datadir / 'applications' / meson.project_name() + '.desktop'
 )
 
 dbus_dep = dependency('dbus-1')
