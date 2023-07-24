@@ -1,6 +1,6 @@
 install_data(
     'autostart.desktop',
-    install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'applications'),
+    install_dir: prefix / data_dir / 'applications',
     rename: meson.project_name() + '.desktop'
 )
 
