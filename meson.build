@@ -28,11 +28,14 @@ cc = meson.get_compiler('c')
 m_dep = cc.find_library('m', required : false)
 libgeoclue_dep = dependency ('libgeoclue-2.0')
 
+prefix = get_option('prefix')
+datadir = prefix / get_option('datadir')
+
 conf_data = configuration_data()
 conf_data.set('PROJECT_NAME', meson.project_name())
 conf_data.set('VERSION', meson.project_version())
 conf_data.set('GETTEXT_PACKAGE', gettext_package)
-conf_data.set('LOCALEDIR', join_paths (get_option('prefix'), get_option('localedir')))
+conf_data.set('LOCALEDIR', prefix / get_option('localedir'))
 
 config_file = configure_file(
     input: 'config.vala.in',
@@ -44,9 +47,6 @@ config_dep = declare_dependency(
     sources: config_file,
     include_directories: include_directories('.')
 )
-
-prefix = get_option('prefix')
-datadir = prefix / get_option('datadir')
 
 symlink = join_paths(meson.current_source_dir (), 'meson', 'create-symlink.sh')
 
