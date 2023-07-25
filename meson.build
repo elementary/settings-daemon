@@ -1,6 +1,6 @@
 project('io.elementary.settings-daemon',
     'c', 'vala',
-    version: '1.3.0',
+    version: '1.3.1',
     license: 'GPL3',
     meson_version: '>=0.58.0'
 )
