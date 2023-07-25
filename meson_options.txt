@@ -1,1 +1,3 @@
+option('busctlpath', type: 'string', value: '', description: 'custom path to busctl executable')
+option('systemdsystemunitdir', type: 'string', value: '', description: 'custom directory for systemd system units, or \'no\' to disable')
 option('systemduserunitdir', type: 'string', value: '', description: 'custom directory for systemd user units, or \'no\' to disable')

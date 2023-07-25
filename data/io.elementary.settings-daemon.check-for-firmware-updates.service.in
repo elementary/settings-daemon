@@ -5,4 +5,4 @@ After=network.target network-online.target systemd-networkd.service NetworkManag
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/busctl --user call io.elementary.settings-daemon /io/elementary/settings_daemon org.freedesktop.Application ActivateAction sava{sv} "check-firmware-updates" 0 0
+ExecStart=@busctl_path@ --user call io.elementary.settings-daemon /io/elementary/settings_daemon org.freedesktop.Application ActivateAction sava{sv} "check-firmware-updates" 0 0
