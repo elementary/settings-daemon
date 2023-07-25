@@ -42,18 +42,33 @@ i18n.merge_file(
     install_dir: get_option('datadir') / 'metainfo',
 )
 
-systemd = dependency('systemd')
-systemd_system_unit_dir = systemd.get_variable('systemdsystemunitdir')
+busctl_path = get_option('busctlpath')
+systemd_system_unit_dir = get_option('systemdsystemunitdir')
 
-install_data(
-    meson.project_name() + '.check-for-firmware-updates.service',
-    install_dir: systemd_system_unit_dir
-)
+if systemd_system_unit_dir != 'no'
+    systemd = dependency('systemd')
+    if systemd_system_unit_dir == ''
+        systemd_system_unit_dir = systemd.get_variable('systemdsystemunitdir', pkgconfig_define: ['rootprefix', prefix])
+    endif
+    if busctl_path == ''
+        busctl_path = systemd.get_variable('prefix') / 'bin' / 'busctl'
+    endif
 
-install_data(
-    meson.project_name() + '.check-for-firmware-updates.timer',
-    install_dir: systemd_system_unit_dir
-)
+    service_config = configuration_data()
+    service_config.set('busctl_path', busctl_path)
+
+    configure_file(
+        input: meson.project_name() + '.check-for-firmware-updates.service.in',
+        output: meson.project_name() + '.check-for-firmware-updates.service',
+        configuration: service_config,
+        install_dir: systemd_system_unit_dir
+    )
+
+    install_data(
+        meson.project_name() + '.check-for-firmware-updates.timer',
+        install_dir: systemd_system_unit_dir
+    )
+endif
 
 icon_sizes = ['24', '32', '48', '64', '128']
 
