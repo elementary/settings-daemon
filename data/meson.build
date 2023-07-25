@@ -1,17 +1,18 @@
 install_data(
     'autostart.desktop',
-    install_dir: join_paths(get_option('datadir'), 'applications'),
+    install_dir: datadir / 'applications',
     rename: meson.project_name() + '.desktop'
 )
 
+fs = import('fs')
 meson.add_install_script(
     symlink,
-    join_paths(get_option('datadir'), 'applications', meson.project_name() + '.desktop'),
-    join_paths(get_option('sysconfdir'), 'xdg', 'autostart', meson.project_name() + '.desktop'),
+    datadir / 'applications' / meson.project_name() + '.desktop',
+    (fs.is_absolute(sysconfdir) ? sysconfdir : (prefix / sysconfdir)) / 'xdg' / 'autostart' / meson.project_name() + '.desktop',
 )
 
 dbus_dep = dependency('dbus-1')
-dbus_interfaces_dir = dbus_dep.get_pkgconfig_variable('interfaces_dir', define_variable: ['datadir', datadir])
+dbus_interfaces_dir = dbus_dep.get_variable('interfaces_dir', pkgconfig_define: ['datadir', datadir])
 
 install_data(
     'io.elementary.SettingsDaemon.AccountsService.xml',
@@ -19,7 +20,7 @@ install_data(
 )
 
 act_dep = dependency('accountsservice')
-act_interfacesdir = act_dep.get_pkgconfig_variable('interfacesdir', define_variable: ['datadir', datadir], default: datadir /'accountsservice' / 'interfaces')
+act_interfacesdir = act_dep.get_variable('interfacesdir', pkgconfig_define: ['datadir', datadir], default_value: datadir /'accountsservice' / 'interfaces')
 
 meson.add_install_script(
     symlink,
@@ -42,7 +43,7 @@ i18n.merge_file(
 )
 
 systemd = dependency('systemd')
-systemd_system_unit_dir = systemd.get_pkgconfig_variable('systemdsystemunitdir')
+systemd_system_unit_dir = systemd.get_variable('systemdsystemunitdir')
 
 install_data(
     meson.project_name() + '.check-for-firmware-updates.service',
@@ -59,12 +60,12 @@ icon_sizes = ['24', '32', '48', '64', '128']
 foreach i : icon_sizes
     install_data(
         join_paths('icons', i + '.svg'),
-        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps'),
+        install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i / 'apps',
         rename: meson.project_name() + '.svg'
     )
     install_data(
         join_paths('icons', i + '.svg'),
-        install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i + '@2', 'apps'),
+        install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i + '@2' / 'apps',
         rename: meson.project_name() + '.svg'
     )
 endforeach

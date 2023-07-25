@@ -1,4 +1,4 @@
-libexec_dir = join_paths(get_option('prefix'), get_option ('libexecdir'))
+libexec_dir = prefix / get_option ('libexecdir')
 
 portal_sources = files(
     'Main.vala',
@@ -26,7 +26,7 @@ if systemd_systemduserunitdir != 'no'
   if systemd_systemduserunitdir == ''
     systemd_dep = dependency('systemd', version: '>= 206', required: false)
     assert(systemd_dep.found(), 'systemd required but not found, please provide a valid systemd user unit dir or disable it')
-    systemd_systemduserunitdir = systemd_dep.get_pkgconfig_variable('systemduserunitdir', define_variable: ['prefix', get_option('prefix')])
+    systemd_systemduserunitdir = systemd_dep.get_variable('systemduserunitdir', pkgconfig_define: ['prefix', prefix])
   endif
 
   configure_file(
@@ -40,7 +40,7 @@ endif
 
 install_data(
     'io.elementary.settings-daemon.portal',
-    install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'xdg-desktop-portal', 'portals')
+    install_dir: datadir / 'xdg-desktop-portal' / 'portals'
 )
 
 configure_file(
@@ -48,5 +48,5 @@ configure_file(
     output: '@BASENAME@',
     configuration: portal_conf_data,
     install: true,
-    install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'dbus-1', 'services')
+    install_dir: datadir / 'dbus-1' / 'services'
 )
