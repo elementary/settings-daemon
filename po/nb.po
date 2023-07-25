@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-21 09:28+0100\n"
-"PO-Revision-Date: 2023-07-08 01:10+0000\n"
+"PO-Revision-Date: 2023-07-26 20:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/nb/>\n"
@@ -52,10 +52,13 @@ msgid "Provide accent colors on the settings portal"
 msgstr "Aksentfarger tilbudt i innstillingsportalen"
 
 #: data/settings-daemon.metainfo.xml.in:38
+#, fuzzy
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
+"Synkroniser skrift, mus, tastatur, nattlys, og noen "
+"tilgjengelighetsinnstillinger i «Innlogging og lås»."
 
 #: data/settings-daemon.metainfo.xml.in:40
 #: data/settings-daemon.metainfo.xml.in:60
