@@ -4,10 +4,10 @@ install_data(
     rename: meson.project_name() + '.desktop'
 )
 
-install_symlink(
-    meson.project_name() + '.desktop',
-    install_dir: get_option('sysconfdir') / 'xdg' / 'autostart',
-    pointing_to: datadir / 'applications' / meson.project_name() + '.desktop'
+meson.add_install_script(
+    symlink,
+    datadir / 'applications' / meson.project_name() + '.desktop',
+    get_option('sysconfdir') / 'xdg' / 'autostart' / meson.project_name() + '.desktop',
 )
 
 dbus_dep = dependency('dbus-1')
