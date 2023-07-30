@@ -1,7 +1,6 @@
 sources = files(
     'AccountsService.vala',
     'Application.vala',
-    'SessionManager.vala',
     'Backends/Housekeeping.vala',
     'Backends/InterfaceSettings.vala',
     'Backends/KeyboardSettings.vala',
