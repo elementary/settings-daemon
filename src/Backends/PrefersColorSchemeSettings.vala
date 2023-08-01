@@ -20,7 +20,7 @@
 */
 
 public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
-    public unowned PantheonShell.Pantheon.AccountsService accounts_service { get; construct; }
+    public unowned Pantheon.AccountsService accounts_service { get; construct; }
 
     private Settings color_settings;
     private double sunrise = -1.0;
@@ -28,7 +28,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
 
     private uint time_id = 0;
 
-    public PrefersColorSchemeSettings (PantheonShell.Pantheon.AccountsService accounts_service) {
+    public PrefersColorSchemeSettings (Pantheon.AccountsService accounts_service) {
         Object (accounts_service: accounts_service);
     }
 

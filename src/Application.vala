@@ -1,119 +1,44 @@
 /*
-* Copyright 2020 elementary, Inc. (https://elementary.io)
-*
-* This program is free software; you can redistribute it and/or
-* modify it under the terms of the GNU General Public
-* License as published by the Free Software Foundation; either
-* version 3 of the License, or (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-* General Public License for more details.
-*
-* You should have received a copy of the GNU General Public
-* License along with this program; if not, write to the
-* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301 USA
-*
-*/
+ * Copyright 2020-2023 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
 
-public class SettingsDaemon.Application : GLib.Application {
-    public const OptionEntry[] OPTIONS = {
-        { "version", 'v', 0, OptionArg.NONE, out show_version, "Display the version", null},
-        { null }
-    };
-
-    public static bool show_version;
-
-    private Application () {}
-
-    private SessionClient? session_client;
-
-    private AccountsService? accounts_service;
-
-    private PantheonShell.Pantheon.AccountsService pantheon_accounts_service;
-
-    private DisplayManager.AccountsService display_manager_accounts_service;
+public sealed class SettingsDaemon.Application : Gtk.Application {
+    private AccountsService accounts_service;
+    private Pantheon.AccountsService pantheon_service;
+    private DisplayManager.AccountsService display_manager_service;
 
     private Backends.KeyboardSettings keyboard_settings;
-
     private Backends.MouseSettings mouse_settings;
 
     private Backends.InterfaceSettings interface_settings;
-
     private Backends.NightLightSettings night_light_settings;
-
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
 
     private Backends.Housekeeping housekeeping;
 
-    construct {
-        application_id = Build.PROJECT_NAME;
+    private const string FDO_ACCOUNTS_NAME = "org.freedesktop.Accounts";
+    private const string FDO_ACCOUNTS_PATH = "/org/freedesktop/Accounts";
 
-        add_main_option_entries (OPTIONS);
-
-        housekeeping = new Backends.Housekeeping ();
-
-        var check_firmware_updates_action = new SimpleAction ("check-firmware-updates", null);
-        check_firmware_updates_action.activate.connect (() => {
-            var fwupd_client = new Fwupd.Client ();
-            var num_updates = 0;
-            try {
-                var devices = fwupd_client.get_devices ();
-                for (int i = 0; i < devices.length; i++) {
-                    var device = devices[i];
-                    if (device.has_flag (Fwupd.DEVICE_FLAG_UPDATABLE)) {
-                        Fwupd.Release? release = null;
-                        try {
-                            var upgrades = fwupd_client.get_upgrades (device.get_id ());
-
-                            if (upgrades != null) {
-                                release = upgrades[0];
-                            }
-                        } catch (Error e) {
-                            warning (e.message);
-                        }
-
-                        if (release != null && device.get_version () != release.get_version ()) {
-                            num_updates++;
-                        }
-                    }
-                }
-            } catch (Error e) {
-                warning (e.message);
-            }
-
-            if (num_updates != 0U) {
-                string title = ngettext ("Firmware Update Available", "Firmware Updates Available", num_updates);
-                string body = ngettext ("%u update is available for your hardware", "%u updates are available for your hardware", num_updates).printf (num_updates);
-
-                var notification = new Notification (title);
-                notification.set_body (body);
-                notification.set_icon (new ThemedIcon ("application-x-firmware"));
-                notification.set_default_action ("app.show-firmware-updates");
-
-                send_notification ("io.elementary.settings-daemon.firmware.updates", notification);
-            } else {
-                withdraw_notification ("io.elementary.settings-daemon.firmware.updates");
-            }
-        });
-
-        var show_firmware_updates_action = new SimpleAction ("show-firmware-updates", null);
-        show_firmware_updates_action.activate.connect (() => {
-            try {
-                Gtk.show_uri_on_window (null, "settings://about/firmware", Gdk.CURRENT_TIME);
-            } catch (Error e) {
-                critical (e.message);
-            }
-        });
-
-        add_action (check_firmware_updates_action);
-        add_action (show_firmware_updates_action);
+    public Application () {
+        Object (
+            application_id: Build.PROJECT_NAME,
+            flags: GLib.ApplicationFlags.IS_SERVICE | GLib.ApplicationFlags.ALLOW_REPLACEMENT,
+            register_session: true
+        );
     }
 
-    public override int handle_local_options (VariantDict options) {
-        if (show_version) {
+    construct {
+        GLib.Intl.setlocale (ALL, "");
+        GLib.Intl.bindtextdomain (Build.GETTEXT_PACKAGE, Build.LOCALEDIR);
+        GLib.Intl.bind_textdomain_codeset (Build.GETTEXT_PACKAGE, "UTF-8");
+        GLib.Intl.textdomain (Build.GETTEXT_PACKAGE);
+
+        add_main_option ("version", 'v', NONE, NONE, "Display the version", null);
+    }
+
+    protected override int handle_local_options (VariantDict options) {
+        if ("version" in options) {
             stdout.printf ("%s\n", Build.VERSION);
             return 0;
         }
@@ -121,101 +46,129 @@ public class SettingsDaemon.Application : GLib.Application {
         return -1;
     }
 
-    public override void activate () {
-        register_with_session_manager.begin ();
-        setup_accountsservice.begin ();
+    protected override void startup () {
+        query_end.connect (() => release ());
+        base.startup ();
 
+        housekeeping = new Backends.Housekeeping ();
+
+        var check_firmware_updates_action = new GLib.SimpleAction ("check-firmware-updates", null);
+        check_firmware_updates_action.activate.connect (check_firmware_updates);
+        add_action (check_firmware_updates_action);
+
+        var show_firmware_updates_action = new GLib.SimpleAction ("show-firmware-updates", null);
+        show_firmware_updates_action.activate.connect (show_firmware_updates);
+        add_action (show_firmware_updates_action);
+
+        setup_accounts_services.begin ();
         hold ();
     }
 
-    private async bool register_with_session_manager () {
-        session_client = yield register_with_session (Build.PROJECT_NAME);
+    private async void setup_accounts_services () {
+        unowned GLib.DBusConnection connection;
+        string path;
 
-        session_client.query_end_session.connect (() => end_session (false));
-        session_client.end_session.connect (() => end_session (false));
-        session_client.stop.connect (() => end_session (true));
-
-        return true;
-    }
-
-    private async void setup_accountsservice () {
         try {
-            var act_service = yield GLib.Bus.get_proxy<FDO.Accounts> (GLib.BusType.SYSTEM,
-                                                                      "org.freedesktop.Accounts",
-                                                                      "/org/freedesktop/Accounts");
-            var user_path = act_service.find_user_by_name (GLib.Environment.get_user_name ());
+            connection = yield GLib.Bus.get (SYSTEM);
 
-            accounts_service = yield GLib.Bus.get_proxy (GLib.BusType.SYSTEM,
-                                                         "org.freedesktop.Accounts",
-                                                         user_path,
-                                                         GLib.DBusProxyFlags.GET_INVALIDATED_PROPERTIES);
-        } catch (Error e) {
-            warning ("Could not connect to AccountsService. Settings will not be synced to the greeter");
-        }
+            var reply = yield connection.call (
+                FDO_ACCOUNTS_NAME, FDO_ACCOUNTS_PATH,
+                FDO_ACCOUNTS_NAME, "FindUserByName",
+                new GLib.Variant.tuple ({ new GLib.Variant.string (GLib.Environment.get_user_name ()) }),
+                new VariantType ("(o)"),
+                NONE,
+                -1
+            );
+            reply.get_child (0, "o", out path);
 
-        if (accounts_service != null) {
+            accounts_service = yield connection.get_proxy (FDO_ACCOUNTS_NAME, path, GET_INVALIDATED_PROPERTIES);
             keyboard_settings = new Backends.KeyboardSettings (accounts_service);
             mouse_settings = new Backends.MouseSettings (accounts_service);
             night_light_settings = new Backends.NightLightSettings (accounts_service);
-        }
-
-        try {
-            var act_service = yield GLib.Bus.get_proxy<FDO.Accounts> (GLib.BusType.SYSTEM,
-                                                                      "org.freedesktop.Accounts",
-                                                                      "/org/freedesktop/Accounts");
-            var user_path = act_service.find_user_by_name (GLib.Environment.get_user_name ());
-
-            display_manager_accounts_service = yield GLib.Bus.get_proxy (GLib.BusType.SYSTEM,
-                                                                         "org.freedesktop.Accounts",
-                                                                         user_path,
-                                                                         GLib.DBusProxyFlags.GET_INVALIDATED_PROPERTIES);
-        } catch (Error e) {
-            warning ("Unable to get AccountsService proxy, background file might be incorrect");
-        }
-
-        if (accounts_service != null && display_manager_accounts_service != null) {
-            interface_settings = new Backends.InterfaceSettings (accounts_service, display_manager_accounts_service);
-        }
-
-        try {
-            var act_service = yield GLib.Bus.get_proxy<FDO.Accounts> (GLib.BusType.SYSTEM,
-                                                                      "org.freedesktop.Accounts",
-                                                                      "/org/freedesktop/Accounts");
-            var user_path = act_service.find_user_by_name (GLib.Environment.get_user_name ());
-
-            pantheon_accounts_service = yield GLib.Bus.get_proxy (GLib.BusType.SYSTEM,
-                                                                  "org.freedesktop.Accounts",
-                                                                  user_path,
-                                                                  GLib.DBusProxyFlags.GET_INVALIDATED_PROPERTIES);
-        } catch (Error e) {
-            warning ("Unable to get AccountsService proxy, color scheme preference may be incorrect");
-        }
-
-        if (pantheon_accounts_service != null) {
-            prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_accounts_service);
-        }
-    }
-
-    void end_session (bool quit) {
-        if (quit) {
-            release ();
+        } catch {
+            warning ("Could not connect to AccountsService. Settings will not be synced");
             return;
         }
 
         try {
-            session_client.end_session_response (true, "");
-        } catch (Error e) {
-            warning ("Unable to respond to session manager: %s", e.message);
+            display_manager_service = yield connection.get_proxy (FDO_ACCOUNTS_NAME, path, GET_INVALIDATED_PROPERTIES);
+            interface_settings = new Backends.InterfaceSettings (accounts_service, display_manager_service);
+        } catch {
+            warning ("Unable to get LightDM's AccountsService proxy, background file might be incorrect");
+        }
+
+        try {
+            pantheon_service = yield connection.get_proxy (FDO_ACCOUNTS_NAME, path, GET_INVALIDATED_PROPERTIES);
+            prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_service);
+        } catch {
+            warning ("Unable to get pantheon's AccountsService proxy, color scheme preference may be incorrect");
         }
     }
 
-    public static int main (string[] args) {
-        GLib.Intl.setlocale (LocaleCategory.ALL, "");
-        GLib.Intl.bindtextdomain (Build.GETTEXT_PACKAGE, Build.LOCALEDIR);
-        GLib.Intl.bind_textdomain_codeset (Build.GETTEXT_PACKAGE, "UTF-8");
-        GLib.Intl.textdomain (Build.GETTEXT_PACKAGE);
+    private void check_firmware_updates () {
+        var client = new Fwupd.Client ();
+        var updates = 0;
 
-        var application = new Application ();
-        return application.run (args);
+        try {
+            var devices = client.get_devices ();
+
+            foreach (unowned var device in devices) {
+                if (!device.has_flag (Fwupd.DEVICE_FLAG_UPDATABLE)) {
+                    continue;
+                }
+
+                Fwupd.Release? release = null;
+
+                try {
+                    var upgrades = client.get_upgrades (device.get_id ());
+                    if (upgrades != null) {
+                        release = upgrades[0];
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                    continue;
+                }
+
+                if (release != null && device.get_version () != release.get_version ()) {
+                    updates++;
+                }
+            }
+        } catch (Error e) {
+            warning (e.message);
+        }
+
+        if (updates != 0) {
+            var title = ngettext ("Firmware Update Available", "Firmware Updates Available", updates);
+            var body = ngettext (
+                "%u update is available for your hardware",
+                "%u updates are available for your hardware",
+                updates
+            );
+
+            var notification = new Notification (title);
+            notification.set_body (body.printf (updates));
+            notification.set_icon (new ThemedIcon ("application-x-firmware"));
+            notification.set_default_action ("app.show-firmware-updates");
+
+            send_notification ("firmware.updates", notification);
+        } else {
+            withdraw_notification ("firmware.updates");
+        }
+    }
+
+    private void show_firmware_updates () {
+        var context = Gdk.Display.get_default ().get_app_launch_context ();
+
+        GLib.AppInfo.launch_default_for_uri_async.begin ("settings://about/firmware", context, null, (obj, res) => {
+            try {
+                GLib.AppInfo.launch_default_for_uri_async.end (res);
+            } catch (GLib.Error e) {
+                critical (e.message);
+            }
+        });
+    }
+
+    public static int main (string[] args) {
+        return new SettingsDaemon.Application ().run (args);
     }
 }
