@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-21 09:28+0100\n"
-"PO-Revision-Date: 2023-08-01 16:35+0000\n"
+"PO-Revision-Date: 2023-08-02 18:08+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/nl/>\n"
@@ -87,11 +87,11 @@ msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:75
 msgid "Remove unused dark style gsettings schema"
-msgstr ""
+msgstr "Verwijder ongebruikt donkere stijl gsettings schema"
 
 #: data/settings-daemon.metainfo.xml.in:83
 msgid "Initial release"
-msgstr ""
+msgstr "Eerste release"
 
 #: src/Application.vala:88
 msgid "Firmware Update Available"
