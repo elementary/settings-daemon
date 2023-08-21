@@ -9,6 +9,8 @@ fwupd_dep = dependency('fwupd')
 gio_dep = dependency ('gio-2.0')
 glib_dep = dependency('glib-2.0')
 granite_dep = dependency('granite', version: '>= 5.3.0')
+json_dep = dependency('json-glib-1.0')
+soup_dep = dependency('libsoup-3.0')
 i18n = import('i18n')
 gettext_name = meson.project_name()
 

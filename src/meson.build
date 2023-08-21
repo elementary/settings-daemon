@@ -7,6 +7,7 @@ sources = files(
     'Backends/MouseSettings.vala',
     'Backends/NightLightSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
+    'Backends/WeatherAlerts.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
@@ -19,8 +20,10 @@ executable(
         gio_dep,
         glib_dep,
         granite_dep,
+        json_dep,
         libgeoclue_dep,
         m_dep,
+        soup_dep
     ],
     install: true,
 )

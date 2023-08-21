@@ -17,6 +17,8 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
     private Backends.Housekeeping housekeeping;
 
+    private Backends.WeatherAlerts weather_alerts;
+
     private const string FDO_ACCOUNTS_NAME = "org.freedesktop.Accounts";
     private const string FDO_ACCOUNTS_PATH = "/org/freedesktop/Accounts";
 
@@ -51,6 +53,8 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         base.startup ();
 
         housekeeping = new Backends.Housekeeping ();
+
+        weather_alerts = new Backends.WeatherAlerts ();
 
         var check_firmware_updates_action = new GLib.SimpleAction ("check-firmware-updates", null);
         check_firmware_updates_action.activate.connect (check_firmware_updates);
