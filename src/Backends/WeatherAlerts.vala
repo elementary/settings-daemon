@@ -117,7 +117,7 @@ public class SettingsDaemon.Backends.WeatherAlerts : Object {
                 warning ("Failed to parse response as json: %s", e.message);
             }
         } catch (Error e) {
-            critical  ("Failed to send soup message: %s", e.message);
+            critical ("Failed to send soup message: %s", e.message);
         }
     }
 }
