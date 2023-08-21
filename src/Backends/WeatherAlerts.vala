@@ -109,7 +109,7 @@ public class SettingsDaemon.Backends.WeatherAlerts : Object {
                         )
                     );
                     notification.set_icon (new ThemedIcon ("dialog-error"));
-                    notification.set_body (alert_obj.get_string_member ("desc"));
+                    notification.set_body (alert_obj.get_string_member ("headline"));
 
                     app.send_notification (alert_obj.get_string_member ("headline"), notification);
                 });
