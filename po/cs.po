@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-21 09:28+0100\n"
-"PO-Revision-Date: 2022-01-10 18:13+0000\n"
-"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
-"Language-Team: Czech <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/cs/>\n"
+"PO-Revision-Date: 2023-08-30 11:08+0000\n"
+"Last-Translator: Jakub Kyzr <jakubkyzr@gmail.com>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -28,16 +28,12 @@ msgid "Manage settings and background tasks"
 msgstr "Spravovat nastavení a úlohy na pozadí"
 
 #: data/settings-daemon.metainfo.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "This process sync settings to the greeter and manages background tasks "
-#| "like scheduling dark mode and Housekeeping."
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
-"Tento proces synchronizuje nastavení na úvodní obrazovku a spravuje úlohy na "
-"pozadí jako je naplánovaná přepnutí do tmavého režimu a Údržba."
+"Synchronizuje nastavení na úvodní obrazovku a spravuje úlohy na pozadí jako "
+"je naplánovaná přepnutí do tmavého stylu a Údržba."
 
 #: data/settings-daemon.metainfo.xml.in:28
 msgid "elementary, Inc."
@@ -47,65 +43,67 @@ msgstr "elementary, Inc."
 #: data/settings-daemon.metainfo.xml.in:54
 #: data/settings-daemon.metainfo.xml.in:69
 msgid "New features:"
-msgstr ""
+msgstr "Nové funkce:"
 
 #: data/settings-daemon.metainfo.xml.in:37
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "Poskytnutí barev zvýraznění na portálu nastavení"
 
 #: data/settings-daemon.metainfo.xml.in:38
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
+"Synchronizace písma, myši, klávesnice, nočního světla, a nějakých nastavení "
+"zpřístupnění do Přihlašovací a Zamykací obrazovky"
 
 #: data/settings-daemon.metainfo.xml.in:40
 #: data/settings-daemon.metainfo.xml.in:60
 #: data/settings-daemon.metainfo.xml.in:73
 msgid "Improvements:"
-msgstr ""
+msgstr "Vylepšení:"
 
 #: data/settings-daemon.metainfo.xml.in:42
 #: data/settings-daemon.metainfo.xml.in:62
 #: data/settings-daemon.metainfo.xml.in:76
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualizované překlady"
 
 #: data/settings-daemon.metainfo.xml.in:56
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "Přidáno nastavení prvního dne v týdnu"
 
 #: data/settings-daemon.metainfo.xml.in:57
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "Přidána možnost kliknutí myši pro leváky"
 
 #: data/settings-daemon.metainfo.xml.in:58
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
+msgstr "Neuklízet složku Stažené pokud je to zároveň složka Domů"
 
 #: data/settings-daemon.metainfo.xml.in:71
 msgid "Provide the Settings portal"
-msgstr ""
+msgstr "Poskytnutí portálu Nastavení"
 
 #: data/settings-daemon.metainfo.xml.in:75
 msgid "Remove unused dark style gsettings schema"
-msgstr ""
+msgstr "Odstranění nepoužitého schématu gsettings pro tmavý styl"
 
 #: data/settings-daemon.metainfo.xml.in:83
 msgid "Initial release"
-msgstr ""
+msgstr "Prvotní vydání"
 
 #: src/Application.vala:88
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Aktualizace firmwaru dostupná"
+msgstr[1] "Aktualizace firmwaru dostupné"
+msgstr[2] "Aktualizace firmwaru dostupné"
 
 #: src/Application.vala:89
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%u aktualizace je dostupná pro váš hardware"
+msgstr[1] "%u aktualizace jsou dostupné pro váš hardware"
+msgstr[2] "%u aktualizací je dostupných pro váš hardware"
