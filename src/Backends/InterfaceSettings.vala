@@ -33,11 +33,17 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string FONT_NAME = "font-name";
     private const string MONOSPACE_FONT_NAME = "monospace-font-name";
 
+    private const string LAST_COORDINATES = "last-coordinates";
+    private const string PREFER_DARK_SCHEDULE = "prefer-dark-schedule";
+    private const string PREFER_DARK_SCHEDULE_FROM = "prefer-dark-schedule-from";
+    private const string PREFER_DARK_SCHEDULE_TO = "prefer-dark-schedule-to";
+
     public unowned AccountsService accounts_service { get; construct; }
     public unowned DisplayManager.AccountsService display_manager_accounts_service { get; construct; }
 
     private GLib.Settings interface_settings;
     private GLib.Settings background_settings;
+    private GLib.Settings settings_daemon_settings;
 
     public InterfaceSettings (AccountsService accounts_service, DisplayManager.AccountsService display_manager_accounts_service) {
         Object (
@@ -49,6 +55,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     construct {
         interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
         background_settings = new GLib.Settings ("org.gnome.desktop.background");
+        settings_daemon_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
 
         sync_gsettings_to_accountsservice ();
 
@@ -77,6 +84,15 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 sync_background_to_greeter ();
             }
         });
+
+        settings_daemon_settings.changed.connect ((key) => {
+            if (key == LAST_COORDINATES ||
+                key == PREFER_DARK_SCHEDULE ||
+                key == PREFER_DARK_SCHEDULE_FROM || 
+                key == PREFER_DARK_SCHEDULE_TO) {
+                sync_gsettings_to_accountsservice ();
+            } 
+        });
     }
 
     private void sync_gsettings_to_accountsservice () {
@@ -93,6 +109,25 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         accounts_service.document_font_name = interface_settings.get_string (DOCUMENT_FONT_NAME);
         accounts_service.font_name = interface_settings.get_string (FONT_NAME);
         accounts_service.monospace_font_name = interface_settings.get_string (MONOSPACE_FONT_NAME);
+
+        var last_coordinates_value = settings_daemon_settings.get_value (LAST_COORDINATES);
+        if (last_coordinates_value.is_of_type (GLib.VariantType.TUPLE)) {
+            double latitude;
+            double longitude;
+
+            last_coordinates_value.@get ("(dd)", out latitude, out longitude);
+
+            accounts_service.prefer_dark_last_coordinates = AccountsService.Coordinates () {
+                latitude = latitude,
+                longitude = longitude
+            };
+        } else {
+            warning ("Unknown prefer dark coordinates type, unable to save to AccountsService");
+        }
+
+        accounts_service.prefer_dark_schedule = settings_daemon_settings.get_enum (PREFER_DARK_SCHEDULE);
+        accounts_service.prefer_dark_schedule_from = settings_daemon_settings.get_double (PREFER_DARK_SCHEDULE_FROM);
+        accounts_service.prefer_dark_schedule_to = settings_daemon_settings.get_double (PREFER_DARK_SCHEDULE_TO);
     }
 
     private void sync_background_to_greeter () {
