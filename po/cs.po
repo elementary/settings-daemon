@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-21 09:28+0100\n"
+"POT-Creation-Date: 2023-07-30 17:49-0300\n"
 "PO-Revision-Date: 2023-08-30 11:08+0000\n"
 "Last-Translator: Jakub Kyzr <jakubkyzr@gmail.com>\n"
-"Language-Team: Czech <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/cs/>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,17 +39,17 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings-daemon.metainfo.xml.in:35
-#: data/settings-daemon.metainfo.xml.in:54
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:75
 msgid "New features:"
 msgstr "Nové funkce:"
 
-#: data/settings-daemon.metainfo.xml.in:37
+#: data/settings-daemon.metainfo.xml.in:43
 msgid "Provide accent colors on the settings portal"
 msgstr "Poskytnutí barev zvýraznění na portálu nastavení"
 
-#: data/settings-daemon.metainfo.xml.in:38
+#: data/settings-daemon.metainfo.xml.in:44
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -57,39 +57,39 @@ msgstr ""
 "Synchronizace písma, myši, klávesnice, nočního světla, a nějakých nastavení "
 "zpřístupnění do Přihlašovací a Zamykací obrazovky"
 
-#: data/settings-daemon.metainfo.xml.in:40
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:73
+#: data/settings-daemon.metainfo.xml.in:46
+#: data/settings-daemon.metainfo.xml.in:66
+#: data/settings-daemon.metainfo.xml.in:79
 msgid "Improvements:"
 msgstr "Vylepšení:"
 
-#: data/settings-daemon.metainfo.xml.in:42
-#: data/settings-daemon.metainfo.xml.in:62
-#: data/settings-daemon.metainfo.xml.in:76
+#: data/settings-daemon.metainfo.xml.in:48
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:82
 msgid "Updated translations"
 msgstr "Aktualizované překlady"
 
-#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:62
 msgid "Add First day of the week setting"
 msgstr "Přidáno nastavení prvního dne v týdnu"
 
-#: data/settings-daemon.metainfo.xml.in:57
+#: data/settings-daemon.metainfo.xml.in:63
 msgid "Add left-handed mouse click setting"
 msgstr "Přidána možnost kliknutí myši pro leváky"
 
-#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:64
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Neuklízet složku Stažené pokud je to zároveň složka Domů"
 
-#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:77
 msgid "Provide the Settings portal"
 msgstr "Poskytnutí portálu Nastavení"
 
-#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:81
 msgid "Remove unused dark style gsettings schema"
 msgstr "Odstranění nepoužitého schématu gsettings pro tmavý styl"
 
-#: data/settings-daemon.metainfo.xml.in:83
+#: data/settings-daemon.metainfo.xml.in:89
 msgid "Initial release"
 msgstr "Prvotní vydání"
 
