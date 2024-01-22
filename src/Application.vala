@@ -5,8 +5,8 @@
 
 public sealed class SettingsDaemon.Application : Gtk.Application {
     public const string ACTION_PREFIX = "app.";
-    public const string SHOW_UPDATES_ACTION = "show-udpates";
-    public const string SHOW_UPDATES_ERROR_ACTION = "show-udpates-error";
+    public const string SHOW_UPDATES_ACTION = "show-updates";
+    public const string SHOW_UPDATES_ERROR_ACTION = "show-updates-error";
 
     private AccountsService accounts_service;
     private Pantheon.AccountsService pantheon_service;
