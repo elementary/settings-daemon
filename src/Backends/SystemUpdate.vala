@@ -54,15 +54,15 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
         cancellable = new GLib.Cancellable ();
 
-        check_for_updates.begin ();
+        check_for_updates.begin (false, true);
 
         Timeout.add_seconds ((uint) settings.get_int64 ("refresh-interval"), () => {
-            check_for_updates.begin ();
+            check_for_updates.begin (false, true);
             return Source.CONTINUE;
         });
     }
 
-    public async void check_for_updates (bool force = false) throws DBusError, IOError {
+    public async void check_for_updates (bool force, bool notify) throws DBusError, IOError {
         if (current_state.state != UP_TO_DATE && current_state.state != AVAILABLE && !force) {
             return;
         }
@@ -96,12 +96,14 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 0 //FIXME: Is there a way to get update size from PackageKit
             };
 
-            var notification = new Notification (_("Update Available"));
-            notification.set_body (_("A system update is available"));
-            notification.set_icon (new ThemedIcon ("software-update-available"));
-            notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
+            if (notify) {
+                var notification = new Notification (_("Update Available"));
+                notification.set_body (_("A system update is available"));
+                notification.set_icon (new ThemedIcon ("software-update-available"));
+                notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
-            GLib.Application.get_default ().send_notification (null, notification);
+                GLib.Application.get_default ().send_notification (null, notification);
+            }
 
             update_state (AVAILABLE);
         } catch (Error e) {
@@ -134,7 +136,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             update_state (RESTART_REQUIRED);
         } catch (IOError.CANCELLED e) {
             debug ("Updates were cancelled");
-            check_for_updates.begin (true);
+            check_for_updates.begin (true, false);
         } catch (Error e) {
             critical ("Failed to download available updates: %s", e.message);
 
