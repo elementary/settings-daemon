@@ -4,6 +4,9 @@
  */
 
 public sealed class SettingsDaemon.Application : Gtk.Application {
+    public const string ACTION_PREFIX = "app.";
+    public const string SHOW_UPDATES_ACTION = "show-udpates";
+
     private AccountsService accounts_service;
     private Pantheon.AccountsService pantheon_service;
     private DisplayManager.AccountsService display_manager_service;
@@ -59,6 +62,12 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         var show_firmware_updates_action = new GLib.SimpleAction ("show-firmware-updates", null);
         show_firmware_updates_action.activate.connect (show_firmware_updates);
         add_action (show_firmware_updates_action);
+
+        var show_updates_action = new GLib.SimpleAction (SHOW_UPDATES_ACTION, null);
+        show_updates_action.activate.connect (() => {
+            message ("SHOW UPDATES");
+        });
+        add_action (show_updates_action);
 
         setup_accounts_services.begin ();
         hold ();

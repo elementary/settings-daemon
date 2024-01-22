@@ -25,6 +25,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     private Pk.Task task;
     private Pk.PackageSack? available_updates = null;
+    private Error? last_error = null;
 
     construct {
         current_state = {
@@ -35,6 +36,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         task = new Pk.Task () {
             only_download = true
         };
+
         check_for_updates.begin ();
     }
 
@@ -44,6 +46,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         }
 
         update_state (CHECKING);
+
+        try {
+            yield task.refresh_cache_async (false, null, () => {});
+        } catch (Error e) {
+            warning ("Failed to refresh cache: %s", e.message);
+        }
 
         try {
             available_updates = (yield task.get_updates_async (Pk.Filter.NONE, null, () => {})).get_package_sack ();
@@ -63,6 +71,16 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 package_names,
                 0
             };
+
+            string title = ngettext ("Update Available", "Updates Available", available_updates.get_size ());
+            string body = ngettext ("%u update is available for your system", "%u updates are available for your system", available_updates.get_size ()).printf (available_updates.get_size ());
+
+            var notification = new Notification (title);
+            notification.set_body (body);
+            notification.set_icon (new ThemedIcon ("software-update-available"));
+            notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
+
+            GLib.Application.get_default ().send_notification (null, notification);
 
             update_state (AVAILABLE);
         } catch (Error e) {
@@ -89,7 +107,19 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             update_state (RESTART_REQUIRED, 0);
         } catch (Error e) {
-            warning ("Failed to get available updates: %s", e.message);
+            critical ("Failed to download available updates: %s", e.message);
+
+            string title = _("Update failed");
+            string body = _("An Error occured while trying to update your system");
+
+            var notification = new Notification (title);
+            notification.set_body (body);
+            notification.set_icon (new ThemedIcon ("dialog-error"));
+            notification.add_button (_("Show details"), Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
+
+            GLib.Application.get_default ().send_notification (null, notification);
+
+            last_error = e;
 
             //This will also flush any already downloaded updates and disable the offline trigger
             check_for_updates.begin (true);
