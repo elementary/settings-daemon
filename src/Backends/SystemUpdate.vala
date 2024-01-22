@@ -82,6 +82,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         try {
             available_updates = (yield task.get_updates_async (Pk.Filter.NONE, null, progress_callback)).get_package_sack ();
 
+            settings.set_int64 ("last-refresh-time", new DateTime.now_utc ().to_unix ());
+
             if (available_updates == null || available_updates.get_size () == 0) {
                 update_state (UP_TO_DATE);
                 return;
