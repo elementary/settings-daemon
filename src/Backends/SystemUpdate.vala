@@ -124,6 +124,15 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             Pk.offline_trigger (REBOOT);
 
+            string title = _("Restart Required");
+            string body = _("Please restart your system to finalize updates");
+
+            var notification = new Notification (title);
+            notification.set_body (body);
+            notification.set_icon (new ThemedIcon ("system-reboot"));
+
+            GLib.Application.get_default ().send_notification (null, notification);
+
             update_state (RESTART_REQUIRED);
         } catch (Error e) {
             critical ("Failed to download available updates: %s", e.message);
@@ -134,7 +143,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             var notification = new Notification (title);
             notification.set_body (body);
             notification.set_icon (new ThemedIcon ("dialog-error"));
-            notification.add_button (_("Show details"), Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
+            notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ERROR_ACTION);
 
             GLib.Application.get_default ().send_notification (null, notification);
 
@@ -143,6 +152,32 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             //This will also flush any already downloaded updates and disable the offline trigger
             check_for_updates.begin (true);
         }
+    }
+
+    [DBus (visible=false)]
+    public void show_error_details () {
+        if (last_error == null) {
+            return;
+        }
+
+        var message_dialog = new Granite.MessageDialog (
+            _("Failed to download updates"),
+            _("This may have been caused by sideloaded or manually compiled software, a third-party software source, or a package manager error. Manually refreshing updates may resolve the issue."),
+            new ThemedIcon ("dialog-error")
+        );
+        message_dialog.add_button (_("Refresh Updates"), Gtk.ResponseType.ACCEPT);
+
+        message_dialog.show_error_details (last_error.message);
+
+        message_dialog.response.connect ((response_type) => {
+            if (response_type == Gtk.ResponseType.ACCEPT) {
+                check_for_updates.begin (true);
+            }
+
+            message_dialog.destroy ();
+        });
+
+        message_dialog.present ();
     }
 
     private void progress_callback (Pk.Progress progress, Pk.ProgressType progress_type) {
