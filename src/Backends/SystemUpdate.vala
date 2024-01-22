@@ -95,11 +95,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 0
             };
 
-            string title = ngettext ("Update Available", "Updates Available", available_updates.get_size ());
-            string body = ngettext ("%u update is available for your system", "%u updates are available for your system", available_updates.get_size ()).printf (available_updates.get_size ());
-
-            var notification = new Notification (title);
-            notification.set_body (body);
+            var notification = new Notification (_("Update Available"));
+            notification.set_body (_("A system update is available"));
             notification.set_icon (new ThemedIcon ("software-update-available"));
             notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
@@ -124,12 +121,10 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             Pk.offline_trigger (REBOOT);
 
-            string title = _("Restart Required");
-            string body = _("Please restart your system to finalize updates");
-
-            var notification = new Notification (title);
-            notification.set_body (body);
+            var notification = new Notification (_("Restart Required"));
+            notification.set_body (_("Please restart your system to finalize updates"));
             notification.set_icon (new ThemedIcon ("system-reboot"));
+            notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
             GLib.Application.get_default ().send_notification (null, notification);
 
@@ -137,11 +132,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         } catch (Error e) {
             critical ("Failed to download available updates: %s", e.message);
 
-            string title = _("Update failed");
-            string body = _("An Error occured while trying to update your system");
-
-            var notification = new Notification (title);
-            notification.set_body (body);
+            var notification = new Notification (_("Update failed"));
+            notification.set_body (_("An Error occured while trying to update your system"));
             notification.set_icon (new ThemedIcon ("dialog-error"));
             notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ERROR_ACTION);
 

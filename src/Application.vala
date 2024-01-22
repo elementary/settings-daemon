@@ -68,6 +68,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
         var show_updates_action = new GLib.SimpleAction (SHOW_UPDATES_ACTION, null);
         show_updates_action.activate.connect (() => {
+            //TODO: settings uri for updates?
             message ("SHOW UPDATES");
         });
         add_action (show_updates_action);
