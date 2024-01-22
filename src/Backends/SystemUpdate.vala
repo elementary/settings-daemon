@@ -20,8 +20,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     public signal void state_changed ();
 
-    public CurrentState current_state { get; private set; }
-    public UpdateDetails update_details { get; private set; default = UpdateDetails (); }
+    private CurrentState current_state;
+    private UpdateDetails update_details;
 
     private Pk.Task task;
     private Pk.PackageSack? available_updates = null;
@@ -33,6 +33,11 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             0
         };
 
+        update_details = {
+            {},
+            0
+        };
+
         task = new Pk.Task () {
             only_download = true
         };
@@ -40,7 +45,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         check_for_updates.begin ();
     }
 
-    private async void check_for_updates (bool force = false) {
+    public async void check_for_updates (bool force = false) {
         if (current_state.state != UP_TO_DATE && !force) {
             return;
         }
@@ -133,5 +138,13 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         };
 
         state_changed ();
+    }
+
+    public async CurrentState get_current_state () throws DBusError, IOError {
+        return current_state;
+    }
+
+    public async UpdateDetails get_update_details () throws DBusError, IOError {
+        return update_details;
     }
 }

@@ -7,7 +7,7 @@ sources = files(
     'Backends/MouseSettings.vala',
     'Backends/NightLightSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
-    'Backends/SystemUpdate/SystemUpdate.vala',
+    'Backends/SystemUpdate.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
