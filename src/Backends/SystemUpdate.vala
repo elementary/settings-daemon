@@ -28,11 +28,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     public signal void state_changed ();
 
-    private static Settings settings;
-
-    static construct {
-        settings = new GLib.Settings ("io.elementary.settings-daemon.system-updates");
-    }
+    private static Settings settings = new GLib.Settings ("io.elementary.settings-daemon.system-updates");
 
     private CurrentState current_state;
     private UpdateDetails update_details;
