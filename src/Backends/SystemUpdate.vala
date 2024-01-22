@@ -12,7 +12,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         CHECKING,
         AVAILABLE,
         DOWNLOADING,
-        RESTART_REQUIRED
+        RESTART_REQUIRED,
+        ERROR
     }
 
     public struct CurrentState {
@@ -39,7 +40,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     private Pk.Task task;
     private Pk.PackageSack? available_updates = null;
     private GLib.Cancellable cancellable;
-    private Error? last_error = null;
 
     construct {
         current_state = {
@@ -145,45 +145,16 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             var notification = new Notification (_("Update failed"));
             notification.set_body (_("An Error occured while trying to update your system"));
             notification.set_icon (new ThemedIcon ("dialog-error"));
-            notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ERROR_ACTION);
+            notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
             GLib.Application.get_default ().send_notification (null, notification);
 
-            last_error = e;
-
-            //This will also flush any already downloaded updates and disable the offline trigger (I think)
-            check_for_updates.begin (true);
+            update_state (ERROR, e.message);
         }
     }
 
     public void cancel () throws DBusError, IOError {
         cancellable.cancel ();
-    }
-
-    [DBus (visible=false)]
-    public void show_error_details () {
-        if (last_error == null) {
-            return;
-        }
-
-        var message_dialog = new Granite.MessageDialog (
-            _("Failed to download updates"),
-            _("This may have been caused by sideloaded or manually compiled software, a third-party software source, or a package manager error. Manually refreshing updates may resolve the issue."),
-            new ThemedIcon ("dialog-error")
-        );
-        message_dialog.add_button (_("Refresh Updates"), Gtk.ResponseType.ACCEPT);
-
-        message_dialog.show_error_details (last_error.message);
-
-        message_dialog.response.connect ((response_type) => {
-            if (response_type == Gtk.ResponseType.ACCEPT) {
-                check_for_updates.begin (true);
-            }
-
-            message_dialog.destroy ();
-        });
-
-        message_dialog.present ();
     }
 
     private void progress_callback (Pk.Progress progress, Pk.ProgressType progress_type) {

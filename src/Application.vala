@@ -6,7 +6,6 @@
 public sealed class SettingsDaemon.Application : Gtk.Application {
     public const string ACTION_PREFIX = "app.";
     public const string SHOW_UPDATES_ACTION = "show-updates";
-    public const string SHOW_UPDATES_ERROR_ACTION = "show-updates-error";
 
     private AccountsService accounts_service;
     private Pantheon.AccountsService pantheon_service;
@@ -20,8 +19,6 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
 
     private Backends.Housekeeping housekeeping;
-
-    private Backends.SystemUpdate system_update;
 
     private const string FDO_ACCOUNTS_NAME = "org.freedesktop.Accounts";
     private const string FDO_ACCOUNTS_PATH = "/org/freedesktop/Accounts";
@@ -73,10 +70,6 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         });
         add_action (show_updates_action);
 
-        var show_updates_error_action = new GLib.SimpleAction (SHOW_UPDATES_ERROR_ACTION, null);
-        show_updates_error_action.activate.connect (system_update.show_error_details);
-        add_action (show_updates_error_action);
-
         setup_accounts_services.begin ();
         hold ();
     }
@@ -84,8 +77,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     protected override bool dbus_register (DBusConnection connection, string object_path) throws Error {
         base.dbus_register (connection, object_path);
 
-        system_update = new Backends.SystemUpdate ();
-        connection.register_object (object_path, system_update);
+        connection.register_object (object_path, new Backends.SystemUpdate ());
 
         return true;
     }
