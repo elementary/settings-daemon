@@ -38,6 +38,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     private Pk.Task task;
     private Pk.PackageSack? available_updates = null;
+    private GLib.Cancellable cancellable;
     private Error? last_error = null;
 
     construct {
@@ -55,6 +56,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             only_download = true
         };
 
+        cancellable = new GLib.Cancellable ();
+
         check_for_updates.begin ();
 
         Timeout.add_seconds ((uint) settings.get_int64 ("refresh-interval"), () => {
@@ -71,7 +74,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (CHECKING);
 
         try {
-            yield task.refresh_cache_async (false, null, progress_callback);
+            yield task.refresh_cache_async (force, null, progress_callback);
         } catch (Error e) {
             warning ("Failed to refresh cache: %s", e.message);
         }
@@ -114,10 +117,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             return;
         }
 
+        cancellable.reset ();
+
         update_state (DOWNLOADING);
 
         try {
-            yield task.update_packages_async (available_updates.get_ids (), null, progress_callback);
+            yield task.update_packages_async (available_updates.get_ids (), cancellable, progress_callback);
 
             Pk.offline_trigger (REBOOT);
 
@@ -129,6 +134,9 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             GLib.Application.get_default ().send_notification (null, notification);
 
             update_state (RESTART_REQUIRED);
+        } catch (IOError.CANCELLED e) {
+            debug ("Updates were cancelled");
+            check_for_updates.begin (true);
         } catch (Error e) {
             critical ("Failed to download available updates: %s", e.message);
 
@@ -144,6 +152,10 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             //This will also flush any already downloaded updates and disable the offline trigger (I think)
             check_for_updates.begin (true);
         }
+    }
+
+    public void cancel () throws DBusError, IOError {
+        cancellable.cancel ();
     }
 
     [DBus (visible=false)]
