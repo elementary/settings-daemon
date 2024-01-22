@@ -92,7 +92,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             update_details = {
                 package_names,
-                0
+                0 //FIXME: Is there a way to get update size from PackageKit
             };
 
             var notification = new Notification (_("Update Available"));
@@ -141,7 +141,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             last_error = e;
 
-            //This will also flush any already downloaded updates and disable the offline trigger
+            //This will also flush any already downloaded updates and disable the offline trigger (I think)
             check_for_updates.begin (true);
         }
     }
