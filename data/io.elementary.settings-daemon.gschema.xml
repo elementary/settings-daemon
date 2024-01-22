@@ -70,4 +70,12 @@
       <description>The day for calendars to use as the first day of the week</description>
      </key>
   </schema>
+
+  <schema path="/io/elementary/settings-daemon/system-updates/" id="io.elementary.settings-daemon.system-updates">
+    <key type="x" name="refresh-interval">
+      <default>86400</default>
+      <summary>How often to check for updates</summary>
+      <description>How often to check for updates in seconds.</description>
+    </key>
+  </schema>
 </schemalist>

@@ -27,6 +27,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     public signal void state_changed ();
 
+    private static Settings settings;
+
+    static construct {
+        settings = new GLib.Settings ("io.elementary.settings-daemon.system-updates");
+    }
+
     private CurrentState current_state;
     private UpdateDetails update_details;
 
@@ -50,10 +56,15 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         };
 
         check_for_updates.begin ();
+
+        Timeout.add_seconds ((uint) settings.get_int64 ("refresh-interval"), () => {
+            check_for_updates.begin ();
+            return Source.CONTINUE;
+        });
     }
 
-    public async void check_for_updates (bool force = false) {
-        if (current_state.state != UP_TO_DATE && !force) {
+    public async void check_for_updates (bool force = false) throws DBusError, IOError {
+        if (current_state.state != UP_TO_DATE && current_state.state != AVAILABLE && !force) {
             return;
         }
 
@@ -109,7 +120,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (DOWNLOADING);
 
         try {
-            var result = yield task.update_packages_async (available_updates.get_ids (), null, progress_callback);
+            yield task.update_packages_async (available_updates.get_ids (), null, progress_callback);
 
             Pk.offline_trigger (REBOOT);
 
