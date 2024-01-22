@@ -64,6 +64,14 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         hold ();
     }
 
+    protected override bool dbus_register (DBusConnection connection, string object_path) throws Error {
+        base.dbus_register (connection, object_path);
+
+        connection.register_object (object_path, new Backends.SystemUpdate ());
+
+        return true;
+    }
+
     private async void setup_accounts_services () {
         unowned GLib.DBusConnection connection;
         string path;
