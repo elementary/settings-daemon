@@ -1,6 +1,10 @@
 public class SettingsDaemon.Backends.Schedule : Object {
+    public enum Type {
+        MANUAL
+    }
+
     public struct Parsed {
-        int type;
+        Type type;
         HashTable<string, Variant> args;
         HashTable<string, Variant> active_settings;
         HashTable<string, Variant> inactive_settings;

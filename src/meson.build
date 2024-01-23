@@ -7,9 +7,9 @@ sources = files(
     'Backends/MouseSettings.vala',
     'Backends/NightLightSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
-    'Backends/Schedule.vala',
-    'Backends/ScheduleManager.vala',
-    'Backends/ManualSchedule.vala',
+    'Backends' / 'ScheduleManager' / 'ManualSchedule.vala',
+    'Backends' / 'ScheduleManager' / 'Schedule.vala',
+    'Backends' / 'ScheduleManager' / 'ScheduleManager.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
