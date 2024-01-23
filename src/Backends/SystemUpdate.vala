@@ -54,6 +54,16 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
         cancellable = new GLib.Cancellable ();
 
+        try {
+            var last_offline_results = Pk.offline_get_results ();
+
+            if (last_offline_results.get_exit_code () != SUCCESS && last_offline_results.get_error_code () != null) {
+                send_error (last_offline_results.get_error_code ().details);
+            }
+        } catch (Error e) {
+            warning ("Couldn't determine last offline results: %s", e.message);
+        }
+
         check_for_updates.begin (false, true);
 
         Timeout.add_seconds ((uint) settings.get_int64 ("refresh-interval"), () => {
@@ -142,15 +152,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             update_state (RESTART_REQUIRED);
         } catch (Error e) {
             critical ("Failed to download available updates: %s", e.message);
-
-            var notification = new Notification (_("Update failed"));
-            notification.set_body (_("An Error occured while trying to update your system"));
-            notification.set_icon (new ThemedIcon ("dialog-error"));
-            notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
-
-            GLib.Application.get_default ().send_notification (null, notification);
-
-            update_state (ERROR, e.message);
+            send_error (e.message);
         }
     }
 
@@ -160,6 +162,17 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     private void progress_callback (Pk.Progress progress, Pk.ProgressType progress_type) {
         update_state (current_state.state, status_to_title (progress.status));
+    }
+
+    private void send_error (string message) {
+        var notification = new Notification (_("Update failed"));
+        notification.set_body (_("An Error occured while trying to update your system"));
+        notification.set_icon (new ThemedIcon ("dialog-error"));
+        notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
+
+        GLib.Application.get_default ().send_notification (null, notification);
+
+        update_state (ERROR, message);
     }
 
     private void update_state (State state, string message = "") {
