@@ -122,7 +122,13 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (DOWNLOADING);
 
         try {
-            yield task.update_packages_async (available_updates.get_ids (), cancellable, progress_callback);
+            var results = yield task.update_packages_async (available_updates.get_ids (), cancellable, progress_callback);
+
+            if (results.get_exit_code () == CANCELLED) {
+                debug ("Updates were cancelled");
+                check_for_updates.begin (true, false);
+                return;
+            }
 
             Pk.offline_trigger (REBOOT);
 
@@ -134,9 +140,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             GLib.Application.get_default ().send_notification (null, notification);
 
             update_state (RESTART_REQUIRED);
-        } catch (IOError.CANCELLED e) {
-            debug ("Updates were cancelled");
-            check_for_updates.begin (true, false);
         } catch (Error e) {
             critical ("Failed to download available updates: %s", e.message);
 
