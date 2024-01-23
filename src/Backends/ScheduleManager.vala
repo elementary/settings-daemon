@@ -2,6 +2,8 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private const string NIGHT_LIGHT = "night-light";
     private const string DARK_MODE = "dark-mode";
 
+    private static Settings settings = new Settings ("io.elementary.settings-daemon.schedules");
+
     public unowned Pantheon.AccountsService pantheon_service { get; construct; }
 
     private List<Schedule> schedules = new List<Schedule> ();
@@ -11,10 +13,15 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     }
 
     construct {
-        var schedule = new ManualSchedule (0.2, 10);
-        schedule.add_boolean (DARK_MODE, true);
-
-        add_schedule (schedule);
+        foreach (var parsed_schedule in (Schedule.Parsed[]) settings.get_value ("schedules")) {
+            switch (parsed_schedule.type) {
+                case 0:
+                    add_schedule (new ManualSchedule.from_parsed (parsed_schedule));
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     private void add_schedule (Schedule schedule) {

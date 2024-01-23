@@ -1,9 +1,15 @@
 public class SettingsDaemon.Backends.ManualSchedule : Schedule {
-    public double from { get; construct; }
-    public double to { get; construct; }
+    public double from { get; construct set; }
+    public double to { get; construct set; }
 
     public ManualSchedule (double from, double to) {
         Object (from: from, to: to);
+    }
+
+    public ManualSchedule.from_parsed (Parsed parsed) {
+        base.from_parsed (parsed);
+        from = (double) parsed.args["from"];
+        to = (double) parsed.args["to"];
     }
 
     construct {
@@ -33,5 +39,12 @@ public class SettingsDaemon.Backends.ManualSchedule : Schedule {
 
         // AM to AM, PM to PM, AM to PM
         return (time_double >= from && time_double <= to);
+    }
+
+    protected override HashTable<string, Variant> get_private_args () {
+        var result = new HashTable<string, Variant> (str_hash, str_equal);
+        result["from"] = from;
+        result["to"] = to;
+        return result;
     }
 }

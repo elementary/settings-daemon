@@ -70,4 +70,12 @@
       <description>The day for calendars to use as the first day of the week</description>
      </key>
   </schema>
+
+  <schema path="/io/elementary/settings-daemon/schedules/" id="io.elementary.settings-daemon.schedules">
+    <key type="a(ia{sv}a{sv}a{sv})" name="schedules">
+      <default>[]</default>
+      <summary>The current schedules.</summary>
+      <description>a(a{sv}a{sv})</description>
+    </key>
+  </schema>
 </schemalist>
