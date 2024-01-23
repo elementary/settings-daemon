@@ -26,6 +26,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         int size;
     }
 
+    private const string NOTIFICATION_ID = "system-update";
+
     public signal void state_changed ();
 
     private static Settings settings = new GLib.Settings ("io.elementary.settings-daemon.system-updates");
@@ -107,12 +109,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             };
 
             if (notify) {
-                var notification = new Notification (_("Update Available"));
+                var notification = new Notification (_("Update available"));
                 notification.set_body (_("A system update is available"));
                 notification.set_icon (new ThemedIcon ("software-update-available"));
                 notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
-                GLib.Application.get_default ().send_notification (null, notification);
+                GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
             }
 
             update_state (AVAILABLE);
@@ -142,12 +144,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             Pk.offline_trigger (REBOOT);
 
-            var notification = new Notification (_("Restart Required"));
+            var notification = new Notification (_("Restart required"));
             notification.set_body (_("Please restart your system to finalize updates"));
             notification.set_icon (new ThemedIcon ("system-reboot"));
             notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
-            GLib.Application.get_default ().send_notification (null, notification);
+            GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
 
             update_state (RESTART_REQUIRED);
         } catch (Error e) {
@@ -165,12 +167,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     }
 
     private void send_error (string message) {
-        var notification = new Notification (_("Update failed"));
-        notification.set_body (_("An Error occured while trying to update your system"));
+        var notification = new Notification (_("System updates couldn't be installed"));
+        notification.set_body (_("An error occured while trying to update your system"));
         notification.set_icon (new ThemedIcon ("dialog-error"));
         notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
-        GLib.Application.get_default ().send_notification (null, notification);
+        GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
 
         update_state (ERROR, message);
     }
