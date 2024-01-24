@@ -1,8 +1,10 @@
 public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private const string NIGHT_LIGHT = "night-light";
     private const string DARK_MODE = "dark-mode";
+    private const string DND = "dnd";
 
     private static Settings settings = new Settings ("io.elementary.settings-daemon.schedules");
+    private static Settings dnd_settings = new Settings ("io.elementary.notifications");
 
     public unowned Pantheon.AccountsService pantheon_service { get; construct; }
 
@@ -44,6 +46,9 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
                     break;
                 case DARK_MODE:
                     pantheon_service.prefers_color_scheme = ((bool) settings[DARK_MODE]) ? Granite.Settings.ColorScheme.DARK : Granite.Settings.ColorScheme.LIGHT;
+                    break;
+                case DND:
+                    dnd_settings.set_boolean ("do-not-disturb", (bool) settings[DND]);
                     break;
                 default:
                     break;
