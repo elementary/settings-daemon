@@ -46,7 +46,7 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
         }
     }
 
-    public Schedule.Parsed[]  list_schedules () throws DBusError, IOError {
+    public Schedule.Parsed[] list_schedules () throws DBusError, IOError {
         Schedule.Parsed[] parsed_schedules = {};
         foreach (var schedule in schedules.get_values ()) {
             parsed_schedules += schedule.get_parsed ();
