@@ -2,8 +2,11 @@ public class SettingsDaemon.Backends.ManualSchedule : Schedule {
     public double from { get; construct set; }
     public double to { get; construct set; }
 
-    public ManualSchedule (double from, double to) {
-        Object (from: from, to: to);
+    public ManualSchedule (string name, double from, double to) {
+        base ();
+        this.name = name;
+        this.from = from;
+        this.to = to;
     }
 
     public ManualSchedule.from_parsed (Parsed parsed) {

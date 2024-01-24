@@ -30,12 +30,16 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     }
 
     private void add_schedule (Schedule schedule) {
-        schedule.notify["active"].connect (() => {
-            activate_settings (schedule.active ? schedule.active_settings : schedule.inactive_settings);
-        });
-        activate_settings (schedule.active ? schedule.active_settings : schedule.inactive_settings);
+        schedule.notify["active"].connect (() => schedule_active_changed (schedule));
+        schedule_active_changed (schedule);
 
         schedules.append (schedule);
+    }
+
+    private void schedule_active_changed (Schedule schedule) {
+        if (schedule.enabled) {
+            activate_settings (schedule.active ? schedule.active_settings : schedule.inactive_settings);
+        }
     }
 
     public void activate_settings (HashTable<string, Variant> settings) {
