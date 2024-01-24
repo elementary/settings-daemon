@@ -1,3 +1,4 @@
+[DBus (name="io.elementary.settings_daemon.ScheduleManager")]
 public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private const string NIGHT_LIGHT = "night-light";
     private const string DARK_MODE = "dark-mode";
@@ -6,34 +7,87 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private static Settings settings = new Settings ("io.elementary.settings-daemon.schedules");
     private static Settings dnd_settings = new Settings ("io.elementary.notifications");
 
-    public unowned Pantheon.AccountsService pantheon_service { get; construct; }
+    [DBus (visible=false)]
+    public unowned Pantheon.AccountsService? pantheon_service { get; set; }
 
-    private List<Schedule> schedules = new List<Schedule> ();
-
-    public ScheduleManager (Pantheon.AccountsService pantheon_service ) {
-        Object (pantheon_service: pantheon_service);
-    }
+    private HashTable<string, Schedule> schedules = new HashTable<string, Schedule> (str_hash, str_equal);
 
     construct {
         foreach (var parsed_schedule in (Schedule.Parsed[]) settings.get_value ("schedules")) {
-            switch (parsed_schedule.type) {
-                case MANUAL:
-                    add_schedule (new ManualSchedule.from_parsed (parsed_schedule));
-                    break;
-                case DAYLIGHT:
-                    add_schedule (new DaylightSchedule.from_parsed (parsed_schedule));
-                    break;
-                default:
-                    break;
-            }
+            create_schedule_internal (parsed_schedule);
         }
+    }
+
+    public void create_schedule (Schedule.Parsed parsed) throws DBusError, IOError {
+        if (parsed.name in schedules) {
+            throw new IOError.EXISTS ("Schedule with the same name already exists");
+        }
+
+        create_schedule_internal (parsed);
+
+        save_schedules ();
+    }
+
+    private void create_schedule_internal (Schedule.Parsed parsed) {
+        if (parsed.name in schedules) {
+            warning ("Schedule with the same name already exists");
+            return;
+        }
+
+        switch (parsed.type) {
+            case MANUAL:
+                add_schedule (new ManualSchedule.from_parsed (parsed));
+                break;
+            case DAYLIGHT:
+                add_schedule (new DaylightSchedule.from_parsed (parsed));
+                break;
+            default:
+                break;
+        }
+    }
+
+    public Schedule.Parsed[]  list_schedules () throws DBusError, IOError {
+        Schedule.Parsed[] parsed_schedules = {};
+        foreach (var schedule in schedules.get_values ()) {
+            parsed_schedules += schedule.get_parsed ();
+        }
+
+        return parsed_schedules;
+    }
+
+    public void update_schedule (Schedule.Parsed parsed) throws DBusError, IOError {
+        if (!(parsed.name in schedules)) {
+            throw new IOError.NOT_FOUND ("Schedule with the same name not found");
+        }
+
+        var schedule = schedules[parsed.name];
+
+        if (schedule.schedule_type != parsed.type) {
+            schedules.remove (schedule.name);
+            create_schedule_internal (parsed);
+            return;
+        }
+
+        schedule.update (parsed);
+
+        save_schedules ();
+    }
+
+    public void delete_schedule (string name) throws DBusError, IOError {
+        if (!(name in schedules)) {
+            throw new IOError.NOT_FOUND ("Schedule with the same name not found");
+        }
+
+        schedules.remove (name);
+
+        save_schedules ();
     }
 
     private void add_schedule (Schedule schedule) {
         schedule.notify["active"].connect (() => schedule_active_changed (schedule));
         schedule_active_changed (schedule);
 
-        schedules.append (schedule);
+        schedules[schedule.name] = schedule;
     }
 
     private void schedule_active_changed (Schedule schedule) {
@@ -42,14 +96,16 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
         }
     }
 
-    public void activate_settings (HashTable<string, Variant> settings) {
+    private void activate_settings (HashTable<string, Variant> settings) {
         foreach (var key in settings.get_keys ()) {
             switch (key) {
                 case NIGHT_LIGHT:
                     //TODO
                     break;
                 case DARK_MODE:
-                    pantheon_service.prefers_color_scheme = ((bool) settings[DARK_MODE]) ? Granite.Settings.ColorScheme.DARK : Granite.Settings.ColorScheme.LIGHT;
+                    if (pantheon_service != null) {
+                        pantheon_service.prefers_color_scheme = ((bool) settings[DARK_MODE]) ? Granite.Settings.ColorScheme.DARK : Granite.Settings.ColorScheme.LIGHT;
+                    }
                     break;
                 case DND:
                     dnd_settings.set_boolean ("do-not-disturb", (bool) settings[DND]);
@@ -58,5 +114,14 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
                     break;
             }
         }
+    }
+
+    private void save_schedules () {
+        Schedule.Parsed[] parsed_schedules = {};
+        foreach (var schedule in schedules.get_values ()) {
+            parsed_schedules += schedule.get_parsed ();
+        }
+
+        settings.set_value ("schedules", parsed_schedules);
     }
 }

@@ -7,6 +7,7 @@ public class SettingsDaemon.Backends.DaylightSchedule : Schedule {
     }
 
     construct {
+        schedule_type = DAYLIGHT;
         get_location.begin ();
         Timeout.add (1000, time_callback);
     }

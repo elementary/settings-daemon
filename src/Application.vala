@@ -37,6 +37,8 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         GLib.Intl.textdomain (Build.GETTEXT_PACKAGE);
 
         add_main_option ("version", 'v', NONE, NONE, "Display the version", null);
+
+        schedule_manager = new Backends.ScheduleManager ();
     }
 
     protected override int handle_local_options (VariantDict options) {
@@ -64,6 +66,14 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
         setup_accounts_services.begin ();
         hold ();
+    }
+
+    protected override bool dbus_register (DBusConnection connection, string object_path) throws Error {
+        base.dbus_register (connection, object_path);
+
+        connection.register_object (object_path, schedule_manager);
+
+        return true;
     }
 
     private async void setup_accounts_services () {
@@ -102,7 +112,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         try {
             pantheon_service = yield connection.get_proxy (FDO_ACCOUNTS_NAME, path, GET_INVALIDATED_PROPERTIES);
             //  prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_service);
-            schedule_manager = new Backends.ScheduleManager (pantheon_service);
+            schedule_manager.pantheon_service = pantheon_service;
         } catch {
             warning ("Unable to get pantheon's AccountsService proxy, color scheme preference may be incorrect");
         }

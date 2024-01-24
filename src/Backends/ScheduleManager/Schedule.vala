@@ -14,6 +14,7 @@ public class SettingsDaemon.Backends.Schedule : Object {
     }
 
     public string name { get; protected set; }
+    public Type schedule_type { get; construct set; }
     public bool enabled { get; protected set; default = true; }
     public bool active { get; protected set; default = false; }
     public HashTable<string, Variant> active_settings { get; private set; }
@@ -40,13 +41,19 @@ public class SettingsDaemon.Backends.Schedule : Object {
     public Parsed get_parsed () {
         Parsed result = {
             name,
-            0,
+            schedule_type,
             enabled,
             get_private_args (),
             active_settings,
             inactive_settings
         };
         return result;
+    }
+
+    public virtual void update (Schedule.Parsed parsed) {
+        enabled = parsed.enabled;
+        active_settings = parsed.active_settings;
+        inactive_settings = parsed.inactive_settings;
     }
 
     protected virtual HashTable<string, Variant> get_private_args () {

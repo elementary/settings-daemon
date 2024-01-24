@@ -11,6 +11,7 @@ public class SettingsDaemon.Backends.ManualSchedule : Schedule {
 
     public ManualSchedule.from_parsed (Parsed parsed) {
         base.from_parsed (parsed);
+        schedule_type = MANUAL;
         from = (double) parsed.args["from"];
         to = (double) parsed.args["to"];
     }
@@ -42,6 +43,12 @@ public class SettingsDaemon.Backends.ManualSchedule : Schedule {
 
         // AM to AM, PM to PM, AM to PM
         return (time_double >= from && time_double <= to);
+    }
+
+    protected override void update (Schedule.Parsed parsed) {
+        base.update (parsed);
+        from = (double) parsed.args["from"];
+        to = (double) parsed.args["to"];
     }
 
     protected override HashTable<string, Variant> get_private_args () {
