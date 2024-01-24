@@ -1,6 +1,7 @@
 public class SettingsDaemon.Backends.Schedule : Object {
     public enum Type {
-        MANUAL
+        MANUAL,
+        DAYLIGHT
     }
 
     public struct Parsed {

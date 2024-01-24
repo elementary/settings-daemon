@@ -15,8 +15,11 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     construct {
         foreach (var parsed_schedule in (Schedule.Parsed[]) settings.get_value ("schedules")) {
             switch (parsed_schedule.type) {
-                case 0:
+                case MANUAL:
                     add_schedule (new ManualSchedule.from_parsed (parsed_schedule));
+                    break;
+                case DAYLIGHT:
+                    add_schedule (new DaylightSchedule.from_parsed (parsed_schedule));
                     break;
                 default:
                     break;
@@ -37,9 +40,7 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
         foreach (var key in settings.get_keys ()) {
             switch (key) {
                 case NIGHT_LIGHT:
-                    if (((bool?) settings[NIGHT_LIGHT]) != null) {
-                        //  accounts_service.night_light_enabled = (bool) settings[NIGHT_LIGHT];
-                    }
+                    //TODO
                     break;
                 case DARK_MODE:
                     pantheon_service.prefers_color_scheme = ((bool) settings[DARK_MODE]) ? Granite.Settings.ColorScheme.DARK : Granite.Settings.ColorScheme.LIGHT;
