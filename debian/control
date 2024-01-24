@@ -8,6 +8,7 @@ Build-Depends: debhelper (>= 10.5.1),
                libfwupd-dev,
                libgranite-dev,
                libgeoclue-2-dev,
+               libpackagekit-glib2-dev,
                meson,
                valac
 Standards-Version: 4.1.1
