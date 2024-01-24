@@ -26,8 +26,6 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
         }
 
         create_schedule_internal (parsed);
-
-        save_schedules ();
     }
 
     private void create_schedule_internal (Schedule.Parsed parsed) {
@@ -46,6 +44,8 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
             default:
                 break;
         }
+
+        save_schedules ();
     }
 
     public Schedule.Parsed[] list_schedules () throws DBusError, IOError {
