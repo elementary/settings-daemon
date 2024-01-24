@@ -3,9 +3,11 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private const string NIGHT_LIGHT = "night-light";
     private const string DARK_MODE = "dark-mode";
     private const string DND = "dnd";
+    private const string MONOCHROME = "monochrome";
 
     private static Settings settings = new Settings ("io.elementary.settings-daemon.schedules");
     private static Settings dnd_settings = new Settings ("io.elementary.notifications");
+    private static Settings monochrome_settings = new Settings ("io.elementary.desktop.wm.accessibility");
 
     [DBus (visible=false)]
     public unowned Pantheon.AccountsService? pantheon_service { get; set; }
@@ -60,15 +62,8 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
             throw new IOError.NOT_FOUND ("Schedule with the same name not found");
         }
 
-        var schedule = schedules[parsed.name];
-
-        if (schedule.schedule_type != parsed.type) {
-            schedules.remove (schedule.name);
-            create_schedule_internal (parsed);
-            return;
-        }
-
-        schedule.update (parsed);
+        schedules.remove (parsed.name);
+        create_schedule_internal (parsed);
 
         save_schedules ();
     }
@@ -109,6 +104,9 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
                     break;
                 case DND:
                     dnd_settings.set_boolean ("do-not-disturb", (bool) settings[DND]);
+                    break;
+                case MONOCHROME:
+                    monochrome_settings.set_boolean ("enable-monochrome-filter", (bool) settings[MONOCHROME]);
                     break;
                 default:
                     break;
