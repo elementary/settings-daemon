@@ -47,8 +47,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
         update_details = {
             {},
-            0,
-            {}
+            0
         };
 
         task = new Pk.Task () {
