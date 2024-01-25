@@ -23,7 +23,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     public struct UpdateDetails {
         string[] packages;
-        int size;
+        uint64 bytes;
     }
 
     private const string NOTIFICATION_ID = "system-update";
@@ -107,7 +107,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             update_details = {
                 package_names,
-                0 //FIXME: Is there a way to get update size from PackageKit
+                available_updates.get_total_bytes ()
             };
 
             if (notify) {
