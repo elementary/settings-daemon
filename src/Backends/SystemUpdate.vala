@@ -101,10 +101,15 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             string[] package_names = {};
             Pk.Info[] info = {};
+            bool security_updates = false;
 
             foreach (var package in available_updates.get_array ()) {
                 package_names += package.get_name ();
                 info += package.get_info ();
+
+                if (info == SECURITY) {
+                    security_updates = true;
+                }
             }
 
             update_details = {
@@ -115,9 +120,16 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             if (notify) {
                 var notification = new Notification (_("Update available"));
-                notification.set_body (_("A system update is available"));
-                notification.set_icon (new ThemedIcon ("software-update-available"));
                 notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
+
+                if (security_updates) {
+                    notification.set_body (_("A system security update is available"));
+                    notification.set_icon (new ThemedIcon ("software-update-urgent"));
+                    notification.set_priority (HIGH);
+                } else {
+                    notification.set_body (_("A system update is available"));
+                    notification.set_icon (new ThemedIcon ("software-update-available"));
+                }
 
                 GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
             }
