@@ -100,13 +100,14 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             }
 
             string[] package_names = {};
-            Pk.Info[] info = {};
+            Pk.Info[] package_info = {};
             bool security_updates = false;
 
             foreach (var package in available_updates.get_array ()) {
                 package_names += package.get_name ();
-                info += package.get_info ();
 
+                var info = package.get_info ()
+                package_info += info ;
                 if (info == SECURITY) {
                     security_updates = true;
                 }
@@ -115,7 +116,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             update_details = {
                 package_names,
                 0, //FIXME: Is there a way to get update size from PackageKit
-                info
+                package_info
             };
 
             if (notify) {
