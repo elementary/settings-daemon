@@ -61,6 +61,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             if (last_offline_results.get_exit_code () != SUCCESS && last_offline_results.get_error_code () != null) {
                 send_error (last_offline_results.get_error_code ().details);
+            } else {
+                GLib.Application.get_default ().withdraw_notification (NOTIFICATION_ID);
             }
         } catch (Error e) {
             warning ("Couldn't determine last offline results: %s", e.message);
