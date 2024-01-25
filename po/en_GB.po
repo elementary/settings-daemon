@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-24 22:06+0000\n"
+"POT-Creation-Date: 2024-01-25 08:41+0000\n"
 "PO-Revision-Date: 2024-01-25 08:42+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -127,7 +127,9 @@ msgid "System updates couldn't be installed"
 msgstr "System updates couldn't be installed"
 
 #: src/Backends/SystemUpdate.vala:171
-msgid "An error occured while trying to update your system"
+#, fuzzy
+#| msgid "An error occured while trying to update your system"
+msgid "An error occurred while trying to update your system"
 msgstr "An error occurred while trying to update your system"
 
 #: src/Backends/SystemUpdate.vala:193
