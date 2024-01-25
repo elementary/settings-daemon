@@ -106,7 +106,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             foreach (var package in available_updates.get_array ()) {
                 package_names += package.get_name ();
 
-                var info = package.get_info ()
+                var info = package.get_info ();
                 package_info += info ;
                 if (info == SECURITY) {
                     security_updates = true;
