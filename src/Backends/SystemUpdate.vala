@@ -126,7 +126,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 if (security_updates) {
                     notification.set_body (_("A system security update is available"));
                     notification.set_icon (new ThemedIcon ("software-update-urgent"));
-                    notification.set_priority (HIGH);
+                    notification.set_priority (URGENT);
                 } else {
                     notification.set_body (_("A system update is available"));
                     notification.set_icon (new ThemedIcon ("software-update-available"));
