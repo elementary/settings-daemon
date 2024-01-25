@@ -108,6 +108,13 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 0 //FIXME: Is there a way to get update size from PackageKit
             };
 
+            update_state (AVAILABLE);
+
+            if (settings.get_boolean ("automatic-updates")) {
+                update ();
+                return;
+            }
+
             if (notify) {
                 var notification = new Notification (_("Update available"));
                 notification.set_body (_("A system update is available"));
@@ -116,8 +123,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
                 GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
             }
-
-            update_state (AVAILABLE);
         } catch (Error e) {
             warning ("Failed to get available updates: %s", e.message);
             update_state (UP_TO_DATE);
