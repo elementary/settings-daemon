@@ -168,7 +168,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     private void send_error (string message) {
         var notification = new Notification (_("System updates couldn't be installed"));
-        notification.set_body (_("An error occured while trying to update your system"));
+        notification.set_body (_("An error occurred while trying to update your system"));
         notification.set_icon (new ThemedIcon ("dialog-error"));
         notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
