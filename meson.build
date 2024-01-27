@@ -2,7 +2,7 @@ project('io.elementary.settings-daemon',
     'c', 'vala',
     version: '1.3.1',
     license: 'GPL3',
-    meson_version: '>=0.58.0'
+    meson_version: '>=0.59.0'
 )
 
 gnome = import('gnome')
@@ -52,4 +52,4 @@ subdir('po')
 subdir('src')
 subdir('settings-portal')
 
-gnome.post_install(glib_compile_schemas: true)
+gnome.post_install(glib_compile_schemas: true, gtk_update_icon_cache: true, update_desktop_database: true)
