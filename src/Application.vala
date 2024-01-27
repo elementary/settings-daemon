@@ -4,6 +4,9 @@
  */
 
 public sealed class SettingsDaemon.Application : Gtk.Application {
+    public const string ACTION_PREFIX = "app.";
+    public const string SHOW_UPDATES_ACTION = "show-updates";
+
     private AccountsService accounts_service;
     private Pantheon.AccountsService pantheon_service;
     private DisplayManager.AccountsService display_manager_service;
@@ -60,8 +63,22 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         show_firmware_updates_action.activate.connect (show_firmware_updates);
         add_action (show_firmware_updates_action);
 
+        var show_updates_action = new GLib.SimpleAction (SHOW_UPDATES_ACTION, null);
+        show_updates_action.activate.connect (() => {
+            GLib.AppInfo.launch_default_for_uri_async.begin ("settings://about/os", null);
+        });
+        add_action (show_updates_action);
+
         setup_accounts_services.begin ();
         hold ();
+    }
+
+    protected override bool dbus_register (DBusConnection connection, string object_path) throws Error {
+        base.dbus_register (connection, object_path);
+
+        connection.register_object (object_path, new Backends.SystemUpdate ());
+
+        return true;
     }
 
     private async void setup_accounts_services () {

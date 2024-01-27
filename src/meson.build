@@ -7,6 +7,7 @@ sources = files(
     'Backends/MouseSettings.vala',
     'Backends/NightLightSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
+    'Backends/SystemUpdate.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
@@ -21,6 +22,7 @@ executable(
         granite_dep,
         libgeoclue_dep,
         m_dep,
+        pk_dep
     ],
     install: true,
 )
