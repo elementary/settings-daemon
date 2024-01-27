@@ -9,7 +9,7 @@ public class SettingsDaemon.Backends.AccentColorManager : GLib.Object {
         public string name { get; construct set; }
         public string theme { get; construct set; }
         public uint32 color { get; construct set; }
-    
+
         public NamedColor (string name, string theme, uint32 color) {
             Object (
                 name: name,
