@@ -31,8 +31,6 @@ public class SettingsDaemon.Backends.DisplaySettings : GLib.Object {
             return;
         }
 
-        warning ("OwO");
-
         var source = File.new_for_path (monitors_path);
         var greeter_data_dir = Environment.get_variable ("XDG_GREETER_DATA_DIR") ?? Path.build_filename ("/var/lib/lightdm-data", Environment.get_user_name ());
         var folder = File.new_for_path (greeter_data_dir);
