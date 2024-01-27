@@ -80,7 +80,7 @@ public class SettingsDaemon.ColorExtractor : Object {
             double green = pixels[offset + 1];
             double blue = pixels[offset + 2];
 
-            list.add ((uint32) (red * 65536 + green * 16 + blue));
+            list.add ((uint32) (red * 65536 + green * 256 + blue));
         }
 
         return list;
