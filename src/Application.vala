@@ -17,6 +17,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     private Backends.InterfaceSettings interface_settings;
     private Backends.NightLightSettings night_light_settings;
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
+    private Backends.DisplaySettings display_settings;
 
     private Backends.Housekeeping housekeeping;
 
@@ -54,6 +55,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         base.startup ();
 
         housekeeping = new Backends.Housekeeping ();
+        display_settings = new Backends.DisplaySettings ();
 
         var check_firmware_updates_action = new GLib.SimpleAction ("check-firmware-updates", null);
         check_firmware_updates_action.activate.connect (check_firmware_updates);
