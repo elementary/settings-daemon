@@ -33,11 +33,14 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string FONT_NAME = "font-name";
     private const string MONOSPACE_FONT_NAME = "monospace-font-name";
 
+    private const string ORIENTATION_LOCK = "orientation-lock";
+
     public unowned AccountsService accounts_service { get; construct; }
     public unowned DisplayManager.AccountsService display_manager_accounts_service { get; construct; }
 
     private GLib.Settings interface_settings;
     private GLib.Settings background_settings;
+    private GLib.Settings touchscreen_settings;
 
     public InterfaceSettings (AccountsService accounts_service, DisplayManager.AccountsService display_manager_accounts_service) {
         Object (
@@ -49,6 +52,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     construct {
         interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
         background_settings = new GLib.Settings ("org.gnome.desktop.background");
+        touchscreen_settings = new GLib.Settings ("org.gnome.settings-daemon.peripherals.touchscreen");
 
         sync_gsettings_to_accountsservice ();
 
@@ -77,6 +81,8 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 sync_background_to_greeter ();
             }
         });
+
+        touchscreen_settings.changed.connect (sync_gsettings_to_accountsservice);
     }
 
     private void sync_gsettings_to_accountsservice () {
@@ -93,6 +99,8 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         accounts_service.document_font_name = interface_settings.get_string (DOCUMENT_FONT_NAME);
         accounts_service.font_name = interface_settings.get_string (FONT_NAME);
         accounts_service.monospace_font_name = interface_settings.get_string (MONOSPACE_FONT_NAME);
+
+        accounts_service.orientation_lock = touchscreen_settings.get_boolean (ORIENTATION_LOCK);
     }
 
     private void sync_background_to_greeter () {
