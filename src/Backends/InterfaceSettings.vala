@@ -88,10 +88,10 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         settings_daemon_settings.changed.connect ((key) => {
             if (key == LAST_COORDINATES ||
                 key == PREFER_DARK_SCHEDULE ||
-                key == PREFER_DARK_SCHEDULE_FROM || 
+                key == PREFER_DARK_SCHEDULE_FROM ||
                 key == PREFER_DARK_SCHEDULE_TO) {
                 sync_gsettings_to_accountsservice ();
-            } 
+            }
         });
     }
 
