@@ -23,7 +23,7 @@ public class SettingsDaemon.Backends.PowerProfilesSync : GLib.Object {
     private PowerProfile? power_profiles_daemon = null;
 
     construct {
-        settings = new GLib.Settings("io.elementary.settings-daemon.power");
+        settings = new GLib.Settings ("io.elementary.settings-daemon.power");
 
         Bus.watch_name (BusType.SYSTEM, "org.freedesktop.UPower", BusNameWatcherFlags.NONE, on_upower_watch, on_upower_unwatch);
         Bus.watch_name (BusType.SYSTEM, "net.hadess.PowerProfiles", BusNameWatcherFlags.NONE, on_ppd_watch, on_ppd_unwatch);
@@ -43,7 +43,7 @@ public class SettingsDaemon.Backends.PowerProfilesSync : GLib.Object {
 
                     upower.g_properties_changed.connect ((changed_properties) => {
                         for (int i = 0; i < changed_properties.n_children (); i++) {
-                            unowned string property; 
+                            unowned string property;
                             changed_properties.get_child (i, "{&sv}", out property, null);
                             if (property == "OnBattery") {
                                 update_profile ();
@@ -92,7 +92,7 @@ public class SettingsDaemon.Backends.PowerProfilesSync : GLib.Object {
         }
 
         var profile_to_set = settings.get_string (upower.on_battery ? PROFILE_ON_BATTERY : PROFILE_PLUGGED_IN);
-        
+
         var found_profile = false;
         var profiles = power_profiles_daemon.profiles;
         for (int i = 0; i < profiles.length; i++) {
