@@ -1,6 +1,8 @@
 sources = files(
     'AccountsService.vala',
     'Application.vala',
+    'Backends/AccentColor/AccentColorManager.vala',
+    'Backends/AccentColor/ColorExtractor.vala',
     'Backends/Housekeeping.vala',
     'Backends/InterfaceSettings.vala',
     'Backends/KeyboardSettings.vala',
@@ -22,7 +24,8 @@ executable(
         granite_dep,
         libgeoclue_dep,
         m_dep,
-        pk_dep
+        pk_dep,
+        gexiv2_dep
     ],
     install: true,
 )

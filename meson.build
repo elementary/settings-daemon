@@ -10,6 +10,7 @@ gio_dep = dependency ('gio-2.0')
 glib_dep = dependency('glib-2.0')
 granite_dep = dependency('granite', version: '>= 5.3.0')
 pk_dep = dependency('packagekit-glib2')
+gexiv2_dep = dependency('gexiv2')
 i18n = import('i18n')
 gettext_name = meson.project_name()
 
