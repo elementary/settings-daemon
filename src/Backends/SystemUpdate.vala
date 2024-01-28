@@ -24,6 +24,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     public struct UpdateDetails {
         string[] packages;
         int size;
+        Pk.Info[] info;
     }
 
     private const string NOTIFICATION_ID = "system-update";
@@ -47,7 +48,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
         update_details = {
             {},
-            0
+            0,
+            {}
         };
 
         task = new Pk.Task () {
@@ -100,14 +102,17 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             }
 
             string[] package_names = {};
+            Pk.Info[] package_info = {};
 
             foreach (var package in available_updates.get_array ()) {
                 package_names += package.get_name ();
+                package_info += package.get_info ();
             }
 
             update_details = {
                 package_names,
-                0 //FIXME: Is there a way to get update size from PackageKit
+                0, //FIXME: Is there a way to get update size from PackageKit
+                package_info
             };
 
             if (notify) {
