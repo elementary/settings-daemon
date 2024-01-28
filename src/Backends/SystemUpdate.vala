@@ -123,7 +123,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             update_state (AVAILABLE);
 
             if (!force && settings.get_boolean ("automatic-updates")) {
-                update ();
+                update.begin ();
                 return;
             }
 
