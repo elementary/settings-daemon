@@ -8,9 +8,11 @@ You'll need the following dependencies:
 * libaccountsservice-dev
 * libdbus-1-dev
 * libfwupd-dev
+* libgdk-pixbuf2.0-dev
 * libgeoclue-2-dev
+* libgexiv2-dev
 * libgranite-dev
-* libpackagekit-glib2-deb
+* libpackagekit-glib2-dev
 * meson
 * valac
 

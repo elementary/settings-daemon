@@ -1,6 +1,7 @@
 sources = files(
     'AccountsService.vala',
     'Application.vala',
+    'Backends/AccentColorManager.vala',
     'Backends/DisplaySettings.vala',
     'Backends/Housekeeping.vala',
     'Backends/InterfaceSettings.vala',
@@ -21,6 +22,8 @@ executable(
         gio_dep,
         glib_dep,
         granite_dep,
+        gdk_pixbuf_dep,
+        gexiv2_dep,
         libgeoclue_dep,
         m_dep,
         pk_dep
