@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Elementary Settings Daemon
-Comment=Elementary Settings Daemon
+Name=System Settings
+Comment=System Settings background tasks
 Exec=io.elementary.settings-daemon
 Icon=io.elementary.settings-daemon
 Terminal=false
