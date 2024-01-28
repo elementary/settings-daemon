@@ -10,7 +10,7 @@ You'll need the following dependencies:
 * libfwupd-dev
 * libgeoclue-2-dev
 * libgranite-dev
-* libpackagekit-glib2-deb
+* libpackagekit-glib2-dev
 * meson
 * valac
 
