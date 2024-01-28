@@ -17,6 +17,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     private Backends.InterfaceSettings interface_settings;
     private Backends.NightLightSettings night_light_settings;
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
+    private Backends.AccentColorManager accent_color_manager;
 
     private Backends.Housekeeping housekeeping;
 
@@ -117,6 +118,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         try {
             pantheon_service = yield connection.get_proxy (FDO_ACCOUNTS_NAME, path, GET_INVALIDATED_PROPERTIES);
             prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_service);
+            accent_color_manager = new Backends.AccentColorManager (pantheon_service);
         } catch {
             warning ("Unable to get pantheon's AccountsService proxy, color scheme preference may be incorrect");
         }
