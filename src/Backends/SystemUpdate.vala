@@ -24,6 +24,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     public struct UpdateDetails {
         string[] packages;
         int size;
+        Pk.Info[] info;
     }
 
     private const string NOTIFICATION_ID = "system-update";
@@ -47,7 +48,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
         update_details = {
             {},
-            0
+            0,
+            {}
         };
 
         task = new Pk.Task () {
@@ -100,21 +102,36 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             }
 
             string[] package_names = {};
+            Pk.Info[] package_info = {};
+            bool security_updates = false;
 
             foreach (var package in available_updates.get_array ()) {
                 package_names += package.get_name ();
+                package_info += package.get_info ();
+
+                if (package.get_info () == SECURITY) {
+                    security_updates = true;
+                }
             }
 
             update_details = {
                 package_names,
-                0 //FIXME: Is there a way to get update size from PackageKit
+                0, //FIXME: Is there a way to get update size from PackageKit
+                package_info
             };
 
             if (notify) {
                 var notification = new Notification (_("Update available"));
-                notification.set_body (_("A system update is available"));
-                notification.set_icon (new ThemedIcon ("software-update-available"));
                 notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
+
+                if (security_updates) {
+                    notification.set_body (_("A system security update is available"));
+                    notification.set_icon (new ThemedIcon ("software-update-urgent"));
+                    notification.set_priority (HIGH);
+                } else {
+                    notification.set_body (_("A system update is available"));
+                    notification.set_icon (new ThemedIcon ("software-update-available"));
+                }
 
                 GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
             }
