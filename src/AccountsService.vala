@@ -81,6 +81,7 @@ public interface SettingsDaemon.AccountsService : Object {
 [DBus (name = "io.elementary.pantheon.AccountsService")]
 public interface Pantheon.AccountsService : Object {
     public abstract int prefers_color_scheme { get; set; }
+    public abstract int prefers_accent_color { get; set; }
 }
 
 [DBus (name = "org.freedesktop.DisplayManager.AccountsService")]
