@@ -2,7 +2,7 @@
 Type=Application
 Name=System Settings
 Comment=System Settings background tasks
-Exec=io.elementary.settings
+Exec=io.elementary.settings-daemon
 Icon=io.elementary.settings
 Terminal=false
 Categories=System;Core;
