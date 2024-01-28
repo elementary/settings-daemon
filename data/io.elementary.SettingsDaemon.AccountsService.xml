@@ -116,6 +116,10 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="#000000"/>
     </property>
 
+    <property name="GtkTheme" type="u" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="io.elementary.stylesheet.blue"/>
+    </property>
+
     <property name="DocumentFontName" type="s" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="Open Sans 10"/>
     </property>

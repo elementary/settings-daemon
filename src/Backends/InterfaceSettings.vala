@@ -24,6 +24,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string CURSOR_SIZE = "cursor-size";
     private const string LOCATE_POINTER = "locate-pointer";
     private const string TEXT_SCALING_FACTOR = "text-scaling-factor";
+    private const string GTK_THEME = "gtk-theme";
 
     private const string PICTURE_OPTIONS = "picture-options";
     private const string PRIMARY_COLOR = "primary-color";
@@ -59,6 +60,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 key == CURSOR_SIZE ||
                 key == LOCATE_POINTER ||
                 key == TEXT_SCALING_FACTOR ||
+                key == GTK_THEME ||
                 key == DOCUMENT_FONT_NAME ||
                 key == FONT_NAME ||
                 key == MONOSPACE_FONT_NAME) {
@@ -86,6 +88,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         accounts_service.cursor_size = interface_settings.get_int (CURSOR_SIZE);
         accounts_service.locate_pointer = interface_settings.get_boolean (LOCATE_POINTER);
         accounts_service.text_scaling_factor = interface_settings.get_double (TEXT_SCALING_FACTOR);
+        accounts_service.gtk_theme = interface_settings.get_string (GTK_THEME);
 
         accounts_service.picture_options = background_settings.get_enum (PICTURE_OPTIONS);
         accounts_service.primary_color = background_settings.get_string (PRIMARY_COLOR);
