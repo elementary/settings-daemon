@@ -2,8 +2,10 @@ project('io.elementary.settings-daemon',
     'c', 'vala',
     version: '1.3.1',
     license: 'GPL3',
-    meson_version: '>=0.58.0'
+    meson_version: '>=0.59.0'
 )
+
+gnome = import('gnome')
 
 fwupd_dep = dependency('fwupd')
 gio_dep = dependency ('gio-2.0')
@@ -45,11 +47,11 @@ config_dep = declare_dependency(
     include_directories: include_directories('.')
 )
 
-symlink = join_paths(meson.current_source_dir (), 'meson', 'create-symlink.sh')
+symlink = meson.current_source_dir () / 'meson' / 'create-symlink.sh'
 
 subdir('data')
 subdir('po')
 subdir('src')
 subdir('settings-portal')
 
-meson.add_install_script('meson/post_install.py')
+gnome.post_install(glib_compile_schemas: true, gtk_update_icon_cache: true, update_desktop_database: true)
