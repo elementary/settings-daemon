@@ -120,6 +120,13 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 package_info
             };
 
+            update_state (AVAILABLE);
+
+            if (!force && settings.get_boolean ("automatic-updates")) {
+                update.begin ();
+                return;
+            }
+
             if (notify) {
                 var notification = new Notification (_("Update available"));
                 notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
@@ -135,8 +142,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
                 GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
             }
-
-            update_state (AVAILABLE);
         } catch (Error e) {
             warning ("Failed to get available updates: %s", e.message);
             update_state (UP_TO_DATE);
