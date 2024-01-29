@@ -34,6 +34,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string MONOSPACE_FONT_NAME = "monospace-font-name";
 
     private const string LAST_COORDINATES = "last-coordinates";
+    private const string ORIENTATION_LOCK = "orientation-lock";
     private const string PREFER_DARK_SCHEDULE = "prefer-dark-schedule";
     private const string PREFER_DARK_SCHEDULE_FROM = "prefer-dark-schedule-from";
     private const string PREFER_DARK_SCHEDULE_TO = "prefer-dark-schedule-to";
@@ -44,6 +45,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private GLib.Settings interface_settings;
     private GLib.Settings background_settings;
     private GLib.Settings settings_daemon_settings;
+    private GLib.Settings touchscreen_settings;
 
     public InterfaceSettings (AccountsService accounts_service, DisplayManager.AccountsService display_manager_accounts_service) {
         Object (
@@ -56,6 +58,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         interface_settings = new GLib.Settings ("org.gnome.desktop.interface");
         background_settings = new GLib.Settings ("org.gnome.desktop.background");
         settings_daemon_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
+        touchscreen_settings = new GLib.Settings ("org.gnome.settings-daemon.peripherals.touchscreen");
 
         sync_gsettings_to_accountsservice ();
 
@@ -93,6 +96,8 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
                 sync_gsettings_to_accountsservice ();
             }
         });
+
+        touchscreen_settings.changed.connect (sync_gsettings_to_accountsservice);
     }
 
     private void sync_gsettings_to_accountsservice () {
@@ -128,6 +133,8 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         accounts_service.prefer_dark_schedule = settings_daemon_settings.get_enum (PREFER_DARK_SCHEDULE);
         accounts_service.prefer_dark_schedule_from = settings_daemon_settings.get_double (PREFER_DARK_SCHEDULE_FROM);
         accounts_service.prefer_dark_schedule_to = settings_daemon_settings.get_double (PREFER_DARK_SCHEDULE_TO);
+
+        accounts_service.orientation_lock = touchscreen_settings.get_boolean (ORIENTATION_LOCK);
     }
 
     private void sync_background_to_greeter () {

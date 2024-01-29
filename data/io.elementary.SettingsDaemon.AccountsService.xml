@@ -128,6 +128,10 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="Roboto Mono 10"/>
     </property>
 
+    <property name="OrientationLock" type="s" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    </property>
+
     <property name="NightLightEnabled" type="b" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
     </property>
