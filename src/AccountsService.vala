@@ -62,6 +62,7 @@ public interface SettingsDaemon.AccountsService : Object {
     public abstract string document_font_name { owned get; set; }
     public abstract string font_name { owned get; set; }
     public abstract string monospace_font_name { owned get; set; }
+    public abstract bool orientation_lock { get; set; }
 
     /* Night Light */
     public struct Coordinates {
