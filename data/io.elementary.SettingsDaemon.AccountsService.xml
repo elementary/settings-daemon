@@ -132,12 +132,26 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
     </property>
 
-    <property name="NightLightEnabled" type="b" access="readwrite">
-      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
+    <!-- Prefer dark schedule-->
+
+    <property name="PreferDarkSchedule" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0"/>
     </property>
 
-    <property name="NightLightLastCoordinates" type="(dd)" access="readwrite">
+    <property name="LastCoordinates" type="(dd)" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="(91.0, 181.0)"/>
+    </property>
+
+    <property name="PreferDarkScheduleFrom" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="20"/>
+    </property>
+
+    <property name="PreferDarkScheduleTo" type="d" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="6"/>
+    </property>
+
+    <property name="NightLightEnabled" type="b" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
     </property>
 
     <property name="NightLightScheduleAutomatic" type="b" access="readwrite">
@@ -154,24 +168,6 @@
 
     <property name="NightLightTemperature" type="u" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="4500"/>
-    </property>
-
-    <!-- Prefer dark schedule-->
-
-    <property name="PreferDarkSchedule" type="i" access="readwrite">
-      <annotation name="org.freedesktop.Accounts.DefaultValue" value="0"/>
-    </property>
-
-    <property name="PreferDarkLastCoordinates" type="(dd)" access="readwrite">
-      <annotation name="org.freedesktop.Accounts.DefaultValue" value="(91.0, 181.0)"/>
-    </property>
-
-    <property name="PreferDarkScheduleFrom" type="d" access="readwrite">
-      <annotation name="org.freedesktop.Accounts.DefaultValue" value="20"/>
-    </property>
-
-    <property name="PreferDarkScheduleTo" type="d" access="readwrite">
-      <annotation name="org.freedesktop.Accounts.DefaultValue" value="6"/>
     </property>
   </interface>
 </node>
