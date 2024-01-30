@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2023-07-26 20:07+0000\n"
+"PO-Revision-Date: 2024-01-30 18:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -128,140 +128,147 @@ msgid "A system update is available"
 msgstr "Fastvareoppgradering tilgjengelig"
 
 #: src/Backends/SystemUpdate.vala:166
+#, fuzzy
 msgid "Restart required"
-msgstr ""
+msgstr "Omstart kreves"
 
 #: src/Backends/SystemUpdate.vala:167
+#, fuzzy
 msgid "Please restart your system to finalize updates"
-msgstr ""
+msgstr "Start systemet på ny for å fullføre oppgraderingene"
 
 #: src/Backends/SystemUpdate.vala:189
+#, fuzzy
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "Kunne ikke installere systemoppgraderinger"
 
 #: src/Backends/SystemUpdate.vala:190
+#, fuzzy
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "En feil inntraff i forbindelse med oppgradering av systemet ditt"
 
 #: src/Backends/SystemUpdate.vala:212
 msgid "Starting"
-msgstr ""
+msgstr "Starter …"
 
 #: src/Backends/SystemUpdate.vala:214
 msgid "Waiting"
-msgstr ""
+msgstr "Venter …"
 
 #: src/Backends/SystemUpdate.vala:216
 msgid "Running"
-msgstr ""
+msgstr "Kjører …"
 
 #: src/Backends/SystemUpdate.vala:218
 msgid "Querying"
-msgstr ""
+msgstr "Utfører spørring …"
 
 #: src/Backends/SystemUpdate.vala:220
 msgid "Getting information"
-msgstr ""
+msgstr "Henter info …"
 
 #: src/Backends/SystemUpdate.vala:222
 msgid "Removing packages"
-msgstr ""
+msgstr "Fjerner pakker …"
 
 #: src/Backends/SystemUpdate.vala:224
 msgid "Downloading"
-msgstr ""
+msgstr "Laster ned …"
 
 #: src/Backends/SystemUpdate.vala:226
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Gjenoppfrisker programvarelisten …"
 
 #: src/Backends/SystemUpdate.vala:228
+#, fuzzy
 msgid "Installing updates"
-msgstr ""
+msgstr "Installerer nye versjoner …"
 
 #: src/Backends/SystemUpdate.vala:230
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Renser opp pakker …"
 
 #: src/Backends/SystemUpdate.vala:232
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "Forelder pakker …"
 
 #: src/Backends/SystemUpdate.vala:234
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Utleder avhengigheter …"
 
 #: src/Backends/SystemUpdate.vala:236
 msgid "Checking signatures"
-msgstr ""
+msgstr "Sjekker signaturer …"
 
 #: src/Backends/SystemUpdate.vala:238
 msgid "Testing changes"
-msgstr ""
+msgstr "Tester endringer …"
 
 #: src/Backends/SystemUpdate.vala:240
+#, fuzzy
 msgid "Committing changes"
-msgstr ""
+msgstr "Fullfører endringer …"
 
 #: src/Backends/SystemUpdate.vala:242
 msgid "Requesting data"
-msgstr ""
+msgstr "Forespør data …"
 
 #: src/Backends/SystemUpdate.vala:244
 msgid "Finished"
-msgstr ""
+msgstr "Fullført"
 
 #: src/Backends/SystemUpdate.vala:246
 msgid "Cancelling"
-msgstr ""
+msgstr "Avbryter …"
 
 #: src/Backends/SystemUpdate.vala:248
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Laster ned kodelagerinfo …"
 
 #: src/Backends/SystemUpdate.vala:250
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Laster ned pakkeliste …"
 
 #: src/Backends/SystemUpdate.vala:252
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Laster ned fillister …"
 
 #: src/Backends/SystemUpdate.vala:254
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Laster ned endringsliste …"
 
 #: src/Backends/SystemUpdate.vala:256
 msgid "Downloading groups"
-msgstr ""
+msgstr "Laster ned grupper …"
 
 #: src/Backends/SystemUpdate.vala:258
+#, fuzzy
 msgid "Downloading update information"
-msgstr ""
+msgstr "Laster ned oppgraderingsinfo …"
 
 #: src/Backends/SystemUpdate.vala:260
 msgid "Repackaging files"
-msgstr ""
+msgstr "Pakker om filer …"
 
 #: src/Backends/SystemUpdate.vala:262
 msgid "Loading cache"
-msgstr ""
+msgstr "Laster inn hurtiglager …"
 
 #: src/Backends/SystemUpdate.vala:264
 msgid "Scanning applications"
-msgstr ""
+msgstr "Skanner programmer"
 
 #: src/Backends/SystemUpdate.vala:266
 msgid "Generating package lists"
-msgstr ""
+msgstr "Genererer pakkelister …"
 
 #: src/Backends/SystemUpdate.vala:268
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Venter på pakkehåndteringslåsing …"
 
 #: src/Backends/SystemUpdate.vala:270
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Venter på identitetsbekreftelse …"
 
 #: src/Backends/SystemUpdate.vala:272
 #, fuzzy
@@ -270,17 +277,18 @@ msgid "Updating running applications"
 msgstr "Oppdaterte oversettelser"
 
 #: src/Backends/SystemUpdate.vala:274
+#, fuzzy
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Sjekker hvilke programmer som er i bruk …"
 
 #: src/Backends/SystemUpdate.vala:276
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Sjekker hvilke bibliotek som er i bruk …"
 
 #: src/Backends/SystemUpdate.vala:278
 msgid "Copying files"
-msgstr ""
+msgstr "Kopierer filer …"
 
 #: src/Backends/SystemUpdate.vala:281
 msgid "Installing"
-msgstr ""
+msgstr "Installerer …"
