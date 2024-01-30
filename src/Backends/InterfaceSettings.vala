@@ -122,7 +122,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
 
             last_coordinates_value.@get ("(dd)", out latitude, out longitude);
 
-            accounts_service.prefer_dark_last_coordinates = AccountsService.Coordinates () {
+            accounts_service.last_coordinates = AccountsService.Coordinates () {
                 latitude = latitude,
                 longitude = longitude
             };
