@@ -5,27 +5,31 @@ public class SettingsDaemon.Backends.Schedule : Object {
     }
 
     public struct Parsed {
-        string name;
+        string id;
         Type type;
+        string name;
         bool enabled;
         HashTable<string, Variant> args;
         HashTable<string, Variant> active_settings;
         HashTable<string, Variant> inactive_settings;
     }
 
-    public string name { get; protected set; }
+    public string id { get; protected set; }
     public Type schedule_type { get; construct set; }
+    public string name { get; protected set; }
     public bool enabled { get; protected set; default = true; }
     public bool active { get; protected set; default = false; }
     public HashTable<string, Variant> active_settings { get; private set; }
     public HashTable<string, Variant> inactive_settings { get; private set; } //Inactive settings should usually be !active_settings but can also be e.g. a default wallpaper path
 
     public Schedule () {
+        id = Uuid.string_random ();
         active_settings = new HashTable<string, Variant> (str_hash, str_equal);
         inactive_settings = new HashTable<string, Variant> (str_hash, str_equal);
     }
 
     public Schedule.from_parsed (Parsed parsed) {
+        id = parsed.id;
         name = parsed.name;
         enabled = parsed.enabled;
         active_settings = parsed.active_settings;
@@ -40,8 +44,9 @@ public class SettingsDaemon.Backends.Schedule : Object {
 
     public Parsed get_parsed () {
         Parsed result = {
-            name,
+            id,
             schedule_type,
+            name,
             enabled,
             get_private_args (),
             active_settings,

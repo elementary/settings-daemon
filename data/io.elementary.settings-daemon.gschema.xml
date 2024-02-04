@@ -72,7 +72,7 @@
   </schema>
 
   <schema path="/io/elementary/settings-daemon/schedules/" id="io.elementary.settings-daemon.schedules">
-    <key type="a(siba{sv}a{sv}a{sv})" name="schedules">
+    <key type="a(sisba{sv}a{sv}a{sv})" name="schedules">
       <default>[]</default>
       <summary>The current schedules.</summary>
       <description>a(a{sv}a{sv})</description>

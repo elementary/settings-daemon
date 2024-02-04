@@ -20,14 +20,6 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
         }
     }
 
-    public void create_schedule (Schedule.Parsed parsed) throws DBusError, IOError {
-        if (parsed.name in schedules) {
-            throw new IOError.EXISTS ("Schedule with the same name already exists");
-        }
-
-        create_schedule_internal (parsed);
-    }
-
     private void create_schedule_internal (Schedule.Parsed parsed) {
         if (parsed.name in schedules) {
             warning ("Schedule with the same name already exists");
@@ -58,22 +50,21 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     }
 
     public void update_schedule (Schedule.Parsed parsed) throws DBusError, IOError {
-        if (!(parsed.name in schedules)) {
-            throw new IOError.NOT_FOUND ("Schedule with the same name not found");
+        if (parsed.id in schedules) {
+            schedules.remove (parsed.id);
         }
 
-        schedules.remove (parsed.name);
         create_schedule_internal (parsed);
 
         save_schedules ();
     }
 
-    public void delete_schedule (string name) throws DBusError, IOError {
-        if (!(name in schedules)) {
+    public void delete_schedule (string id) throws DBusError, IOError {
+        if (!(id in schedules)) {
             throw new IOError.NOT_FOUND ("Schedule with the same name not found");
         }
 
-        schedules.remove (name);
+        schedules.remove (id);
 
         save_schedules ();
     }
@@ -82,7 +73,7 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
         schedule.notify["active"].connect (() => schedule_active_changed (schedule));
         schedule_active_changed (schedule);
 
-        schedules[schedule.name] = schedule;
+        schedules[schedule.id] = schedule;
     }
 
     private void schedule_active_changed (Schedule schedule) {
