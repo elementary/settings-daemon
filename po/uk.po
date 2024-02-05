@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 17:49-0300\n"
-"PO-Revision-Date: 2023-07-23 14:07+0000\n"
+"POT-Creation-Date: 2024-01-28 22:41+0000\n"
+"PO-Revision-Date: 2024-01-31 23:11+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/uk/>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -94,17 +94,185 @@ msgstr "Вилучити невикористану схему налаштув�
 msgid "Initial release"
 msgstr "Початковий випуск"
 
-#: src/Application.vala:88
+#: src/Application.vala:160
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Доступне оновлення мікропрограми"
 msgstr[1] "Доступні оновлення мікропрограми"
 msgstr[2] "Доступні оновлення мікропрограми"
 
-#: src/Application.vala:89
+#: src/Application.vala:162
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "Для вашого обладнання доступне %u оновлення"
 msgstr[1] "Для вашого обладнання доступні %u оновлення"
 msgstr[2] "Для вашого обладнання доступні %u оновлень"
+
+#: src/Backends/SystemUpdate.vala:124
+msgid "Update available"
+msgstr "Доступне оновлення"
+
+#: src/Backends/SystemUpdate.vala:128
+msgid "A system security update is available"
+msgstr "Доступне оновлення безпеки системи"
+
+#: src/Backends/SystemUpdate.vala:132
+msgid "A system update is available"
+msgstr "Доступне оновлення системи"
+
+#: src/Backends/SystemUpdate.vala:166
+msgid "Restart required"
+msgstr "Потрібен перезапуск"
+
+#: src/Backends/SystemUpdate.vala:167
+msgid "Please restart your system to finalize updates"
+msgstr "Перезапустіть систему, щоб завершити оновлення"
+
+#: src/Backends/SystemUpdate.vala:189
+msgid "System updates couldn't be installed"
+msgstr "Не вдалося встановити оновлення системи"
+
+#: src/Backends/SystemUpdate.vala:190
+msgid "An error occurred while trying to update your system"
+msgstr "Виникла помилка під час спроби оновити систему"
+
+#: src/Backends/SystemUpdate.vala:212
+msgid "Starting"
+msgstr "Запуск"
+
+#: src/Backends/SystemUpdate.vala:214
+msgid "Waiting"
+msgstr "Очікування"
+
+#: src/Backends/SystemUpdate.vala:216
+msgid "Running"
+msgstr "Запущено"
+
+#: src/Backends/SystemUpdate.vala:218
+msgid "Querying"
+msgstr "Додавання до черги"
+
+#: src/Backends/SystemUpdate.vala:220
+msgid "Getting information"
+msgstr "Отримання інформації"
+
+#: src/Backends/SystemUpdate.vala:222
+msgid "Removing packages"
+msgstr "Вилучення пакунків"
+
+#: src/Backends/SystemUpdate.vala:224
+msgid "Downloading"
+msgstr "Завантаження"
+
+#: src/Backends/SystemUpdate.vala:226
+msgid "Refreshing software list"
+msgstr "Оновлення списку програмного забезпечення"
+
+#: src/Backends/SystemUpdate.vala:228
+msgid "Installing updates"
+msgstr "Встановлення оновлень"
+
+#: src/Backends/SystemUpdate.vala:230
+msgid "Cleaning up packages"
+msgstr "Очищення пакунків"
+
+#: src/Backends/SystemUpdate.vala:232
+msgid "Obsoleting packages"
+msgstr "Застарілі пакунки"
+
+#: src/Backends/SystemUpdate.vala:234
+msgid "Resolving dependencies"
+msgstr "Розв'язування залежностей"
+
+#: src/Backends/SystemUpdate.vala:236
+msgid "Checking signatures"
+msgstr "Перевірка підписів"
+
+#: src/Backends/SystemUpdate.vala:238
+msgid "Testing changes"
+msgstr "Випробування змін"
+
+#: src/Backends/SystemUpdate.vala:240
+msgid "Committing changes"
+msgstr "Внесення змін"
+
+#: src/Backends/SystemUpdate.vala:242
+msgid "Requesting data"
+msgstr "Запит даних"
+
+#: src/Backends/SystemUpdate.vala:244
+msgid "Finished"
+msgstr "Завершено"
+
+#: src/Backends/SystemUpdate.vala:246
+msgid "Cancelling"
+msgstr "Скасування"
+
+#: src/Backends/SystemUpdate.vala:248
+msgid "Downloading repository information"
+msgstr "Завантаження відомостей про репозиторій"
+
+#: src/Backends/SystemUpdate.vala:250
+msgid "Downloading list of packages"
+msgstr "Список пакунків для завантаження"
+
+#: src/Backends/SystemUpdate.vala:252
+msgid "Downloading file lists"
+msgstr "Завантаження списків файлів"
+
+#: src/Backends/SystemUpdate.vala:254
+msgid "Downloading lists of changes"
+msgstr "Завантаження списків змін"
+
+#: src/Backends/SystemUpdate.vala:256
+msgid "Downloading groups"
+msgstr "Завантаження груп"
+
+#: src/Backends/SystemUpdate.vala:258
+msgid "Downloading update information"
+msgstr "Завантаження відомостей про оновлення"
+
+#: src/Backends/SystemUpdate.vala:260
+msgid "Repackaging files"
+msgstr "Перепаковування файлів"
+
+#: src/Backends/SystemUpdate.vala:262
+msgid "Loading cache"
+msgstr "Завантаження кешу"
+
+#: src/Backends/SystemUpdate.vala:264
+msgid "Scanning applications"
+msgstr "Сканування застосунків"
+
+#: src/Backends/SystemUpdate.vala:266
+msgid "Generating package lists"
+msgstr "Генерування списків пакунків"
+
+#: src/Backends/SystemUpdate.vala:268
+msgid "Waiting for package manager lock"
+msgstr "Очікування блокування менеджера пакунків"
+
+#: src/Backends/SystemUpdate.vala:270
+msgid "Waiting for authentication"
+msgstr "Очікування автентифікації"
+
+#: src/Backends/SystemUpdate.vala:272
+msgid "Updating running applications"
+msgstr "Оновлення запущених застосунків"
+
+#: src/Backends/SystemUpdate.vala:274
+msgid "Checking applications in use"
+msgstr "Перевірка використовуваних застосунків"
+
+#: src/Backends/SystemUpdate.vala:276
+msgid "Checking libraries in use"
+msgstr "Перевірка використовуваних бібліотек"
+
+#: src/Backends/SystemUpdate.vala:278
+msgid "Copying files"
+msgstr "Копіювання файлів"
+
+#: src/Backends/SystemUpdate.vala:281
+msgid "Installing"
+msgstr "Встановлення"

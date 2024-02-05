@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 17:49-0300\n"
+"POT-Creation-Date: 2024-01-28 22:41+0000\n"
 "PO-Revision-Date: 2023-04-15 00:59+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/desktop/"
@@ -89,15 +89,183 @@ msgstr ""
 msgid "Initial release"
 msgstr ""
 
-#: src/Application.vala:88
+#: src/Application.vala:160
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Application.vala:89
+#: src/Application.vala:162
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] ""
 msgstr[1] ""
+
+#: src/Backends/SystemUpdate.vala:124
+msgid "Update available"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:128
+msgid "A system security update is available"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:132
+msgid "A system update is available"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:166
+msgid "Restart required"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:167
+msgid "Please restart your system to finalize updates"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:189
+msgid "System updates couldn't be installed"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:190
+msgid "An error occurred while trying to update your system"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:212
+msgid "Starting"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:214
+msgid "Waiting"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:216
+msgid "Running"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:218
+msgid "Querying"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:220
+msgid "Getting information"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:222
+msgid "Removing packages"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:224
+msgid "Downloading"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:226
+msgid "Refreshing software list"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:228
+msgid "Installing updates"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:230
+msgid "Cleaning up packages"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:232
+msgid "Obsoleting packages"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:234
+msgid "Resolving dependencies"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:236
+msgid "Checking signatures"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:238
+msgid "Testing changes"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:240
+msgid "Committing changes"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:242
+msgid "Requesting data"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:244
+msgid "Finished"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:246
+msgid "Cancelling"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:248
+msgid "Downloading repository information"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:250
+msgid "Downloading list of packages"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:252
+msgid "Downloading file lists"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:254
+msgid "Downloading lists of changes"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:256
+msgid "Downloading groups"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:258
+msgid "Downloading update information"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:260
+msgid "Repackaging files"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:262
+msgid "Loading cache"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:264
+msgid "Scanning applications"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:266
+msgid "Generating package lists"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:268
+msgid "Waiting for package manager lock"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:270
+msgid "Waiting for authentication"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:272
+msgid "Updating running applications"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:274
+msgid "Checking applications in use"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:276
+msgid "Checking libraries in use"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:278
+msgid "Copying files"
+msgstr ""
+
+#: src/Backends/SystemUpdate.vala:281
+msgid "Installing"
+msgstr ""

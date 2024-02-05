@@ -1,6 +1,7 @@
 sources = files(
     'AccountsService.vala',
     'Application.vala',
+    'Backends/AccentColorManager.vala',
     'Backends/Housekeeping.vala',
     'Backends/InterfaceSettings.vala',
     'Backends/KeyboardSettings.vala',
@@ -11,6 +12,7 @@ sources = files(
     'Backends' / 'ScheduleManager' / 'ManualSchedule.vala',
     'Backends' / 'ScheduleManager' / 'Schedule.vala',
     'Backends' / 'ScheduleManager' / 'ScheduleManager.vala',
+    'Backends/SystemUpdate.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
@@ -23,8 +25,11 @@ executable(
         gio_dep,
         glib_dep,
         granite_dep,
+        gdk_pixbuf_dep,
+        gexiv2_dep,
         libgeoclue_dep,
         m_dep,
+        pk_dep
     ],
     install: true,
 )
