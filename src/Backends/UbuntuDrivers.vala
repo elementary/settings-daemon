@@ -26,7 +26,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
     public signal void state_changed ();
 
     private CurrentState current_state;
-    private string[] available_drivers;
+    private HashTable<string, GenericSet<string>> available_drivers;
 
     private Pk.Task task;
     private GLib.Cancellable cancellable;
@@ -36,6 +36,8 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
             UP_TO_DATE,
             ""
         };
+
+        available_drivers = new HashTable<string, GenericSet<string>> (str_hash, str_equal);
 
         task = new Pk.Task () {
             only_download = true
@@ -70,6 +72,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         }
 
         update_state (CHECKING);
+        available_drivers.remove_all ();
 
         string? command_output;
         var result = yield get_drivers_output (cancellable, out command_output);
@@ -79,11 +82,36 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         }
 
         string[] tokens = command_output.split ("\n");
-        available_drivers = {};
-        foreach (unowned string token in tokens) {
-            if (token.strip () != "") {
-                available_drivers += token;
+        foreach (unowned string package_name in tokens) {
+            if (package_name.strip () == "") {
+                continue;
             }
+
+            // ubuntu-drivers returns lines like the following for dkms packages:
+            // backport-iwlwifi-dkms, (kernel modules provided by backport-iwlwifi-dkms)
+            // nvidia-driver-470, (kernel modules provided by linux-modules-nvidia-470-generic-hwe-20.04)
+            // we want to install both packages if they're different
+
+            string[] parts = package_name.split (",");
+            // Get the driver part (before the comma)
+            var package_names = new GenericSet<string> (str_hash, str_equal);
+            package_names.add (parts[0]);
+
+            if (parts.length > 1) {
+                if (parts[1].contains ("kernel modules provided by")) {
+                    string[] kernel_module_parts = parts[1].split (" ");
+                    // Get the remainder of the string after the last space
+                    var last_part = kernel_module_parts[kernel_module_parts.length - 1];
+                    // Strip off the trailing bracket
+                    last_part = last_part.replace (")", "");
+
+                    package_names.add (last_part);
+                } else {
+                    warning ("Unrecognised line from ubuntu-drivers, needs checking: %s", package_name);
+                }
+            }
+
+            available_drivers[package_name] = package_names;
         }
 
         if (available_drivers.length == 0) {
@@ -165,6 +193,6 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
     }
 
     public async string[] get_available_drivers () throws DBusError, IOError {
-        return available_drivers;
+        return available_drivers.get_keys_as_array ();
     }
 }
