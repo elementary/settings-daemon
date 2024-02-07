@@ -1,4 +1,18 @@
 namespace SettingsDaemon.PkUtils {
+    public enum State {
+        UP_TO_DATE,
+        CHECKING,
+        AVAILABLE,
+        DOWNLOADING,
+        RESTART_REQUIRED,
+        ERROR
+    }
+
+    public struct CurrentState {
+        State state;
+        string status;
+    }
+
     public static unowned string status_to_title (Pk.Status status) {
         // From https://github.com/elementary/appcenter/blob/master/src/Core/ChangeInformation.vala#L51
         switch (status) {

@@ -7,20 +7,6 @@
 
 [DBus (name="io.elementary.settings_daemon.SystemUpdate")]
 public class SettingsDaemon.Backends.SystemUpdate : Object {
-    public enum State {
-        UP_TO_DATE,
-        CHECKING,
-        AVAILABLE,
-        DOWNLOADING,
-        RESTART_REQUIRED,
-        ERROR
-    }
-
-    public struct CurrentState {
-        State state;
-        string status;
-    }
-
     public struct UpdateDetails {
         string[] packages;
         int size;
@@ -33,7 +19,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     private static Settings settings = new GLib.Settings ("io.elementary.settings-daemon.system-update");
 
-    private CurrentState current_state;
+    private PkUtils.CurrentState current_state;
     private UpdateDetails update_details;
 
     private Pk.Task task;
@@ -202,7 +188,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (ERROR, message);
     }
 
-    private void update_state (State state, string message = "") {
+    private void update_state (PkUtils.State state, string message = "") {
         current_state = {
             state,
             message
@@ -211,7 +197,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         state_changed ();
     }
 
-    public async CurrentState get_current_state () throws DBusError, IOError {
+    public async PkUtils.CurrentState get_current_state () throws DBusError, IOError {
         return current_state;
     }
 

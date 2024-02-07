@@ -7,25 +7,11 @@
 
 [DBus (name="io.elementary.settings_daemon.Drivers")]
 public class SettingsDaemon.Backends.UbuntuDrivers : Object {
-    public enum State {
-        UP_TO_DATE,
-        CHECKING,
-        AVAILABLE,
-        DOWNLOADING,
-        RESTART_REQUIRED,
-        ERROR
-    }
-
-    public struct CurrentState {
-        State state;
-        string status;
-    }
-
     private const string NOTIFICATION_ID = "drivers";
 
     public signal void state_changed ();
 
-    private CurrentState current_state;
+    private PkUtils.CurrentState current_state;
     private HashTable<string, GenericSet<string>> available_drivers;
 
     private Pk.Task task;
@@ -179,7 +165,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         update_state (ERROR, message);
     }
 
-    private void update_state (State state, string message = "") {
+    private void update_state (PkUtils.State state, string message = "") {
         current_state = {
             state,
             message
@@ -188,7 +174,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         state_changed ();
     }
 
-    public async CurrentState get_current_state () throws DBusError, IOError {
+    public async PkUtils.CurrentState get_current_state () throws DBusError, IOError {
         return current_state;
     }
 
