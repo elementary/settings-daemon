@@ -117,13 +117,16 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         }
     }
 
-    public async void install (string pkg_name) throws DBusError, IOError {
+    public async void install (string pkg_id) throws DBusError, IOError {
         cancellable.reset ();
 
         update_state (DOWNLOADING);
 
+        string[] package_names = {};
+        available_drivers[pkg_id].@foreach ((package_name) => package_names += package_name);
+
         try {
-            var results = yield task.install_packages_async ({ pkg_name }, cancellable, progress_callback);
+            var results = yield task.install_packages_async (package_names, cancellable, progress_callback);
 
             if (results.get_exit_code () == CANCELLED) {
                 debug ("Installation was cancelled");
