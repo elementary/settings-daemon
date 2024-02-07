@@ -78,6 +78,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         base.dbus_register (connection, object_path);
 
         connection.register_object (object_path, new Backends.SystemUpdate ());
+        connection.register_object (object_path, new Backends.UbuntuDrivers ());
 
         return true;
     }
