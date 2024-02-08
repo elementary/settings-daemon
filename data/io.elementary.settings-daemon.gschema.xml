@@ -95,7 +95,7 @@
       <summary>Power profile to use when plugged in</summary>
       <description></description>
     </key>
-    <key type="s" name="profile-on-battery">
+    <key type="s" name="profile-on-good-battery">
       <default>"balanced"</default>
       <summary>Power profile to use on battery</summary>
       <description></description>

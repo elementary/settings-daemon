@@ -16,7 +16,7 @@ public class SettingsDaemon.Backends.PowerProfilesSync : GLib.Object {
     }
 
     private const string PROFILE_PLUGGED_IN = "profile-plugged-in";
-    private const string PROFILE_ON_BATTERY = "profile-on-battery";
+    private const string PROFILE_ON_BATTERY = "profile-on-good-battery";
 
     private GLib.Settings settings;
     private UPower? upower = null;
