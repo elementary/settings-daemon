@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2024-01-28 22:41+0000\n"
+"PO-Revision-Date: 2024-01-30 18:11+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "desktop/settings-daemon/en_GB/>\n"
@@ -111,10 +111,8 @@ msgid "Update available"
 msgstr "Update available"
 
 #: src/Backends/SystemUpdate.vala:128
-#, fuzzy
-#| msgid "A system update is available"
 msgid "A system security update is available"
-msgstr "A system update is available"
+msgstr "A system security update is available"
 
 #: src/Backends/SystemUpdate.vala:132
 msgid "A system update is available"
