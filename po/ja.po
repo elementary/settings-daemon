@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2023-07-23 14:07+0000\n"
+"PO-Revision-Date: 2024-02-10 13:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -107,180 +107,169 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] "お使いのハードウェアに%u件のアップデートが利用可能です"
 
 #: src/Backends/SystemUpdate.vala:124
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
 msgid "Update available"
-msgstr "ファームウェアアップデートが利用可能です"
+msgstr "アップデートが利用可能です"
 
 #: src/Backends/SystemUpdate.vala:128
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
 msgid "A system security update is available"
-msgstr "ファームウェアアップデートが利用可能です"
+msgstr "システムセキュリティアップデートが利用可能です"
 
 #: src/Backends/SystemUpdate.vala:132
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
 msgid "A system update is available"
-msgstr "ファームウェアアップデートが利用可能です"
+msgstr "システムアップデートが利用可能です"
 
 #: src/Backends/SystemUpdate.vala:166
 msgid "Restart required"
-msgstr ""
+msgstr "再起動が必要"
 
 #: src/Backends/SystemUpdate.vala:167
 msgid "Please restart your system to finalize updates"
-msgstr ""
+msgstr "アップデートを完了するにはシステムを再起動してください"
 
 #: src/Backends/SystemUpdate.vala:189
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "システムアップデートをインストールできませんでした"
 
 #: src/Backends/SystemUpdate.vala:190
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "システムアップデート試行中にエラーが発生しました"
 
 #: src/Backends/SystemUpdate.vala:212
 msgid "Starting"
-msgstr ""
+msgstr "開始しています"
 
 #: src/Backends/SystemUpdate.vala:214
 msgid "Waiting"
-msgstr ""
+msgstr "待機しています"
 
 #: src/Backends/SystemUpdate.vala:216
 msgid "Running"
-msgstr ""
+msgstr "実行しています"
 
 #: src/Backends/SystemUpdate.vala:218
 msgid "Querying"
-msgstr ""
+msgstr "問い合わせています"
 
 #: src/Backends/SystemUpdate.vala:220
 msgid "Getting information"
-msgstr ""
+msgstr "情報を取得しています"
 
 #: src/Backends/SystemUpdate.vala:222
 msgid "Removing packages"
-msgstr ""
+msgstr "パッケージを削除しています"
 
 #: src/Backends/SystemUpdate.vala:224
 msgid "Downloading"
-msgstr ""
+msgstr "ダウンロードしています"
 
 #: src/Backends/SystemUpdate.vala:226
 msgid "Refreshing software list"
-msgstr ""
+msgstr "ソフトウェアの一覧を更新しています"
 
 #: src/Backends/SystemUpdate.vala:228
 msgid "Installing updates"
-msgstr ""
+msgstr "アップデートをインストールしています"
 
 #: src/Backends/SystemUpdate.vala:230
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "パッケージをクリーンアップしています"
 
 #: src/Backends/SystemUpdate.vala:232
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "古いパッケージを取り除いています"
 
 #: src/Backends/SystemUpdate.vala:234
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "依存関係を解決しています"
 
 #: src/Backends/SystemUpdate.vala:236
 msgid "Checking signatures"
-msgstr ""
+msgstr "署名を確認しています"
 
 #: src/Backends/SystemUpdate.vala:238
 msgid "Testing changes"
-msgstr ""
+msgstr "変更をテストしています"
 
 #: src/Backends/SystemUpdate.vala:240
 msgid "Committing changes"
-msgstr ""
+msgstr "変更を適用しています"
 
 #: src/Backends/SystemUpdate.vala:242
 msgid "Requesting data"
-msgstr ""
+msgstr "データを要求しています"
 
 #: src/Backends/SystemUpdate.vala:244
 msgid "Finished"
-msgstr ""
+msgstr "完了しました"
 
 #: src/Backends/SystemUpdate.vala:246
 msgid "Cancelling"
-msgstr ""
+msgstr "キャンセルしています"
 
 #: src/Backends/SystemUpdate.vala:248
 msgid "Downloading repository information"
-msgstr ""
+msgstr "リポジトリの情報をダウンロードしています"
 
 #: src/Backends/SystemUpdate.vala:250
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "パッケージの一覧をダウンロードしています"
 
 #: src/Backends/SystemUpdate.vala:252
 msgid "Downloading file lists"
-msgstr ""
+msgstr "ファイルの一覧をダウンロードしています"
 
 #: src/Backends/SystemUpdate.vala:254
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "変更の一覧をダウンロードしています"
 
 #: src/Backends/SystemUpdate.vala:256
 msgid "Downloading groups"
-msgstr ""
+msgstr "グループをダウンロードしています"
 
 #: src/Backends/SystemUpdate.vala:258
 msgid "Downloading update information"
-msgstr ""
+msgstr "アップデート情報をダウンロードしています"
 
 #: src/Backends/SystemUpdate.vala:260
 msgid "Repackaging files"
-msgstr ""
+msgstr "ファイルを再パッケージしています"
 
 #: src/Backends/SystemUpdate.vala:262
 msgid "Loading cache"
-msgstr ""
+msgstr "キャッシュを読み込んでいます"
 
 #: src/Backends/SystemUpdate.vala:264
 msgid "Scanning applications"
-msgstr ""
+msgstr "アプリケーションをスキャンしています"
 
 #: src/Backends/SystemUpdate.vala:266
 msgid "Generating package lists"
-msgstr ""
+msgstr "パッケージリストを生成しています"
 
 #: src/Backends/SystemUpdate.vala:268
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "パッケージマネージャーのロックを待機しています"
 
 #: src/Backends/SystemUpdate.vala:270
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "アプリが認証されるのを待機しています"
 
 #: src/Backends/SystemUpdate.vala:272
-#, fuzzy
-#| msgid "Updated translations"
 msgid "Updating running applications"
-msgstr "翻訳の更新"
+msgstr "実行中のアプリケーションをアップデートしています"
 
 #: src/Backends/SystemUpdate.vala:274
 msgid "Checking applications in use"
-msgstr ""
+msgstr "使用中のアプリケーションを確認しています"
 
 #: src/Backends/SystemUpdate.vala:276
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "使用中のライブラリを確認しています"
 
 #: src/Backends/SystemUpdate.vala:278
 msgid "Copying files"
-msgstr ""
+msgstr "ファイルをコピーしています"
 
 #: src/Backends/SystemUpdate.vala:281
 msgid "Installing"
-msgstr ""
+msgstr "インストールしています"
