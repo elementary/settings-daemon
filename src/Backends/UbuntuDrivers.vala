@@ -46,6 +46,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
             command = new Subprocess (SubprocessFlags.STDOUT_PIPE, drivers_exec_path, "list");
             yield command.communicate_utf8_async (null, cancellable, out output, null);
         } catch (Error e) {
+            critical ("Failed to launch ubuntu-drivers: %s", e.message);
             return false;
         }
 
@@ -64,6 +65,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         var result = yield get_drivers_output (cancellable, out command_output);
         if (!result || command_output == null) {
             update_state (UP_TO_DATE);
+            critical ("Failed to get ubuntu-drivers output");
             return;
         }
 
