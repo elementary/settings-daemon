@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2024-02-10 13:11+0000\n"
+"PO-Revision-Date: 2024-02-12 08:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ja/>\n"
@@ -93,7 +93,7 @@ msgstr "ダークスタイル用の GSettings スキーマが未使用のため�
 
 #: data/settings-daemon.metainfo.xml.in:89
 msgid "Initial release"
-msgstr "最初のリリース"
+msgstr "初リリース"
 
 #: src/Application.vala:160
 msgid "Firmware Update Available"
