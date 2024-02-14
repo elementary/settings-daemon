@@ -150,6 +150,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
 
         if (wingpanel_settings != null) {
             accounts_service.wingpanel_use_transparency = wingpanel_settings.get_boolean (USE_TRANSPARENCY);
+            warning ("Synced %s %s", wingpanel_settings.get_boolean (USE_TRANSPARENCY).to_string (), accounts_service.wingpanel_use_transparency.to_string ());
         }
     }
 
