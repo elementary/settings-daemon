@@ -52,9 +52,9 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             {}
         };
 
-        task = new Pk.Task () {
-            only_download = true
-        };
+        task = new Pk.Task ();
+
+        settings.bind ("offline-updates", task, "only-download", GET);
 
         cancellable = new GLib.Cancellable ();
 
@@ -160,7 +160,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         try {
             var results = yield task.update_packages_async (available_updates.get_ids (), cancellable, progress_callback);
 
-            if (results.get_exit_code () == CANCELLED) {
+            if (results.get_exit_code () == CANCELLED || settings.get_boolean ("offline-updates")) {
                 debug ("Updates were cancelled");
                 check_for_updates.begin (true, false);
                 return;
