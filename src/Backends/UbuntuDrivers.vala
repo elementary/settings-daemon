@@ -167,7 +167,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         return true;
     }
 
-    public async void install (string pkg_id) throws DBusError, IOError {
+    public async void install (string pkg_name) throws DBusError, IOError {
         if (current_state.state != AVAILABLE) {
             warning ("No drivers available, or already downloading a driver.");
             return;
@@ -177,16 +177,15 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
 
         update_state (DOWNLOADING);
 
-        string[] package_names = {};
-        available_drivers[pkg_id].@foreach ((package_name) => package_names += package_name);
-
         try {
-            var results = yield task.install_packages_async (package_names, cancellable, progress_callback);
+            var results = yield task.install_packages_async ((owned) available_drivers[pkg_name].data, cancellable, progress_callback);
 
             if (results.get_exit_code () == CANCELLED) {
                 debug ("Installation was cancelled");
                 return;
             }
+
+            available_drivers_with_installed[pkg_name] = true;
 
             Pk.offline_trigger (REBOOT);
 
