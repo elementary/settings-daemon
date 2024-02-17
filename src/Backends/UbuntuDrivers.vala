@@ -178,7 +178,8 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         update_state (DOWNLOADING);
 
         try {
-            var results = yield task.install_packages_async ((owned) available_drivers[pkg_name].data, cancellable, progress_callback);
+            string[] pkgs = available_drivers[pkg_name].data; // It seems arrays are imediately freed with async methods so this prevents a seg fault
+            var results = yield task.install_packages_async (pkgs, cancellable, progress_callback);
 
             if (results.get_exit_code () == CANCELLED) {
                 debug ("Installation was cancelled");
