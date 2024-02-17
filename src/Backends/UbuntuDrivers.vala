@@ -143,7 +143,13 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         return array;
     }
 
+    // TODO: Add queue
     public async void install (string pkg_name) throws DBusError, IOError {
+        if (!(pkg_name in available_drivers)) {
+            critical ("Driver not found");
+            return;
+        }
+
         if (current_state.state != AVAILABLE) {
             warning ("No drivers available, or already downloading a driver.");
             return;
