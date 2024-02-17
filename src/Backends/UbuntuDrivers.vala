@@ -27,9 +27,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         available_drivers = new HashTable<string, GenericArray<string>> (str_hash, str_equal);
         available_drivers_with_installed = new HashTable<string, bool> (str_hash, str_equal);
 
-        task = new Pk.Task () {
-            only_download = true
-        };
+        task = new Pk.Task ();
 
         cancellable = new GLib.Cancellable ();
 
@@ -187,8 +185,6 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
             }
 
             available_drivers_with_installed[pkg_name] = true;
-
-            Pk.offline_trigger (REBOOT);
 
             var notification = new Notification (_("Restart required"));
             notification.set_body (_("Please restart your system to finalize driver installation"));
