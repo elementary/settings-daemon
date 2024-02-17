@@ -12,7 +12,8 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
     public signal void state_changed ();
 
     private PkUtils.CurrentState current_state;
-    private HashTable<string, GenericSet<string>> available_drivers;
+    private HashTable<string, GenericArray<string>> available_drivers;
+    private HashTable<string, bool> available_drivers_with_installed;
 
     private Pk.Task task;
     private GLib.Cancellable cancellable;
@@ -23,7 +24,8 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
             ""
         };
 
-        available_drivers = new HashTable<string, GenericSet<string>> (str_hash, str_equal);
+        available_drivers = new HashTable<string, GenericArray<string>> (str_hash, str_equal);
+        available_drivers_with_installed = new HashTable<string, bool> (str_hash, str_equal);
 
         task = new Pk.Task () {
             only_download = true
@@ -75,6 +77,11 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
                 continue;
             }
 
+            // Filter out the nvidia server drivers
+            if (package_name.contains ("nvidia") && package_name.contains ("-server")) {
+                continue;
+            }
+
             // ubuntu-drivers returns lines like the following for dkms packages:
             // backport-iwlwifi-dkms, (kernel modules provided by backport-iwlwifi-dkms)
             // nvidia-driver-470, (kernel modules provided by linux-modules-nvidia-470-generic-hwe-20.04)
@@ -82,8 +89,8 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
 
             string[] parts = package_name.split (",");
             // Get the driver part (before the comma)
-            var package_names = new GenericSet<string> (str_hash, str_equal);
-            package_names.add (parts[0]);
+            string[] package_names = {};
+            package_names += parts[0];
 
             if (parts.length > 1) {
                 if (parts[1].contains ("kernel modules provided by")) {
@@ -93,13 +100,18 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
                     // Strip off the trailing bracket
                     last_part = last_part.replace (")", "");
 
-                    package_names.add (last_part);
+                    if (!(last_part in package_names)) {
+                        package_names += last_part;
+                    }
                 } else {
                     warning ("Unrecognised line from ubuntu-drivers, needs checking: %s", package_name);
                 }
             }
 
-            available_drivers[package_name] = package_names;
+            var package_ids = yield get_pkgs_ids (package_names);
+
+            available_drivers[parts[0]] = package_ids;
+            available_drivers_with_installed[parts[0]] = check_installed (package_ids.data);
         }
 
         if (available_drivers.length == 0) {
@@ -119,7 +131,48 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         }
     }
 
+    private async GenericArray<string> get_pkgs_ids (string[] package_names) {
+        var array = new GenericArray<string> ();
+        try {
+            var result = yield task.resolve_async (Pk.Filter.NONE, package_names, null, () => {});
+
+            var packages = result.get_package_array ();
+            foreach (var package in packages) {
+                array.add (package.package_id);
+            }
+        } catch (Error e) {
+            critical ("Failed to get package details, treating as not installed: %s", e.message);
+        }
+
+        return array;
+    }
+
+    private bool check_installed (string[] pkg_ids) {
+        var sack = new Pk.PackageSack ();
+        foreach (var id in pkg_ids) {
+            try {
+                sack.add_package_by_id (id);
+            } catch (Error e) {
+                critical ("Failed to add package %s, treating as not installed: %s", id, e.message);
+                return false;
+            }
+        }
+
+        foreach (var package in sack.get_array ()) {
+            if (!(INSTALLED in package.info)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public async void install (string pkg_id) throws DBusError, IOError {
+        if (current_state.state != AVAILABLE) {
+            warning ("No drivers available, or already downloading a driver.");
+            return;
+        }
+
         cancellable.reset ();
 
         update_state (DOWNLOADING);
@@ -183,7 +236,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         return current_state;
     }
 
-    public async string[] get_available_drivers () throws DBusError, IOError {
-        return available_drivers.get_keys_as_array ();
+    public async HashTable<string, bool> get_available_drivers () throws DBusError, IOError {
+        return available_drivers_with_installed;
     }
 }
