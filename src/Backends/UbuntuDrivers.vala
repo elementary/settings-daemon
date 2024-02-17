@@ -106,10 +106,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
                 }
             }
 
-            var package_ids = yield get_pkgs_ids (package_names);
-
-            available_drivers[parts[0]] = package_ids;
-            available_drivers_with_installed[parts[0]] = check_installed (package_ids.data);
+            available_drivers[parts[0]] = yield update_installed (package_names);
         }
 
         if (available_drivers.length == 0) {
@@ -129,7 +126,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         }
     }
 
-    private async GenericArray<string> get_pkgs_ids (string[] package_names) {
+    private async GenericArray<string> update_installed (string[] package_names) {
         var array = new GenericArray<string> ();
         try {
             var result = yield task.resolve_async (Pk.Filter.NONE, package_names, null, () => {});
@@ -137,32 +134,13 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
             var packages = result.get_package_array ();
             foreach (var package in packages) {
                 array.add (package.package_id);
+                available_drivers_with_installed[package_names[0]] = (Pk.Info.INSTALLED == package.info);
             }
         } catch (Error e) {
             critical ("Failed to get package details, treating as not installed: %s", e.message);
         }
 
         return array;
-    }
-
-    private bool check_installed (string[] pkg_ids) {
-        var sack = new Pk.PackageSack ();
-        foreach (var id in pkg_ids) {
-            try {
-                sack.add_package_by_id (id);
-            } catch (Error e) {
-                critical ("Failed to add package %s, treating as not installed: %s", id, e.message);
-                return false;
-            }
-        }
-
-        foreach (var package in sack.get_array ()) {
-            if (!(INSTALLED in package.info)) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     public async void install (string pkg_name) throws DBusError, IOError {
@@ -181,10 +159,11 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
 
             if (results.get_exit_code () == CANCELLED) {
                 debug ("Installation was cancelled");
+                update_state (AVAILABLE);
                 return;
             }
 
-            available_drivers_with_installed[pkg_name] = true;
+            yield check_for_drivers (false);
 
             var notification = new Notification (_("Restart required"));
             notification.set_body (_("Please restart your system to finalize driver installation"));
