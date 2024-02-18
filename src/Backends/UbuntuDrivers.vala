@@ -54,10 +54,6 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
     }
 
     public async void check_for_drivers (bool notify) throws DBusError, IOError {
-        if (current_state.state != UP_TO_DATE && current_state.state != AVAILABLE) {
-            return;
-        }
-
         update_state (CHECKING);
         available_drivers.remove_all ();
 
