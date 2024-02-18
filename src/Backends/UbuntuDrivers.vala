@@ -9,11 +9,18 @@
 public class SettingsDaemon.Backends.UbuntuDrivers : Object {
     private const string NOTIFICATION_ID = "drivers";
 
+    private class Device : Object {
+        public string name;
+        public HashTable<string, bool> available_drivers_with_installed = new HashTable<string, bool> (str_hash, str_equal);
+    }
+
     public signal void state_changed ();
 
     private PkUtils.CurrentState current_state;
     private HashTable<string, GenericArray<string>> available_drivers;
     private HashTable<string, bool> available_drivers_with_installed;
+    private HashTable<string, Device> devices_by_drivers;
+    private Device[] devices = {};
 
     private Pk.Task task;
     private GLib.Cancellable cancellable;
@@ -26,6 +33,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
 
         available_drivers = new HashTable<string, GenericArray<string>> (str_hash, str_equal);
         available_drivers_with_installed = new HashTable<string, bool> (str_hash, str_equal);
+        devices_by_drivers = new HashTable<string, Device> (str_hash, str_equal);
 
         task = new Pk.Task ();
 
@@ -34,7 +42,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         check_for_drivers.begin (true);
     }
 
-    private async bool get_drivers_output (Cancellable? cancellable = null, out string? output = null) {
+    private async bool get_drivers_output (string verb, out string? output = null) {
         output = null;
         string? drivers_exec_path = Environment.find_program_in_path ("ubuntu-drivers");
         if (drivers_exec_path == null) {
@@ -43,7 +51,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
 
         Subprocess command;
         try {
-            command = new Subprocess (SubprocessFlags.STDOUT_PIPE, drivers_exec_path, "list");
+            command = new Subprocess (SubprocessFlags.STDOUT_PIPE, drivers_exec_path, verb);
             yield command.communicate_utf8_async (null, cancellable, out output, null);
         } catch (Error e) {
             critical ("Failed to launch ubuntu-drivers: %s", e.message);
@@ -53,12 +61,53 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         return command.get_exit_status () == 0;
     }
 
+    private async void check_devices () {
+        string? command_output;
+        var result = yield get_drivers_output ("devices", out command_output);
+        if (!result || command_output == null) {
+            update_state (UP_TO_DATE);
+            critical ("Failed to get ubuntu-drivers output");
+            return;
+        }
+
+        string[] tokens = command_output.split ("\n");
+        Device? current_device = null;
+        foreach (var token in tokens) {
+            if ("==" in token) {
+                current_device = new Device ();
+                devices += current_device;
+                continue;
+            }
+
+            if (current_device == null) {
+                continue;
+            }
+
+            if (token.has_prefix ("model")) {
+                var normalized_token = token.splice (0, 10);
+                current_device.name = normalized_token;
+                continue;
+            }
+
+            if (token.has_prefix ("driver")) {
+                var normalized_token = token.splice (0, 10);
+                var split_token = normalized_token.split (" - ");
+                var driver = split_token[0];
+                devices_by_drivers[driver] = current_device;
+                continue;
+            }
+        }
+    }
+
     public async void check_for_drivers (bool notify) throws DBusError, IOError {
         update_state (CHECKING);
+
         available_drivers.remove_all ();
 
+        yield check_devices ();
+
         string? command_output;
-        var result = yield get_drivers_output (cancellable, out command_output);
+        var result = yield get_drivers_output ("list", out command_output);
         if (!result || command_output == null) {
             update_state (UP_TO_DATE);
             critical ("Failed to get ubuntu-drivers output");
@@ -133,11 +182,15 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
             foreach (var package in packages) {
                 array.add (package.package_id);
 
+                if (!(driver in devices_by_drivers)) {
+                    continue;
+                }
+
                 if (all_installed && (Pk.Info.INSTALLED == package.info)) {
-                    available_drivers_with_installed[driver] = true;
+                    devices_by_drivers[driver].available_drivers_with_installed[driver] = true;
                 } else {
                     all_installed = false;
-                    available_drivers_with_installed[driver] = false;
+                    devices_by_drivers[driver].available_drivers_with_installed[driver] = false;
                 }
             }
         } catch (Error e) {
@@ -223,7 +276,11 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         return current_state;
     }
 
-    public async HashTable<string, bool> get_available_drivers () throws DBusError, IOError {
-        return available_drivers_with_installed;
+    public async HashTable<string, HashTable<string, bool>> get_available_drivers () throws DBusError, IOError {
+        var map = new HashTable<string, HashTable<string, bool>> (str_hash, str_equal);
+        foreach (var device in devices) {
+            map[device.name] = device.available_drivers_with_installed;
+        }
+        return map;
     }
 }
