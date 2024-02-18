@@ -106,7 +106,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
                 }
             }
 
-            available_drivers[parts[0]] = yield update_installed (package_names);
+            available_drivers[parts[0]] = yield update_installed (parts[0], package_names);
         }
 
         if (available_drivers.length == 0) {
@@ -126,15 +126,23 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         }
     }
 
-    private async GenericArray<string> update_installed (string[] package_names) {
+    private async GenericArray<string> update_installed (string driver, string[] package_names) {
         var array = new GenericArray<string> ();
         try {
             var result = yield task.resolve_async (Pk.Filter.NONE, package_names, null, () => {});
 
             var packages = result.get_package_array ();
+
+            bool all_installed = true;
             foreach (var package in packages) {
                 array.add (package.package_id);
-                available_drivers_with_installed[package_names[0]] = (Pk.Info.INSTALLED == package.info);
+
+                if (all_installed && (Pk.Info.INSTALLED == package.info)) {
+                    available_drivers_with_installed[driver] = true;
+                } else {
+                    all_installed = false;
+                    available_drivers_with_installed[driver] = false;
+                }
             }
         } catch (Error e) {
             critical ("Failed to get package details, treating as not installed: %s", e.message);
@@ -169,7 +177,10 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
                 return;
             }
 
-            yield check_for_drivers (false);
+            foreach (var driver in available_drivers.get_keys ()) {
+                string[] driver_pkgs = available_drivers[driver].data;
+                yield update_installed (driver, driver_pkgs);
+            }
 
             var notification = new Notification (_("Restart required"));
             notification.set_body (_("Please restart your system to finalize driver installation"));
@@ -178,7 +189,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
 
             GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
 
-            update_state (RESTART_REQUIRED);
+            update_state (AVAILABLE);
         } catch (Error e) {
             critical ("Failed to install driver: %s", e.message);
             send_error (e.message);
