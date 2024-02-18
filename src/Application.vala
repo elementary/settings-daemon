@@ -13,13 +13,13 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
     private Backends.KeyboardSettings keyboard_settings;
     private Backends.MouseSettings mouse_settings;
-
     private Backends.InterfaceSettings interface_settings;
     private Backends.NightLightSettings night_light_settings;
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
     private Backends.AccentColorManager accent_color_manager;
 
     private Backends.Housekeeping housekeeping;
+    private Backends.PowerProfilesSync power_profiles_sync;
 
     private const string FDO_ACCOUNTS_NAME = "org.freedesktop.Accounts";
     private const string FDO_ACCOUNTS_PATH = "/org/freedesktop/Accounts";
@@ -55,6 +55,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         base.startup ();
 
         housekeeping = new Backends.Housekeeping ();
+        power_profiles_sync = new Backends.PowerProfilesSync ();
 
         var check_firmware_updates_action = new GLib.SimpleAction ("check-firmware-updates", null);
         check_firmware_updates_action.activate.connect (check_firmware_updates);
