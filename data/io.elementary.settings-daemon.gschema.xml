@@ -88,4 +88,17 @@
       <description>How often to check for updates in seconds.</description>
     </key>
   </schema>
+
+  <schema path="/io/elementary/settings-daemon/power/" id="io.elementary.settings-daemon.power">
+    <key type="s" name="profile-plugged-in">
+      <default>"balanced"</default>
+      <summary>Power profile to use when plugged in</summary>
+      <description></description>
+    </key>
+    <key type="s" name="profile-on-good-battery">
+      <default>"balanced"</default>
+      <summary>Power profile to use on battery</summary>
+      <description></description>
+    </key>
+  </schema>
 </schemalist>

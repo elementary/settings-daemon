@@ -8,6 +8,7 @@ sources = files(
     'Backends/KeyboardSettings.vala',
     'Backends/MouseSettings.vala',
     'Backends/NightLightSettings.vala',
+    'Backends/PowerProfilesSync.vala',
     'Backends/PrefersColorSchemeSettings.vala',
     'Backends/SystemUpdate.vala',
     'Utils/SunriseSunsetCalculator.vala',
