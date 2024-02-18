@@ -81,13 +81,13 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
             }
 
             if (token.has_prefix ("model")) {
-                var normalized_token = token.splice (0, 10);
+                var normalized_token = token.splice (0, 11);
                 current_device.name = normalized_token;
                 continue;
             }
 
             if (token.has_prefix ("driver")) {
-                var normalized_token = token.splice (0, 10);
+                var normalized_token = token.splice (0, 11);
                 var split_token = normalized_token.split (" - ");
                 var driver = split_token[0];
                 devices_by_drivers[driver] = current_device;
