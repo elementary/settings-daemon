@@ -72,7 +72,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (CHECKING);
 
         try {
-            //TODO: maybe check for prepared packages with Pk.offline_get_prepared_ids because it seems refreshing cache deletes prepared packages (which should only be a problem with drivers but still)
             yield task.refresh_cache_async (force, null, progress_callback);
         } catch (Error e) {
             warning ("Failed to refresh cache: %s", e.message);
