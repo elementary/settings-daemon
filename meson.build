@@ -14,6 +14,7 @@ granite_dep = dependency('granite', version: '>= 5.3.0')
 gdk_pixbuf_dep = dependency('gdk-pixbuf-2.0')
 gexiv2_dep = dependency('gexiv2')
 pk_dep = dependency('packagekit-glib2')
+polkit_dep = dependency ('polkit-gobject-1')
 i18n = import('i18n')
 gettext_name = meson.project_name()
 

@@ -69,3 +69,10 @@ if systemd_system_unit_dir != 'no'
         install_dir: systemd_system_unit_dir
     )
 endif
+
+configure_file(
+    input: 'settings-daemon.policy.in',
+    output: 'io.elementary.settings-daemon.policy',
+    configuration: conf_data,
+    install_dir: polkit_dep.get_pkgconfig_variable('policydir', define_variable: ['prefix', prefix])
+)

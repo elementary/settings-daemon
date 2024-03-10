@@ -27,6 +27,8 @@ executable(
         gexiv2_dep,
         libgeoclue_dep,
         m_dep,
+        polkit_dep,
+        meson.get_compiler('vala').find_library('posix'),
         pk_dep
     ],
     install: true,

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+<policyconfig>
+  <vendor>elementary</vendor>
+  <vendor_url>https://elementary.io/</vendor_url>
+
+  <action id="io.elementary.settings-daemon.administration">
+    <description>Modify display settings for all users</description>
+    <message>Authentication is required to modify display settings</message>
+    <icon_name>preferences-desktop-display</icon_name>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+
+</policyconfig>
