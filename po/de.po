@@ -8,26 +8,24 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-20 03:26+0000\n"
-"PO-Revision-Date: 2023-06-15 00:07+0000\n"
+"PO-Revision-Date: 2024-03-22 16:13+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
-"Language-Team: German <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/de/>\n"
+"Language-Team: German <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
-msgstr ""
+msgstr "Systemeinstellungen"
 
 #: data/autostart.desktop:5
-#, fuzzy
-#| msgid "Manage settings and background tasks"
 msgid "System Settings background tasks"
-msgstr "Einstellungen und Hintergrundaufgaben verwalten"
+msgstr "Hintergrundaufgaben der Systemeinstellungen"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -138,59 +136,59 @@ msgstr "Firmware-Aktualisierung verfügbar"
 
 #: src/Backends/SystemUpdate.vala:171
 msgid "Restart required"
-msgstr ""
+msgstr "Neustart erforderlich"
 
 #: src/Backends/SystemUpdate.vala:172
 msgid "Please restart your system to finalize updates"
-msgstr ""
+msgstr "Starten Sie Ihr System zum Abschluss der Aktualisierungen neu"
 
 #: src/Backends/SystemUpdate.vala:194
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "Systemaktualisierungen konnten nicht installiert werden"
 
 #: src/Backends/SystemUpdate.vala:195
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "Beim Versuch, das System zu aktualisieren, ist ein Fehler aufgetreten"
 
 #: src/Backends/SystemUpdate.vala:217
 msgid "Starting"
-msgstr ""
+msgstr "Starten"
 
 #: src/Backends/SystemUpdate.vala:219
 msgid "Waiting"
-msgstr ""
+msgstr "Warten"
 
 #: src/Backends/SystemUpdate.vala:221
 msgid "Running"
-msgstr ""
+msgstr "Ausführen"
 
 #: src/Backends/SystemUpdate.vala:223
 msgid "Querying"
-msgstr ""
+msgstr "Abfragen"
 
 #: src/Backends/SystemUpdate.vala:225
 msgid "Getting information"
-msgstr ""
+msgstr "Informationen einholen"
 
 #: src/Backends/SystemUpdate.vala:227
 msgid "Removing packages"
-msgstr ""
+msgstr "Pakete entfernen"
 
 #: src/Backends/SystemUpdate.vala:229
 msgid "Downloading"
-msgstr ""
+msgstr "Herunterladen"
 
 #: src/Backends/SystemUpdate.vala:231
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Software-Liste aktualisieren"
 
 #: src/Backends/SystemUpdate.vala:233
 msgid "Installing updates"
-msgstr ""
+msgstr "Aktualsierungen installieren"
 
 #: src/Backends/SystemUpdate.vala:235
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Pakete aufräumen"
 
 #: src/Backends/SystemUpdate.vala:237
 msgid "Obsoleting packages"
@@ -198,15 +196,15 @@ msgstr ""
 
 #: src/Backends/SystemUpdate.vala:239
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Abhängigkeiten auflösen"
 
 #: src/Backends/SystemUpdate.vala:241
 msgid "Checking signatures"
-msgstr ""
+msgstr "Signaturen überprüfen"
 
 #: src/Backends/SystemUpdate.vala:243
 msgid "Testing changes"
-msgstr ""
+msgstr "Änderungen prüfen"
 
 #: src/Backends/SystemUpdate.vala:245
 msgid "Committing changes"
@@ -214,82 +212,80 @@ msgstr ""
 
 #: src/Backends/SystemUpdate.vala:247
 msgid "Requesting data"
-msgstr ""
+msgstr "Daten anfordern"
 
 #: src/Backends/SystemUpdate.vala:249
 msgid "Finished"
-msgstr ""
+msgstr "Abgeschlossen"
 
 #: src/Backends/SystemUpdate.vala:251
 msgid "Cancelling"
-msgstr ""
+msgstr "Abbrechen"
 
 #: src/Backends/SystemUpdate.vala:253
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Paketquelleninformationen herunterladen"
 
 #: src/Backends/SystemUpdate.vala:255
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Paketliste herunterladen"
 
 #: src/Backends/SystemUpdate.vala:257
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Dateilisten herunterladen"
 
 #: src/Backends/SystemUpdate.vala:259
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Änderungslisten herunterladen"
 
 #: src/Backends/SystemUpdate.vala:261
 msgid "Downloading groups"
-msgstr ""
+msgstr "Gruppen herunterladen"
 
 #: src/Backends/SystemUpdate.vala:263
 msgid "Downloading update information"
-msgstr ""
+msgstr "Aktualisierungsinformationen herunterladen"
 
 #: src/Backends/SystemUpdate.vala:265
 msgid "Repackaging files"
-msgstr ""
+msgstr "Dateien neu packen"
 
 #: src/Backends/SystemUpdate.vala:267
 msgid "Loading cache"
-msgstr ""
+msgstr "Zwischenspeicher laden"
 
 #: src/Backends/SystemUpdate.vala:269
 msgid "Scanning applications"
-msgstr ""
+msgstr "Anwendungen einlesen"
 
 #: src/Backends/SystemUpdate.vala:271
 msgid "Generating package lists"
-msgstr ""
+msgstr "Paketlisten erzeugen"
 
 #: src/Backends/SystemUpdate.vala:273
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Auf Paketverwaltungssperre warten"
 
 #: src/Backends/SystemUpdate.vala:275
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Auf Authentifizierung warten"
 
 #: src/Backends/SystemUpdate.vala:277
-#, fuzzy
-#| msgid "Updated translations"
 msgid "Updating running applications"
-msgstr "Aktualisierte Übersetzungen"
+msgstr "Ausgeführte Anwendungen aktualisieren"
 
 #: src/Backends/SystemUpdate.vala:279
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Verwendete Anwendungen überprüfen"
 
 #: src/Backends/SystemUpdate.vala:281
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Verwendete Bibliotheken überprüfen"
 
 #: src/Backends/SystemUpdate.vala:283
 msgid "Copying files"
-msgstr ""
+msgstr "Dateien kopieren"
 
 #: src/Backends/SystemUpdate.vala:286
 msgid "Installing"
-msgstr ""
+msgstr "Installieren"
