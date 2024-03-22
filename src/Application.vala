@@ -21,6 +21,8 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     private Backends.Housekeeping housekeeping;
     private Backends.PowerProfilesSync power_profiles_sync;
 
+    private Backends.ScheduleManager schedule_manager;
+
     private const string FDO_ACCOUNTS_NAME = "org.freedesktop.Accounts";
     private const string FDO_ACCOUNTS_PATH = "/org/freedesktop/Accounts";
 
@@ -39,6 +41,8 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         GLib.Intl.textdomain (Build.GETTEXT_PACKAGE);
 
         add_main_option ("version", 'v', NONE, NONE, "Display the version", null);
+
+        schedule_manager = new Backends.ScheduleManager ();
     }
 
     protected override int handle_local_options (VariantDict options) {
@@ -78,6 +82,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     protected override bool dbus_register (DBusConnection connection, string object_path) throws Error {
         base.dbus_register (connection, object_path);
 
+        connection.register_object (object_path, schedule_manager);
         connection.register_object (object_path, new Backends.SystemUpdate ());
 
         return true;
@@ -118,7 +123,10 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
         try {
             pantheon_service = yield connection.get_proxy (FDO_ACCOUNTS_NAME, path, GET_INVALIDATED_PROPERTIES);
-            prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_service);
+
+            //  prefers_color_scheme_settings = new Backends.PrefersColorSchemeSettings (pantheon_service);
+            schedule_manager.pantheon_service = pantheon_service;
+
             accent_color_manager = new Backends.AccentColorManager (pantheon_service);
         } catch {
             warning ("Unable to get pantheon's AccountsService proxy, color scheme preference may be incorrect");
