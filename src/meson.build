@@ -10,6 +10,8 @@ sources = files(
     'Backends/PowerProfilesSync.vala',
     'Backends/PrefersColorSchemeSettings.vala',
     'Backends/SystemUpdate.vala',
+    'Backends/UbuntuDrivers.vala',
+    'Utils/PkUtils.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
