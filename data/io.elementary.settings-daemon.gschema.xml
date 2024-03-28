@@ -40,6 +40,16 @@
       <summary>Whether the Screenshots folder should be automatically cleaned up.</summary>
       <description></description>
     </key>
+    <key type="b" name="cleanup-temp-folder">
+      <default>false</default>
+      <summary>Whether the Temp folder should be automatically cleaned up.</summary>
+      <description></description>
+    </key>
+    <key type="b" name="cleanup-trash-folder">
+      <default>false</default>
+      <summary>Whether the Trash folder should be automatically cleaned up.</summary>
+      <description></description>
+    </key>
     <key type="i" name="old-files-age">
       <default>30</default>
       <summary>How many days to keep an old file before it is cleaned up.</summary>

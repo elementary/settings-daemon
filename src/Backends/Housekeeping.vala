@@ -36,7 +36,12 @@ public class SettingsDaemon.Backends.Housekeeping : Object {
             write_systemd_tmpfiles_config.begin ();
         });
 
-        if (housekeeping_settings.get_boolean ("cleanup-downloads-folder")) {
+        if (
+            housekeeping_settings.get_boolean ("cleanup-downloads-folder") ||
+            housekeeping_settings.get_boolean ("cleanup-screenshots-folder") ||
+            housekeeping_settings.get_boolean ("cleanup-temp-folder") ||
+            housekeeping_settings.get_boolean ("cleanup-trash-folder")
+        ) {
             enable_systemd_tmpfiles.begin ();
         }
 
@@ -130,6 +135,8 @@ public class SettingsDaemon.Backends.Housekeeping : Object {
     private class CleanupConfig : Object {
         public bool clean_downloads { private get; public construct; }
         public bool clean_screenshots { private get; public construct; }
+        public bool clean_temp { private get; public construct; }
+        public bool clean_trash { private get; public construct; }
         public int clean_after_days { private get; public construct; }
 
         public bool is_disabled { get {
@@ -141,6 +148,8 @@ public class SettingsDaemon.Backends.Housekeeping : Object {
                 clean_downloads: settings.get_boolean ("cleanup-downloads-folder")
                     && downloads_are_not_home (),
                 clean_screenshots: settings.get_boolean ("cleanup-screenshots-folder"),
+                clean_temp: settings.get_boolean ("cleanup-temp-folder"),
+                clean_trash: settings.get_boolean ("cleanup-trash-folder"),
                 clean_after_days: settings.get_int ("old-files-age")
             );
         }
@@ -169,6 +178,19 @@ public class SettingsDaemon.Backends.Housekeeping : Object {
                 var pictures_dir = Environment.get_user_special_dir (UserDirectory.PICTURES);
                 var screenshots_dir = Path.build_filename (pictures_dir, dgettext ("gala", "Screenshots"));
                 lines += template.printf (screenshots_dir, clean_after_days);
+            }
+
+            if (clean_temp) {
+                var temp_dir = Environment.get_tmp_dir ();
+                lines += template.printf (temp_dir, clean_after_days);
+            }
+
+            if (clean_trash) {
+                var user_data_dir = Environment.get_user_data_dir ();
+                var trash_files_dir = Path.build_filename (user_data_dir, "Trash", "files");
+                var trash_info_dir = Path.build_filename (user_data_dir, "Trash", "info");
+                lines += template.printf (trash_files_dir, clean_after_days);
+                lines += template.printf (trash_info_dir, clean_after_days);
             }
 
             return string.joinv ("\n", lines).data;
