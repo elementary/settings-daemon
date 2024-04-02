@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-20 03:26+0000\n"
-"PO-Revision-Date: 2024-02-08 09:11+0000\n"
+"PO-Revision-Date: 2024-04-02 13:00+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/fr/>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +21,11 @@ msgstr ""
 
 #: data/autostart.desktop:4
 msgid "System Settings"
-msgstr ""
+msgstr "Paramètres du système"
 
 #: data/autostart.desktop:5
-#, fuzzy
-#| msgid "Manage settings and background tasks"
 msgid "System Settings background tasks"
-msgstr "Gère les paramètres et les tâches en arrière-plan"
+msgstr "Tâches en arrière-plan des paramètres du système"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
