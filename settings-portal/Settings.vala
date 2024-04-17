@@ -105,7 +105,7 @@ public class SettingsDaemon.Settings : GLib.Object {
 
     public signal void setting_changed (string namespace, string key, GLib.Variant value);
 
-    private HashTable<string, GLib.Settings> settings;
+    private HashTable<unowned string, GLib.Settings> settings;
     private AccountsServiceMonitor monitor;
 
     private const string[] SUPPORTED_SCHEMAS = {
@@ -122,14 +122,16 @@ public class SettingsDaemon.Settings : GLib.Object {
             setting_changed ("org.freedesktop.appearance", "accent-color", get_accent_color ());
         });
 
-        settings = new HashTable<string, GLib.Settings> (str_hash, str_equal);
-        foreach (var schema in SUPPORTED_SCHEMAS) {
+        settings = new HashTable<unowned string, GLib.Settings> (str_hash, str_equal);
+        foreach (unowned var schema in SUPPORTED_SCHEMAS) {
             if (SettingsSchemaSource.get_default ().lookup (schema, true) != null) {
                 settings[schema] = new GLib.Settings (schema);
                 settings[schema].changed.connect ((key) => {
                     var @value = settings[schema].get_value (key);
                     setting_changed (schema, key, value);
                 });
+            } else {
+                warning ("GSettings schema `%s` not found on the system!", schema);
             }
         }
     }
@@ -204,42 +206,41 @@ public class SettingsDaemon.Settings : GLib.Object {
     public async GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> read_all (string[] namespaces) throws GLib.DBusError, GLib.IOError {
         var ret = new GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> (str_hash, str_equal);
 
-        foreach (var schema in SUPPORTED_SCHEMAS) {
+        settings.foreach ((schema, setting) => {
             if (namespace_matches (schema, namespaces)) {
-                var dict = new HashTable<string, Variant> (str_hash, str_equal);
+                var dict = new GLib.HashTable<string, GLib.Variant> (str_hash, str_equal);
 
                 if (schema == "org.freedesktop.appearance") {
                     dict.insert ("color-scheme", get_color_scheme ());
                     dict.insert ("accent-color", get_accent_color ());
                 } else {
-                    var setting = settings[schema];
-                    foreach (var key in setting.settings_schema.list_keys ()) {
+                    var keys = setting.settings_schema.list_keys ();
+                    foreach (unowned var key in keys) {
                         dict.insert (key, setting.get_value (key));
                     }
                 }
 
                 ret.insert (schema, dict);
             }
-        }
+        });
 
         return ret;
     }
 
     public async GLib.Variant read (string namespace, string key) throws GLib.DBusError, GLib.Error {
-        if (namespace in SUPPORTED_SCHEMAS) {
-            if (namespace == "org.freedesktop.appearance") {
-                if (key == "color-scheme") {
-                    return get_color_scheme ();
-                }
-
-                if (key == "accent-color") {
-                    return get_accent_color ();
-                }
+        if (namespace == "org.freedesktop.appearance") {
+            if (key == "color-scheme") {
+                return get_color_scheme ();
             }
 
-            if (settings[namespace].settings_schema.has_key (key)) {
-                return settings[namespace].get_value (key);
+            if (key == "accent-color") {
+                return get_accent_color ();
             }
+        }
+
+        unowned GLib.Settings? setting = settings[namespace];
+        if (setting != null && setting.settings_schema.has_key (key)) {
+            return setting.get_value (key);
         }
 
         debug ("Attempted to read unknown namespace/key pair: %s %s", namespace, key);
