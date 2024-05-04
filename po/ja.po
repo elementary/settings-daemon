@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-20 03:26+0000\n"
+"POT-Creation-Date: 2024-05-04 08:31+0000\n"
 "PO-Revision-Date: 2024-03-22 16:13+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
@@ -43,21 +43,17 @@ msgstr ""
 "Greeter と設定を同期したり、ダークモードのスケジューリングや不要になったファ"
 "イルの削除などのバックグラウンドタスクを管理したりします。"
 
-#: data/settings-daemon.metainfo.xml.in:28
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:77
 msgid "New features:"
 msgstr "新機能:"
 
-#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:45
 msgid "Provide accent colors on the settings portal"
 msgstr "設定ポータルでアクセントカラーの設定を取得できる機能を追加"
 
-#: data/settings-daemon.metainfo.xml.in:44
+#: data/settings-daemon.metainfo.xml.in:46
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -65,41 +61,41 @@ msgstr ""
 "フォント・マウス・キーボード・夜間モード・一部アクセシビリティー設定が、ログ"
 "イン・ロック画面と同期するように変更"
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:79
+#: data/settings-daemon.metainfo.xml.in:48
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:81
 msgid "Improvements:"
 msgstr "改善点:"
 
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:50
+#: data/settings-daemon.metainfo.xml.in:70
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:64
 msgid "Add First day of the week setting"
 msgstr "週の最初の曜日の設定を追加"
 
-#: data/settings-daemon.metainfo.xml.in:63
+#: data/settings-daemon.metainfo.xml.in:65
 msgid "Add left-handed mouse click setting"
 msgstr "利き手に応じたマウスのクリック設定を追加"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:66
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 "“ダウンロード”フォルダーがホームフォルダーでもある場合、自動削除しないように"
 "修正"
 
-#: data/settings-daemon.metainfo.xml.in:77
+#: data/settings-daemon.metainfo.xml.in:79
 msgid "Provide the Settings portal"
 msgstr "設定ポータルを追加"
 
-#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:83
 msgid "Remove unused dark style gsettings schema"
 msgstr "ダークスタイル用の GSettings スキーマが未使用のため削除"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:91
 msgid "Initial release"
 msgstr "初リリース"
 
@@ -281,3 +277,6 @@ msgstr "ファイルをコピーしています"
 #: src/Backends/SystemUpdate.vala:286
 msgid "Installing"
 msgstr "インストールしています"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
