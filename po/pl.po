@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-20 03:26+0000\n"
+"POT-Creation-Date: 2024-05-04 08:31+0000\n"
 "PO-Revision-Date: 2024-03-23 18:13+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/pl/>\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,21 +44,17 @@ msgstr ""
 "Synchronizuje ustawienia z ekranem powitalnym i zarządza zadaniami w tle, "
 "takimi jak planowanie trybu ciemnego i zarządzanie domem."
 
-#: data/settings-daemon.metainfo.xml.in:28
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
-
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:77
 msgid "New features:"
 msgstr "Nowe funkcje:"
 
-#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:45
 msgid "Provide accent colors on the settings portal"
 msgstr "Dodano kolory akcentu dla portalu ustawień"
 
-#: data/settings-daemon.metainfo.xml.in:44
+#: data/settings-daemon.metainfo.xml.in:46
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -66,39 +62,39 @@ msgstr ""
 "Ustawienia fontów, myszki, klawiatury, światła nocnego i niektórych opcji "
 "dostępności są teraz synchronizowane z ekranem logowania i zablokowania"
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:79
+#: data/settings-daemon.metainfo.xml.in:48
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:81
 msgid "Improvements:"
 msgstr "Ulepszenia:"
 
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:50
+#: data/settings-daemon.metainfo.xml.in:70
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Updated translations"
 msgstr "Zaktualizowano tłumaczenia"
 
-#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:64
 msgid "Add First day of the week setting"
 msgstr "Dodano ustawienia pierwszego dnia tygodnia"
 
-#: data/settings-daemon.metainfo.xml.in:63
+#: data/settings-daemon.metainfo.xml.in:65
 msgid "Add left-handed mouse click setting"
 msgstr "Dodano ustawienia obsługi myszki lewą ręką"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:66
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Nie sprzątaj folderu Pobrane jeśli jest taki sam jak folder domowy"
 
-#: data/settings-daemon.metainfo.xml.in:77
+#: data/settings-daemon.metainfo.xml.in:79
 msgid "Provide the Settings portal"
 msgstr "Dodano portal ustawień"
 
-#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:83
 msgid "Remove unused dark style gsettings schema"
 msgstr "Usunięto nieużywany schemat ciemnych gsettings"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:91
 msgid "Initial release"
 msgstr "Wstępne wydanie"
 
@@ -284,3 +280,6 @@ msgstr "Kopiowanie plików"
 #: src/Backends/SystemUpdate.vala:286
 msgid "Installing"
 msgstr "Instalowanie"
+
+#~ msgid "elementary, Inc."
+#~ msgstr "elementary, Inc."
