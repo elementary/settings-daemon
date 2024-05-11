@@ -1,7 +1,10 @@
-install_data(
-    'autostart.desktop',
-    install_dir: datadir / 'applications',
-    rename: meson.project_name() + '.desktop'
+i18n.merge_file(
+    input: 'autostart.desktop',
+    output: meson.project_name() + '.desktop',
+    po_dir: meson.project_source_root() / 'po',
+    type: 'desktop',
+    install: true,
+    install_dir: datadir / 'applications'
 )
 
 fs = import('fs')
