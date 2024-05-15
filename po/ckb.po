@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-28 22:41+0000\n"
+"POT-Creation-Date: 2024-05-04 08:31+0000\n"
 "PO-Revision-Date: 2022-04-15 22:24+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -18,6 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.4.2\n"
+
+#: data/autostart.desktop:4
+msgid "System Settings"
+msgstr ""
+
+#: data/autostart.desktop:5
+#, fuzzy
+#| msgid "Manage settings and background tasks"
+msgid "System Settings background tasks"
+msgstr "بەڕێوەبردنی ڕێکخستنەکان و تاسکەکانی باکگراوند"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -39,239 +49,238 @@ msgstr ""
 "ئەم پڕۆسەیە ڕێکخستنەکان لەگەڵ گریتەر هاوکات دەکات و تاسکەکانی باکگراوند "
 "بەڕێوەدەبات وەکو نانەوەی دۆخی تاریک و پاککردنەوەی سیستەم."
 
-#: data/settings-daemon.metainfo.xml.in:28
-msgid "elementary, Inc."
-msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
-
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:77
 msgid "New features:"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:45
 msgid "Provide accent colors on the settings portal"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:44
+#: data/settings-daemon.metainfo.xml.in:46
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:79
+#: data/settings-daemon.metainfo.xml.in:48
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:81
 msgid "Improvements:"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:50
+#: data/settings-daemon.metainfo.xml.in:70
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Updated translations"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:64
 msgid "Add First day of the week setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:63
+#: data/settings-daemon.metainfo.xml.in:65
 msgid "Add left-handed mouse click setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:66
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:77
+#: data/settings-daemon.metainfo.xml.in:79
 msgid "Provide the Settings portal"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:83
 msgid "Remove unused dark style gsettings schema"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:91
 msgid "Initial release"
 msgstr ""
 
-#: src/Application.vala:160
+#: src/Application.vala:161
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Application.vala:162
+#: src/Application.vala:163
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Backends/SystemUpdate.vala:124
+#: src/Backends/SystemUpdate.vala:131
 msgid "Update available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:128
+#: src/Backends/SystemUpdate.vala:135
 msgid "A system security update is available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:132
+#: src/Backends/SystemUpdate.vala:139
 msgid "A system update is available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:166
+#: src/Backends/SystemUpdate.vala:171
 msgid "Restart required"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:167
+#: src/Backends/SystemUpdate.vala:172
 msgid "Please restart your system to finalize updates"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:189
+#: src/Backends/SystemUpdate.vala:194
 msgid "System updates couldn't be installed"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:190
+#: src/Backends/SystemUpdate.vala:195
 msgid "An error occurred while trying to update your system"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:212
+#: src/Backends/SystemUpdate.vala:217
 msgid "Starting"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:214
+#: src/Backends/SystemUpdate.vala:219
 msgid "Waiting"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:216
+#: src/Backends/SystemUpdate.vala:221
 msgid "Running"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:218
+#: src/Backends/SystemUpdate.vala:223
 msgid "Querying"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:220
+#: src/Backends/SystemUpdate.vala:225
 msgid "Getting information"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:222
+#: src/Backends/SystemUpdate.vala:227
 msgid "Removing packages"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:224
+#: src/Backends/SystemUpdate.vala:229
 msgid "Downloading"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:226
+#: src/Backends/SystemUpdate.vala:231
 msgid "Refreshing software list"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:228
+#: src/Backends/SystemUpdate.vala:233
 msgid "Installing updates"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:230
+#: src/Backends/SystemUpdate.vala:235
 msgid "Cleaning up packages"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:232
+#: src/Backends/SystemUpdate.vala:237
 msgid "Obsoleting packages"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:234
+#: src/Backends/SystemUpdate.vala:239
 msgid "Resolving dependencies"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:236
+#: src/Backends/SystemUpdate.vala:241
 msgid "Checking signatures"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:238
+#: src/Backends/SystemUpdate.vala:243
 msgid "Testing changes"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:240
+#: src/Backends/SystemUpdate.vala:245
 msgid "Committing changes"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:242
+#: src/Backends/SystemUpdate.vala:247
 msgid "Requesting data"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:244
+#: src/Backends/SystemUpdate.vala:249
 msgid "Finished"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:246
+#: src/Backends/SystemUpdate.vala:251
 msgid "Cancelling"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:248
+#: src/Backends/SystemUpdate.vala:253
 msgid "Downloading repository information"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:250
+#: src/Backends/SystemUpdate.vala:255
 msgid "Downloading list of packages"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:252
+#: src/Backends/SystemUpdate.vala:257
 msgid "Downloading file lists"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:254
+#: src/Backends/SystemUpdate.vala:259
 msgid "Downloading lists of changes"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:256
+#: src/Backends/SystemUpdate.vala:261
 msgid "Downloading groups"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:258
+#: src/Backends/SystemUpdate.vala:263
 msgid "Downloading update information"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:260
+#: src/Backends/SystemUpdate.vala:265
 msgid "Repackaging files"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:262
+#: src/Backends/SystemUpdate.vala:267
 msgid "Loading cache"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:264
+#: src/Backends/SystemUpdate.vala:269
 msgid "Scanning applications"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:266
+#: src/Backends/SystemUpdate.vala:271
 msgid "Generating package lists"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:268
+#: src/Backends/SystemUpdate.vala:273
 msgid "Waiting for package manager lock"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:270
+#: src/Backends/SystemUpdate.vala:275
 msgid "Waiting for authentication"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:272
+#: src/Backends/SystemUpdate.vala:277
 msgid "Updating running applications"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:274
+#: src/Backends/SystemUpdate.vala:279
 msgid "Checking applications in use"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:276
+#: src/Backends/SystemUpdate.vala:281
 msgid "Checking libraries in use"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:278
+#: src/Backends/SystemUpdate.vala:283
 msgid "Copying files"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:281
+#: src/Backends/SystemUpdate.vala:286
 msgid "Installing"
 msgstr ""
+
+#~ msgid "elementary, Inc."
+#~ msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
