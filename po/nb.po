@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 08:31+0000\n"
+"POT-Creation-Date: 2024-05-30 15:53+0000\n"
 "PO-Revision-Date: 2024-01-30 18:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
@@ -103,200 +103,165 @@ msgstr "Fjern ubrukt mørk stil for gsettings-forvaltning"
 msgid "Initial release"
 msgstr "Første utgave"
 
-#: src/Application.vala:161
+#: src/Application.vala:165
 #, fuzzy
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Fastvareoppgradering tilgjengelig"
 msgstr[1] "Fastvareoppgraderinger tilgjengelig"
 
-#: src/Application.vala:163
+#: src/Application.vala:167
 #, fuzzy, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u oppgradering tilgjengelig for din maskinvare"
 msgstr[1] "%u oppgraderinger tilgjengelig for din maskinvare"
 
-#: src/Backends/SystemUpdate.vala:131
+#: src/Backends/SystemUpdate.vala:117
 #, fuzzy
 msgid "Update available"
 msgstr "Fastvareoppgradering tilgjengelig"
 
-#: src/Backends/SystemUpdate.vala:135
+#: src/Backends/SystemUpdate.vala:121
 #, fuzzy
 msgid "A system security update is available"
 msgstr "Fastvareoppgradering tilgjengelig"
 
-#: src/Backends/SystemUpdate.vala:139
+#: src/Backends/SystemUpdate.vala:125
 #, fuzzy
 msgid "A system update is available"
 msgstr "Fastvareoppgradering tilgjengelig"
 
-#: src/Backends/SystemUpdate.vala:171
+#: src/Backends/SystemUpdate.vala:157
 #, fuzzy
 msgid "Restart required"
 msgstr "Omstart kreves"
 
-#: src/Backends/SystemUpdate.vala:172
+#: src/Backends/SystemUpdate.vala:158
 #, fuzzy
 msgid "Please restart your system to finalize updates"
 msgstr "Start systemet på ny for å fullføre oppgraderingene"
 
-#: src/Backends/SystemUpdate.vala:194
+#: src/Backends/SystemUpdate.vala:180
 #, fuzzy
 msgid "System updates couldn't be installed"
 msgstr "Kunne ikke installere systemoppgraderinger"
 
-#: src/Backends/SystemUpdate.vala:195
+#: src/Backends/SystemUpdate.vala:181
 #, fuzzy
 msgid "An error occurred while trying to update your system"
 msgstr "En feil inntraff i forbindelse med oppgradering av systemet ditt"
 
-#: src/Backends/SystemUpdate.vala:217
-msgid "Starting"
-msgstr "Starter …"
+#~ msgid "Starting"
+#~ msgstr "Starter …"
 
-#: src/Backends/SystemUpdate.vala:219
-msgid "Waiting"
-msgstr "Venter …"
+#~ msgid "Waiting"
+#~ msgstr "Venter …"
 
-#: src/Backends/SystemUpdate.vala:221
-msgid "Running"
-msgstr "Kjører …"
+#~ msgid "Running"
+#~ msgstr "Kjører …"
 
-#: src/Backends/SystemUpdate.vala:223
-msgid "Querying"
-msgstr "Utfører spørring …"
+#~ msgid "Querying"
+#~ msgstr "Utfører spørring …"
 
-#: src/Backends/SystemUpdate.vala:225
-msgid "Getting information"
-msgstr "Henter info …"
+#~ msgid "Getting information"
+#~ msgstr "Henter info …"
 
-#: src/Backends/SystemUpdate.vala:227
-msgid "Removing packages"
-msgstr "Fjerner pakker …"
+#~ msgid "Removing packages"
+#~ msgstr "Fjerner pakker …"
 
-#: src/Backends/SystemUpdate.vala:229
-msgid "Downloading"
-msgstr "Laster ned …"
+#~ msgid "Downloading"
+#~ msgstr "Laster ned …"
 
-#: src/Backends/SystemUpdate.vala:231
-msgid "Refreshing software list"
-msgstr "Gjenoppfrisker programvarelisten …"
+#~ msgid "Refreshing software list"
+#~ msgstr "Gjenoppfrisker programvarelisten …"
 
-#: src/Backends/SystemUpdate.vala:233
 #, fuzzy
-msgid "Installing updates"
-msgstr "Installerer nye versjoner …"
+#~ msgid "Installing updates"
+#~ msgstr "Installerer nye versjoner …"
 
-#: src/Backends/SystemUpdate.vala:235
-msgid "Cleaning up packages"
-msgstr "Renser opp pakker …"
+#~ msgid "Cleaning up packages"
+#~ msgstr "Renser opp pakker …"
 
-#: src/Backends/SystemUpdate.vala:237
-msgid "Obsoleting packages"
-msgstr "Forelder pakker …"
+#~ msgid "Obsoleting packages"
+#~ msgstr "Forelder pakker …"
 
-#: src/Backends/SystemUpdate.vala:239
-msgid "Resolving dependencies"
-msgstr "Utleder avhengigheter …"
+#~ msgid "Resolving dependencies"
+#~ msgstr "Utleder avhengigheter …"
 
-#: src/Backends/SystemUpdate.vala:241
-msgid "Checking signatures"
-msgstr "Sjekker signaturer …"
+#~ msgid "Checking signatures"
+#~ msgstr "Sjekker signaturer …"
 
-#: src/Backends/SystemUpdate.vala:243
-msgid "Testing changes"
-msgstr "Tester endringer …"
+#~ msgid "Testing changes"
+#~ msgstr "Tester endringer …"
 
-#: src/Backends/SystemUpdate.vala:245
 #, fuzzy
-msgid "Committing changes"
-msgstr "Fullfører endringer …"
+#~ msgid "Committing changes"
+#~ msgstr "Fullfører endringer …"
 
-#: src/Backends/SystemUpdate.vala:247
-msgid "Requesting data"
-msgstr "Forespør data …"
+#~ msgid "Requesting data"
+#~ msgstr "Forespør data …"
 
-#: src/Backends/SystemUpdate.vala:249
-msgid "Finished"
-msgstr "Fullført"
+#~ msgid "Finished"
+#~ msgstr "Fullført"
 
-#: src/Backends/SystemUpdate.vala:251
-msgid "Cancelling"
-msgstr "Avbryter …"
+#~ msgid "Cancelling"
+#~ msgstr "Avbryter …"
 
-#: src/Backends/SystemUpdate.vala:253
-msgid "Downloading repository information"
-msgstr "Laster ned kodelagerinfo …"
+#~ msgid "Downloading repository information"
+#~ msgstr "Laster ned kodelagerinfo …"
 
-#: src/Backends/SystemUpdate.vala:255
-msgid "Downloading list of packages"
-msgstr "Laster ned pakkeliste …"
+#~ msgid "Downloading list of packages"
+#~ msgstr "Laster ned pakkeliste …"
 
-#: src/Backends/SystemUpdate.vala:257
-msgid "Downloading file lists"
-msgstr "Laster ned fillister …"
+#~ msgid "Downloading file lists"
+#~ msgstr "Laster ned fillister …"
 
-#: src/Backends/SystemUpdate.vala:259
-msgid "Downloading lists of changes"
-msgstr "Laster ned endringsliste …"
+#~ msgid "Downloading lists of changes"
+#~ msgstr "Laster ned endringsliste …"
 
-#: src/Backends/SystemUpdate.vala:261
-msgid "Downloading groups"
-msgstr "Laster ned grupper …"
+#~ msgid "Downloading groups"
+#~ msgstr "Laster ned grupper …"
 
-#: src/Backends/SystemUpdate.vala:263
 #, fuzzy
-msgid "Downloading update information"
-msgstr "Laster ned oppgraderingsinfo …"
+#~ msgid "Downloading update information"
+#~ msgstr "Laster ned oppgraderingsinfo …"
 
-#: src/Backends/SystemUpdate.vala:265
-msgid "Repackaging files"
-msgstr "Pakker om filer …"
+#~ msgid "Repackaging files"
+#~ msgstr "Pakker om filer …"
 
-#: src/Backends/SystemUpdate.vala:267
-msgid "Loading cache"
-msgstr "Laster inn hurtiglager …"
+#~ msgid "Loading cache"
+#~ msgstr "Laster inn hurtiglager …"
 
-#: src/Backends/SystemUpdate.vala:269
-msgid "Scanning applications"
-msgstr "Skanner programmer"
+#~ msgid "Scanning applications"
+#~ msgstr "Skanner programmer"
 
-#: src/Backends/SystemUpdate.vala:271
-msgid "Generating package lists"
-msgstr "Genererer pakkelister …"
+#~ msgid "Generating package lists"
+#~ msgstr "Genererer pakkelister …"
 
-#: src/Backends/SystemUpdate.vala:273
-msgid "Waiting for package manager lock"
-msgstr "Venter på pakkehåndteringslåsing …"
+#~ msgid "Waiting for package manager lock"
+#~ msgstr "Venter på pakkehåndteringslåsing …"
 
-#: src/Backends/SystemUpdate.vala:275
-msgid "Waiting for authentication"
-msgstr "Venter på identitetsbekreftelse …"
+#~ msgid "Waiting for authentication"
+#~ msgstr "Venter på identitetsbekreftelse …"
 
-#: src/Backends/SystemUpdate.vala:277
 #, fuzzy
-#| msgid "Updated translations"
-msgid "Updating running applications"
-msgstr "Oppdaterte oversettelser"
+#~| msgid "Updated translations"
+#~ msgid "Updating running applications"
+#~ msgstr "Oppdaterte oversettelser"
 
-#: src/Backends/SystemUpdate.vala:279
 #, fuzzy
-msgid "Checking applications in use"
-msgstr "Sjekker hvilke programmer som er i bruk …"
+#~ msgid "Checking applications in use"
+#~ msgstr "Sjekker hvilke programmer som er i bruk …"
 
-#: src/Backends/SystemUpdate.vala:281
-msgid "Checking libraries in use"
-msgstr "Sjekker hvilke bibliotek som er i bruk …"
+#~ msgid "Checking libraries in use"
+#~ msgstr "Sjekker hvilke bibliotek som er i bruk …"
 
-#: src/Backends/SystemUpdate.vala:283
-msgid "Copying files"
-msgstr "Kopierer filer …"
+#~ msgid "Copying files"
+#~ msgstr "Kopierer filer …"
 
-#: src/Backends/SystemUpdate.vala:286
-msgid "Installing"
-msgstr "Installerer …"
+#~ msgid "Installing"
+#~ msgstr "Installerer …"
 
 #, fuzzy
 #~ msgid "elementary, Inc."
