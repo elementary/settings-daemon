@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 08:31+0000\n"
+"POT-Creation-Date: 2024-05-30 15:53+0000\n"
 "PO-Revision-Date: 2024-03-22 16:13+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
@@ -98,14 +98,14 @@ msgstr "Вилучити невикористану схему налаштув�
 msgid "Initial release"
 msgstr "Початковий випуск"
 
-#: src/Application.vala:161
+#: src/Application.vala:165
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Доступне оновлення мікропрограми"
 msgstr[1] "Доступні оновлення мікропрограми"
 msgstr[2] "Доступні оновлення мікропрограми"
 
-#: src/Application.vala:163
+#: src/Application.vala:167
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
@@ -113,173 +113,138 @@ msgstr[0] "Для вашого обладнання доступне %u онов
 msgstr[1] "Для вашого обладнання доступні %u оновлення"
 msgstr[2] "Для вашого обладнання доступні %u оновлень"
 
-#: src/Backends/SystemUpdate.vala:131
+#: src/Backends/SystemUpdate.vala:117
 msgid "Update available"
 msgstr "Доступне оновлення"
 
-#: src/Backends/SystemUpdate.vala:135
+#: src/Backends/SystemUpdate.vala:121
 msgid "A system security update is available"
 msgstr "Доступне оновлення безпеки системи"
 
-#: src/Backends/SystemUpdate.vala:139
+#: src/Backends/SystemUpdate.vala:125
 msgid "A system update is available"
 msgstr "Доступне оновлення системи"
 
-#: src/Backends/SystemUpdate.vala:171
+#: src/Backends/SystemUpdate.vala:157
 msgid "Restart required"
 msgstr "Потрібен перезапуск"
 
-#: src/Backends/SystemUpdate.vala:172
+#: src/Backends/SystemUpdate.vala:158
 msgid "Please restart your system to finalize updates"
 msgstr "Перезапустіть систему, щоб завершити оновлення"
 
-#: src/Backends/SystemUpdate.vala:194
+#: src/Backends/SystemUpdate.vala:180
 msgid "System updates couldn't be installed"
 msgstr "Не вдалося встановити оновлення системи"
 
-#: src/Backends/SystemUpdate.vala:195
+#: src/Backends/SystemUpdate.vala:181
 msgid "An error occurred while trying to update your system"
 msgstr "Виникла помилка під час спроби оновити систему"
 
-#: src/Backends/SystemUpdate.vala:217
-msgid "Starting"
-msgstr "Запуск"
+#~ msgid "Starting"
+#~ msgstr "Запуск"
 
-#: src/Backends/SystemUpdate.vala:219
-msgid "Waiting"
-msgstr "Очікування"
+#~ msgid "Waiting"
+#~ msgstr "Очікування"
 
-#: src/Backends/SystemUpdate.vala:221
-msgid "Running"
-msgstr "Запущено"
+#~ msgid "Running"
+#~ msgstr "Запущено"
 
-#: src/Backends/SystemUpdate.vala:223
-msgid "Querying"
-msgstr "Додавання до черги"
+#~ msgid "Querying"
+#~ msgstr "Додавання до черги"
 
-#: src/Backends/SystemUpdate.vala:225
-msgid "Getting information"
-msgstr "Отримання інформації"
+#~ msgid "Getting information"
+#~ msgstr "Отримання інформації"
 
-#: src/Backends/SystemUpdate.vala:227
-msgid "Removing packages"
-msgstr "Вилучення пакунків"
+#~ msgid "Removing packages"
+#~ msgstr "Вилучення пакунків"
 
-#: src/Backends/SystemUpdate.vala:229
-msgid "Downloading"
-msgstr "Завантаження"
+#~ msgid "Downloading"
+#~ msgstr "Завантаження"
 
-#: src/Backends/SystemUpdate.vala:231
-msgid "Refreshing software list"
-msgstr "Оновлення списку програмного забезпечення"
+#~ msgid "Refreshing software list"
+#~ msgstr "Оновлення списку програмного забезпечення"
 
-#: src/Backends/SystemUpdate.vala:233
-msgid "Installing updates"
-msgstr "Встановлення оновлень"
+#~ msgid "Installing updates"
+#~ msgstr "Встановлення оновлень"
 
-#: src/Backends/SystemUpdate.vala:235
-msgid "Cleaning up packages"
-msgstr "Очищення пакунків"
+#~ msgid "Cleaning up packages"
+#~ msgstr "Очищення пакунків"
 
-#: src/Backends/SystemUpdate.vala:237
-msgid "Obsoleting packages"
-msgstr "Застарілі пакунки"
+#~ msgid "Obsoleting packages"
+#~ msgstr "Застарілі пакунки"
 
-#: src/Backends/SystemUpdate.vala:239
-msgid "Resolving dependencies"
-msgstr "Розв'язування залежностей"
+#~ msgid "Resolving dependencies"
+#~ msgstr "Розв'язування залежностей"
 
-#: src/Backends/SystemUpdate.vala:241
-msgid "Checking signatures"
-msgstr "Перевірка підписів"
+#~ msgid "Checking signatures"
+#~ msgstr "Перевірка підписів"
 
-#: src/Backends/SystemUpdate.vala:243
-msgid "Testing changes"
-msgstr "Випробування змін"
+#~ msgid "Testing changes"
+#~ msgstr "Випробування змін"
 
-#: src/Backends/SystemUpdate.vala:245
-msgid "Committing changes"
-msgstr "Внесення змін"
+#~ msgid "Committing changes"
+#~ msgstr "Внесення змін"
 
-#: src/Backends/SystemUpdate.vala:247
-msgid "Requesting data"
-msgstr "Запит даних"
+#~ msgid "Requesting data"
+#~ msgstr "Запит даних"
 
-#: src/Backends/SystemUpdate.vala:249
-msgid "Finished"
-msgstr "Завершено"
+#~ msgid "Finished"
+#~ msgstr "Завершено"
 
-#: src/Backends/SystemUpdate.vala:251
-msgid "Cancelling"
-msgstr "Скасування"
+#~ msgid "Cancelling"
+#~ msgstr "Скасування"
 
-#: src/Backends/SystemUpdate.vala:253
-msgid "Downloading repository information"
-msgstr "Завантаження відомостей про репозиторій"
+#~ msgid "Downloading repository information"
+#~ msgstr "Завантаження відомостей про репозиторій"
 
-#: src/Backends/SystemUpdate.vala:255
-msgid "Downloading list of packages"
-msgstr "Список пакунків для завантаження"
+#~ msgid "Downloading list of packages"
+#~ msgstr "Список пакунків для завантаження"
 
-#: src/Backends/SystemUpdate.vala:257
-msgid "Downloading file lists"
-msgstr "Завантаження списків файлів"
+#~ msgid "Downloading file lists"
+#~ msgstr "Завантаження списків файлів"
 
-#: src/Backends/SystemUpdate.vala:259
-msgid "Downloading lists of changes"
-msgstr "Завантаження списків змін"
+#~ msgid "Downloading lists of changes"
+#~ msgstr "Завантаження списків змін"
 
-#: src/Backends/SystemUpdate.vala:261
-msgid "Downloading groups"
-msgstr "Завантаження груп"
+#~ msgid "Downloading groups"
+#~ msgstr "Завантаження груп"
 
-#: src/Backends/SystemUpdate.vala:263
-msgid "Downloading update information"
-msgstr "Завантаження відомостей про оновлення"
+#~ msgid "Downloading update information"
+#~ msgstr "Завантаження відомостей про оновлення"
 
-#: src/Backends/SystemUpdate.vala:265
-msgid "Repackaging files"
-msgstr "Перепаковування файлів"
+#~ msgid "Repackaging files"
+#~ msgstr "Перепаковування файлів"
 
-#: src/Backends/SystemUpdate.vala:267
-msgid "Loading cache"
-msgstr "Завантаження кешу"
+#~ msgid "Loading cache"
+#~ msgstr "Завантаження кешу"
 
-#: src/Backends/SystemUpdate.vala:269
-msgid "Scanning applications"
-msgstr "Сканування застосунків"
+#~ msgid "Scanning applications"
+#~ msgstr "Сканування застосунків"
 
-#: src/Backends/SystemUpdate.vala:271
-msgid "Generating package lists"
-msgstr "Генерування списків пакунків"
+#~ msgid "Generating package lists"
+#~ msgstr "Генерування списків пакунків"
 
-#: src/Backends/SystemUpdate.vala:273
-msgid "Waiting for package manager lock"
-msgstr "Очікування блокування менеджера пакунків"
+#~ msgid "Waiting for package manager lock"
+#~ msgstr "Очікування блокування менеджера пакунків"
 
-#: src/Backends/SystemUpdate.vala:275
-msgid "Waiting for authentication"
-msgstr "Очікування автентифікації"
+#~ msgid "Waiting for authentication"
+#~ msgstr "Очікування автентифікації"
 
-#: src/Backends/SystemUpdate.vala:277
-msgid "Updating running applications"
-msgstr "Оновлення запущених застосунків"
+#~ msgid "Updating running applications"
+#~ msgstr "Оновлення запущених застосунків"
 
-#: src/Backends/SystemUpdate.vala:279
-msgid "Checking applications in use"
-msgstr "Перевірка використовуваних застосунків"
+#~ msgid "Checking applications in use"
+#~ msgstr "Перевірка використовуваних застосунків"
 
-#: src/Backends/SystemUpdate.vala:281
-msgid "Checking libraries in use"
-msgstr "Перевірка використовуваних бібліотек"
+#~ msgid "Checking libraries in use"
+#~ msgstr "Перевірка використовуваних бібліотек"
 
-#: src/Backends/SystemUpdate.vala:283
-msgid "Copying files"
-msgstr "Копіювання файлів"
+#~ msgid "Copying files"
+#~ msgstr "Копіювання файлів"
 
-#: src/Backends/SystemUpdate.vala:286
-msgid "Installing"
-msgstr "Встановлення"
+#~ msgid "Installing"
+#~ msgstr "Встановлення"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

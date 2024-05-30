@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 08:31+0000\n"
+"POT-Creation-Date: 2024-05-30 15:53+0000\n"
 "PO-Revision-Date: 2024-03-23 18:13+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/settings-"
@@ -98,14 +98,14 @@ msgstr "Usunięto nieużywany schemat ciemnych gsettings"
 msgid "Initial release"
 msgstr "Wstępne wydanie"
 
-#: src/Application.vala:161
+#: src/Application.vala:165
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Dostępna aktualizacja firmware’u"
 msgstr[1] "Dostępne aktualizacje firmware’u"
 msgstr[2] "Dostępne aktualizacje firmware’u"
 
-#: src/Application.vala:163
+#: src/Application.vala:167
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
@@ -113,173 +113,138 @@ msgstr[0] "%u aktualizacja dostępna dla twojego urządzenia"
 msgstr[1] "%u aktualizacje dostępne dla twojego urządzenia"
 msgstr[2] "%u aktualizacji dostępnych dla twojego urządzenia"
 
-#: src/Backends/SystemUpdate.vala:131
+#: src/Backends/SystemUpdate.vala:117
 msgid "Update available"
 msgstr "Dostępna aktualizacja"
 
-#: src/Backends/SystemUpdate.vala:135
+#: src/Backends/SystemUpdate.vala:121
 msgid "A system security update is available"
 msgstr "Dostępna jest aktualizacja bezpieczeństwa systemu"
 
-#: src/Backends/SystemUpdate.vala:139
+#: src/Backends/SystemUpdate.vala:125
 msgid "A system update is available"
 msgstr "Dostępna jest aktualizacja systemu"
 
-#: src/Backends/SystemUpdate.vala:171
+#: src/Backends/SystemUpdate.vala:157
 msgid "Restart required"
 msgstr "Wymagane ponowne uruchomienie"
 
-#: src/Backends/SystemUpdate.vala:172
+#: src/Backends/SystemUpdate.vala:158
 msgid "Please restart your system to finalize updates"
 msgstr "Proszę ponownie uruchomić komputer by zakończyć aktualizację"
 
-#: src/Backends/SystemUpdate.vala:194
+#: src/Backends/SystemUpdate.vala:180
 msgid "System updates couldn't be installed"
 msgstr "Aktualizacje systemowe nie mogły zostać zainstalowane"
 
-#: src/Backends/SystemUpdate.vala:195
+#: src/Backends/SystemUpdate.vala:181
 msgid "An error occurred while trying to update your system"
 msgstr "Podczas aktualizacji systemu wystąpił błąd"
 
-#: src/Backends/SystemUpdate.vala:217
-msgid "Starting"
-msgstr "Uruchamianie"
+#~ msgid "Starting"
+#~ msgstr "Uruchamianie"
 
-#: src/Backends/SystemUpdate.vala:219
-msgid "Waiting"
-msgstr "Oczekiwanie"
+#~ msgid "Waiting"
+#~ msgstr "Oczekiwanie"
 
-#: src/Backends/SystemUpdate.vala:221
-msgid "Running"
-msgstr "W trakcie"
+#~ msgid "Running"
+#~ msgstr "W trakcie"
 
-#: src/Backends/SystemUpdate.vala:223
-msgid "Querying"
-msgstr "Sprawdzanie"
+#~ msgid "Querying"
+#~ msgstr "Sprawdzanie"
 
-#: src/Backends/SystemUpdate.vala:225
-msgid "Getting information"
-msgstr "Pobieranie informacji"
+#~ msgid "Getting information"
+#~ msgstr "Pobieranie informacji"
 
-#: src/Backends/SystemUpdate.vala:227
-msgid "Removing packages"
-msgstr "Usuwanie pakietów"
+#~ msgid "Removing packages"
+#~ msgstr "Usuwanie pakietów"
 
-#: src/Backends/SystemUpdate.vala:229
-msgid "Downloading"
-msgstr "Pobieranie"
+#~ msgid "Downloading"
+#~ msgstr "Pobieranie"
 
-#: src/Backends/SystemUpdate.vala:231
-msgid "Refreshing software list"
-msgstr "Odświeżanie listy oprogramowania"
+#~ msgid "Refreshing software list"
+#~ msgstr "Odświeżanie listy oprogramowania"
 
-#: src/Backends/SystemUpdate.vala:233
-msgid "Installing updates"
-msgstr "Instalowanie aktualizacji"
+#~ msgid "Installing updates"
+#~ msgstr "Instalowanie aktualizacji"
 
-#: src/Backends/SystemUpdate.vala:235
-msgid "Cleaning up packages"
-msgstr "Czyszczenie pakietów"
+#~ msgid "Cleaning up packages"
+#~ msgstr "Czyszczenie pakietów"
 
-#: src/Backends/SystemUpdate.vala:237
-msgid "Obsoleting packages"
-msgstr "Oznaczanie przestarzałych pakietów"
+#~ msgid "Obsoleting packages"
+#~ msgstr "Oznaczanie przestarzałych pakietów"
 
-#: src/Backends/SystemUpdate.vala:239
-msgid "Resolving dependencies"
-msgstr "Rozwiązywanie zależności"
+#~ msgid "Resolving dependencies"
+#~ msgstr "Rozwiązywanie zależności"
 
-#: src/Backends/SystemUpdate.vala:241
-msgid "Checking signatures"
-msgstr "Sprawdzanie podpisów"
+#~ msgid "Checking signatures"
+#~ msgstr "Sprawdzanie podpisów"
 
-#: src/Backends/SystemUpdate.vala:243
-msgid "Testing changes"
-msgstr "Testowanie zmian"
+#~ msgid "Testing changes"
+#~ msgstr "Testowanie zmian"
 
-#: src/Backends/SystemUpdate.vala:245
-msgid "Committing changes"
-msgstr "Zapisywanie zmian"
+#~ msgid "Committing changes"
+#~ msgstr "Zapisywanie zmian"
 
-#: src/Backends/SystemUpdate.vala:247
-msgid "Requesting data"
-msgstr "Zapytanie o dane"
+#~ msgid "Requesting data"
+#~ msgstr "Zapytanie o dane"
 
-#: src/Backends/SystemUpdate.vala:249
-msgid "Finished"
-msgstr "Zakończono"
+#~ msgid "Finished"
+#~ msgstr "Zakończono"
 
-#: src/Backends/SystemUpdate.vala:251
-msgid "Cancelling"
-msgstr "Anulowanie"
+#~ msgid "Cancelling"
+#~ msgstr "Anulowanie"
 
-#: src/Backends/SystemUpdate.vala:253
-msgid "Downloading repository information"
-msgstr "Pobieranie informacji o repozytorium"
+#~ msgid "Downloading repository information"
+#~ msgstr "Pobieranie informacji o repozytorium"
 
-#: src/Backends/SystemUpdate.vala:255
-msgid "Downloading list of packages"
-msgstr "Pobieranie listy pakietów"
+#~ msgid "Downloading list of packages"
+#~ msgstr "Pobieranie listy pakietów"
 
-#: src/Backends/SystemUpdate.vala:257
-msgid "Downloading file lists"
-msgstr "Pobieranie listy plików"
+#~ msgid "Downloading file lists"
+#~ msgstr "Pobieranie listy plików"
 
-#: src/Backends/SystemUpdate.vala:259
-msgid "Downloading lists of changes"
-msgstr "Pobieranie listy zmian"
+#~ msgid "Downloading lists of changes"
+#~ msgstr "Pobieranie listy zmian"
 
-#: src/Backends/SystemUpdate.vala:261
-msgid "Downloading groups"
-msgstr "Pobieranie grup"
+#~ msgid "Downloading groups"
+#~ msgstr "Pobieranie grup"
 
-#: src/Backends/SystemUpdate.vala:263
-msgid "Downloading update information"
-msgstr "Pobieranie informacji o aktualizacji"
+#~ msgid "Downloading update information"
+#~ msgstr "Pobieranie informacji o aktualizacji"
 
-#: src/Backends/SystemUpdate.vala:265
-msgid "Repackaging files"
-msgstr "Przepakowywanie plików"
+#~ msgid "Repackaging files"
+#~ msgstr "Przepakowywanie plików"
 
-#: src/Backends/SystemUpdate.vala:267
-msgid "Loading cache"
-msgstr "Ładowanie pamięci podręcznej"
+#~ msgid "Loading cache"
+#~ msgstr "Ładowanie pamięci podręcznej"
 
-#: src/Backends/SystemUpdate.vala:269
-msgid "Scanning applications"
-msgstr "Skanowanie aplikacji"
+#~ msgid "Scanning applications"
+#~ msgstr "Skanowanie aplikacji"
 
-#: src/Backends/SystemUpdate.vala:271
-msgid "Generating package lists"
-msgstr "Generowanie listy pakietów"
+#~ msgid "Generating package lists"
+#~ msgstr "Generowanie listy pakietów"
 
-#: src/Backends/SystemUpdate.vala:273
-msgid "Waiting for package manager lock"
-msgstr "Oczekiwanie na zablokowanie menadżera pakietów"
+#~ msgid "Waiting for package manager lock"
+#~ msgstr "Oczekiwanie na zablokowanie menadżera pakietów"
 
-#: src/Backends/SystemUpdate.vala:275
-msgid "Waiting for authentication"
-msgstr "Oczekiwanie na uwierzytelnienie"
+#~ msgid "Waiting for authentication"
+#~ msgstr "Oczekiwanie na uwierzytelnienie"
 
-#: src/Backends/SystemUpdate.vala:277
-msgid "Updating running applications"
-msgstr "Zaktualizowano działające aplikacje"
+#~ msgid "Updating running applications"
+#~ msgstr "Zaktualizowano działające aplikacje"
 
-#: src/Backends/SystemUpdate.vala:279
-msgid "Checking applications in use"
-msgstr "Sprawdzanie aplikacji w użyciu"
+#~ msgid "Checking applications in use"
+#~ msgstr "Sprawdzanie aplikacji w użyciu"
 
-#: src/Backends/SystemUpdate.vala:281
-msgid "Checking libraries in use"
-msgstr "Sprawdzanie bibliotek w użyciu"
+#~ msgid "Checking libraries in use"
+#~ msgstr "Sprawdzanie bibliotek w użyciu"
 
-#: src/Backends/SystemUpdate.vala:283
-msgid "Copying files"
-msgstr "Kopiowanie plików"
+#~ msgid "Copying files"
+#~ msgstr "Kopiowanie plików"
 
-#: src/Backends/SystemUpdate.vala:286
-msgid "Installing"
-msgstr "Instalowanie"
+#~ msgid "Installing"
+#~ msgstr "Instalowanie"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

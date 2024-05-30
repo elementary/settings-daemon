@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-04 08:31+0000\n"
+"POT-Creation-Date: 2024-05-30 15:53+0000\n"
 "PO-Revision-Date: 2024-03-22 16:13+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/settings-"
@@ -97,186 +97,151 @@ msgstr "הסרת סכמות gsettings של סגנון כהה שאינן בשימ
 msgid "Initial release"
 msgstr "מהדורה ראשונית"
 
-#: src/Application.vala:161
+#: src/Application.vala:165
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "קיים עדכון קושחה"
 msgstr[1] "קיימים עדכוני קושחה"
 
-#: src/Application.vala:163
+#: src/Application.vala:167
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "עדכון אחד זמין לחומרה שלך"
 msgstr[1] "%u עדכונים זמינים לחומרה שלך"
 
-#: src/Backends/SystemUpdate.vala:131
+#: src/Backends/SystemUpdate.vala:117
 msgid "Update available"
 msgstr "יש עדכון"
 
-#: src/Backends/SystemUpdate.vala:135
+#: src/Backends/SystemUpdate.vala:121
 msgid "A system security update is available"
 msgstr "יש עדכון אבטחה למערכת"
 
-#: src/Backends/SystemUpdate.vala:139
+#: src/Backends/SystemUpdate.vala:125
 msgid "A system update is available"
 msgstr "יש עדכון למערכת"
 
-#: src/Backends/SystemUpdate.vala:171
+#: src/Backends/SystemUpdate.vala:157
 msgid "Restart required"
 msgstr "צריך הפעלה מחדש"
 
-#: src/Backends/SystemUpdate.vala:172
+#: src/Backends/SystemUpdate.vala:158
 msgid "Please restart your system to finalize updates"
 msgstr "נא להפעיל את המערכת מחדש כדי להשלים את העדכונים"
 
-#: src/Backends/SystemUpdate.vala:194
+#: src/Backends/SystemUpdate.vala:180
 msgid "System updates couldn't be installed"
 msgstr "לא ניתן להתקין את עדכוני המערכת שלך"
 
-#: src/Backends/SystemUpdate.vala:195
+#: src/Backends/SystemUpdate.vala:181
 msgid "An error occurred while trying to update your system"
 msgstr "אירעה שגיאה במהלך ניסיון עדכון המערכת שלך"
 
-#: src/Backends/SystemUpdate.vala:217
-msgid "Starting"
-msgstr "מתחיל"
+#~ msgid "Starting"
+#~ msgstr "מתחיל"
 
-#: src/Backends/SystemUpdate.vala:219
-msgid "Waiting"
-msgstr "ממתין"
+#~ msgid "Waiting"
+#~ msgstr "ממתין"
 
-#: src/Backends/SystemUpdate.vala:221
-msgid "Running"
-msgstr "רץ"
+#~ msgid "Running"
+#~ msgstr "רץ"
 
-#: src/Backends/SystemUpdate.vala:223
-msgid "Querying"
-msgstr "מתשאל"
+#~ msgid "Querying"
+#~ msgstr "מתשאל"
 
-#: src/Backends/SystemUpdate.vala:225
-msgid "Getting information"
-msgstr "מתקבל מידע"
+#~ msgid "Getting information"
+#~ msgstr "מתקבל מידע"
 
-#: src/Backends/SystemUpdate.vala:227
-msgid "Removing packages"
-msgstr "חבילות נמחקות"
+#~ msgid "Removing packages"
+#~ msgstr "חבילות נמחקות"
 
-#: src/Backends/SystemUpdate.vala:229
-msgid "Downloading"
-msgstr "מוריד"
+#~ msgid "Downloading"
+#~ msgstr "מוריד"
 
-#: src/Backends/SystemUpdate.vala:231
-msgid "Refreshing software list"
-msgstr "רשימת התוכנות מתעדכנת"
+#~ msgid "Refreshing software list"
+#~ msgstr "רשימת התוכנות מתעדכנת"
 
-#: src/Backends/SystemUpdate.vala:233
-msgid "Installing updates"
-msgstr "עדכונים מותקנים"
+#~ msgid "Installing updates"
+#~ msgstr "עדכונים מותקנים"
 
-#: src/Backends/SystemUpdate.vala:235
-msgid "Cleaning up packages"
-msgstr "החבילות עוברות ניקיון"
+#~ msgid "Cleaning up packages"
+#~ msgstr "החבילות עוברות ניקיון"
 
-#: src/Backends/SystemUpdate.vala:237
-msgid "Obsoleting packages"
-msgstr "חבילות מתייתרות"
+#~ msgid "Obsoleting packages"
+#~ msgstr "חבילות מתייתרות"
 
-#: src/Backends/SystemUpdate.vala:239
-msgid "Resolving dependencies"
-msgstr "התלויות נפתרות"
+#~ msgid "Resolving dependencies"
+#~ msgstr "התלויות נפתרות"
 
-#: src/Backends/SystemUpdate.vala:241
-msgid "Checking signatures"
-msgstr "החתימות נבדקות"
+#~ msgid "Checking signatures"
+#~ msgstr "החתימות נבדקות"
 
-#: src/Backends/SystemUpdate.vala:243
-msgid "Testing changes"
-msgstr "השינויים נבדקים"
+#~ msgid "Testing changes"
+#~ msgstr "השינויים נבדקים"
 
-#: src/Backends/SystemUpdate.vala:245
-msgid "Committing changes"
-msgstr "השינויים מוגשים"
+#~ msgid "Committing changes"
+#~ msgstr "השינויים מוגשים"
 
-#: src/Backends/SystemUpdate.vala:247
-msgid "Requesting data"
-msgstr "הנתונים מתבקשים"
+#~ msgid "Requesting data"
+#~ msgstr "הנתונים מתבקשים"
 
-#: src/Backends/SystemUpdate.vala:249
-msgid "Finished"
-msgstr "הסתיים"
+#~ msgid "Finished"
+#~ msgstr "הסתיים"
 
-#: src/Backends/SystemUpdate.vala:251
-msgid "Cancelling"
-msgstr "מבטל"
+#~ msgid "Cancelling"
+#~ msgstr "מבטל"
 
-#: src/Backends/SystemUpdate.vala:253
-msgid "Downloading repository information"
-msgstr "פרטי המאגר נשלפים"
+#~ msgid "Downloading repository information"
+#~ msgstr "פרטי המאגר נשלפים"
 
-#: src/Backends/SystemUpdate.vala:255
-msgid "Downloading list of packages"
-msgstr "רשימת החבילות נשלפת"
+#~ msgid "Downloading list of packages"
+#~ msgstr "רשימת החבילות נשלפת"
 
-#: src/Backends/SystemUpdate.vala:257
-msgid "Downloading file lists"
-msgstr "רשימות הקבצים נשלפות"
+#~ msgid "Downloading file lists"
+#~ msgstr "רשימות הקבצים נשלפות"
 
-#: src/Backends/SystemUpdate.vala:259
-msgid "Downloading lists of changes"
-msgstr "רשימת השינויים נשלפת"
+#~ msgid "Downloading lists of changes"
+#~ msgstr "רשימת השינויים נשלפת"
 
-#: src/Backends/SystemUpdate.vala:261
-msgid "Downloading groups"
-msgstr "הקבוצות נשלפות"
+#~ msgid "Downloading groups"
+#~ msgstr "הקבוצות נשלפות"
 
-#: src/Backends/SystemUpdate.vala:263
-msgid "Downloading update information"
-msgstr "פרטי העדכון נשלפים"
+#~ msgid "Downloading update information"
+#~ msgstr "פרטי העדכון נשלפים"
 
-#: src/Backends/SystemUpdate.vala:265
-msgid "Repackaging files"
-msgstr "הקבצים נארזים מחדש"
+#~ msgid "Repackaging files"
+#~ msgstr "הקבצים נארזים מחדש"
 
-#: src/Backends/SystemUpdate.vala:267
-msgid "Loading cache"
-msgstr "המטמון נטען"
+#~ msgid "Loading cache"
+#~ msgstr "המטמון נטען"
 
-#: src/Backends/SystemUpdate.vala:269
-msgid "Scanning applications"
-msgstr "היישומים נסרקים"
+#~ msgid "Scanning applications"
+#~ msgstr "היישומים נסרקים"
 
-#: src/Backends/SystemUpdate.vala:271
-msgid "Generating package lists"
-msgstr "רשימות החבילות נוצרות"
+#~ msgid "Generating package lists"
+#~ msgstr "רשימות החבילות נוצרות"
 
-#: src/Backends/SystemUpdate.vala:273
-msgid "Waiting for package manager lock"
-msgstr "בהמתנה לנעילת מנהל החבילות"
+#~ msgid "Waiting for package manager lock"
+#~ msgstr "בהמתנה לנעילת מנהל החבילות"
 
-#: src/Backends/SystemUpdate.vala:275
-msgid "Waiting for authentication"
-msgstr "בהמתנה לאימות"
+#~ msgid "Waiting for authentication"
+#~ msgstr "בהמתנה לאימות"
 
-#: src/Backends/SystemUpdate.vala:277
-msgid "Updating running applications"
-msgstr "היישום הפעילים עודכנו"
+#~ msgid "Updating running applications"
+#~ msgstr "היישום הפעילים עודכנו"
 
-#: src/Backends/SystemUpdate.vala:279
-msgid "Checking applications in use"
-msgstr "מתבצעת בדיקה של היישומים בשימוש"
+#~ msgid "Checking applications in use"
+#~ msgstr "מתבצעת בדיקה של היישומים בשימוש"
 
-#: src/Backends/SystemUpdate.vala:281
-msgid "Checking libraries in use"
-msgstr "הספריות בשימוש נבדקות"
+#~ msgid "Checking libraries in use"
+#~ msgstr "הספריות בשימוש נבדקות"
 
-#: src/Backends/SystemUpdate.vala:283
-msgid "Copying files"
-msgstr "הקבצים מועתקים"
+#~ msgid "Copying files"
+#~ msgstr "הקבצים מועתקים"
 
-#: src/Backends/SystemUpdate.vala:286
-msgid "Installing"
-msgstr "מתקין"
+#~ msgid "Installing"
+#~ msgstr "מתקין"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary בע״מ."
