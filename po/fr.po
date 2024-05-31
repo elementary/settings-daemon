@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 15:53+0000\n"
+"POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: 2024-04-02 13:00+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/settings-"
@@ -125,7 +125,7 @@ msgstr "Une mise à jour de sécurité du système est disponible"
 msgid "A system update is available"
 msgstr "Une mise à jour du système est disponible"
 
-#: src/Backends/SystemUpdate.vala:157
+#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Redémarrage nécessaire"
 
@@ -141,110 +141,180 @@ msgstr "Les mises à jour du système n'ont pas pu être installées"
 msgid "An error occurred while trying to update your system"
 msgstr "Une erreur s'est produite lors de la mise à jour de votre système"
 
-#~ msgid "Starting"
-#~ msgstr "Démarrage"
+#: src/Backends/UbuntuDrivers.vala:169
+#, fuzzy
+#| msgid "Update available"
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Mise à jour disponible"
+msgstr[1] "Mise à jour disponible"
 
-#~ msgid "Waiting"
-#~ msgstr "En attente"
+#: src/Backends/UbuntuDrivers.vala:171
+#, fuzzy, c-format
+#| msgid "%u update is available for your hardware"
+#| msgid_plural "%u updates are available for your hardware"
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "%u mise à jour est disponible pour votre matériel"
+msgstr[1] "%u mises à jour sont disponibles pour votre matériel"
 
-#~ msgid "Running"
-#~ msgstr "En cours"
+#: src/Backends/UbuntuDrivers.vala:245
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Please restart your system to finalize driver installation"
+msgstr "Veuillez redémarrer votre système pour terminer les mises à jour"
 
-#~ msgid "Querying"
-#~ msgstr "Interrogation"
+#: src/Backends/UbuntuDrivers.vala:267
+#, fuzzy
+#| msgid "System updates couldn't be installed"
+msgid "A driver couldn't be installed"
+msgstr "Les mises à jour du système n'ont pas pu être installées"
 
-#~ msgid "Getting information"
-#~ msgstr "Récupération des informations"
+#: src/Backends/UbuntuDrivers.vala:268
+#, fuzzy
+#| msgid "An error occurred while trying to update your system"
+msgid "An error occurred while trying to install a driver"
+msgstr "Une erreur s'est produite lors de la mise à jour de votre système"
 
-#~ msgid "Removing packages"
-#~ msgstr "Suppression des paquets"
+#: src/Utils/PkUtils.vala:20
+msgid "Starting"
+msgstr "Démarrage"
 
-#~ msgid "Downloading"
-#~ msgstr "Téléchargement"
+#: src/Utils/PkUtils.vala:22
+msgid "Waiting"
+msgstr "En attente"
 
-#~ msgid "Refreshing software list"
-#~ msgstr "Mise à jour de la liste des logiciels"
+#: src/Utils/PkUtils.vala:24
+msgid "Running"
+msgstr "En cours"
 
-#~ msgid "Installing updates"
-#~ msgstr "Installation des mises à jour"
+#: src/Utils/PkUtils.vala:26
+msgid "Querying"
+msgstr "Interrogation"
 
-#~ msgid "Cleaning up packages"
-#~ msgstr "Nettoyage des paquets"
+#: src/Utils/PkUtils.vala:28
+msgid "Getting information"
+msgstr "Récupération des informations"
 
-#~ msgid "Obsoleting packages"
-#~ msgstr "Mise en obsolescence des paquets"
+#: src/Utils/PkUtils.vala:30
+msgid "Removing packages"
+msgstr "Suppression des paquets"
 
-#~ msgid "Resolving dependencies"
-#~ msgstr "Résolution des dépendances"
+#: src/Utils/PkUtils.vala:32
+msgid "Downloading"
+msgstr "Téléchargement"
 
-#~ msgid "Checking signatures"
-#~ msgstr "Vérification des signatures"
+#: src/Utils/PkUtils.vala:34
+msgid "Refreshing software list"
+msgstr "Mise à jour de la liste des logiciels"
 
-#~ msgid "Testing changes"
-#~ msgstr "Vérification des modifications"
+#: src/Utils/PkUtils.vala:36
+msgid "Installing updates"
+msgstr "Installation des mises à jour"
 
-#~ msgid "Committing changes"
-#~ msgstr "Validation des modifications"
+#: src/Utils/PkUtils.vala:38
+msgid "Cleaning up packages"
+msgstr "Nettoyage des paquets"
 
-#~ msgid "Requesting data"
-#~ msgstr "Interrogation des données"
+#: src/Utils/PkUtils.vala:40
+msgid "Obsoleting packages"
+msgstr "Mise en obsolescence des paquets"
 
-#~ msgid "Finished"
-#~ msgstr "Terminé"
+#: src/Utils/PkUtils.vala:42
+msgid "Resolving dependencies"
+msgstr "Résolution des dépendances"
 
-#~ msgid "Cancelling"
-#~ msgstr "Annulation"
+#: src/Utils/PkUtils.vala:44
+msgid "Checking signatures"
+msgstr "Vérification des signatures"
 
-#~ msgid "Downloading repository information"
-#~ msgstr "Téléchargement des informations du dépôt"
+#: src/Utils/PkUtils.vala:46
+msgid "Testing changes"
+msgstr "Vérification des modifications"
 
-#~ msgid "Downloading list of packages"
-#~ msgstr "Téléchargement de la liste des paquets"
+#: src/Utils/PkUtils.vala:48
+msgid "Committing changes"
+msgstr "Validation des modifications"
 
-#~ msgid "Downloading file lists"
-#~ msgstr "Téléchargement de la liste des fichiers"
+#: src/Utils/PkUtils.vala:50
+msgid "Requesting data"
+msgstr "Interrogation des données"
 
-#~ msgid "Downloading lists of changes"
-#~ msgstr "Téléchargement de la liste des modifications"
+#: src/Utils/PkUtils.vala:52
+msgid "Finished"
+msgstr "Terminé"
 
-#~ msgid "Downloading groups"
-#~ msgstr "Téléchargement des groupes"
+#: src/Utils/PkUtils.vala:54
+msgid "Cancelling"
+msgstr "Annulation"
 
-#~ msgid "Downloading update information"
-#~ msgstr "Téléchargement des informations de mise à jour"
+#: src/Utils/PkUtils.vala:56
+msgid "Downloading repository information"
+msgstr "Téléchargement des informations du dépôt"
 
-#~ msgid "Repackaging files"
-#~ msgstr "Enpaquetage des fichiers"
+#: src/Utils/PkUtils.vala:58
+msgid "Downloading list of packages"
+msgstr "Téléchargement de la liste des paquets"
 
-#~ msgid "Loading cache"
-#~ msgstr "Chargement du cache"
+#: src/Utils/PkUtils.vala:60
+msgid "Downloading file lists"
+msgstr "Téléchargement de la liste des fichiers"
 
-#~ msgid "Scanning applications"
-#~ msgstr "Analyse des applications"
+#: src/Utils/PkUtils.vala:62
+msgid "Downloading lists of changes"
+msgstr "Téléchargement de la liste des modifications"
 
-#~ msgid "Generating package lists"
-#~ msgstr "Génération de la liste des paquets"
+#: src/Utils/PkUtils.vala:64
+msgid "Downloading groups"
+msgstr "Téléchargement des groupes"
 
-#~ msgid "Waiting for package manager lock"
-#~ msgstr "En attente du verrou du gestionnaire de paquets"
+#: src/Utils/PkUtils.vala:66
+msgid "Downloading update information"
+msgstr "Téléchargement des informations de mise à jour"
 
-#~ msgid "Waiting for authentication"
-#~ msgstr "En attente d'authentification"
+#: src/Utils/PkUtils.vala:68
+msgid "Repackaging files"
+msgstr "Enpaquetage des fichiers"
 
-#~ msgid "Updating running applications"
-#~ msgstr "Mise à jour des applications en cours d'exécution"
+#: src/Utils/PkUtils.vala:70
+msgid "Loading cache"
+msgstr "Chargement du cache"
 
-#~ msgid "Checking applications in use"
-#~ msgstr "Vérification des applications en cours d'utilisation"
+#: src/Utils/PkUtils.vala:72
+msgid "Scanning applications"
+msgstr "Analyse des applications"
 
-#~ msgid "Checking libraries in use"
-#~ msgstr "Vérification des bibliothèques en cours d'utilisation"
+#: src/Utils/PkUtils.vala:74
+msgid "Generating package lists"
+msgstr "Génération de la liste des paquets"
 
-#~ msgid "Copying files"
-#~ msgstr "Copie des fichiers"
+#: src/Utils/PkUtils.vala:76
+msgid "Waiting for package manager lock"
+msgstr "En attente du verrou du gestionnaire de paquets"
 
-#~ msgid "Installing"
-#~ msgstr "Installation"
+#: src/Utils/PkUtils.vala:78
+msgid "Waiting for authentication"
+msgstr "En attente d'authentification"
+
+#: src/Utils/PkUtils.vala:80
+msgid "Updating running applications"
+msgstr "Mise à jour des applications en cours d'exécution"
+
+#: src/Utils/PkUtils.vala:82
+msgid "Checking applications in use"
+msgstr "Vérification des applications en cours d'utilisation"
+
+#: src/Utils/PkUtils.vala:84
+msgid "Checking libraries in use"
+msgstr "Vérification des bibliothèques en cours d'utilisation"
+
+#: src/Utils/PkUtils.vala:86
+msgid "Copying files"
+msgstr "Copie des fichiers"
+
+#: src/Utils/PkUtils.vala:89
+msgid "Installing"
+msgstr "Installation"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 15:53+0000\n"
+"POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: 2024-03-23 18:13+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/settings-"
@@ -125,7 +125,7 @@ msgstr "Dostępna jest aktualizacja bezpieczeństwa systemu"
 msgid "A system update is available"
 msgstr "Dostępna jest aktualizacja systemu"
 
-#: src/Backends/SystemUpdate.vala:157
+#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Wymagane ponowne uruchomienie"
 
@@ -141,110 +141,182 @@ msgstr "Aktualizacje systemowe nie mogły zostać zainstalowane"
 msgid "An error occurred while trying to update your system"
 msgstr "Podczas aktualizacji systemu wystąpił błąd"
 
-#~ msgid "Starting"
-#~ msgstr "Uruchamianie"
+#: src/Backends/UbuntuDrivers.vala:169
+#, fuzzy
+#| msgid "Update available"
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Dostępna aktualizacja"
+msgstr[1] "Dostępna aktualizacja"
+msgstr[2] "Dostępna aktualizacja"
 
-#~ msgid "Waiting"
-#~ msgstr "Oczekiwanie"
+#: src/Backends/UbuntuDrivers.vala:171
+#, fuzzy, c-format
+#| msgid "%u update is available for your hardware"
+#| msgid_plural "%u updates are available for your hardware"
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "%u aktualizacja dostępna dla twojego urządzenia"
+msgstr[1] "%u aktualizacje dostępne dla twojego urządzenia"
+msgstr[2] "%u aktualizacji dostępnych dla twojego urządzenia"
 
-#~ msgid "Running"
-#~ msgstr "W trakcie"
+#: src/Backends/UbuntuDrivers.vala:245
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Please restart your system to finalize driver installation"
+msgstr "Proszę ponownie uruchomić komputer by zakończyć aktualizację"
 
-#~ msgid "Querying"
-#~ msgstr "Sprawdzanie"
+#: src/Backends/UbuntuDrivers.vala:267
+#, fuzzy
+#| msgid "System updates couldn't be installed"
+msgid "A driver couldn't be installed"
+msgstr "Aktualizacje systemowe nie mogły zostać zainstalowane"
 
-#~ msgid "Getting information"
-#~ msgstr "Pobieranie informacji"
+#: src/Backends/UbuntuDrivers.vala:268
+#, fuzzy
+#| msgid "An error occurred while trying to update your system"
+msgid "An error occurred while trying to install a driver"
+msgstr "Podczas aktualizacji systemu wystąpił błąd"
 
-#~ msgid "Removing packages"
-#~ msgstr "Usuwanie pakietów"
+#: src/Utils/PkUtils.vala:20
+msgid "Starting"
+msgstr "Uruchamianie"
 
-#~ msgid "Downloading"
-#~ msgstr "Pobieranie"
+#: src/Utils/PkUtils.vala:22
+msgid "Waiting"
+msgstr "Oczekiwanie"
 
-#~ msgid "Refreshing software list"
-#~ msgstr "Odświeżanie listy oprogramowania"
+#: src/Utils/PkUtils.vala:24
+msgid "Running"
+msgstr "W trakcie"
 
-#~ msgid "Installing updates"
-#~ msgstr "Instalowanie aktualizacji"
+#: src/Utils/PkUtils.vala:26
+msgid "Querying"
+msgstr "Sprawdzanie"
 
-#~ msgid "Cleaning up packages"
-#~ msgstr "Czyszczenie pakietów"
+#: src/Utils/PkUtils.vala:28
+msgid "Getting information"
+msgstr "Pobieranie informacji"
 
-#~ msgid "Obsoleting packages"
-#~ msgstr "Oznaczanie przestarzałych pakietów"
+#: src/Utils/PkUtils.vala:30
+msgid "Removing packages"
+msgstr "Usuwanie pakietów"
 
-#~ msgid "Resolving dependencies"
-#~ msgstr "Rozwiązywanie zależności"
+#: src/Utils/PkUtils.vala:32
+msgid "Downloading"
+msgstr "Pobieranie"
 
-#~ msgid "Checking signatures"
-#~ msgstr "Sprawdzanie podpisów"
+#: src/Utils/PkUtils.vala:34
+msgid "Refreshing software list"
+msgstr "Odświeżanie listy oprogramowania"
 
-#~ msgid "Testing changes"
-#~ msgstr "Testowanie zmian"
+#: src/Utils/PkUtils.vala:36
+msgid "Installing updates"
+msgstr "Instalowanie aktualizacji"
 
-#~ msgid "Committing changes"
-#~ msgstr "Zapisywanie zmian"
+#: src/Utils/PkUtils.vala:38
+msgid "Cleaning up packages"
+msgstr "Czyszczenie pakietów"
 
-#~ msgid "Requesting data"
-#~ msgstr "Zapytanie o dane"
+#: src/Utils/PkUtils.vala:40
+msgid "Obsoleting packages"
+msgstr "Oznaczanie przestarzałych pakietów"
 
-#~ msgid "Finished"
-#~ msgstr "Zakończono"
+#: src/Utils/PkUtils.vala:42
+msgid "Resolving dependencies"
+msgstr "Rozwiązywanie zależności"
 
-#~ msgid "Cancelling"
-#~ msgstr "Anulowanie"
+#: src/Utils/PkUtils.vala:44
+msgid "Checking signatures"
+msgstr "Sprawdzanie podpisów"
 
-#~ msgid "Downloading repository information"
-#~ msgstr "Pobieranie informacji o repozytorium"
+#: src/Utils/PkUtils.vala:46
+msgid "Testing changes"
+msgstr "Testowanie zmian"
 
-#~ msgid "Downloading list of packages"
-#~ msgstr "Pobieranie listy pakietów"
+#: src/Utils/PkUtils.vala:48
+msgid "Committing changes"
+msgstr "Zapisywanie zmian"
 
-#~ msgid "Downloading file lists"
-#~ msgstr "Pobieranie listy plików"
+#: src/Utils/PkUtils.vala:50
+msgid "Requesting data"
+msgstr "Zapytanie o dane"
 
-#~ msgid "Downloading lists of changes"
-#~ msgstr "Pobieranie listy zmian"
+#: src/Utils/PkUtils.vala:52
+msgid "Finished"
+msgstr "Zakończono"
 
-#~ msgid "Downloading groups"
-#~ msgstr "Pobieranie grup"
+#: src/Utils/PkUtils.vala:54
+msgid "Cancelling"
+msgstr "Anulowanie"
 
-#~ msgid "Downloading update information"
-#~ msgstr "Pobieranie informacji o aktualizacji"
+#: src/Utils/PkUtils.vala:56
+msgid "Downloading repository information"
+msgstr "Pobieranie informacji o repozytorium"
 
-#~ msgid "Repackaging files"
-#~ msgstr "Przepakowywanie plików"
+#: src/Utils/PkUtils.vala:58
+msgid "Downloading list of packages"
+msgstr "Pobieranie listy pakietów"
 
-#~ msgid "Loading cache"
-#~ msgstr "Ładowanie pamięci podręcznej"
+#: src/Utils/PkUtils.vala:60
+msgid "Downloading file lists"
+msgstr "Pobieranie listy plików"
 
-#~ msgid "Scanning applications"
-#~ msgstr "Skanowanie aplikacji"
+#: src/Utils/PkUtils.vala:62
+msgid "Downloading lists of changes"
+msgstr "Pobieranie listy zmian"
 
-#~ msgid "Generating package lists"
-#~ msgstr "Generowanie listy pakietów"
+#: src/Utils/PkUtils.vala:64
+msgid "Downloading groups"
+msgstr "Pobieranie grup"
 
-#~ msgid "Waiting for package manager lock"
-#~ msgstr "Oczekiwanie na zablokowanie menadżera pakietów"
+#: src/Utils/PkUtils.vala:66
+msgid "Downloading update information"
+msgstr "Pobieranie informacji o aktualizacji"
 
-#~ msgid "Waiting for authentication"
-#~ msgstr "Oczekiwanie na uwierzytelnienie"
+#: src/Utils/PkUtils.vala:68
+msgid "Repackaging files"
+msgstr "Przepakowywanie plików"
 
-#~ msgid "Updating running applications"
-#~ msgstr "Zaktualizowano działające aplikacje"
+#: src/Utils/PkUtils.vala:70
+msgid "Loading cache"
+msgstr "Ładowanie pamięci podręcznej"
 
-#~ msgid "Checking applications in use"
-#~ msgstr "Sprawdzanie aplikacji w użyciu"
+#: src/Utils/PkUtils.vala:72
+msgid "Scanning applications"
+msgstr "Skanowanie aplikacji"
 
-#~ msgid "Checking libraries in use"
-#~ msgstr "Sprawdzanie bibliotek w użyciu"
+#: src/Utils/PkUtils.vala:74
+msgid "Generating package lists"
+msgstr "Generowanie listy pakietów"
 
-#~ msgid "Copying files"
-#~ msgstr "Kopiowanie plików"
+#: src/Utils/PkUtils.vala:76
+msgid "Waiting for package manager lock"
+msgstr "Oczekiwanie na zablokowanie menadżera pakietów"
 
-#~ msgid "Installing"
-#~ msgstr "Instalowanie"
+#: src/Utils/PkUtils.vala:78
+msgid "Waiting for authentication"
+msgstr "Oczekiwanie na uwierzytelnienie"
+
+#: src/Utils/PkUtils.vala:80
+msgid "Updating running applications"
+msgstr "Zaktualizowano działające aplikacje"
+
+#: src/Utils/PkUtils.vala:82
+msgid "Checking applications in use"
+msgstr "Sprawdzanie aplikacji w użyciu"
+
+#: src/Utils/PkUtils.vala:84
+msgid "Checking libraries in use"
+msgstr "Sprawdzanie bibliotek w użyciu"
+
+#: src/Utils/PkUtils.vala:86
+msgid "Copying files"
+msgstr "Kopiowanie plików"
+
+#: src/Utils/PkUtils.vala:89
+msgid "Installing"
+msgstr "Instalowanie"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

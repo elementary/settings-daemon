@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 15:53+0000\n"
+"POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: 2024-05-27 07:14+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
@@ -122,7 +122,7 @@ msgstr "システムセキュリティアップデートが利用可能です"
 msgid "A system update is available"
 msgstr "システムアップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:157
+#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "再起動が必要"
 
@@ -138,110 +138,178 @@ msgstr "システムアップデートをインストールできませんでし
 msgid "An error occurred while trying to update your system"
 msgstr "システムアップデート試行中にエラーが発生しました"
 
-#~ msgid "Starting"
-#~ msgstr "開始しています"
+#: src/Backends/UbuntuDrivers.vala:169
+#, fuzzy
+#| msgid "Update available"
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "アップデートが利用可能です"
 
-#~ msgid "Waiting"
-#~ msgstr "待機しています"
+#: src/Backends/UbuntuDrivers.vala:171
+#, fuzzy, c-format
+#| msgid "%u update is available for your hardware"
+#| msgid_plural "%u updates are available for your hardware"
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "お使いのハードウェアに %u 件のアップデートが利用可能です"
 
-#~ msgid "Running"
-#~ msgstr "実行しています"
+#: src/Backends/UbuntuDrivers.vala:245
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Please restart your system to finalize driver installation"
+msgstr "アップデートを完了するにはシステムを再起動してください"
 
-#~ msgid "Querying"
-#~ msgstr "問い合わせています"
+#: src/Backends/UbuntuDrivers.vala:267
+#, fuzzy
+#| msgid "System updates couldn't be installed"
+msgid "A driver couldn't be installed"
+msgstr "システムアップデートをインストールできませんでした"
 
-#~ msgid "Getting information"
-#~ msgstr "情報を取得しています"
+#: src/Backends/UbuntuDrivers.vala:268
+#, fuzzy
+#| msgid "An error occurred while trying to update your system"
+msgid "An error occurred while trying to install a driver"
+msgstr "システムアップデート試行中にエラーが発生しました"
 
-#~ msgid "Removing packages"
-#~ msgstr "パッケージを削除しています"
+#: src/Utils/PkUtils.vala:20
+msgid "Starting"
+msgstr "開始しています"
 
-#~ msgid "Downloading"
-#~ msgstr "ダウンロードしています"
+#: src/Utils/PkUtils.vala:22
+msgid "Waiting"
+msgstr "待機しています"
 
-#~ msgid "Refreshing software list"
-#~ msgstr "ソフトウェアの一覧を更新しています"
+#: src/Utils/PkUtils.vala:24
+msgid "Running"
+msgstr "実行しています"
 
-#~ msgid "Installing updates"
-#~ msgstr "アップデートをインストールしています"
+#: src/Utils/PkUtils.vala:26
+msgid "Querying"
+msgstr "問い合わせています"
 
-#~ msgid "Cleaning up packages"
-#~ msgstr "パッケージをクリーンアップしています"
+#: src/Utils/PkUtils.vala:28
+msgid "Getting information"
+msgstr "情報を取得しています"
 
-#~ msgid "Obsoleting packages"
-#~ msgstr "古いパッケージを取り除いています"
+#: src/Utils/PkUtils.vala:30
+msgid "Removing packages"
+msgstr "パッケージを削除しています"
 
-#~ msgid "Resolving dependencies"
-#~ msgstr "依存関係を解決しています"
+#: src/Utils/PkUtils.vala:32
+msgid "Downloading"
+msgstr "ダウンロードしています"
 
-#~ msgid "Checking signatures"
-#~ msgstr "署名を確認しています"
+#: src/Utils/PkUtils.vala:34
+msgid "Refreshing software list"
+msgstr "ソフトウェアの一覧を更新しています"
 
-#~ msgid "Testing changes"
-#~ msgstr "変更をテストしています"
+#: src/Utils/PkUtils.vala:36
+msgid "Installing updates"
+msgstr "アップデートをインストールしています"
 
-#~ msgid "Committing changes"
-#~ msgstr "変更を適用しています"
+#: src/Utils/PkUtils.vala:38
+msgid "Cleaning up packages"
+msgstr "パッケージをクリーンアップしています"
 
-#~ msgid "Requesting data"
-#~ msgstr "データを要求しています"
+#: src/Utils/PkUtils.vala:40
+msgid "Obsoleting packages"
+msgstr "古いパッケージを取り除いています"
 
-#~ msgid "Finished"
-#~ msgstr "完了しました"
+#: src/Utils/PkUtils.vala:42
+msgid "Resolving dependencies"
+msgstr "依存関係を解決しています"
 
-#~ msgid "Cancelling"
-#~ msgstr "キャンセルしています"
+#: src/Utils/PkUtils.vala:44
+msgid "Checking signatures"
+msgstr "署名を確認しています"
 
-#~ msgid "Downloading repository information"
-#~ msgstr "リポジトリの情報をダウンロードしています"
+#: src/Utils/PkUtils.vala:46
+msgid "Testing changes"
+msgstr "変更をテストしています"
 
-#~ msgid "Downloading list of packages"
-#~ msgstr "パッケージの一覧をダウンロードしています"
+#: src/Utils/PkUtils.vala:48
+msgid "Committing changes"
+msgstr "変更を適用しています"
 
-#~ msgid "Downloading file lists"
-#~ msgstr "ファイルの一覧をダウンロードしています"
+#: src/Utils/PkUtils.vala:50
+msgid "Requesting data"
+msgstr "データを要求しています"
 
-#~ msgid "Downloading lists of changes"
-#~ msgstr "変更の一覧をダウンロードしています"
+#: src/Utils/PkUtils.vala:52
+msgid "Finished"
+msgstr "完了しました"
 
-#~ msgid "Downloading groups"
-#~ msgstr "グループをダウンロードしています"
+#: src/Utils/PkUtils.vala:54
+msgid "Cancelling"
+msgstr "キャンセルしています"
 
-#~ msgid "Downloading update information"
-#~ msgstr "アップデート情報をダウンロードしています"
+#: src/Utils/PkUtils.vala:56
+msgid "Downloading repository information"
+msgstr "リポジトリの情報をダウンロードしています"
 
-#~ msgid "Repackaging files"
-#~ msgstr "ファイルを再パッケージしています"
+#: src/Utils/PkUtils.vala:58
+msgid "Downloading list of packages"
+msgstr "パッケージの一覧をダウンロードしています"
 
-#~ msgid "Loading cache"
-#~ msgstr "キャッシュを読み込んでいます"
+#: src/Utils/PkUtils.vala:60
+msgid "Downloading file lists"
+msgstr "ファイルの一覧をダウンロードしています"
 
-#~ msgid "Scanning applications"
-#~ msgstr "アプリケーションをスキャンしています"
+#: src/Utils/PkUtils.vala:62
+msgid "Downloading lists of changes"
+msgstr "変更の一覧をダウンロードしています"
 
-#~ msgid "Generating package lists"
-#~ msgstr "パッケージリストを生成しています"
+#: src/Utils/PkUtils.vala:64
+msgid "Downloading groups"
+msgstr "グループをダウンロードしています"
 
-#~ msgid "Waiting for package manager lock"
-#~ msgstr "パッケージマネージャーのロックを待機しています"
+#: src/Utils/PkUtils.vala:66
+msgid "Downloading update information"
+msgstr "アップデート情報をダウンロードしています"
 
-#~ msgid "Waiting for authentication"
-#~ msgstr "アプリが認証されるのを待機しています"
+#: src/Utils/PkUtils.vala:68
+msgid "Repackaging files"
+msgstr "ファイルを再パッケージしています"
 
-#~ msgid "Updating running applications"
-#~ msgstr "実行中のアプリケーションをアップデートしています"
+#: src/Utils/PkUtils.vala:70
+msgid "Loading cache"
+msgstr "キャッシュを読み込んでいます"
 
-#~ msgid "Checking applications in use"
-#~ msgstr "使用中のアプリケーションを確認しています"
+#: src/Utils/PkUtils.vala:72
+msgid "Scanning applications"
+msgstr "アプリケーションをスキャンしています"
 
-#~ msgid "Checking libraries in use"
-#~ msgstr "使用中のライブラリを確認しています"
+#: src/Utils/PkUtils.vala:74
+msgid "Generating package lists"
+msgstr "パッケージリストを生成しています"
 
-#~ msgid "Copying files"
-#~ msgstr "ファイルをコピーしています"
+#: src/Utils/PkUtils.vala:76
+msgid "Waiting for package manager lock"
+msgstr "パッケージマネージャーのロックを待機しています"
 
-#~ msgid "Installing"
-#~ msgstr "インストールしています"
+#: src/Utils/PkUtils.vala:78
+msgid "Waiting for authentication"
+msgstr "アプリが認証されるのを待機しています"
+
+#: src/Utils/PkUtils.vala:80
+msgid "Updating running applications"
+msgstr "実行中のアプリケーションをアップデートしています"
+
+#: src/Utils/PkUtils.vala:82
+msgid "Checking applications in use"
+msgstr "使用中のアプリケーションを確認しています"
+
+#: src/Utils/PkUtils.vala:84
+msgid "Checking libraries in use"
+msgstr "使用中のライブラリを確認しています"
+
+#: src/Utils/PkUtils.vala:86
+msgid "Copying files"
+msgstr "ファイルをコピーしています"
+
+#: src/Utils/PkUtils.vala:89
+msgid "Installing"
+msgstr "インストールしています"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

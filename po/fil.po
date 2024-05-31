@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 15:53+0000\n"
+"POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -115,7 +115,7 @@ msgstr ""
 msgid "A system update is available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:157
+#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr ""
 
@@ -129,4 +129,169 @@ msgstr ""
 
 #: src/Backends/SystemUpdate.vala:181
 msgid "An error occurred while trying to update your system"
+msgstr ""
+
+#: src/Backends/UbuntuDrivers.vala:169
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Backends/UbuntuDrivers.vala:171
+#, c-format
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Backends/UbuntuDrivers.vala:245
+msgid "Please restart your system to finalize driver installation"
+msgstr ""
+
+#: src/Backends/UbuntuDrivers.vala:267
+msgid "A driver couldn't be installed"
+msgstr ""
+
+#: src/Backends/UbuntuDrivers.vala:268
+msgid "An error occurred while trying to install a driver"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:20
+msgid "Starting"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:22
+msgid "Waiting"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:24
+msgid "Running"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:26
+msgid "Querying"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:28
+msgid "Getting information"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:30
+msgid "Removing packages"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:32
+msgid "Downloading"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:34
+msgid "Refreshing software list"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:36
+msgid "Installing updates"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:38
+msgid "Cleaning up packages"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:40
+msgid "Obsoleting packages"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:42
+msgid "Resolving dependencies"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:44
+msgid "Checking signatures"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:46
+msgid "Testing changes"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:48
+msgid "Committing changes"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:50
+msgid "Requesting data"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:52
+msgid "Finished"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:54
+msgid "Cancelling"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:56
+msgid "Downloading repository information"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:58
+msgid "Downloading list of packages"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:60
+msgid "Downloading file lists"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:62
+msgid "Downloading lists of changes"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:64
+msgid "Downloading groups"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:66
+msgid "Downloading update information"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:68
+msgid "Repackaging files"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:70
+msgid "Loading cache"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:72
+msgid "Scanning applications"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:74
+msgid "Generating package lists"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:76
+msgid "Waiting for package manager lock"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:78
+msgid "Waiting for authentication"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:80
+msgid "Updating running applications"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:82
+msgid "Checking applications in use"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:84
+msgid "Checking libraries in use"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:86
+msgid "Copying files"
+msgstr ""
+
+#: src/Utils/PkUtils.vala:89
+msgid "Installing"
 msgstr ""

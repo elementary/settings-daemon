@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 15:53+0000\n"
+"POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: 2024-05-09 19:13+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
@@ -122,7 +122,7 @@ msgstr "Biztonsági rendszerfrissítés érhető el"
 msgid "A system update is available"
 msgstr "Rendszerfrissítés érhető el"
 
-#: src/Backends/SystemUpdate.vala:157
+#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Újraindítás szükséges"
 
@@ -138,110 +138,180 @@ msgstr "A rendszerfrissítéseket nem sikerült telepíteni"
 msgid "An error occurred while trying to update your system"
 msgstr "Egy hiba történt a rendszer frissítése közben"
 
-#~ msgid "Starting"
-#~ msgstr "Indítás"
+#: src/Backends/UbuntuDrivers.vala:169
+#, fuzzy
+#| msgid "Update available"
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Frissítés érhető el"
+msgstr[1] "Frissítés érhető el"
 
-#~ msgid "Waiting"
-#~ msgstr "Várakozás"
+#: src/Backends/UbuntuDrivers.vala:171
+#, fuzzy, c-format
+#| msgid "%u update is available for your hardware"
+#| msgid_plural "%u updates are available for your hardware"
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "%u frissítés érhető el a hardveréhez"
+msgstr[1] "%u frissítés érhető el a hardveréhez"
 
-#~ msgid "Running"
-#~ msgstr "Folyamatban"
+#: src/Backends/UbuntuDrivers.vala:245
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Please restart your system to finalize driver installation"
+msgstr "Indítsa újra a rendszert a frissítések véglegesítéséhez"
 
-#~ msgid "Querying"
-#~ msgstr "Lekérdezés"
+#: src/Backends/UbuntuDrivers.vala:267
+#, fuzzy
+#| msgid "System updates couldn't be installed"
+msgid "A driver couldn't be installed"
+msgstr "A rendszerfrissítéseket nem sikerült telepíteni"
 
-#~ msgid "Getting information"
-#~ msgstr "Információszerzés"
+#: src/Backends/UbuntuDrivers.vala:268
+#, fuzzy
+#| msgid "An error occurred while trying to update your system"
+msgid "An error occurred while trying to install a driver"
+msgstr "Egy hiba történt a rendszer frissítése közben"
 
-#~ msgid "Removing packages"
-#~ msgstr "Csomagok eltávolítása"
+#: src/Utils/PkUtils.vala:20
+msgid "Starting"
+msgstr "Indítás"
 
-#~ msgid "Downloading"
-#~ msgstr "Letöltés"
+#: src/Utils/PkUtils.vala:22
+msgid "Waiting"
+msgstr "Várakozás"
 
-#~ msgid "Refreshing software list"
-#~ msgstr "Szoftverlista frissítése"
+#: src/Utils/PkUtils.vala:24
+msgid "Running"
+msgstr "Folyamatban"
 
-#~ msgid "Installing updates"
-#~ msgstr "Frissítések telepítése"
+#: src/Utils/PkUtils.vala:26
+msgid "Querying"
+msgstr "Lekérdezés"
 
-#~ msgid "Cleaning up packages"
-#~ msgstr "Csomagok tisztítása"
+#: src/Utils/PkUtils.vala:28
+msgid "Getting information"
+msgstr "Információszerzés"
 
-#~ msgid "Obsoleting packages"
-#~ msgstr "Csomagok elavulttá tétele"
+#: src/Utils/PkUtils.vala:30
+msgid "Removing packages"
+msgstr "Csomagok eltávolítása"
 
-#~ msgid "Resolving dependencies"
-#~ msgstr "Függőségek feloldása"
+#: src/Utils/PkUtils.vala:32
+msgid "Downloading"
+msgstr "Letöltés"
 
-#~ msgid "Checking signatures"
-#~ msgstr "Aláírások ellenőrzése"
+#: src/Utils/PkUtils.vala:34
+msgid "Refreshing software list"
+msgstr "Szoftverlista frissítése"
 
-#~ msgid "Testing changes"
-#~ msgstr "Változások tesztelése"
+#: src/Utils/PkUtils.vala:36
+msgid "Installing updates"
+msgstr "Frissítések telepítése"
 
-#~ msgid "Committing changes"
-#~ msgstr "Változások végrehajtása"
+#: src/Utils/PkUtils.vala:38
+msgid "Cleaning up packages"
+msgstr "Csomagok tisztítása"
 
-#~ msgid "Requesting data"
-#~ msgstr "Adatok lekérése"
+#: src/Utils/PkUtils.vala:40
+msgid "Obsoleting packages"
+msgstr "Csomagok elavulttá tétele"
 
-#~ msgid "Finished"
-#~ msgstr "Befejeződött"
+#: src/Utils/PkUtils.vala:42
+msgid "Resolving dependencies"
+msgstr "Függőségek feloldása"
 
-#~ msgid "Cancelling"
-#~ msgstr "Megszakítás"
+#: src/Utils/PkUtils.vala:44
+msgid "Checking signatures"
+msgstr "Aláírások ellenőrzése"
 
-#~ msgid "Downloading repository information"
-#~ msgstr "Tárolóinformációk letöltése"
+#: src/Utils/PkUtils.vala:46
+msgid "Testing changes"
+msgstr "Változások tesztelése"
 
-#~ msgid "Downloading list of packages"
-#~ msgstr "Csomaglisták letöltése"
+#: src/Utils/PkUtils.vala:48
+msgid "Committing changes"
+msgstr "Változások végrehajtása"
 
-#~ msgid "Downloading file lists"
-#~ msgstr "Fájllisták letöltése"
+#: src/Utils/PkUtils.vala:50
+msgid "Requesting data"
+msgstr "Adatok lekérése"
 
-#~ msgid "Downloading lists of changes"
-#~ msgstr "Változtatások listájának letöltése"
+#: src/Utils/PkUtils.vala:52
+msgid "Finished"
+msgstr "Befejeződött"
 
-#~ msgid "Downloading groups"
-#~ msgstr "Csoportok letöltése"
+#: src/Utils/PkUtils.vala:54
+msgid "Cancelling"
+msgstr "Megszakítás"
 
-#~ msgid "Downloading update information"
-#~ msgstr "Frissítési információk letöltése"
+#: src/Utils/PkUtils.vala:56
+msgid "Downloading repository information"
+msgstr "Tárolóinformációk letöltése"
 
-#~ msgid "Repackaging files"
-#~ msgstr "Fájlok újracsomagolása"
+#: src/Utils/PkUtils.vala:58
+msgid "Downloading list of packages"
+msgstr "Csomaglisták letöltése"
 
-#~ msgid "Loading cache"
-#~ msgstr "Gyorsítótár betöltése"
+#: src/Utils/PkUtils.vala:60
+msgid "Downloading file lists"
+msgstr "Fájllisták letöltése"
 
-#~ msgid "Scanning applications"
-#~ msgstr "Alkalmazások ellenőrzése"
+#: src/Utils/PkUtils.vala:62
+msgid "Downloading lists of changes"
+msgstr "Változtatások listájának letöltése"
 
-#~ msgid "Generating package lists"
-#~ msgstr "Csomaglisták létrehozása"
+#: src/Utils/PkUtils.vala:64
+msgid "Downloading groups"
+msgstr "Csoportok letöltése"
 
-#~ msgid "Waiting for package manager lock"
-#~ msgstr "Várakozás a csomagkezelő zárolására"
+#: src/Utils/PkUtils.vala:66
+msgid "Downloading update information"
+msgstr "Frissítési információk letöltése"
 
-#~ msgid "Waiting for authentication"
-#~ msgstr "Várakozás a hitelesítésre"
+#: src/Utils/PkUtils.vala:68
+msgid "Repackaging files"
+msgstr "Fájlok újracsomagolása"
 
-#~ msgid "Updating running applications"
-#~ msgstr "A futó alkalmazások frissítése"
+#: src/Utils/PkUtils.vala:70
+msgid "Loading cache"
+msgstr "Gyorsítótár betöltése"
 
-#~ msgid "Checking applications in use"
-#~ msgstr "A használt alkalmazások ellenőrzése"
+#: src/Utils/PkUtils.vala:72
+msgid "Scanning applications"
+msgstr "Alkalmazások ellenőrzése"
 
-#~ msgid "Checking libraries in use"
-#~ msgstr "A használatban lévő könyvtárak ellenőrzése"
+#: src/Utils/PkUtils.vala:74
+msgid "Generating package lists"
+msgstr "Csomaglisták létrehozása"
 
-#~ msgid "Copying files"
-#~ msgstr "Fájlok másolása"
+#: src/Utils/PkUtils.vala:76
+msgid "Waiting for package manager lock"
+msgstr "Várakozás a csomagkezelő zárolására"
 
-#~ msgid "Installing"
-#~ msgstr "Telepítés"
+#: src/Utils/PkUtils.vala:78
+msgid "Waiting for authentication"
+msgstr "Várakozás a hitelesítésre"
+
+#: src/Utils/PkUtils.vala:80
+msgid "Updating running applications"
+msgstr "A futó alkalmazások frissítése"
+
+#: src/Utils/PkUtils.vala:82
+msgid "Checking applications in use"
+msgstr "A használt alkalmazások ellenőrzése"
+
+#: src/Utils/PkUtils.vala:84
+msgid "Checking libraries in use"
+msgstr "A használatban lévő könyvtárak ellenőrzése"
+
+#: src/Utils/PkUtils.vala:86
+msgid "Copying files"
+msgstr "Fájlok másolása"
+
+#: src/Utils/PkUtils.vala:89
+msgid "Installing"
+msgstr "Telepítés"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 15:53+0000\n"
+"POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: 2024-03-22 16:13+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/settings-"
@@ -123,7 +123,7 @@ msgstr "Actualització de seguretat disponible"
 msgid "A system update is available"
 msgstr "Actualització de sistema disponible"
 
-#: src/Backends/SystemUpdate.vala:157
+#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Cal reiniciar"
 
@@ -139,110 +139,180 @@ msgstr "Les actualitzacions del sistema no s'han pogut instal·lar."
 msgid "An error occurred while trying to update your system"
 msgstr "Hi ha hagut un error en intentar actualitzar el sistema."
 
-#~ msgid "Starting"
-#~ msgstr "S'inicia"
+#: src/Backends/UbuntuDrivers.vala:169
+#, fuzzy
+#| msgid "Update available"
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Actualització disponible"
+msgstr[1] "Actualització disponible"
 
-#~ msgid "Waiting"
-#~ msgstr "S'espera"
+#: src/Backends/UbuntuDrivers.vala:171
+#, fuzzy, c-format
+#| msgid "%u update is available for your hardware"
+#| msgid_plural "%u updates are available for your hardware"
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "%u actualització disponible per al maquinari"
+msgstr[1] "%u actualitzacions disponibles per al maquinari"
 
-#~ msgid "Running"
-#~ msgstr "S'executa"
+#: src/Backends/UbuntuDrivers.vala:245
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Please restart your system to finalize driver installation"
+msgstr "Reinicieu el sistema per acabar les actualitzacions."
 
-#~ msgid "Querying"
-#~ msgstr "Es consulta"
+#: src/Backends/UbuntuDrivers.vala:267
+#, fuzzy
+#| msgid "System updates couldn't be installed"
+msgid "A driver couldn't be installed"
+msgstr "Les actualitzacions del sistema no s'han pogut instal·lar."
 
-#~ msgid "Getting information"
-#~ msgstr "S'obté informació"
+#: src/Backends/UbuntuDrivers.vala:268
+#, fuzzy
+#| msgid "An error occurred while trying to update your system"
+msgid "An error occurred while trying to install a driver"
+msgstr "Hi ha hagut un error en intentar actualitzar el sistema."
 
-#~ msgid "Removing packages"
-#~ msgstr "Se suprimeixen paquets"
+#: src/Utils/PkUtils.vala:20
+msgid "Starting"
+msgstr "S'inicia"
 
-#~ msgid "Downloading"
-#~ msgstr "Es baixa"
+#: src/Utils/PkUtils.vala:22
+msgid "Waiting"
+msgstr "S'espera"
 
-#~ msgid "Refreshing software list"
-#~ msgstr "Es refresca la llista de programari"
+#: src/Utils/PkUtils.vala:24
+msgid "Running"
+msgstr "S'executa"
 
-#~ msgid "Installing updates"
-#~ msgstr "S'instal·len les actualitzacions"
+#: src/Utils/PkUtils.vala:26
+msgid "Querying"
+msgstr "Es consulta"
 
-#~ msgid "Cleaning up packages"
-#~ msgstr "Es netegen paquets"
+#: src/Utils/PkUtils.vala:28
+msgid "Getting information"
+msgstr "S'obté informació"
 
-#~ msgid "Obsoleting packages"
-#~ msgstr "Es fan obsolets alguns paquets"
+#: src/Utils/PkUtils.vala:30
+msgid "Removing packages"
+msgstr "Se suprimeixen paquets"
 
-#~ msgid "Resolving dependencies"
-#~ msgstr "Es resolen les dependències"
+#: src/Utils/PkUtils.vala:32
+msgid "Downloading"
+msgstr "Es baixa"
 
-#~ msgid "Checking signatures"
-#~ msgstr "Es comproven les signatures"
+#: src/Utils/PkUtils.vala:34
+msgid "Refreshing software list"
+msgstr "Es refresca la llista de programari"
 
-#~ msgid "Testing changes"
-#~ msgstr "Es proven els canvis"
+#: src/Utils/PkUtils.vala:36
+msgid "Installing updates"
+msgstr "S'instal·len les actualitzacions"
 
-#~ msgid "Committing changes"
-#~ msgstr "S'apliquen els canvis"
+#: src/Utils/PkUtils.vala:38
+msgid "Cleaning up packages"
+msgstr "Es netegen paquets"
 
-#~ msgid "Requesting data"
-#~ msgstr "Es demanen dades"
+#: src/Utils/PkUtils.vala:40
+msgid "Obsoleting packages"
+msgstr "Es fan obsolets alguns paquets"
 
-#~ msgid "Finished"
-#~ msgstr "S'ha acabat"
+#: src/Utils/PkUtils.vala:42
+msgid "Resolving dependencies"
+msgstr "Es resolen les dependències"
 
-#~ msgid "Cancelling"
-#~ msgstr "Es cancel·la"
+#: src/Utils/PkUtils.vala:44
+msgid "Checking signatures"
+msgstr "Es comproven les signatures"
 
-#~ msgid "Downloading repository information"
-#~ msgstr "Es baixa la informació del repositori"
+#: src/Utils/PkUtils.vala:46
+msgid "Testing changes"
+msgstr "Es proven els canvis"
 
-#~ msgid "Downloading list of packages"
-#~ msgstr "Es baixa la llista de paquets"
+#: src/Utils/PkUtils.vala:48
+msgid "Committing changes"
+msgstr "S'apliquen els canvis"
 
-#~ msgid "Downloading file lists"
-#~ msgstr "Es baixen les llistes de fitxers"
+#: src/Utils/PkUtils.vala:50
+msgid "Requesting data"
+msgstr "Es demanen dades"
 
-#~ msgid "Downloading lists of changes"
-#~ msgstr "Es baixen les llistes de canvis"
+#: src/Utils/PkUtils.vala:52
+msgid "Finished"
+msgstr "S'ha acabat"
 
-#~ msgid "Downloading groups"
-#~ msgstr "Es baixen els grups"
+#: src/Utils/PkUtils.vala:54
+msgid "Cancelling"
+msgstr "Es cancel·la"
 
-#~ msgid "Downloading update information"
-#~ msgstr "Es baixa la informació de l'actualització"
+#: src/Utils/PkUtils.vala:56
+msgid "Downloading repository information"
+msgstr "Es baixa la informació del repositori"
 
-#~ msgid "Repackaging files"
-#~ msgstr "Es reempaqueten fitxers"
+#: src/Utils/PkUtils.vala:58
+msgid "Downloading list of packages"
+msgstr "Es baixa la llista de paquets"
 
-#~ msgid "Loading cache"
-#~ msgstr "Es carrega la cau"
+#: src/Utils/PkUtils.vala:60
+msgid "Downloading file lists"
+msgstr "Es baixen les llistes de fitxers"
 
-#~ msgid "Scanning applications"
-#~ msgstr "S'exploren les aplicacions"
+#: src/Utils/PkUtils.vala:62
+msgid "Downloading lists of changes"
+msgstr "Es baixen les llistes de canvis"
 
-#~ msgid "Generating package lists"
-#~ msgstr "Es generen les llistes de paquets"
+#: src/Utils/PkUtils.vala:64
+msgid "Downloading groups"
+msgstr "Es baixen els grups"
 
-#~ msgid "Waiting for package manager lock"
-#~ msgstr "S'espera el blocatge del gestor de paquets"
+#: src/Utils/PkUtils.vala:66
+msgid "Downloading update information"
+msgstr "Es baixa la informació de l'actualització"
 
-#~ msgid "Waiting for authentication"
-#~ msgstr "S'espera l'autenticació"
+#: src/Utils/PkUtils.vala:68
+msgid "Repackaging files"
+msgstr "Es reempaqueten fitxers"
 
-#~ msgid "Updating running applications"
-#~ msgstr "S'actualitzen les aplicacions en execució"
+#: src/Utils/PkUtils.vala:70
+msgid "Loading cache"
+msgstr "Es carrega la cau"
 
-#~ msgid "Checking applications in use"
-#~ msgstr "Es comproven les aplicacions en ús"
+#: src/Utils/PkUtils.vala:72
+msgid "Scanning applications"
+msgstr "S'exploren les aplicacions"
 
-#~ msgid "Checking libraries in use"
-#~ msgstr "Es comproven les biblioteques en ús"
+#: src/Utils/PkUtils.vala:74
+msgid "Generating package lists"
+msgstr "Es generen les llistes de paquets"
 
-#~ msgid "Copying files"
-#~ msgstr "Es copien fitxers"
+#: src/Utils/PkUtils.vala:76
+msgid "Waiting for package manager lock"
+msgstr "S'espera el blocatge del gestor de paquets"
 
-#~ msgid "Installing"
-#~ msgstr "S'instal·la"
+#: src/Utils/PkUtils.vala:78
+msgid "Waiting for authentication"
+msgstr "S'espera l'autenticació"
+
+#: src/Utils/PkUtils.vala:80
+msgid "Updating running applications"
+msgstr "S'actualitzen les aplicacions en execució"
+
+#: src/Utils/PkUtils.vala:82
+msgid "Checking applications in use"
+msgstr "Es comproven les aplicacions en ús"
+
+#: src/Utils/PkUtils.vala:84
+msgid "Checking libraries in use"
+msgstr "Es comproven les biblioteques en ús"
+
+#: src/Utils/PkUtils.vala:86
+msgid "Copying files"
+msgstr "Es copien fitxers"
+
+#: src/Utils/PkUtils.vala:89
+msgid "Installing"
+msgstr "S'instal·la"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary, Inc."
