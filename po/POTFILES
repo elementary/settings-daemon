@@ -2,3 +2,5 @@ data/autostart.desktop
 data/settings-daemon.metainfo.xml.in
 src/Application.vala
 src/Backends/SystemUpdate.vala
+src/Backends/UbuntuDrivers.vala
+src/Utils/PkUtils.vala
