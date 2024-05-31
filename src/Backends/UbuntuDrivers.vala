@@ -166,9 +166,16 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         update_state (AVAILABLE);
 
         if (notify) {
-            var notification = new Notification (_("Drivers available"));
+            var title = ngettext ("Driver Available", "Drivers Available", available_drivers.length);
+            var body = ngettext (
+                "%u driver is available for your hardware",
+                "%u drivers are available for your hardware",
+                available_drivers.length
+            );
+
+            var notification = new Notification (title);
             notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
-            notification.set_body (_("For your system are drivers available"));
+            notification.set_body (body.printf (available_drivers.length));
             notification.set_icon (new ThemedIcon ("software-update-available"));
 
             GLib.Application.get_default ().send_notification (NOTIFICATION_ID, notification);
