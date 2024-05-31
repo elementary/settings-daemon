@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 15:53+0000\n"
+"POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: 2024-01-30 18:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
@@ -132,7 +132,7 @@ msgstr "Fastvareoppgradering tilgjengelig"
 msgid "A system update is available"
 msgstr "Fastvareoppgradering tilgjengelig"
 
-#: src/Backends/SystemUpdate.vala:157
+#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 #, fuzzy
 msgid "Restart required"
 msgstr "Omstart kreves"
@@ -152,116 +152,180 @@ msgstr "Kunne ikke installere systemoppgraderinger"
 msgid "An error occurred while trying to update your system"
 msgstr "En feil inntraff i forbindelse med oppgradering av systemet ditt"
 
-#~ msgid "Starting"
-#~ msgstr "Starter …"
-
-#~ msgid "Waiting"
-#~ msgstr "Venter …"
-
-#~ msgid "Running"
-#~ msgstr "Kjører …"
-
-#~ msgid "Querying"
-#~ msgstr "Utfører spørring …"
-
-#~ msgid "Getting information"
-#~ msgstr "Henter info …"
-
-#~ msgid "Removing packages"
-#~ msgstr "Fjerner pakker …"
-
-#~ msgid "Downloading"
-#~ msgstr "Laster ned …"
-
-#~ msgid "Refreshing software list"
-#~ msgstr "Gjenoppfrisker programvarelisten …"
-
+#: src/Backends/UbuntuDrivers.vala:169
 #, fuzzy
-#~ msgid "Installing updates"
-#~ msgstr "Installerer nye versjoner …"
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Fastvareoppgradering tilgjengelig"
+msgstr[1] "Fastvareoppgradering tilgjengelig"
 
-#~ msgid "Cleaning up packages"
-#~ msgstr "Renser opp pakker …"
+#: src/Backends/UbuntuDrivers.vala:171
+#, fuzzy, c-format
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "%u oppgradering tilgjengelig for din maskinvare"
+msgstr[1] "%u oppgraderinger tilgjengelig for din maskinvare"
 
-#~ msgid "Obsoleting packages"
-#~ msgstr "Forelder pakker …"
-
-#~ msgid "Resolving dependencies"
-#~ msgstr "Utleder avhengigheter …"
-
-#~ msgid "Checking signatures"
-#~ msgstr "Sjekker signaturer …"
-
-#~ msgid "Testing changes"
-#~ msgstr "Tester endringer …"
-
+#: src/Backends/UbuntuDrivers.vala:245
 #, fuzzy
-#~ msgid "Committing changes"
-#~ msgstr "Fullfører endringer …"
+msgid "Please restart your system to finalize driver installation"
+msgstr "Start systemet på ny for å fullføre oppgraderingene"
 
-#~ msgid "Requesting data"
-#~ msgstr "Forespør data …"
-
-#~ msgid "Finished"
-#~ msgstr "Fullført"
-
-#~ msgid "Cancelling"
-#~ msgstr "Avbryter …"
-
-#~ msgid "Downloading repository information"
-#~ msgstr "Laster ned kodelagerinfo …"
-
-#~ msgid "Downloading list of packages"
-#~ msgstr "Laster ned pakkeliste …"
-
-#~ msgid "Downloading file lists"
-#~ msgstr "Laster ned fillister …"
-
-#~ msgid "Downloading lists of changes"
-#~ msgstr "Laster ned endringsliste …"
-
-#~ msgid "Downloading groups"
-#~ msgstr "Laster ned grupper …"
-
+#: src/Backends/UbuntuDrivers.vala:267
 #, fuzzy
-#~ msgid "Downloading update information"
-#~ msgstr "Laster ned oppgraderingsinfo …"
+msgid "A driver couldn't be installed"
+msgstr "Kunne ikke installere systemoppgraderinger"
 
-#~ msgid "Repackaging files"
-#~ msgstr "Pakker om filer …"
-
-#~ msgid "Loading cache"
-#~ msgstr "Laster inn hurtiglager …"
-
-#~ msgid "Scanning applications"
-#~ msgstr "Skanner programmer"
-
-#~ msgid "Generating package lists"
-#~ msgstr "Genererer pakkelister …"
-
-#~ msgid "Waiting for package manager lock"
-#~ msgstr "Venter på pakkehåndteringslåsing …"
-
-#~ msgid "Waiting for authentication"
-#~ msgstr "Venter på identitetsbekreftelse …"
-
+#: src/Backends/UbuntuDrivers.vala:268
 #, fuzzy
-#~| msgid "Updated translations"
-#~ msgid "Updating running applications"
-#~ msgstr "Oppdaterte oversettelser"
+msgid "An error occurred while trying to install a driver"
+msgstr "En feil inntraff i forbindelse med oppgradering av systemet ditt"
 
+#: src/Utils/PkUtils.vala:20
+msgid "Starting"
+msgstr "Starter …"
+
+#: src/Utils/PkUtils.vala:22
+msgid "Waiting"
+msgstr "Venter …"
+
+#: src/Utils/PkUtils.vala:24
+msgid "Running"
+msgstr "Kjører …"
+
+#: src/Utils/PkUtils.vala:26
+msgid "Querying"
+msgstr "Utfører spørring …"
+
+#: src/Utils/PkUtils.vala:28
+msgid "Getting information"
+msgstr "Henter info …"
+
+#: src/Utils/PkUtils.vala:30
+msgid "Removing packages"
+msgstr "Fjerner pakker …"
+
+#: src/Utils/PkUtils.vala:32
+msgid "Downloading"
+msgstr "Laster ned …"
+
+#: src/Utils/PkUtils.vala:34
+msgid "Refreshing software list"
+msgstr "Gjenoppfrisker programvarelisten …"
+
+#: src/Utils/PkUtils.vala:36
 #, fuzzy
-#~ msgid "Checking applications in use"
-#~ msgstr "Sjekker hvilke programmer som er i bruk …"
+msgid "Installing updates"
+msgstr "Installerer nye versjoner …"
 
-#~ msgid "Checking libraries in use"
-#~ msgstr "Sjekker hvilke bibliotek som er i bruk …"
+#: src/Utils/PkUtils.vala:38
+msgid "Cleaning up packages"
+msgstr "Renser opp pakker …"
 
-#~ msgid "Copying files"
-#~ msgstr "Kopierer filer …"
+#: src/Utils/PkUtils.vala:40
+msgid "Obsoleting packages"
+msgstr "Forelder pakker …"
 
-#~ msgid "Installing"
-#~ msgstr "Installerer …"
+#: src/Utils/PkUtils.vala:42
+msgid "Resolving dependencies"
+msgstr "Utleder avhengigheter …"
+
+#: src/Utils/PkUtils.vala:44
+msgid "Checking signatures"
+msgstr "Sjekker signaturer …"
+
+#: src/Utils/PkUtils.vala:46
+msgid "Testing changes"
+msgstr "Tester endringer …"
+
+#: src/Utils/PkUtils.vala:48
+#, fuzzy
+msgid "Committing changes"
+msgstr "Fullfører endringer …"
+
+#: src/Utils/PkUtils.vala:50
+msgid "Requesting data"
+msgstr "Forespør data …"
+
+#: src/Utils/PkUtils.vala:52
+msgid "Finished"
+msgstr "Fullført"
+
+#: src/Utils/PkUtils.vala:54
+msgid "Cancelling"
+msgstr "Avbryter …"
+
+#: src/Utils/PkUtils.vala:56
+msgid "Downloading repository information"
+msgstr "Laster ned kodelagerinfo …"
+
+#: src/Utils/PkUtils.vala:58
+msgid "Downloading list of packages"
+msgstr "Laster ned pakkeliste …"
+
+#: src/Utils/PkUtils.vala:60
+msgid "Downloading file lists"
+msgstr "Laster ned fillister …"
+
+#: src/Utils/PkUtils.vala:62
+msgid "Downloading lists of changes"
+msgstr "Laster ned endringsliste …"
+
+#: src/Utils/PkUtils.vala:64
+msgid "Downloading groups"
+msgstr "Laster ned grupper …"
+
+#: src/Utils/PkUtils.vala:66
+#, fuzzy
+msgid "Downloading update information"
+msgstr "Laster ned oppgraderingsinfo …"
+
+#: src/Utils/PkUtils.vala:68
+msgid "Repackaging files"
+msgstr "Pakker om filer …"
+
+#: src/Utils/PkUtils.vala:70
+msgid "Loading cache"
+msgstr "Laster inn hurtiglager …"
+
+#: src/Utils/PkUtils.vala:72
+msgid "Scanning applications"
+msgstr "Skanner programmer"
+
+#: src/Utils/PkUtils.vala:74
+msgid "Generating package lists"
+msgstr "Genererer pakkelister …"
+
+#: src/Utils/PkUtils.vala:76
+msgid "Waiting for package manager lock"
+msgstr "Venter på pakkehåndteringslåsing …"
+
+#: src/Utils/PkUtils.vala:78
+msgid "Waiting for authentication"
+msgstr "Venter på identitetsbekreftelse …"
+
+#: src/Utils/PkUtils.vala:80
+#, fuzzy
+#| msgid "Updated translations"
+msgid "Updating running applications"
+msgstr "Oppdaterte oversettelser"
+
+#: src/Utils/PkUtils.vala:82
+#, fuzzy
+msgid "Checking applications in use"
+msgstr "Sjekker hvilke programmer som er i bruk …"
+
+#: src/Utils/PkUtils.vala:84
+msgid "Checking libraries in use"
+msgstr "Sjekker hvilke bibliotek som er i bruk …"
+
+#: src/Utils/PkUtils.vala:86
+msgid "Copying files"
+msgstr "Kopierer filer …"
+
+#: src/Utils/PkUtils.vala:89
+msgid "Installing"
+msgstr "Installerer …"
 
 #, fuzzy
 #~ msgid "elementary, Inc."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-30 15:53+0000\n"
+"POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: 2024-03-22 16:13+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/settings-"
@@ -122,7 +122,7 @@ msgstr "יש עדכון אבטחה למערכת"
 msgid "A system update is available"
 msgstr "יש עדכון למערכת"
 
-#: src/Backends/SystemUpdate.vala:157
+#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "צריך הפעלה מחדש"
 
@@ -138,110 +138,180 @@ msgstr "לא ניתן להתקין את עדכוני המערכת שלך"
 msgid "An error occurred while trying to update your system"
 msgstr "אירעה שגיאה במהלך ניסיון עדכון המערכת שלך"
 
-#~ msgid "Starting"
-#~ msgstr "מתחיל"
+#: src/Backends/UbuntuDrivers.vala:169
+#, fuzzy
+#| msgid "Update available"
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "יש עדכון"
+msgstr[1] "יש עדכון"
 
-#~ msgid "Waiting"
-#~ msgstr "ממתין"
+#: src/Backends/UbuntuDrivers.vala:171
+#, fuzzy, c-format
+#| msgid "%u update is available for your hardware"
+#| msgid_plural "%u updates are available for your hardware"
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "עדכון אחד זמין לחומרה שלך"
+msgstr[1] "%u עדכונים זמינים לחומרה שלך"
 
-#~ msgid "Running"
-#~ msgstr "רץ"
+#: src/Backends/UbuntuDrivers.vala:245
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Please restart your system to finalize driver installation"
+msgstr "נא להפעיל את המערכת מחדש כדי להשלים את העדכונים"
 
-#~ msgid "Querying"
-#~ msgstr "מתשאל"
+#: src/Backends/UbuntuDrivers.vala:267
+#, fuzzy
+#| msgid "System updates couldn't be installed"
+msgid "A driver couldn't be installed"
+msgstr "לא ניתן להתקין את עדכוני המערכת שלך"
 
-#~ msgid "Getting information"
-#~ msgstr "מתקבל מידע"
+#: src/Backends/UbuntuDrivers.vala:268
+#, fuzzy
+#| msgid "An error occurred while trying to update your system"
+msgid "An error occurred while trying to install a driver"
+msgstr "אירעה שגיאה במהלך ניסיון עדכון המערכת שלך"
 
-#~ msgid "Removing packages"
-#~ msgstr "חבילות נמחקות"
+#: src/Utils/PkUtils.vala:20
+msgid "Starting"
+msgstr "מתחיל"
 
-#~ msgid "Downloading"
-#~ msgstr "מוריד"
+#: src/Utils/PkUtils.vala:22
+msgid "Waiting"
+msgstr "ממתין"
 
-#~ msgid "Refreshing software list"
-#~ msgstr "רשימת התוכנות מתעדכנת"
+#: src/Utils/PkUtils.vala:24
+msgid "Running"
+msgstr "רץ"
 
-#~ msgid "Installing updates"
-#~ msgstr "עדכונים מותקנים"
+#: src/Utils/PkUtils.vala:26
+msgid "Querying"
+msgstr "מתשאל"
 
-#~ msgid "Cleaning up packages"
-#~ msgstr "החבילות עוברות ניקיון"
+#: src/Utils/PkUtils.vala:28
+msgid "Getting information"
+msgstr "מתקבל מידע"
 
-#~ msgid "Obsoleting packages"
-#~ msgstr "חבילות מתייתרות"
+#: src/Utils/PkUtils.vala:30
+msgid "Removing packages"
+msgstr "חבילות נמחקות"
 
-#~ msgid "Resolving dependencies"
-#~ msgstr "התלויות נפתרות"
+#: src/Utils/PkUtils.vala:32
+msgid "Downloading"
+msgstr "מוריד"
 
-#~ msgid "Checking signatures"
-#~ msgstr "החתימות נבדקות"
+#: src/Utils/PkUtils.vala:34
+msgid "Refreshing software list"
+msgstr "רשימת התוכנות מתעדכנת"
 
-#~ msgid "Testing changes"
-#~ msgstr "השינויים נבדקים"
+#: src/Utils/PkUtils.vala:36
+msgid "Installing updates"
+msgstr "עדכונים מותקנים"
 
-#~ msgid "Committing changes"
-#~ msgstr "השינויים מוגשים"
+#: src/Utils/PkUtils.vala:38
+msgid "Cleaning up packages"
+msgstr "החבילות עוברות ניקיון"
 
-#~ msgid "Requesting data"
-#~ msgstr "הנתונים מתבקשים"
+#: src/Utils/PkUtils.vala:40
+msgid "Obsoleting packages"
+msgstr "חבילות מתייתרות"
 
-#~ msgid "Finished"
-#~ msgstr "הסתיים"
+#: src/Utils/PkUtils.vala:42
+msgid "Resolving dependencies"
+msgstr "התלויות נפתרות"
 
-#~ msgid "Cancelling"
-#~ msgstr "מבטל"
+#: src/Utils/PkUtils.vala:44
+msgid "Checking signatures"
+msgstr "החתימות נבדקות"
 
-#~ msgid "Downloading repository information"
-#~ msgstr "פרטי המאגר נשלפים"
+#: src/Utils/PkUtils.vala:46
+msgid "Testing changes"
+msgstr "השינויים נבדקים"
 
-#~ msgid "Downloading list of packages"
-#~ msgstr "רשימת החבילות נשלפת"
+#: src/Utils/PkUtils.vala:48
+msgid "Committing changes"
+msgstr "השינויים מוגשים"
 
-#~ msgid "Downloading file lists"
-#~ msgstr "רשימות הקבצים נשלפות"
+#: src/Utils/PkUtils.vala:50
+msgid "Requesting data"
+msgstr "הנתונים מתבקשים"
 
-#~ msgid "Downloading lists of changes"
-#~ msgstr "רשימת השינויים נשלפת"
+#: src/Utils/PkUtils.vala:52
+msgid "Finished"
+msgstr "הסתיים"
 
-#~ msgid "Downloading groups"
-#~ msgstr "הקבוצות נשלפות"
+#: src/Utils/PkUtils.vala:54
+msgid "Cancelling"
+msgstr "מבטל"
 
-#~ msgid "Downloading update information"
-#~ msgstr "פרטי העדכון נשלפים"
+#: src/Utils/PkUtils.vala:56
+msgid "Downloading repository information"
+msgstr "פרטי המאגר נשלפים"
 
-#~ msgid "Repackaging files"
-#~ msgstr "הקבצים נארזים מחדש"
+#: src/Utils/PkUtils.vala:58
+msgid "Downloading list of packages"
+msgstr "רשימת החבילות נשלפת"
 
-#~ msgid "Loading cache"
-#~ msgstr "המטמון נטען"
+#: src/Utils/PkUtils.vala:60
+msgid "Downloading file lists"
+msgstr "רשימות הקבצים נשלפות"
 
-#~ msgid "Scanning applications"
-#~ msgstr "היישומים נסרקים"
+#: src/Utils/PkUtils.vala:62
+msgid "Downloading lists of changes"
+msgstr "רשימת השינויים נשלפת"
 
-#~ msgid "Generating package lists"
-#~ msgstr "רשימות החבילות נוצרות"
+#: src/Utils/PkUtils.vala:64
+msgid "Downloading groups"
+msgstr "הקבוצות נשלפות"
 
-#~ msgid "Waiting for package manager lock"
-#~ msgstr "בהמתנה לנעילת מנהל החבילות"
+#: src/Utils/PkUtils.vala:66
+msgid "Downloading update information"
+msgstr "פרטי העדכון נשלפים"
 
-#~ msgid "Waiting for authentication"
-#~ msgstr "בהמתנה לאימות"
+#: src/Utils/PkUtils.vala:68
+msgid "Repackaging files"
+msgstr "הקבצים נארזים מחדש"
 
-#~ msgid "Updating running applications"
-#~ msgstr "היישום הפעילים עודכנו"
+#: src/Utils/PkUtils.vala:70
+msgid "Loading cache"
+msgstr "המטמון נטען"
 
-#~ msgid "Checking applications in use"
-#~ msgstr "מתבצעת בדיקה של היישומים בשימוש"
+#: src/Utils/PkUtils.vala:72
+msgid "Scanning applications"
+msgstr "היישומים נסרקים"
 
-#~ msgid "Checking libraries in use"
-#~ msgstr "הספריות בשימוש נבדקות"
+#: src/Utils/PkUtils.vala:74
+msgid "Generating package lists"
+msgstr "רשימות החבילות נוצרות"
 
-#~ msgid "Copying files"
-#~ msgstr "הקבצים מועתקים"
+#: src/Utils/PkUtils.vala:76
+msgid "Waiting for package manager lock"
+msgstr "בהמתנה לנעילת מנהל החבילות"
 
-#~ msgid "Installing"
-#~ msgstr "מתקין"
+#: src/Utils/PkUtils.vala:78
+msgid "Waiting for authentication"
+msgstr "בהמתנה לאימות"
+
+#: src/Utils/PkUtils.vala:80
+msgid "Updating running applications"
+msgstr "היישום הפעילים עודכנו"
+
+#: src/Utils/PkUtils.vala:82
+msgid "Checking applications in use"
+msgstr "מתבצעת בדיקה של היישומים בשימוש"
+
+#: src/Utils/PkUtils.vala:84
+msgid "Checking libraries in use"
+msgstr "הספריות בשימוש נבדקות"
+
+#: src/Utils/PkUtils.vala:86
+msgid "Copying files"
+msgstr "הקבצים מועתקים"
+
+#: src/Utils/PkUtils.vala:89
+msgid "Installing"
+msgstr "מתקין"
 
 #~ msgid "elementary, Inc."
 #~ msgstr "elementary בע״מ."
