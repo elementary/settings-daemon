@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-31 14:48+0000\n"
-"PO-Revision-Date: 2024-05-27 07:14+0000\n"
+"PO-Revision-Date: 2024-06-01 16:13+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ja/>\n"
@@ -139,37 +139,27 @@ msgid "An error occurred while trying to update your system"
 msgstr "システムアップデート試行中にエラーが発生しました"
 
 #: src/Backends/UbuntuDrivers.vala:169
-#, fuzzy
-#| msgid "Update available"
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] "アップデートが利用可能です"
+msgstr[0] "ドライバーが利用可能です"
 
 #: src/Backends/UbuntuDrivers.vala:171
-#, fuzzy, c-format
-#| msgid "%u update is available for your hardware"
-#| msgid_plural "%u updates are available for your hardware"
+#, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] "お使いのハードウェアに %u 件のアップデートが利用可能です"
+msgstr[0] "お使いのハードウェアに %u 個のドライバーが利用可能です"
 
 #: src/Backends/UbuntuDrivers.vala:245
-#, fuzzy
-#| msgid "Please restart your system to finalize updates"
 msgid "Please restart your system to finalize driver installation"
-msgstr "アップデートを完了するにはシステムを再起動してください"
+msgstr "ドライバーのインストールを完了するにはシステムを再起動してください"
 
 #: src/Backends/UbuntuDrivers.vala:267
-#, fuzzy
-#| msgid "System updates couldn't be installed"
 msgid "A driver couldn't be installed"
-msgstr "システムアップデートをインストールできませんでした"
+msgstr "ドライバーをインストールできませんでした"
 
 #: src/Backends/UbuntuDrivers.vala:268
-#, fuzzy
-#| msgid "An error occurred while trying to update your system"
 msgid "An error occurred while trying to install a driver"
-msgstr "システムアップデート試行中にエラーが発生しました"
+msgstr "ドライバーのインストール試行中にエラーが発生しました"
 
 #: src/Utils/PkUtils.vala:20
 msgid "Starting"
