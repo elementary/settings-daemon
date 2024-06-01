@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-31 14:48+0000\n"
-"PO-Revision-Date: 2024-03-22 16:13+0000\n"
-"Last-Translator: lenemter <lenemter@gmail.com>\n"
-"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/ru/>\n"
+"PO-Revision-Date: 2024-06-01 16:13+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -142,41 +142,31 @@ msgid "An error occurred while trying to update your system"
 msgstr "Во время обновления системы произошла ошибка"
 
 #: src/Backends/UbuntuDrivers.vala:169
-#, fuzzy
-#| msgid "Update available"
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] "Доступны обновления"
-msgstr[1] "Доступны обновления"
-msgstr[2] "Доступны обновления"
+msgstr[0] "Доступен драйвер"
+msgstr[1] "Доступны драйверы"
+msgstr[2] "Доступны драйверы"
 
 #: src/Backends/UbuntuDrivers.vala:171
-#, fuzzy, c-format
-#| msgid "%u update is available for your hardware"
-#| msgid_plural "%u updates are available for your hardware"
+#, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] "Для вашего оборудования доступно %u обновление"
-msgstr[1] "Для вашего оборудования доступно %u обновления"
-msgstr[2] "Для вашего оборудования доступно %u обновлений"
+msgstr[0] "Для вашего оборудования доступен %u драйвер"
+msgstr[1] "Для вашего оборудования доступно %u драйвера"
+msgstr[2] "Для вашего оборудования доступно %u драйверов"
 
 #: src/Backends/UbuntuDrivers.vala:245
-#, fuzzy
-#| msgid "Please restart your system to finalize updates"
 msgid "Please restart your system to finalize driver installation"
-msgstr "Перезагрузите систему, чтобы завершить установку обновлений"
+msgstr "Перезагрузите систему, чтобы завершить установку драйвера"
 
 #: src/Backends/UbuntuDrivers.vala:267
-#, fuzzy
-#| msgid "System updates couldn't be installed"
 msgid "A driver couldn't be installed"
-msgstr "Не удалось установить обновления системы"
+msgstr "Не удалось установить драйвер"
 
 #: src/Backends/UbuntuDrivers.vala:268
-#, fuzzy
-#| msgid "An error occurred while trying to update your system"
 msgid "An error occurred while trying to install a driver"
-msgstr "Во время обновления системы произошла ошибка"
+msgstr "Во время установки драйвера произошла ошибка"
 
 #: src/Utils/PkUtils.vala:20
 msgid "Starting"
