@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-31 14:48+0000\n"
-"PO-Revision-Date: 2024-04-29 01:13+0000\n"
+"PO-Revision-Date: 2024-06-01 16:13+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "desktop/settings-daemon/en_GB/>\n"
@@ -139,39 +139,29 @@ msgid "An error occurred while trying to update your system"
 msgstr "An error occurred while trying to update your system"
 
 #: src/Backends/UbuntuDrivers.vala:169
-#, fuzzy
-#| msgid "Update available"
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] "Update available"
-msgstr[1] "Update available"
+msgstr[0] "Driver Available"
+msgstr[1] "Drivers Available"
 
 #: src/Backends/UbuntuDrivers.vala:171
-#, fuzzy, c-format
-#| msgid "%u update is available for your hardware"
-#| msgid_plural "%u updates are available for your hardware"
+#, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] "%u update is available for your hardware"
-msgstr[1] "%u updates are available for your hardware"
+msgstr[0] "%u driver is available for your hardware"
+msgstr[1] "%u drivers are available for your hardware"
 
 #: src/Backends/UbuntuDrivers.vala:245
-#, fuzzy
-#| msgid "Please restart your system to finalize updates"
 msgid "Please restart your system to finalize driver installation"
-msgstr "Please restart your system to finalise updates"
+msgstr "Please restart your system to finalise driver installation"
 
 #: src/Backends/UbuntuDrivers.vala:267
-#, fuzzy
-#| msgid "System updates couldn't be installed"
 msgid "A driver couldn't be installed"
-msgstr "System updates couldn't be installed"
+msgstr "A driver couldn't be installed"
 
 #: src/Backends/UbuntuDrivers.vala:268
-#, fuzzy
-#| msgid "An error occurred while trying to update your system"
 msgid "An error occurred while trying to install a driver"
-msgstr "An error occurred while trying to update your system"
+msgstr "An error occurred while trying to install a driver"
 
 #: src/Utils/PkUtils.vala:20
 msgid "Starting"
