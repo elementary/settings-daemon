@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-31 14:48+0000\n"
 "PO-Revision-Date: 2024-06-04 03:06+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
+"Last-Translator: Pedro Vergara <xxphiterx@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/es/>\n"
 "Language: es\n"
@@ -54,7 +54,7 @@ msgstr ""
 #: data/settings-daemon.metainfo.xml.in:62
 #: data/settings-daemon.metainfo.xml.in:77
 msgid "New features:"
-msgstr ""
+msgstr "Nuevas caracteristicas:"
 
 #: data/settings-daemon.metainfo.xml.in:45
 msgid "Provide accent colors on the settings portal"
