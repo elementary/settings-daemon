@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-31 14:48+0000\n"
-"PO-Revision-Date: 2024-05-09 19:13+0000\n"
+"PO-Revision-Date: 2024-06-11 23:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/hu/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -139,39 +139,30 @@ msgid "An error occurred while trying to update your system"
 msgstr "Egy hiba történt a rendszer frissítése közben"
 
 #: src/Backends/UbuntuDrivers.vala:169
-#, fuzzy
-#| msgid "Update available"
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] "Frissítés érhető el"
-msgstr[1] "Frissítés érhető el"
+msgstr[0] "Illesztőprogram érhető el"
+msgstr[1] "Illesztőprogramok érhetők el"
 
 #: src/Backends/UbuntuDrivers.vala:171
-#, fuzzy, c-format
-#| msgid "%u update is available for your hardware"
-#| msgid_plural "%u updates are available for your hardware"
+#, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] "%u frissítés érhető el a hardveréhez"
-msgstr[1] "%u frissítés érhető el a hardveréhez"
+msgstr[0] "%u illesztőprogram érhető el a hardveréhez"
+msgstr[1] "%u illesztőprogram érhető el a hardveréhez"
 
 #: src/Backends/UbuntuDrivers.vala:245
-#, fuzzy
-#| msgid "Please restart your system to finalize updates"
 msgid "Please restart your system to finalize driver installation"
-msgstr "Indítsa újra a rendszert a frissítések véglegesítéséhez"
+msgstr ""
+"Indítsa újra a rendszert az illesztőprogramok telepítésének véglegesítéséhez"
 
 #: src/Backends/UbuntuDrivers.vala:267
-#, fuzzy
-#| msgid "System updates couldn't be installed"
 msgid "A driver couldn't be installed"
-msgstr "A rendszerfrissítéseket nem sikerült telepíteni"
+msgstr "Egy illesztőprogramot nem sikerült telepíteni"
 
 #: src/Backends/UbuntuDrivers.vala:268
-#, fuzzy
-#| msgid "An error occurred while trying to update your system"
 msgid "An error occurred while trying to install a driver"
-msgstr "Egy hiba történt a rendszer frissítése közben"
+msgstr "Hiba történt egy illesztőprogram telepítése közben"
 
 #: src/Utils/PkUtils.vala:20
 msgid "Starting"
