@@ -11,8 +11,16 @@ sources = files(
     'Backends/PowerProfilesSync.vala',
     'Backends/PrefersColorSchemeSettings.vala',
     'Backends/SystemUpdate.vala',
+    'Utils/PkUtils.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
+
+args = []
+
+if get_option('ubuntu_drivers')
+    sources += files('Backends/UbuntuDrivers.vala')
+    args += '--define=UBUNTU_DRIVERS'
+endif
 
 executable(
     meson.project_name(),
@@ -29,5 +37,6 @@ executable(
         m_dep,
         pk_dep
     ],
+    vala_args: args,
     install: true,
 )
