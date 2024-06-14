@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 14:48+0000\n"
+"POT-Creation-Date: 2024-06-14 23:18+0000\n"
 "PO-Revision-Date: 2021-08-02 21:09+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/desktop/"
@@ -48,6 +48,10 @@ msgid ""
 msgstr ""
 "Este processo sincroniza as definições com o ecrã de acesso e gere tarefas "
 "de segundo plano como a programação do modo escuro, manutenção e limpeza."
+
+#: data/settings-daemon.metainfo.xml.in:29
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:62
@@ -306,6 +310,3 @@ msgstr ""
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr ""
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."

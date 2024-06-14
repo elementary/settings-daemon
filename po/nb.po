@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 14:48+0000\n"
+"POT-Creation-Date: 2024-06-14 23:18+0000\n"
 "PO-Revision-Date: 2024-01-30 18:11+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
@@ -45,6 +45,11 @@ msgid ""
 msgstr ""
 "Denne prosessen synkroniserer innstillinger til velkomstprogrammet og "
 "håndterer bakgrunnsoppgaver som planlegging av mørkt modus og forefallende."
+
+#: data/settings-daemon.metainfo.xml.in:29
+#, fuzzy
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:62
@@ -326,7 +331,3 @@ msgstr "Kopierer filer …"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "Installerer …"
-
-#, fuzzy
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."
