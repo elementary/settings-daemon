@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 14:48+0000\n"
+"POT-Creation-Date: 2024-06-14 23:18+0000\n"
 "PO-Revision-Date: 2024-06-04 03:06+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
@@ -43,6 +43,10 @@ msgid ""
 msgstr ""
 "Синхронізує налаштування до привітання та керує фоновими завданнями, як-от "
 "планування темного стилю та домоведення."
+
+#: data/settings-daemon.metainfo.xml.in:29
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:62
@@ -307,6 +311,3 @@ msgstr "Копіювання файлів"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "Встановлення"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."

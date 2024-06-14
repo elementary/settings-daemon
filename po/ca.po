@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 14:48+0000\n"
+"POT-Creation-Date: 2024-06-14 23:18+0000\n"
 "PO-Revision-Date: 2024-06-04 03:06+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/ca/>\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,6 +42,10 @@ msgid ""
 msgstr ""
 "Sincronitza la configuració amb el missatge de benvinguda i gestiona tasques "
 "en segon pla, com ara programar l'estil fosc i la neteja."
+
+#: data/settings-daemon.metainfo.xml.in:29
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:62
@@ -303,6 +307,3 @@ msgstr "Es copien fitxers"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "S'instal·la"
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."

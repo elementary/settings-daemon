@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 14:48+0000\n"
+"POT-Creation-Date: 2024-06-14 23:18+0000\n"
 "PO-Revision-Date: 2023-08-02 18:08+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/settings-"
@@ -44,6 +44,10 @@ msgid ""
 msgstr ""
 "Synchroniseert instellingen met de greeter en beheert achtergrondtaken zoals "
 "het inplannen van de donkere modus en opschonen."
+
+#: data/settings-daemon.metainfo.xml.in:29
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:62
@@ -322,6 +326,3 @@ msgstr ""
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr ""
-
-#~ msgid "elementary, Inc."
-#~ msgstr "elementary, Inc."

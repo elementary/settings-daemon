@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 14:48+0000\n"
+"POT-Creation-Date: 2024-06-14 23:18+0000\n"
 "PO-Revision-Date: 2022-04-15 22:24+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -48,6 +48,10 @@ msgid ""
 msgstr ""
 "ئەم پڕۆسەیە ڕێکخستنەکان لەگەڵ گریتەر هاوکات دەکات و تاسکەکانی باکگراوند "
 "بەڕێوەدەبات وەکو نانەوەی دۆخی تاریک و پاککردنەوەی سیستەم."
+
+#: data/settings-daemon.metainfo.xml.in:29
+msgid "elementary, Inc."
+msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:62
@@ -306,6 +310,3 @@ msgstr ""
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr ""
-
-#~ msgid "elementary, Inc."
-#~ msgstr "کۆمپانیای ئێلەمێنتەری هاوپشک."
