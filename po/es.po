@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-14 23:18+0000\n"
 "PO-Revision-Date: 2024-06-23 15:13+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
+"Last-Translator: Pedro Vergara <xxphiterx@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/es/>\n"
 "Language: es\n"
@@ -104,20 +104,20 @@ msgstr "Se eliminó un esquema de modo oscuro no utilizado en gsettings"
 
 #: data/settings-daemon.metainfo.xml.in:91
 msgid "Initial release"
-msgstr ""
+msgstr "Versión inicial"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Actualización de firmware disponible"
+msgstr[1] "Actualizaciones de firmware disponibles"
 
 #: src/Application.vala:167
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u actualización disponible para tu equipo"
+msgstr[1] "%u actualizaciones disponibles para tu equipo"
 
 #: src/Backends/SystemUpdate.vala:117
 msgid "Update available"
