@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-14 23:18+0000\n"
-"PO-Revision-Date: 2024-06-23 15:13+0000\n"
-"Last-Translator: Pedro Vergara <xxphiterx@gmail.com>\n"
+"PO-Revision-Date: 2024-06-24 15:16+0000\n"
+"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/es/>\n"
 "Language: es\n"
@@ -40,8 +40,9 @@ msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
-"Sincroniza la configuración con el recibidor y administra tareas en segundo "
-"plano, como programar el modo oscuro y servicios de mantenimiento."
+"Sincroniza la configuración con la pantalla de inicio de sesión y administra "
+"tareas en segundo plano, como programar el modo oscuro y servicios de "
+"mantenimiento."
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
@@ -116,198 +117,200 @@ msgstr[1] "Actualizaciones de firmware disponibles"
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] "%u actualización disponible para tu equipo"
-msgstr[1] "%u actualizaciones disponibles para tu equipo"
+msgstr[0] "%u actualización disponible para su hardware"
+msgstr[1] "%u actualizaciones disponibles para su hardware"
 
 #: src/Backends/SystemUpdate.vala:117
 msgid "Update available"
-msgstr ""
+msgstr "Actualización disponible"
 
 #: src/Backends/SystemUpdate.vala:121
 msgid "A system security update is available"
-msgstr ""
+msgstr "Una actualización de seguridad del sistema se encuentra disponible"
 
 #: src/Backends/SystemUpdate.vala:125
 msgid "A system update is available"
-msgstr ""
+msgstr "Una actualización del sistema encuentra disponible"
 
 #: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
-msgstr ""
+msgstr "Se requiere reiniciar"
 
 #: src/Backends/SystemUpdate.vala:158
 msgid "Please restart your system to finalize updates"
 msgstr ""
+"Por favor reinicie el sistema para terminar de instalar las actualizaciones"
 
 #: src/Backends/SystemUpdate.vala:180
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "No se pudieron instalar las actualizaciones del sistema"
 
 #: src/Backends/SystemUpdate.vala:181
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "Se ha producido un error al tratar de actualizar el sistema"
 
 #: src/Backends/UbuntuDrivers.vala:169
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Controlador disponible"
+msgstr[1] "Controladores disponibles"
 
 #: src/Backends/UbuntuDrivers.vala:171
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u controlador está disponible para su hardware"
+msgstr[1] "%u controladores están disponibles para su hardware"
 
 #: src/Backends/UbuntuDrivers.vala:245
 msgid "Please restart your system to finalize driver installation"
 msgstr ""
+"Por favor reincide el sistema para terminar de instalar los controladores"
 
 #: src/Backends/UbuntuDrivers.vala:267
 msgid "A driver couldn't be installed"
-msgstr ""
+msgstr "No se pudo instalar un controlador"
 
 #: src/Backends/UbuntuDrivers.vala:268
 msgid "An error occurred while trying to install a driver"
-msgstr ""
+msgstr "Se ha producido un error al tratar de instalar un controlador"
 
 #: src/Utils/PkUtils.vala:20
 msgid "Starting"
-msgstr ""
+msgstr "Iniciando"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Waiting"
-msgstr ""
+msgstr "Esperando"
 
 #: src/Utils/PkUtils.vala:24
 msgid "Running"
-msgstr ""
+msgstr "Ejecutando"
 
 #: src/Utils/PkUtils.vala:26
 msgid "Querying"
-msgstr ""
+msgstr "Consultando"
 
 #: src/Utils/PkUtils.vala:28
 msgid "Getting information"
-msgstr ""
+msgstr "Obteniendo información"
 
 #: src/Utils/PkUtils.vala:30
 msgid "Removing packages"
-msgstr ""
+msgstr "Eliminando paquetes"
 
 #: src/Utils/PkUtils.vala:32
 msgid "Downloading"
-msgstr ""
+msgstr "Descargando"
 
 #: src/Utils/PkUtils.vala:34
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Actualizando la lista de aplicaciones"
 
 #: src/Utils/PkUtils.vala:36
 msgid "Installing updates"
-msgstr ""
+msgstr "Instalando actualizaciones"
 
 #: src/Utils/PkUtils.vala:38
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Limpiando paquetes"
 
 #: src/Utils/PkUtils.vala:40
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "Marcando paquetes obsoletos"
 
 #: src/Utils/PkUtils.vala:42
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Resolviendo dependencias"
 
 #: src/Utils/PkUtils.vala:44
 msgid "Checking signatures"
-msgstr ""
+msgstr "Comprobando firmas"
 
 #: src/Utils/PkUtils.vala:46
 msgid "Testing changes"
-msgstr ""
+msgstr "Probando los cambios"
 
 #: src/Utils/PkUtils.vala:48
 msgid "Committing changes"
-msgstr ""
+msgstr "Realizando cambios"
 
 #: src/Utils/PkUtils.vala:50
 msgid "Requesting data"
-msgstr ""
+msgstr "Solicitando datos"
 
 #: src/Utils/PkUtils.vala:52
 msgid "Finished"
-msgstr ""
+msgstr "Terminado"
 
 #: src/Utils/PkUtils.vala:54
 msgid "Cancelling"
-msgstr ""
+msgstr "Cancelando"
 
 #: src/Utils/PkUtils.vala:56
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Descargando información del repositorio"
 
 #: src/Utils/PkUtils.vala:58
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Descargando la lista de paquetes"
 
 #: src/Utils/PkUtils.vala:60
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Descargando listas de archivos"
 
 #: src/Utils/PkUtils.vala:62
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Descargando listas de cambios"
 
 #: src/Utils/PkUtils.vala:64
 msgid "Downloading groups"
-msgstr ""
+msgstr "Descargando grupos"
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading update information"
-msgstr ""
+msgstr "Descargando información de actualización"
 
 #: src/Utils/PkUtils.vala:68
 msgid "Repackaging files"
-msgstr ""
+msgstr "Reempaquetando archivos"
 
 #: src/Utils/PkUtils.vala:70
 msgid "Loading cache"
-msgstr ""
+msgstr "Cargando el caché"
 
 #: src/Utils/PkUtils.vala:72
 msgid "Scanning applications"
-msgstr ""
+msgstr "Buscando aplicaciones"
 
 #: src/Utils/PkUtils.vala:74
 msgid "Generating package lists"
-msgstr ""
+msgstr "Generando listas de paquetes"
 
 #: src/Utils/PkUtils.vala:76
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Esperando al gestor de paquetes"
 
 #: src/Utils/PkUtils.vala:78
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Esperando la autenticación"
 
 #: src/Utils/PkUtils.vala:80
 msgid "Updating running applications"
-msgstr ""
+msgstr "Actualizando las aplicaciones en ejecución"
 
 #: src/Utils/PkUtils.vala:82
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Comprobando aplicaciones en uso"
 
 #: src/Utils/PkUtils.vala:84
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Comprobando bibliotecas en uso"
 
 #: src/Utils/PkUtils.vala:86
 msgid "Copying files"
-msgstr ""
+msgstr "Copiando archivos"
 
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
-msgstr ""
+msgstr "Instalando"
