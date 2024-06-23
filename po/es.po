@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-14 23:18+0000\n"
 "PO-Revision-Date: 2024-06-23 15:06+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
+"Last-Translator: Andrés Felipe Esguerra Restrepo <afesguerra@outlook.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/es/>\n"
 "Language: es\n"
@@ -36,17 +36,12 @@ msgid "Manage settings and background tasks"
 msgstr "Gestione la configuración y las tareas en segundo plano"
 
 #: data/settings-daemon.metainfo.xml.in:13
-#, fuzzy
-#| msgid ""
-#| "This process sync settings to the greeter and manages background tasks "
-#| "like scheduling dark mode and Housekeeping."
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
-"Este proceso sincroniza la configuración con el recibidor y administra "
-"tareas en segundo plano, como programar el modo oscuro y el servicio de "
-"limpieza."
+"Sincroniza la configuración con el recibidor y administra tareas en segundo "
+"plano, como programar el modo oscuro y el servicio de limpieza."
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
