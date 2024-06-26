@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-14 23:18+0000\n"
-"PO-Revision-Date: 2024-06-24 15:16+0000\n"
+"PO-Revision-Date: 2024-06-26 20:16+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/es/>\n"
@@ -29,7 +29,7 @@ msgstr "Tareas en segundo plano de la Configuración del Sistema"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
-msgstr "Servicio de configuraciones"
+msgstr "Servicio de Configuraciones"
 
 #: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
@@ -138,8 +138,7 @@ msgstr "Se requiere reiniciar"
 
 #: src/Backends/SystemUpdate.vala:158
 msgid "Please restart your system to finalize updates"
-msgstr ""
-"Por favor reinicie el sistema para terminar de instalar las actualizaciones"
+msgstr "Reinicie el sistema para terminar de instalar las actualizaciones"
 
 #: src/Backends/SystemUpdate.vala:180
 msgid "System updates couldn't be installed"
@@ -164,8 +163,7 @@ msgstr[1] "%u controladores están disponibles para su hardware"
 
 #: src/Backends/UbuntuDrivers.vala:245
 msgid "Please restart your system to finalize driver installation"
-msgstr ""
-"Por favor reincide el sistema para terminar de instalar los controladores"
+msgstr "Reinicie el sistema para terminar de instalar los controladores"
 
 #: src/Backends/UbuntuDrivers.vala:267
 msgid "A driver couldn't be installed"
