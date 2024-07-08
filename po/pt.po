@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-14 23:18+0000\n"
-"PO-Revision-Date: 2021-08-02 21:09+0000\n"
+"PO-Revision-Date: 2024-07-09 14:02+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -73,7 +73,7 @@ msgstr ""
 #: data/settings-daemon.metainfo.xml.in:68
 #: data/settings-daemon.metainfo.xml.in:81
 msgid "Improvements:"
-msgstr ""
+msgstr "Melhorias:"
 
 #: data/settings-daemon.metainfo.xml.in:50
 #: data/settings-daemon.metainfo.xml.in:70
