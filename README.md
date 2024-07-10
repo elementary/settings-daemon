@@ -1,5 +1,7 @@
 # Settings Daemon
 
+[![Translation status](https://l10n.elementary.io/widget/desktop/settings-daemon/svg-badge.svg)](https://l10n.elementary.io/engage/desktop/)
+
 ## Building and Installation
 
 You'll need the following dependencies:
