@@ -112,13 +112,9 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
                 var repository_file = repo_files.index (i);
                 debug ("    %s", repository_file);
 
-                if (!helper.update_third_party_repository ("focal", "jammy", repository_file)) {
+                if (!helper.update_third_party_repository ("jammy", "noble", repository_file)) {
                     throw new Error (0, 0, "Could not update repository: %s\n", repository_file);
                 }
-            }
-
-            if (!helper.install_files ("jammy")) {
-                throw new Error (0, 0, "Could not install files\n");
             }
 
             debug ("Refresh cache");

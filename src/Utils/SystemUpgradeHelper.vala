@@ -40,27 +40,6 @@ public class SettingsDaemon.Utils.SystemUpgradeHelper : GLib.Object {
         return true;
     }
 
-    public bool install_files (string next) {
-        if (!authenticate ()) {
-            var message = "Unable to authenticate";
-            warning (message);
-            on_standard_error (message);
-            return false;
-        }
-
-        var cmd = "install-files";
-
-        var command = "pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s --next %s".printf (
-            "/usr/share/io.elementary.settings-daemon", cmd, next);
-
-        if (!run (command)) {
-            on_error ();
-            return false;
-        }
-
-        return true;
-    }
-
     public signal void on_standard_output (string line);
     public signal void on_standard_error (string line);
     public signal void on_error ();
