@@ -53,11 +53,6 @@ i18n.merge_file(
     install_dir: polkit_actiondir
 )
 
-install_subdir(
-    'system-upgrades',
-    install_dir: pkgdatadir
-)
-
 install_data(
     meson.project_name() + '.system-upgrade.helper',
     install_mode: 'r-xr--r--',
