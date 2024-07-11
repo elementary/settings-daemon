@@ -18,7 +18,7 @@ def update_third_party_repository(current, next, repository_file):
 
                     if "ppa.launchpad.net/elementary-os" in line:
                         # FIXME: Remove this when OS 8 stable repo is ready
-                        line.replace("/stable/", "/daily/")
+                        line = line.replace("/stable/", "/daily/")
 
                 content.append(line)
 
