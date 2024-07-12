@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 elementary, Inc. (https://elementary.io)
+ * Copyright 2022-2024 elementary, Inc. (https://elementary.io)
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public
@@ -15,6 +15,7 @@
  * License along with this program; if not, write to the
  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301 USA
+ *
  * Authored by: Marius Meisenzahl <mariusmeisenzahl@gmail.com>
  */
 
@@ -31,6 +32,27 @@ public class SettingsDaemon.Utils.SystemUpgradeHelper : GLib.Object {
 
         var command = "pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s --current %s --next %s --repository-file %s".printf (
             "/usr/share/io.elementary.settings-daemon", cmd, current, next, repository_file);
+
+        if (!run (command)) {
+            on_error ();
+            return false;
+        }
+
+        return true;
+    }
+
+    public bool install_network_manager_config () {
+        if (!authenticate ()) {
+            var message = "Unable to authenticate";
+            warning (message);
+            on_standard_error (message);
+            return false;
+        }
+
+        var cmd = "install-network-manager-config";
+
+        var command = "pkexec %s/io.elementary.settings-daemon.system-upgrade.helper --%s".printf (
+            "/usr/share/io.elementary.settings-daemon", cmd);
 
         if (!run (command)) {
             on_error ();

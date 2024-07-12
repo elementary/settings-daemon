@@ -27,11 +27,15 @@ def update_third_party_repository(current, next, repository_file):
                 f.write("\n".join(content))
 
 
+def install_network_manager_config():
+    with open("/etc/NetworkManager/conf.d/10-globally-managed-devices.conf", "w+") as f:
+        pass
+
 def main():
-    parser = argparse.ArgumentParser(
-        description="Helper to upgrade elementary OS")
+    parser = argparse.ArgumentParser(description="Helper to upgrade elementary OS")
 
     parser.add_argument("--update-third-party-repository", action="store_true")
+    parser.add_argument("--install-network-manager-config", action="store_true")
 
     parser.add_argument("--current", nargs="?", default=None)
     parser.add_argument("--next", nargs="?", default=None)
@@ -41,6 +45,8 @@ def main():
 
     if args.update_third_party_repository and args.current and args.next and args.repository_file:
         return update_third_party_repository(args.current, args.next, args.repository_file)
+    elif args.install_network_manager_config:
+        return install_network_manager_config()
 
 
 if __name__ == "__main__":
