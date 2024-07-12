@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 16:16-0700\n"
-"PO-Revision-Date: 2021-10-01 10:11+0000\n"
-"Last-Translator: DarkKnightComes <darkknightcomes@gmail.com>\n"
+"POT-Creation-Date: 2023-07-21 09:28+0100\n"
+"PO-Revision-Date: 2023-07-23 14:07+0000\n"
+"Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/pl/>\n"
 "Language: pl\n"
@@ -18,24 +18,93 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 
-#: data/settings-daemon.appdata.xml.in:7
+#: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
 msgstr "Daemon ustawień"
 
-#: data/settings-daemon.appdata.xml.in:8
+#: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
 msgstr "Zarządzaj ustawieniami i zadaniami w tle"
 
-#: data/settings-daemon.appdata.xml.in:10
+#: data/settings-daemon.metainfo.xml.in:13
 msgid ""
-"This process sync settings to the greeter and manages background tasks like "
-"scheduling dark mode and Housekeeping."
+"Syncs settings to the greeter and manages background tasks, like scheduling "
+"dark style and housekeeping."
 msgstr ""
-"Ten proces synchronizuje ustawienia z ekranem powitalnym i zarządza "
-"zadaniami w tle, takimi jak planowanie trybu ciemnego i zarządzanie domem."
+"Synchronizuje ustawienia z ekranem powitalnym i zarządza zadaniami w tle, "
+"takimi jak planowanie trybu ciemnego i zarządzanie domem."
 
-#: data/settings-daemon.appdata.xml.in:18
+#: data/settings-daemon.metainfo.xml.in:28
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#: data/settings-daemon.metainfo.xml.in:35
+#: data/settings-daemon.metainfo.xml.in:54
+#: data/settings-daemon.metainfo.xml.in:69
+msgid "New features:"
+msgstr "Nowe funkcje:"
+
+#: data/settings-daemon.metainfo.xml.in:37
+msgid "Provide accent colors on the settings portal"
+msgstr "Dodano kolory akcentu dla portalu ustawień"
+
+#: data/settings-daemon.metainfo.xml.in:38
+msgid ""
+"Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
+"the Login &amp; Lock screen"
+msgstr ""
+"Ustawienia fontów, myszki, klawiatury, światła nocnego i niektórych opcji "
+"dostępności są teraz synchronizowane z ekranem logowania i zablokowania"
+
+#: data/settings-daemon.metainfo.xml.in:40
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:73
+msgid "Improvements:"
+msgstr "Ulepszenia:"
+
+#: data/settings-daemon.metainfo.xml.in:42
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:76
+msgid "Updated translations"
+msgstr "Zaktualizowano tłumaczenia"
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Add First day of the week setting"
+msgstr "Dodano ustawienia pierwszego dnia tygodnia"
+
+#: data/settings-daemon.metainfo.xml.in:57
+msgid "Add left-handed mouse click setting"
+msgstr "Dodano ustawienia obsługi myszki lewą ręką"
+
+#: data/settings-daemon.metainfo.xml.in:58
+msgid "Don't Housekeep Downloads if it's also Home"
+msgstr "Nie sprzątaj folderu Pobrane jeśli jest taki sam jak folder domowy"
+
+#: data/settings-daemon.metainfo.xml.in:71
+msgid "Provide the Settings portal"
+msgstr "Dodano portal ustawień"
+
+#: data/settings-daemon.metainfo.xml.in:75
+msgid "Remove unused dark style gsettings schema"
+msgstr "Usunięto nieużywany schemat ciemnych gsettings"
+
+#: data/settings-daemon.metainfo.xml.in:83
+msgid "Initial release"
+msgstr "Wstępne wydanie"
+
+#: src/Application.vala:88
+msgid "Firmware Update Available"
+msgid_plural "Firmware Updates Available"
+msgstr[0] "Dostępna aktualizacja firmware’u"
+msgstr[1] "Dostępne aktualizacje firmware’u"
+msgstr[2] "Dostępne aktualizacje firmware’u"
+
+#: src/Application.vala:89
+#, c-format
+msgid "%u update is available for your hardware"
+msgid_plural "%u updates are available for your hardware"
+msgstr[0] "%u aktualizacja dostępna dla twojego urządzenia"
+msgstr[1] "%u aktualizacje dostępne dla twojego urządzenia"
+msgstr[2] "%u aktualizacji dostępnych dla twojego urządzenia"

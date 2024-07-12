@@ -3,8 +3,10 @@ sources = files(
     'Application.vala',
     'SessionManager.vala',
     'Backends/Housekeeping.vala',
+    'Backends/InterfaceSettings.vala',
     'Backends/KeyboardSettings.vala',
     'Backends/MouseSettings.vala',
+    'Backends/NightLightSettings.vala',
     'Backends/PrefersColorSchemeSettings.vala',
     'Backends/SystemUpgrade.vala',
     'Utils/Inhibitor.vala',
@@ -17,6 +19,7 @@ executable(
     sources,
     dependencies: [
         config_dep,
+        fwupd_dep,
         gio_dep,
         glib_dep,
         granite_dep,

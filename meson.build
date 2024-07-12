@@ -1,7 +1,8 @@
 project('io.elementary.settings-daemon',
     'c', 'vala',
-    version: '1.2.0',
+    version: '1.3.1',
     license: 'GPL3',
+    meson_version: '>=0.58.0'
 )
 
 add_project_arguments(
@@ -13,10 +14,24 @@ prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 pkgdatadir = join_paths(datadir, meson.project_name())
 
+fwupd_dep = dependency('fwupd')
 gio_dep = dependency ('gio-2.0')
 glib_dep = dependency('glib-2.0')
 granite_dep = dependency('granite', version: '>= 5.3.0')
 i18n = import('i18n')
+gettext_name = meson.project_name()
+
+add_project_arguments(
+    '-DGETTEXT_PACKAGE="@0@"'.format(gettext_name),
+    language:'c'
+)
+
+# Relying on Gala translations for screenshots directory name:
+gettext_package = 'gala'
+add_global_arguments(
+    '-DGETTEXT_PACKAGE="@0@"'.format(gettext_package),
+    language:'c'
+)
 
 cc = meson.get_compiler('c')
 m_dep = cc.find_library('m', required : false)
@@ -27,9 +42,15 @@ posix_dep = meson.get_compiler('vala').find_library('posix')
 
 polkit_actiondir = polkit_dep.get_pkgconfig_variable('actiondir', define_variable: ['prefix', prefix])
 
+prefix = get_option('prefix')
+datadir = prefix / get_option('datadir')
+sysconfdir = get_option('sysconfdir')
+
 conf_data = configuration_data()
 conf_data.set('PROJECT_NAME', meson.project_name())
 conf_data.set('VERSION', meson.project_version())
+conf_data.set('GETTEXT_PACKAGE', gettext_package)
+conf_data.set('LOCALEDIR', prefix / get_option('localedir'))
 
 config_file = configure_file(
     input: 'config.vala.in',
@@ -41,9 +62,6 @@ config_dep = declare_dependency(
     sources: config_file,
     include_directories: include_directories('.')
 )
-
-prefix = get_option('prefix')
-datadir = join_paths(prefix, get_option('datadir'))
 
 symlink = join_paths(meson.current_source_dir (), 'meson', 'create-symlink.sh')
 

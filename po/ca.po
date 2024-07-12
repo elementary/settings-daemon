@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 16:16-0700\n"
-"PO-Revision-Date: 2021-07-21 15:01+0000\n"
+"POT-Creation-Date: 2023-07-21 09:28+0100\n"
+"PO-Revision-Date: 2023-07-25 09:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ca/>\n"
@@ -17,24 +17,92 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.17\n"
 
-#: data/settings-daemon.appdata.xml.in:7
+#: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
 msgstr "Dimoni de configuració"
 
-#: data/settings-daemon.appdata.xml.in:8
+#: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
 msgstr "Gestioneu la configuració i les tasques en segon pla"
 
-#: data/settings-daemon.appdata.xml.in:10
+#: data/settings-daemon.metainfo.xml.in:13
 msgid ""
-"This process sync settings to the greeter and manages background tasks like "
-"scheduling dark mode and Housekeeping."
+"Syncs settings to the greeter and manages background tasks, like scheduling "
+"dark style and housekeeping."
 msgstr ""
-"Aquest procés sincronitza la configuració amb el programa de benvinguda i "
-"gestiona tasques en segon pla, com ara programar el mode fosc i la neteja."
+"Sincronitza la configuració amb el missatge de benvinguda i gestiona tasques "
+"en segon pla, com ara programar l'estil fosc i la neteja."
 
-#: data/settings-daemon.appdata.xml.in:18
+#: data/settings-daemon.metainfo.xml.in:28
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#: data/settings-daemon.metainfo.xml.in:35
+#: data/settings-daemon.metainfo.xml.in:54
+#: data/settings-daemon.metainfo.xml.in:69
+msgid "New features:"
+msgstr "Característiques noves:"
+
+#: data/settings-daemon.metainfo.xml.in:37
+msgid "Provide accent colors on the settings portal"
+msgstr "Proporciona colors d'accent al portal de configuració"
+
+#: data/settings-daemon.metainfo.xml.in:38
+msgid ""
+"Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
+"the Login &amp; Lock screen"
+msgstr ""
+"Sincronitza el tipus de lletra, el ratolí, el teclat, la llum nocturna i "
+"alguns paràmetres d'accessibilitat a l'inici de sessió i a la pantalla de "
+"bloqueig."
+
+#: data/settings-daemon.metainfo.xml.in:40
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:73
+msgid "Improvements:"
+msgstr "Millores:"
+
+#: data/settings-daemon.metainfo.xml.in:42
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:76
+msgid "Updated translations"
+msgstr "Traduccions actualitzades"
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Add First day of the week setting"
+msgstr "Afegeix la configuració del primer dia de la setmana"
+
+#: data/settings-daemon.metainfo.xml.in:57
+msgid "Add left-handed mouse click setting"
+msgstr "Afegeix la configuració de clic del ratolí amb la mà esquerra"
+
+#: data/settings-daemon.metainfo.xml.in:58
+msgid "Don't Housekeep Downloads if it's also Home"
+msgstr "No neteja les descàrregues si també és l'inici"
+
+#: data/settings-daemon.metainfo.xml.in:71
+msgid "Provide the Settings portal"
+msgstr "Proporciona el portal de configuració"
+
+#: data/settings-daemon.metainfo.xml.in:75
+msgid "Remove unused dark style gsettings schema"
+msgstr "Supressió de l'esquema de gsettings d'estil fosc no utilitzat"
+
+#: data/settings-daemon.metainfo.xml.in:83
+msgid "Initial release"
+msgstr "Versió inicial"
+
+#: src/Application.vala:88
+msgid "Firmware Update Available"
+msgid_plural "Firmware Updates Available"
+msgstr[0] "Actualització de microprogramari disponible"
+msgstr[1] "Actualitzacions de microprogramari disponibles"
+
+#: src/Application.vala:89
+#, c-format
+msgid "%u update is available for your hardware"
+msgid_plural "%u updates are available for your hardware"
+msgstr[0] "%u actualització disponible per al maquinari"
+msgstr[1] "%u actualitzacions disponibles per al maquinari"
