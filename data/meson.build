@@ -1,11 +1,18 @@
 install_data(
     'autostart.desktop',
-    install_dir: join_paths(get_option('sysconfdir'), 'xdg', 'autostart'),
+    install_dir: datadir / 'applications',
     rename: meson.project_name() + '.desktop'
 )
 
+fs = import('fs')
+meson.add_install_script(
+    symlink,
+    datadir / 'applications' / meson.project_name() + '.desktop',
+    (fs.is_absolute(sysconfdir) ? sysconfdir : (prefix / sysconfdir)) / 'xdg' / 'autostart' / meson.project_name() + '.desktop',
+)
+
 dbus_dep = dependency('dbus-1')
-dbus_interfaces_dir = dbus_dep.get_pkgconfig_variable('interfaces_dir', define_variable: ['datadir', datadir])
+dbus_interfaces_dir = dbus_dep.get_variable('interfaces_dir', pkgconfig_define: ['datadir', datadir])
 
 install_data(
     'io.elementary.SettingsDaemon.AccountsService.xml',
@@ -13,7 +20,7 @@ install_data(
 )
 
 act_dep = dependency('accountsservice')
-act_interfacesdir = act_dep.get_pkgconfig_variable('interfacesdir', define_variable: ['datadir', datadir], default: datadir /'accountsservice' / 'interfaces')
+act_interfacesdir = act_dep.get_variable('interfacesdir', pkgconfig_define: ['datadir', datadir], default_value: datadir /'accountsservice' / 'interfaces')
 
 meson.add_install_script(
     symlink,
@@ -27,12 +34,12 @@ install_data(
 )
 
 i18n.merge_file(
-    input: 'settings-daemon.appdata.xml.in',
-    output: meson.project_name() + '.appdata.xml',
-    po_dir: join_paths(meson.source_root(), 'po'),
+    input: 'settings-daemon.metainfo.xml.in',
+    output: meson.project_name() + '.metainfo.xml',
+    po_dir: meson.project_source_root() / 'po',
     type: 'xml',
     install: true,
-    install_dir: join_paths(get_option('datadir'), 'metainfo'),
+    install_dir: get_option('datadir') / 'metainfo',
 )
 
 conf = configuration_data()
@@ -58,3 +65,46 @@ install_data(
     install_mode: 'r-xr--r--',
     install_dir: pkgdatadir
 )
+busctl_path = get_option('busctlpath')
+systemd_system_unit_dir = get_option('systemdsystemunitdir')
+
+if systemd_system_unit_dir != 'no'
+    systemd = dependency('systemd')
+    if systemd_system_unit_dir == ''
+        systemd_system_unit_dir = systemd.get_variable('systemdsystemunitdir', pkgconfig_define: ['rootprefix', prefix])
+    endif
+    if busctl_path == ''
+        busctl_path = systemd.get_variable('prefix') / 'bin' / 'busctl'
+    endif
+
+    service_config = configuration_data()
+    service_config.set('busctl_path', busctl_path)
+
+    configure_file(
+        input: meson.project_name() + '.check-for-firmware-updates.service.in',
+        output: meson.project_name() + '.check-for-firmware-updates.service',
+        configuration: service_config,
+        install_dir: systemd_system_unit_dir
+    )
+
+    install_data(
+        meson.project_name() + '.check-for-firmware-updates.timer',
+        install_dir: systemd_system_unit_dir
+    )
+endif
+
+icon_sizes = ['24', '32', '48', '64', '128']
+
+foreach i : icon_sizes
+    install_data(
+        join_paths('icons', i + '.svg'),
+        install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i / 'apps',
+        rename: meson.project_name() + '.svg'
+    )
+    install_data(
+        join_paths('icons', i + '.svg'),
+        install_dir: get_option('datadir') / 'icons' / 'hicolor' / i + 'x' + i + '@2' / 'apps',
+        rename: meson.project_name() + '.svg'
+    )
+endforeach
+

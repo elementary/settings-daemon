@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-15 16:16-0700\n"
+"POT-Creation-Date: 2023-07-21 09:28+0100\n"
 "PO-Revision-Date: 2021-08-06 17:09+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/fi/>\n"
+"Language-Team: Finnish <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,20 +19,85 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-#: data/settings-daemon.appdata.xml.in:7
+#: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
 msgstr "Asetusten taustapalvelu"
 
-#: data/settings-daemon.appdata.xml.in:8
+#: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
 msgstr "Hallitse asetuksia ja taustalla suoritettavia tehtäviä"
 
-#: data/settings-daemon.appdata.xml.in:10
+#: data/settings-daemon.metainfo.xml.in:13
 msgid ""
-"This process sync settings to the greeter and manages background tasks like "
-"scheduling dark mode and Housekeeping."
+"Syncs settings to the greeter and manages background tasks, like scheduling "
+"dark style and housekeeping."
 msgstr ""
 
-#: data/settings-daemon.appdata.xml.in:18
+#: data/settings-daemon.metainfo.xml.in:28
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#: data/settings-daemon.metainfo.xml.in:35
+#: data/settings-daemon.metainfo.xml.in:54
+#: data/settings-daemon.metainfo.xml.in:69
+msgid "New features:"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:37
+msgid "Provide accent colors on the settings portal"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:38
+msgid ""
+"Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
+"the Login &amp; Lock screen"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:40
+#: data/settings-daemon.metainfo.xml.in:60
+#: data/settings-daemon.metainfo.xml.in:73
+msgid "Improvements:"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:42
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:76
+msgid "Updated translations"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Add First day of the week setting"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:57
+msgid "Add left-handed mouse click setting"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:58
+msgid "Don't Housekeep Downloads if it's also Home"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:71
+msgid "Provide the Settings portal"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:75
+msgid "Remove unused dark style gsettings schema"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:83
+msgid "Initial release"
+msgstr ""
+
+#: src/Application.vala:88
+msgid "Firmware Update Available"
+msgid_plural "Firmware Updates Available"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Application.vala:89
+#, c-format
+msgid "%u update is available for your hardware"
+msgid_plural "%u updates are available for your hardware"
+msgstr[0] ""
+msgstr[1] ""

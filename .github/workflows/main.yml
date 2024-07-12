@@ -1,21 +1,31 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [master]
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [stable, unstable, development-target]
     container:
-      image: elementary/docker:unstable
+      image: ghcr.io/elementary/docker:${{ matrix.version }}
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y libaccountsservice-dev libdbus-1-dev libgranite-dev libgeoclue-2-dev libpackagekit-glib2-dev libpolkit-gobject-1-dev meson valac
+        apt install -y libaccountsservice-dev libdbus-1-dev libfwupd-dev libgranite-dev libgeoclue-2-dev libpackagekit-glib2-dev libpolkit-gobject-1-dev meson valac
     - name: Build
       run: |
         meson build
@@ -25,7 +35,7 @@ jobs:
   lint:
 
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - uses: elementary/actions/vala-lint@master
