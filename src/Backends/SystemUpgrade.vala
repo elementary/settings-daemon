@@ -59,7 +59,6 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
 
         Inhibitor.get_instance ().inhibit ();
 
-        
         try {
             info ("Refresh cache");
             Pk.Results? results = null;
@@ -130,7 +129,7 @@ public class SettingsDaemon.Backends.SystemUpgrade : GLib.Object {
         Inhibitor.get_instance ().uninhibit ();
     }
 
-    private async void update_repositories () throws GLib.Error{
+    private async void update_repositories () throws GLib.Error {
         info ("Get repositories");
         var results = yield task.get_repo_list_async (Pk.Bitfield.from_enums (Pk.Filter.NONE), cancellable, (p, t) => {});
 
