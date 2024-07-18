@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-14 23:18+0000\n"
-"PO-Revision-Date: 2024-06-26 20:16+0000\n"
+"PO-Revision-Date: 2024-07-19 17:16+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -105,7 +105,7 @@ msgstr "Se eliminó un esquema de modo oscuro no utilizado en gsettings"
 
 #: data/settings-daemon.metainfo.xml.in:91
 msgid "Initial release"
-msgstr "Versión inicial"
+msgstr "Primera versión"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
