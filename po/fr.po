@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 23:18+0000\n"
+"POT-Creation-Date: 2024-07-25 17:47+0000\n"
 "PO-Revision-Date: 2024-06-06 10:13+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/settings-"
@@ -47,17 +47,44 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:62
-#: data/settings-daemon.metainfo.xml.in:77
+#: data/settings-daemon.metainfo.xml.in:37
+#: data/settings-daemon.metainfo.xml.in:66
+#: data/settings-daemon.metainfo.xml.in:85
+#: data/settings-daemon.metainfo.xml.in:100
 msgid "New features:"
 msgstr "Nouvelles fonctionnalités :"
 
+#: data/settings-daemon.metainfo.xml.in:39
+msgid "Handle operating system updates, including automatic updates"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Handle driver installation"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:41
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:91
+#: data/settings-daemon.metainfo.xml.in:104
+msgid "Improvements:"
+msgstr "Améliorations :"
+
 #: data/settings-daemon.metainfo.xml.in:45
+#: data/settings-daemon.metainfo.xml.in:73
+#: data/settings-daemon.metainfo.xml.in:93
+#: data/settings-daemon.metainfo.xml.in:107
+msgid "Updated translations"
+msgstr "Mise à jour des traductions"
+
+#: data/settings-daemon.metainfo.xml.in:68
 msgid "Provide accent colors on the settings portal"
 msgstr "Fournis les couleurs d'accentuation dans le portail des paramètres"
 
-#: data/settings-daemon.metainfo.xml.in:46
+#: data/settings-daemon.metainfo.xml.in:69
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -66,43 +93,27 @@ msgstr ""
 "nuit et de certains paramètres d'accessibilité avec l'écran de connexion et "
 "de verrouillage"
 
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:81
-msgid "Improvements:"
-msgstr "Améliorations :"
-
-#: data/settings-daemon.metainfo.xml.in:50
-#: data/settings-daemon.metainfo.xml.in:70
-#: data/settings-daemon.metainfo.xml.in:84
-msgid "Updated translations"
-msgstr "Mise à jour des traductions"
-
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:87
 msgid "Add First day of the week setting"
 msgstr "Ajout du premier jour de la semaine dans les paramètres de semaine"
 
-#: data/settings-daemon.metainfo.xml.in:65
+#: data/settings-daemon.metainfo.xml.in:88
 msgid "Add left-handed mouse click setting"
 msgstr "Ajout d'un paramètre de clic de souris pour gaucher"
 
-#: data/settings-daemon.metainfo.xml.in:66
+#: data/settings-daemon.metainfo.xml.in:89
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 "Ne pas nettoyer automatiquement le dossier des téléchargements si c'est "
 "aussi le dossier personnel"
 
-#: data/settings-daemon.metainfo.xml.in:79
+#: data/settings-daemon.metainfo.xml.in:102
 msgid "Provide the Settings portal"
 msgstr "Fournis le portail des paramètres"
 
-#: data/settings-daemon.metainfo.xml.in:83
+#: data/settings-daemon.metainfo.xml.in:106
 msgid "Remove unused dark style gsettings schema"
 msgstr "Suppression du schéma gsettings inutilisé du style sombre"
-
-#: data/settings-daemon.metainfo.xml.in:91
-msgid "Initial release"
-msgstr "Version initiale"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
@@ -310,3 +321,6 @@ msgstr "Copie des fichiers"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "Installation"
+
+#~ msgid "Initial release"
+#~ msgstr "Version initiale"
