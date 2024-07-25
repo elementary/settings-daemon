@@ -1,3 +1,9 @@
+io.elementary.settings-daemon (8.0.0) noble; urgency=medium
+
+  * Release 8.0.0
+
+ -- Danielle Foré <danielle@elementary.io>  Thu, 25 Jul 2024 10:48:05 -0700
+
 io.elementary.settings-daemon (1.3.1) jammy; urgency=medium
 
   * Release 1.3.1
