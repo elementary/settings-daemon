@@ -1,314 +1,302 @@
-# Spanish translations for extra package.
-# Copyright (C) 2021 THE extra'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the extra package.
-# Automatically generated, 2021.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.elementary.settings-daemon package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: extra\n"
+"Project-Id-Version: io.elementary.settings-daemon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-14 23:18+0000\n"
-"PO-Revision-Date: 2024-07-19 17:16+0000\n"
-"Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/es/>\n"
-"Language: es\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pap\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
-msgstr "Configuración del Sistema"
+msgstr ""
 
 #: data/autostart.desktop:5
 msgid "System Settings background tasks"
-msgstr "Tareas en segundo plano de la Configuración del Sistema"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
-msgstr "Servicio de Configuraciones"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
-msgstr "Gestione la configuración y las tareas en segundo plano"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:13
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
-"Sincroniza la configuración con la pantalla de inicio de sesión y administra "
-"tareas en segundo plano, como programar el modo oscuro y servicios de "
-"mantenimiento."
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
-msgstr "elementary, Inc."
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:62
 #: data/settings-daemon.metainfo.xml.in:77
 msgid "New features:"
-msgstr "Nuevas características:"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:45
 msgid "Provide accent colors on the settings portal"
-msgstr "Ahora se proveen colores de énfasis en el portal de configuración"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:46
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
-"Se sincronizan las configuraciones del teclado, ratón, luz nocturna, fuentes "
-"y algunas configuraciones de accesibilidad a la pantalla de inicio de sesión "
-"y bloqueo"
 
 #: data/settings-daemon.metainfo.xml.in:48
 #: data/settings-daemon.metainfo.xml.in:68
 #: data/settings-daemon.metainfo.xml.in:81
 msgid "Improvements:"
-msgstr "Mejoras:"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:50
 #: data/settings-daemon.metainfo.xml.in:70
 #: data/settings-daemon.metainfo.xml.in:84
 msgid "Updated translations"
-msgstr "Traducciones actualizadas"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:64
 msgid "Add First day of the week setting"
-msgstr "Se agregó una configuración para establecer el primer día de la semana"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:65
 msgid "Add left-handed mouse click setting"
 msgstr ""
-"Se agregó una configuración para establecer usar el ratón con la mano "
-"izquierda"
 
 #: data/settings-daemon.metainfo.xml.in:66
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
-"Ya no se hace mantenimiento de la carpeta de descargas si resulta ser la "
-"misma carpeta personal"
 
 #: data/settings-daemon.metainfo.xml.in:79
 msgid "Provide the Settings portal"
-msgstr "Se provee un portal de configuración"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:83
 msgid "Remove unused dark style gsettings schema"
-msgstr "Se eliminó un esquema de modo oscuro no utilizado en gsettings"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:91
 msgid "Initial release"
-msgstr "Primera versión"
+msgstr ""
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] "Actualización de firmware disponible"
-msgstr[1] "Actualizaciones de firmware disponibles"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Application.vala:167
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] "%u actualización disponible para su hardware"
-msgstr[1] "%u actualizaciones disponibles para su hardware"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Backends/SystemUpdate.vala:117
 msgid "Update available"
-msgstr "Actualización disponible"
+msgstr ""
 
 #: src/Backends/SystemUpdate.vala:121
 msgid "A system security update is available"
-msgstr "Una actualización de seguridad del sistema se encuentra disponible"
+msgstr ""
 
 #: src/Backends/SystemUpdate.vala:125
 msgid "A system update is available"
-msgstr "Una actualización del sistema encuentra disponible"
+msgstr ""
 
 #: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
-msgstr "Se requiere reiniciar"
+msgstr ""
 
 #: src/Backends/SystemUpdate.vala:158
 msgid "Please restart your system to finalize updates"
-msgstr "Reinicie el sistema para terminar de instalar las actualizaciones"
+msgstr ""
 
 #: src/Backends/SystemUpdate.vala:180
 msgid "System updates couldn't be installed"
-msgstr "No se pudieron instalar las actualizaciones del sistema"
+msgstr ""
 
 #: src/Backends/SystemUpdate.vala:181
 msgid "An error occurred while trying to update your system"
-msgstr "Se ha producido un error al tratar de actualizar el sistema"
+msgstr ""
 
 #: src/Backends/UbuntuDrivers.vala:169
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] "Controlador disponible"
-msgstr[1] "Controladores disponibles"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Backends/UbuntuDrivers.vala:171
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] "%u controlador está disponible para su hardware"
-msgstr[1] "%u controladores están disponibles para su hardware"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Backends/UbuntuDrivers.vala:245
 msgid "Please restart your system to finalize driver installation"
-msgstr "Reinicie el sistema para terminar de instalar los controladores"
+msgstr ""
 
 #: src/Backends/UbuntuDrivers.vala:267
 msgid "A driver couldn't be installed"
-msgstr "No se pudo instalar un controlador"
+msgstr ""
 
 #: src/Backends/UbuntuDrivers.vala:268
 msgid "An error occurred while trying to install a driver"
-msgstr "Se ha producido un error al tratar de instalar un controlador"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:20
 msgid "Starting"
-msgstr "Iniciando"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:22
 msgid "Waiting"
-msgstr "Esperando"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:24
 msgid "Running"
-msgstr "Ejecutando"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:26
 msgid "Querying"
-msgstr "Consultando"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:28
 msgid "Getting information"
-msgstr "Obteniendo información"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:30
 msgid "Removing packages"
-msgstr "Eliminando paquetes"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:32
 msgid "Downloading"
-msgstr "Descargando"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:34
 msgid "Refreshing software list"
-msgstr "Actualizando la lista de aplicaciones"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:36
 msgid "Installing updates"
-msgstr "Instalando actualizaciones"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:38
 msgid "Cleaning up packages"
-msgstr "Limpiando paquetes"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:40
 msgid "Obsoleting packages"
-msgstr "Marcando paquetes obsoletos"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:42
 msgid "Resolving dependencies"
-msgstr "Resolviendo dependencias"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:44
 msgid "Checking signatures"
-msgstr "Comprobando firmas"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:46
 msgid "Testing changes"
-msgstr "Probando los cambios"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:48
 msgid "Committing changes"
-msgstr "Realizando cambios"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:50
 msgid "Requesting data"
-msgstr "Solicitando datos"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:52
 msgid "Finished"
-msgstr "Terminado"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:54
 msgid "Cancelling"
-msgstr "Cancelando"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:56
 msgid "Downloading repository information"
-msgstr "Descargando información del repositorio"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:58
 msgid "Downloading list of packages"
-msgstr "Descargando la lista de paquetes"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:60
 msgid "Downloading file lists"
-msgstr "Descargando listas de archivos"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:62
 msgid "Downloading lists of changes"
-msgstr "Descargando listas de cambios"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:64
 msgid "Downloading groups"
-msgstr "Descargando grupos"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading update information"
-msgstr "Descargando información de actualización"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:68
 msgid "Repackaging files"
-msgstr "Reempaquetando archivos"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:70
 msgid "Loading cache"
-msgstr "Cargando el caché"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:72
 msgid "Scanning applications"
-msgstr "Buscando aplicaciones"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:74
 msgid "Generating package lists"
-msgstr "Generando listas de paquetes"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:76
 msgid "Waiting for package manager lock"
-msgstr "Esperando al gestor de paquetes"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:78
 msgid "Waiting for authentication"
-msgstr "Esperando la autenticación"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:80
 msgid "Updating running applications"
-msgstr "Actualizando las aplicaciones en ejecución"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:82
 msgid "Checking applications in use"
-msgstr "Comprobando aplicaciones en uso"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:84
 msgid "Checking libraries in use"
-msgstr "Comprobando bibliotecas en uso"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:86
 msgid "Copying files"
-msgstr "Copiando archivos"
+msgstr ""
 
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
-msgstr "Instalando"
+msgstr ""
