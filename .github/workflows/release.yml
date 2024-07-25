@@ -4,7 +4,7 @@ name: Release
 
 on:
   pull_request:
-    branches: [master]
+    branches: [main]
     types: [closed]
 
 jobs:
@@ -25,4 +25,4 @@ jobs:
          GIT_USER_NAME: "elementaryBot"
          GIT_USER_EMAIL: "builds@elementary.io"
        with:
-         release_branch: 'odin'
+         release_branch: 'noble'
