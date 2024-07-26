@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-25 17:47+0000\n"
-"PO-Revision-Date: 2024-06-01 16:13+0000\n"
+"PO-Revision-Date: 2024-07-26 22:16+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "desktop/settings-daemon/en_GB/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -56,15 +56,15 @@ msgstr "New features:"
 
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Handle operating system updates, including automatic updates"
-msgstr ""
+msgstr "Handle operating system updates, including automatic updates"
 
 #: data/settings-daemon.metainfo.xml.in:40
 msgid "Handle driver installation"
-msgstr ""
+msgstr "Handle driver installation"
 
 #: data/settings-daemon.metainfo.xml.in:41
 msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
+msgstr "Move the AccentColorManager from the window manager to here"
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:71
