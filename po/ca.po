@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-25 17:47+0000\n"
-"PO-Revision-Date: 2024-06-04 03:06+0000\n"
+"PO-Revision-Date: 2024-07-26 22:16+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/ca/>\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -57,14 +57,18 @@ msgstr "Característiques noves:"
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
+"Gestioneu les actualitzacions del sistema operatiu, incloses les "
+"actualitzacions automàtiques."
 
 #: data/settings-daemon.metainfo.xml.in:40
 msgid "Handle driver installation"
-msgstr ""
+msgstr "Gestioneu la instal·lació de controladors"
 
 #: data/settings-daemon.metainfo.xml.in:41
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr ""
+"Moveu el Gestor de l'accentuació del color des del Gestor de finestres fins "
+"aquí."
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:71
