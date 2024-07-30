@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-25 17:47+0000\n"
-"PO-Revision-Date: 2024-06-04 03:06+0000\n"
+"PO-Revision-Date: 2024-07-31 08:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/uk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -58,14 +58,16 @@ msgstr "Нові функції:"
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
+"Керування оновленнями операційної системи, включно з автоматичними "
+"оновленнями"
 
 #: data/settings-daemon.metainfo.xml.in:40
 msgid "Handle driver installation"
-msgstr ""
+msgstr "Керування встановленням драйверів"
 
 #: data/settings-daemon.metainfo.xml.in:41
 msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
+msgstr "AccentColorManager перенесено з менеджера вікон сюди"
 
 #: data/settings-daemon.metainfo.xml.in:43
 #: data/settings-daemon.metainfo.xml.in:71
