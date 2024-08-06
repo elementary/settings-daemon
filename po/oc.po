@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-25 17:47+0000\n"
-"PO-Revision-Date: 2021-08-24 18:33+0000\n"
-"Last-Translator: Mejans <farga@mejans.fr>\n"
-"Language-Team: Occitan <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/oc/>\n"
+"PO-Revision-Date: 2024-08-07 17:16+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Language-Team: Occitan <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/oc/>\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
-msgstr ""
+msgstr "Paramètres del sistèma"
 
 #: data/autostart.desktop:5
 msgid "System Settings background tasks"
@@ -69,14 +69,14 @@ msgstr ""
 #: data/settings-daemon.metainfo.xml.in:91
 #: data/settings-daemon.metainfo.xml.in:104
 msgid "Improvements:"
-msgstr ""
+msgstr "Melhoraments :"
 
 #: data/settings-daemon.metainfo.xml.in:45
 #: data/settings-daemon.metainfo.xml.in:73
 #: data/settings-daemon.metainfo.xml.in:93
 #: data/settings-daemon.metainfo.xml.in:107
 msgid "Updated translations"
-msgstr ""
+msgstr "Traduccions actualizadas"
 
 #: data/settings-daemon.metainfo.xml.in:68
 msgid "Provide accent colors on the settings portal"
