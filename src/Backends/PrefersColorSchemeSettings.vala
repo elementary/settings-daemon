@@ -124,6 +124,9 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
 
         accounts_service.prefers_color_scheme = new_color_scheme;
 
+        var mutter_settings = new GLib.Settings ("org.gnome.desktop.interface");
+        mutter_settings.set_enum ("color-scheme", new_color_scheme);
+
         return true;
     }
 
