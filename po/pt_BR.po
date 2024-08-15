@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-25 17:47+0000\n"
 "PO-Revision-Date: 2024-08-16 20:16+0000\n"
-"Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
+"Last-Translator: Neylson Soares <neylsonsoarest+weblate@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "desktop/settings-daemon/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -52,7 +52,7 @@ msgstr "elementary, Inc."
 #: data/settings-daemon.metainfo.xml.in:85
 #: data/settings-daemon.metainfo.xml.in:100
 msgid "New features:"
-msgstr ""
+msgstr "Novos recursos:"
 
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Handle operating system updates, including automatic updates"
