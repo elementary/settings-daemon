@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 17:47+0000\n"
+"POT-Creation-Date: 2024-08-19 18:56+0000\n"
 "PO-Revision-Date: 2024-07-28 20:16+0000\n"
 "Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/pl/>\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,45 +49,51 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "New features:"
 msgstr "Nowe funkcje:"
 
 #: data/settings-daemon.metainfo.xml.in:39
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Option to restart or shutdown without installing updates"
+msgstr "Proszę ponownie uruchomić komputer by zakończyć aktualizację"
+
+#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:107
+msgid "Improvements:"
+msgstr "Ulepszenia:"
+
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:61
+#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:109
+msgid "Updated translations"
+msgstr "Zaktualizowano tłumaczenia"
+
+#: data/settings-daemon.metainfo.xml.in:55
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "Obługuj aktualizacje systemu operacyjnego, włączając w to automatyczne "
 "aktualizacje"
 
-#: data/settings-daemon.metainfo.xml.in:40
+#: data/settings-daemon.metainfo.xml.in:56
 msgid "Handle driver installation"
 msgstr "Obsługuj instalacje sterowników"
 
-#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:57
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Przeniesiono AccentColorManager z menadżera okien tutaj"
 
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:91
-#: data/settings-daemon.metainfo.xml.in:104
-msgid "Improvements:"
-msgstr "Ulepszenia:"
-
-#: data/settings-daemon.metainfo.xml.in:45
-#: data/settings-daemon.metainfo.xml.in:73
-#: data/settings-daemon.metainfo.xml.in:93
-#: data/settings-daemon.metainfo.xml.in:107
-msgid "Updated translations"
-msgstr "Zaktualizowano tłumaczenia"
-
-#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Provide accent colors on the settings portal"
 msgstr "Dodano kolory akcentu dla portalu ustawień"
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -95,25 +101,17 @@ msgstr ""
 "Ustawienia fontów, myszki, klawiatury, światła nocnego i niektórych opcji "
 "dostępności są teraz synchronizowane z ekranem logowania i zablokowania"
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:103
 msgid "Add First day of the week setting"
 msgstr "Dodano ustawienia pierwszego dnia tygodnia"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:104
 msgid "Add left-handed mouse click setting"
 msgstr "Dodano ustawienia obsługi myszki lewą ręką"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:105
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Nie sprzątaj folderu Pobrane jeśli jest taki sam jak folder domowy"
-
-#: data/settings-daemon.metainfo.xml.in:102
-msgid "Provide the Settings portal"
-msgstr "Dodano portal ustawień"
-
-#: data/settings-daemon.metainfo.xml.in:106
-msgid "Remove unused dark style gsettings schema"
-msgstr "Usunięto nieużywany schemat ciemnych gsettings"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
@@ -130,31 +128,31 @@ msgstr[0] "%u aktualizacja dostępna dla twojego urządzenia"
 msgstr[1] "%u aktualizacje dostępne dla twojego urządzenia"
 msgstr[2] "%u aktualizacji dostępnych dla twojego urządzenia"
 
-#: src/Backends/SystemUpdate.vala:117
+#: src/Backends/SystemUpdate.vala:128
 msgid "Update available"
 msgstr "Dostępna aktualizacja"
 
-#: src/Backends/SystemUpdate.vala:121
+#: src/Backends/SystemUpdate.vala:132
 msgid "A system security update is available"
 msgstr "Dostępna jest aktualizacja bezpieczeństwa systemu"
 
-#: src/Backends/SystemUpdate.vala:125
+#: src/Backends/SystemUpdate.vala:136
 msgid "A system update is available"
 msgstr "Dostępna jest aktualizacja systemu"
 
-#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Wymagane ponowne uruchomienie"
 
-#: src/Backends/SystemUpdate.vala:158
+#: src/Backends/SystemUpdate.vala:167
 msgid "Please restart your system to finalize updates"
 msgstr "Proszę ponownie uruchomić komputer by zakończyć aktualizację"
 
-#: src/Backends/SystemUpdate.vala:180
+#: src/Backends/SystemUpdate.vala:189
 msgid "System updates couldn't be installed"
 msgstr "Aktualizacje systemowe nie mogły zostać zainstalowane"
 
-#: src/Backends/SystemUpdate.vala:181
+#: src/Backends/SystemUpdate.vala:190
 msgid "An error occurred while trying to update your system"
 msgstr "Podczas aktualizacji systemu wystąpił błąd"
 
@@ -324,6 +322,12 @@ msgstr "Kopiowanie plików"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "Instalowanie"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Dodano portal ustawień"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Usunięto nieużywany schemat ciemnych gsettings"
 
 #~ msgid "Initial release"
 #~ msgstr "Wstępne wydanie"

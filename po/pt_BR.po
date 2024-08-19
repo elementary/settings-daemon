@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 17:47+0000\n"
+"POT-Creation-Date: 2024-08-19 18:56+0000\n"
 "PO-Revision-Date: 2024-08-16 20:16+0000\n"
 "Last-Translator: Neylson Soares <neylsonsoarest+weblate@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
@@ -48,45 +48,51 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "New features:"
 msgstr "Novos recursos:"
 
 #: data/settings-daemon.metainfo.xml.in:39
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Option to restart or shutdown without installing updates"
+msgstr "Reinicie seu sistema para finalizar atualizações"
+
+#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:107
+msgid "Improvements:"
+msgstr "Melhorias:"
+
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:61
+#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:109
+msgid "Updated translations"
+msgstr "Traduções atualizadas"
+
+#: data/settings-daemon.metainfo.xml.in:55
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "Gerenciar atualizações do sistema operacional, incluindo atualizações "
 "automáticas"
 
-#: data/settings-daemon.metainfo.xml.in:40
+#: data/settings-daemon.metainfo.xml.in:56
 msgid "Handle driver installation"
 msgstr "Gerenciar instalação de driver"
 
-#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:57
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Move o AccentColorManager do gerenciador de janelas para aqui"
 
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:91
-#: data/settings-daemon.metainfo.xml.in:104
-msgid "Improvements:"
-msgstr "Melhorias:"
-
-#: data/settings-daemon.metainfo.xml.in:45
-#: data/settings-daemon.metainfo.xml.in:73
-#: data/settings-daemon.metainfo.xml.in:93
-#: data/settings-daemon.metainfo.xml.in:107
-msgid "Updated translations"
-msgstr "Traduções atualizadas"
-
-#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Provide accent colors on the settings portal"
 msgstr "Fornece as cores de destaque nas configurações"
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -94,25 +100,17 @@ msgstr ""
 "Sincroniza fonte, mouse, teclado, luz noturna e algumas configurações de "
 "acessibilidade para o Login &amp; Tela de bloqueio"
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:103
 msgid "Add First day of the week setting"
 msgstr "Adiciona configuração do primeiro dia da semana"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:104
 msgid "Add left-handed mouse click setting"
 msgstr "Adiciona configuração de clique com o mouse canhoto"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:105
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Não faça a limpeza de Downloads se também for a Home"
-
-#: data/settings-daemon.metainfo.xml.in:102
-msgid "Provide the Settings portal"
-msgstr "Fornece o portal de Configurações"
-
-#: data/settings-daemon.metainfo.xml.in:106
-msgid "Remove unused dark style gsettings schema"
-msgstr "Removido um esquema de modo escuro não utilizado em gsettings"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
@@ -127,31 +125,31 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u atualização está disponível para seu hardware"
 msgstr[1] "%u atualizações estão disponíveis para seu hardware"
 
-#: src/Backends/SystemUpdate.vala:117
+#: src/Backends/SystemUpdate.vala:128
 msgid "Update available"
 msgstr "Atualização disponível"
 
-#: src/Backends/SystemUpdate.vala:121
+#: src/Backends/SystemUpdate.vala:132
 msgid "A system security update is available"
 msgstr "Uma atualização de segurança do sistema está disponível"
 
-#: src/Backends/SystemUpdate.vala:125
+#: src/Backends/SystemUpdate.vala:136
 msgid "A system update is available"
 msgstr "Uma atualização do sistema está disponível"
 
-#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Reinicialização necessária"
 
-#: src/Backends/SystemUpdate.vala:158
+#: src/Backends/SystemUpdate.vala:167
 msgid "Please restart your system to finalize updates"
 msgstr "Reinicie seu sistema para finalizar atualizações"
 
-#: src/Backends/SystemUpdate.vala:180
+#: src/Backends/SystemUpdate.vala:189
 msgid "System updates couldn't be installed"
 msgstr "As atualizações do sistema não puderam ser instaladas"
 
-#: src/Backends/SystemUpdate.vala:181
+#: src/Backends/SystemUpdate.vala:190
 msgid "An error occurred while trying to update your system"
 msgstr "Ocorreu um erro durante a tentativa de atualizar seu sistema"
 
@@ -319,3 +317,9 @@ msgstr "Copiando arquivos"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "Instalando"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Fornece o portal de Configurações"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Removido um esquema de modo escuro não utilizado em gsettings"

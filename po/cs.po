@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 17:47+0000\n"
+"POT-Creation-Date: 2024-08-19 18:56+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Czech <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/cs/>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,43 +50,47 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "New features:"
 msgstr "Nové funkce:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Handle operating system updates, including automatic updates"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:40
-msgid "Handle driver installation"
+msgid "Option to restart or shutdown without installing updates"
 msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:41
-msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:91
-#: data/settings-daemon.metainfo.xml.in:104
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:107
 msgid "Improvements:"
 msgstr "Vylepšení:"
 
-#: data/settings-daemon.metainfo.xml.in:45
-#: data/settings-daemon.metainfo.xml.in:73
-#: data/settings-daemon.metainfo.xml.in:93
-#: data/settings-daemon.metainfo.xml.in:107
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:61
+#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:109
 msgid "Updated translations"
 msgstr "Aktualizované překlady"
 
-#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:55
+msgid "Handle operating system updates, including automatic updates"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Handle driver installation"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:57
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Provide accent colors on the settings portal"
 msgstr "Poskytnutí barev zvýraznění na portálu nastavení"
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -94,25 +98,17 @@ msgstr ""
 "Synchronizace písma, myši, klávesnice, nočního světla, a nějakých nastavení "
 "zpřístupnění do Přihlašovací a Zamykací obrazovky"
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:103
 msgid "Add First day of the week setting"
 msgstr "Přidáno nastavení prvního dne v týdnu"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:104
 msgid "Add left-handed mouse click setting"
 msgstr "Přidána možnost kliknutí myši pro leváky"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:105
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Neuklízet složku Stažené pokud je to zároveň složka Domů"
-
-#: data/settings-daemon.metainfo.xml.in:102
-msgid "Provide the Settings portal"
-msgstr "Poskytnutí portálu Nastavení"
-
-#: data/settings-daemon.metainfo.xml.in:106
-msgid "Remove unused dark style gsettings schema"
-msgstr "Odstranění nepoužitého schématu gsettings pro tmavý styl"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
@@ -129,40 +125,40 @@ msgstr[0] "%u aktualizace je dostupná pro váš hardware"
 msgstr[1] "%u aktualizace jsou dostupné pro váš hardware"
 msgstr[2] "%u aktualizací je dostupných pro váš hardware"
 
-#: src/Backends/SystemUpdate.vala:117
+#: src/Backends/SystemUpdate.vala:128
 #, fuzzy
 #| msgid "Firmware Update Available"
 #| msgid_plural "Firmware Updates Available"
 msgid "Update available"
 msgstr "Aktualizace firmwaru dostupná"
 
-#: src/Backends/SystemUpdate.vala:121
+#: src/Backends/SystemUpdate.vala:132
 #, fuzzy
 #| msgid "Firmware Update Available"
 #| msgid_plural "Firmware Updates Available"
 msgid "A system security update is available"
 msgstr "Aktualizace firmwaru dostupná"
 
-#: src/Backends/SystemUpdate.vala:125
+#: src/Backends/SystemUpdate.vala:136
 #, fuzzy
 #| msgid "Firmware Update Available"
 #| msgid_plural "Firmware Updates Available"
 msgid "A system update is available"
 msgstr "Aktualizace firmwaru dostupná"
 
-#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:158
+#: src/Backends/SystemUpdate.vala:167
 msgid "Please restart your system to finalize updates"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:180
+#: src/Backends/SystemUpdate.vala:189
 msgid "System updates couldn't be installed"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:181
+#: src/Backends/SystemUpdate.vala:190
 msgid "An error occurred while trying to update your system"
 msgstr ""
 
@@ -341,6 +337,12 @@ msgstr ""
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr ""
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Poskytnutí portálu Nastavení"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Odstranění nepoužitého schématu gsettings pro tmavý styl"
 
 #~ msgid "Initial release"
 #~ msgstr "Prvotní vydání"
