@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 17:47+0000\n"
+"POT-Creation-Date: 2024-08-19 18:56+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
@@ -48,45 +48,51 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "New features:"
 msgstr "Új funkciók:"
 
 #: data/settings-daemon.metainfo.xml.in:39
+#, fuzzy
+#| msgid "Please restart your system to finalize updates"
+msgid "Option to restart or shutdown without installing updates"
+msgstr "Indítsa újra a rendszert a frissítések véglegesítéséhez"
+
+#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:107
+msgid "Improvements:"
+msgstr "Fejlesztések:"
+
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:61
+#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:109
+msgid "Updated translations"
+msgstr "Frissített fordítások"
+
+#: data/settings-daemon.metainfo.xml.in:55
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "Operációsrendszer-frissítések kezelése, beleértve az automatikus "
 "frissítéseket"
 
-#: data/settings-daemon.metainfo.xml.in:40
+#: data/settings-daemon.metainfo.xml.in:56
 msgid "Handle driver installation"
 msgstr "Illesztőprogram-telepítések kezelése"
 
-#: data/settings-daemon.metainfo.xml.in:41
+#: data/settings-daemon.metainfo.xml.in:57
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Az AccentColorManager átmozgatása az ablakkezelőből ide"
 
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:91
-#: data/settings-daemon.metainfo.xml.in:104
-msgid "Improvements:"
-msgstr "Fejlesztések:"
-
-#: data/settings-daemon.metainfo.xml.in:45
-#: data/settings-daemon.metainfo.xml.in:73
-#: data/settings-daemon.metainfo.xml.in:93
-#: data/settings-daemon.metainfo.xml.in:107
-msgid "Updated translations"
-msgstr "Frissített fordítások"
-
-#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Provide accent colors on the settings portal"
 msgstr "Kiemelőszínek elérhetővé tétele a hozzáférési portálon keresztül"
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -94,25 +100,17 @@ msgstr ""
 "A betűtípus, egér, billentyűzet, éjszakai fény és néhány kisegítő lehetőség "
 "beállításainak szinkronizálása a Bejelentkezési és lezárási képernyővel"
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:103
 msgid "Add First day of the week setting"
 msgstr "A hét kezdőnapjának beállítása"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:104
 msgid "Add left-handed mouse click setting"
 msgstr "Balkezes egérkattintás beállítás"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:105
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Ne legyen karbantartva a Letöltések, ha az egyben a Saját mappa"
-
-#: data/settings-daemon.metainfo.xml.in:102
-msgid "Provide the Settings portal"
-msgstr "Beállítások portál elérhetővé tétele"
-
-#: data/settings-daemon.metainfo.xml.in:106
-msgid "Remove unused dark style gsettings schema"
-msgstr "Nem használt sötét stílus gsettings séma eltávolítva"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
@@ -127,31 +125,31 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u frissítés érhető el a hardveréhez"
 msgstr[1] "%u frissítés érhető el a hardveréhez"
 
-#: src/Backends/SystemUpdate.vala:117
+#: src/Backends/SystemUpdate.vala:128
 msgid "Update available"
 msgstr "Frissítés érhető el"
 
-#: src/Backends/SystemUpdate.vala:121
+#: src/Backends/SystemUpdate.vala:132
 msgid "A system security update is available"
 msgstr "Biztonsági rendszerfrissítés érhető el"
 
-#: src/Backends/SystemUpdate.vala:125
+#: src/Backends/SystemUpdate.vala:136
 msgid "A system update is available"
 msgstr "Rendszerfrissítés érhető el"
 
-#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Újraindítás szükséges"
 
-#: src/Backends/SystemUpdate.vala:158
+#: src/Backends/SystemUpdate.vala:167
 msgid "Please restart your system to finalize updates"
 msgstr "Indítsa újra a rendszert a frissítések véglegesítéséhez"
 
-#: src/Backends/SystemUpdate.vala:180
+#: src/Backends/SystemUpdate.vala:189
 msgid "System updates couldn't be installed"
 msgstr "A rendszerfrissítéseket nem sikerült telepíteni"
 
-#: src/Backends/SystemUpdate.vala:181
+#: src/Backends/SystemUpdate.vala:190
 msgid "An error occurred while trying to update your system"
 msgstr "Egy hiba történt a rendszer frissítése közben"
 
@@ -320,6 +318,12 @@ msgstr "Fájlok másolása"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "Telepítés"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Beállítások portál elérhetővé tétele"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Nem használt sötét stílus gsettings séma eltávolítva"
 
 #~ msgid "Initial release"
 #~ msgstr "Első kiadás"
