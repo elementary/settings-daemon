@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-19 18:56+0000\n"
-"PO-Revision-Date: 2024-07-28 20:16+0000\n"
-"Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/pl/>\n"
+"PO-Revision-Date: 2024-08-22 01:16+0000\n"
+"Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,10 +56,10 @@ msgid "New features:"
 msgstr "Nowe funkcje:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-#, fuzzy
-#| msgid "Please restart your system to finalize updates"
 msgid "Option to restart or shutdown without installing updates"
-msgstr "Proszę ponownie uruchomić komputer by zakończyć aktualizację"
+msgstr ""
+"Możliwość restartowania oraz wyłączania komputera bez instalowania "
+"aktualizacji"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:59
