@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-19 18:56+0000\n"
-"PO-Revision-Date: 2024-08-07 17:16+0000\n"
+"PO-Revision-Date: 2024-08-22 01:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/hu/>\n"
@@ -55,10 +55,8 @@ msgid "New features:"
 msgstr "Új funkciók:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-#, fuzzy
-#| msgid "Please restart your system to finalize updates"
 msgid "Option to restart or shutdown without installing updates"
-msgstr "Indítsa újra a rendszert a frissítések véglegesítéséhez"
+msgstr "Lehetőség újraindításra vagy leállításra frissítések telepítése nélkül"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:59
