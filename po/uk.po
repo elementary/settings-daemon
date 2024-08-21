@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-19 18:56+0000\n"
-"PO-Revision-Date: 2024-07-31 08:16+0000\n"
+"PO-Revision-Date: 2024-08-22 01:16+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/uk/>\n"
@@ -56,10 +56,8 @@ msgid "New features:"
 msgstr "Нові функції:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-#, fuzzy
-#| msgid "Please restart your system to finalize updates"
 msgid "Option to restart or shutdown without installing updates"
-msgstr "Перезапустіть систему, щоб завершити оновлення"
+msgstr "Можливість перезапуску або вимкнення без встановлення оновлень"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:59
