@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-19 18:56+0000\n"
-"PO-Revision-Date: 2024-07-31 08:16+0000\n"
+"PO-Revision-Date: 2024-08-27 08:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/fr/>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,10 +55,8 @@ msgid "New features:"
 msgstr "Nouvelles fonctionnalités :"
 
 #: data/settings-daemon.metainfo.xml.in:39
-#, fuzzy
-#| msgid "Please restart your system to finalize updates"
 msgid "Option to restart or shutdown without installing updates"
-msgstr "Veuillez redémarrer votre système pour terminer les mises à jour"
+msgstr "Option pour redémarrer ou arrêter sans installer les mises à jour"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:59
