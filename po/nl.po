@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 17:47+0000\n"
-"PO-Revision-Date: 2024-08-17 17:19+0000\n"
+"POT-Creation-Date: 2024-08-19 18:56+0000\n"
+"PO-Revision-Date: 2024-08-22 01:16+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/nl/>\n"
@@ -48,43 +48,49 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "New features:"
 msgstr "Nieuwe functies:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Handle operating system updates, including automatic updates"
-msgstr "Hanteer besturingssyteem updates, inclusief automatische updates"
-
-#: data/settings-daemon.metainfo.xml.in:40
-msgid "Handle driver installation"
-msgstr "Hanteer stuurprogramma installatie"
+msgid "Option to restart or shutdown without installing updates"
+msgstr ""
+"Optie om het systeem opnieuw op te starten of af te sluiten zonder updates "
+"te installeren"
 
 #: data/settings-daemon.metainfo.xml.in:41
-msgid "Move the AccentColorManager from the window manager to here"
-msgstr "Verplaats de AccentColorManager van de window manager naar hier"
-
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:91
-#: data/settings-daemon.metainfo.xml.in:104
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:107
 msgid "Improvements:"
 msgstr "Verbeteringen:"
 
-#: data/settings-daemon.metainfo.xml.in:45
-#: data/settings-daemon.metainfo.xml.in:73
-#: data/settings-daemon.metainfo.xml.in:93
-#: data/settings-daemon.metainfo.xml.in:107
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:61
+#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:109
 msgid "Updated translations"
 msgstr "Bijgewerkte vertalingen"
 
-#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:55
+msgid "Handle operating system updates, including automatic updates"
+msgstr "Hanteer besturingssyteem updates, inclusief automatische updates"
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Handle driver installation"
+msgstr "Hanteer stuurprogramma installatie"
+
+#: data/settings-daemon.metainfo.xml.in:57
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr "Verplaats de AccentColorManager van de window manager naar hier"
+
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Provide accent colors on the settings portal"
 msgstr "Bied accentkleuren op het instellingenportaal"
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -92,25 +98,17 @@ msgstr ""
 "Synchroniseer lettertype, muis, toetsenbord, nachtlicht, en sommige "
 "toegankelijkheidsinstellingen naar het login &amp; vergrendelingsscherm"
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:103
 msgid "Add First day of the week setting"
 msgstr "Voeg eerste dag van de week instelling toe"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:104
 msgid "Add left-handed mouse click setting"
 msgstr "Voeg linkshandige muisklik instelling toe"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:105
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Schoon Downloads niet op als het ook Thuis is"
-
-#: data/settings-daemon.metainfo.xml.in:102
-msgid "Provide the Settings portal"
-msgstr "Bied het instellingen-portaal aan"
-
-#: data/settings-daemon.metainfo.xml.in:106
-msgid "Remove unused dark style gsettings schema"
-msgstr "Verwijder ongebruikt donkere stijl gsettings schema"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
@@ -125,31 +123,31 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u update is beschikbaar voor uw hardware"
 msgstr[1] "%u updates zijn beschikbaar voor uw hardware"
 
-#: src/Backends/SystemUpdate.vala:117
+#: src/Backends/SystemUpdate.vala:128
 msgid "Update available"
 msgstr "Update beschikbaar"
 
-#: src/Backends/SystemUpdate.vala:121
+#: src/Backends/SystemUpdate.vala:132
 msgid "A system security update is available"
 msgstr "Een systeembeveiligingsupdate is beschikbaar"
 
-#: src/Backends/SystemUpdate.vala:125
+#: src/Backends/SystemUpdate.vala:136
 msgid "A system update is available"
 msgstr "Een systeemupdate is beschikbaar"
 
-#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Herstart vereist"
 
-#: src/Backends/SystemUpdate.vala:158
+#: src/Backends/SystemUpdate.vala:167
 msgid "Please restart your system to finalize updates"
 msgstr "Herstart uw systeem op de updates te voltooien"
 
-#: src/Backends/SystemUpdate.vala:180
+#: src/Backends/SystemUpdate.vala:189
 msgid "System updates couldn't be installed"
 msgstr "Systeemupdates konden niet worden geïnstalleerd"
 
-#: src/Backends/SystemUpdate.vala:181
+#: src/Backends/SystemUpdate.vala:190
 msgid "An error occurred while trying to update your system"
 msgstr ""
 "Een fout is opgetreden tijdens het installeren van updates op je systeem"
@@ -318,6 +316,12 @@ msgstr "Bestanden kopiëren"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "Installeren"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Bied het instellingen-portaal aan"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Verwijder ongebruikt donkere stijl gsettings schema"
 
 #~ msgid "Initial release"
 #~ msgstr "Eerste release"
