@@ -81,6 +81,14 @@
      </key>
   </schema>
 
+  <schema path="/io/elementary/settings-daemon/schedules/" id="io.elementary.settings-daemon.schedules">
+    <key type="a(sisba{sv}a{sv}a{sv})" name="schedules">
+      <default>[]</default>
+      <summary>The current schedules.</summary>
+      <description>a(a{sv}a{sv})</description>
+    </key>
+  </schema>
+
   <schema path="/io/elementary/settings-daemon/system-update/" id="io.elementary.settings-daemon.system-update">
     <key type="b" name="automatic-updates">
       <default>false</default>
