@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-19 18:56+0000\n"
-"PO-Revision-Date: 2024-08-07 17:16+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovak <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/sk/>\n"
+"PO-Revision-Date: 2024-10-05 19:16+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,21 +25,23 @@ msgstr "Nastavenia systému"
 
 #: data/autostart.desktop:5
 msgid "System Settings background tasks"
-msgstr ""
+msgstr "Úlohy Nastavení systému na pozadí"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
-msgstr ""
+msgstr "Démon nastavení"
 
 #: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
-msgstr ""
+msgstr "Spravuje nastavenia a úlohy na pozadí"
 
 #: data/settings-daemon.metainfo.xml.in:13
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
+"Synchronizuje nastavenia na uvítaciu obrazovku a spravuje úlohy na pozadí, "
+"ako napríklad plánovanie tmavého štýlu a upratovanie."
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
@@ -50,11 +52,11 @@ msgstr "elementary, Inc."
 #: data/settings-daemon.metainfo.xml.in:82
 #: data/settings-daemon.metainfo.xml.in:101
 msgid "New features:"
-msgstr ""
+msgstr "Nové funkcie:"
 
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Option to restart or shutdown without installing updates"
-msgstr ""
+msgstr "Možnosť reštartu alebo vypnutia bez inštalácie aktualizácií"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:59
@@ -73,243 +75,247 @@ msgstr "Aktualizované preklady"
 #: data/settings-daemon.metainfo.xml.in:55
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
+"Spracovávať aktualizácie operačného systému vrátane automatických "
+"aktualizácií"
 
 #: data/settings-daemon.metainfo.xml.in:56
 msgid "Handle driver installation"
-msgstr ""
+msgstr "Spracovávať inštaláciu ovládačov"
 
 #: data/settings-daemon.metainfo.xml.in:57
 msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
+msgstr "Presun AccentColorManager sem zo správcu okien"
 
 #: data/settings-daemon.metainfo.xml.in:84
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "Poskytnúť farebné odtiene v portále nastavení"
 
 #: data/settings-daemon.metainfo.xml.in:85
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
+"Synchronizácia písma, myši, klávesnice, nočného svetla a niektorých "
+"nastavení prístupnosti do Prihlasovacej obrazovky a Obrazovky uzamknutia"
 
 #: data/settings-daemon.metainfo.xml.in:103
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "Pridanie nastavenia prvého dňa v týždni"
 
 #: data/settings-daemon.metainfo.xml.in:104
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "Pridaná možnosť kliknutí myšou pre ľavákov"
 
 #: data/settings-daemon.metainfo.xml.in:105
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
+msgstr "Neupratovať priečinok Stiahnuté pokiaľ je to zároveň priečinok Domov"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Dostupná aktualizácia firmvéru"
+msgstr[1] "Dostupné aktualizácie firmvéru"
+msgstr[2] "Dostupné aktualizácie firmvéru"
 
 #: src/Application.vala:167
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%u aktualizácia je dostupná pre váš hardvér"
+msgstr[1] "%u aktualizácie sú dostupné pre váš hardvér"
+msgstr[2] "%u aktualizácií je dostupných pre váš hardvér"
 
 #: src/Backends/SystemUpdate.vala:128
 msgid "Update available"
-msgstr ""
+msgstr "Dostupná aktualizácia"
 
 #: src/Backends/SystemUpdate.vala:132
 msgid "A system security update is available"
-msgstr ""
+msgstr "Je dostupná bezpečnostná aktualizácia systému"
 
 #: src/Backends/SystemUpdate.vala:136
 msgid "A system update is available"
-msgstr ""
+msgstr "Je dostupná aktualizácia systému"
 
 #: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
-msgstr ""
+msgstr "Vyžaduje sa reštart"
 
 #: src/Backends/SystemUpdate.vala:167
 msgid "Please restart your system to finalize updates"
-msgstr ""
+msgstr "Reštartujte váš systém pre dokončenie aktualizácií"
 
 #: src/Backends/SystemUpdate.vala:189
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "Aktualizácie systému sa nepodarilo nainštalovať"
 
 #: src/Backends/SystemUpdate.vala:190
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "Pri spúšťaní aktualizácie systému sa vyskytla chyba"
 
 #: src/Backends/UbuntuDrivers.vala:169
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Dostupný ovládač"
+msgstr[1] "Dostupné ovládače"
+msgstr[2] "Dostupné ovládače"
 
 #: src/Backends/UbuntuDrivers.vala:171
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%u ovládač je dostupný pre váš hardvér"
+msgstr[1] "%u ovládače sú dostupné pre váš hardvér"
+msgstr[2] "%u ovládačov je dostupných pre váš hardvér"
 
 #: src/Backends/UbuntuDrivers.vala:245
 msgid "Please restart your system to finalize driver installation"
-msgstr ""
+msgstr "Reštartujte váš systém pre dokončenie inštalácie ovládačov"
 
 #: src/Backends/UbuntuDrivers.vala:267
 msgid "A driver couldn't be installed"
-msgstr ""
+msgstr "Ovládač sa nepodarilo nainštalovať"
 
 #: src/Backends/UbuntuDrivers.vala:268
 msgid "An error occurred while trying to install a driver"
-msgstr ""
+msgstr "Pri spúšťaní aktualizácie ovládača sa vyskytla chyba"
 
 #: src/Utils/PkUtils.vala:20
 msgid "Starting"
-msgstr ""
+msgstr "Spúšťa sa"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Waiting"
-msgstr ""
+msgstr "Čaká sa"
 
 #: src/Utils/PkUtils.vala:24
 msgid "Running"
-msgstr ""
+msgstr "Prebieha"
 
 #: src/Utils/PkUtils.vala:26
 msgid "Querying"
-msgstr ""
+msgstr "Skúma sa"
 
 #: src/Utils/PkUtils.vala:28
 msgid "Getting information"
-msgstr ""
+msgstr "Získavajú sa informácie"
 
 #: src/Utils/PkUtils.vala:30
 msgid "Removing packages"
-msgstr ""
+msgstr "Odstraňujú sa balíčky"
 
 #: src/Utils/PkUtils.vala:32
 msgid "Downloading"
-msgstr ""
+msgstr "Sťahuje sa"
 
 #: src/Utils/PkUtils.vala:34
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Obnovuje sa zoznam softvéru"
 
 #: src/Utils/PkUtils.vala:36
 msgid "Installing updates"
-msgstr ""
+msgstr "Inštalujú sa aktualizácie"
 
 #: src/Utils/PkUtils.vala:38
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Upratujú sa balíčky"
 
 #: src/Utils/PkUtils.vala:40
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "Triedia sa zastarané balíčky"
 
 #: src/Utils/PkUtils.vala:42
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Riešia sa závislosti"
 
 #: src/Utils/PkUtils.vala:44
 msgid "Checking signatures"
-msgstr ""
+msgstr "Kontrolujú sa podpisy"
 
 #: src/Utils/PkUtils.vala:46
 msgid "Testing changes"
-msgstr ""
+msgstr "Testujú sa zmeny"
 
 #: src/Utils/PkUtils.vala:48
 msgid "Committing changes"
-msgstr ""
+msgstr "Vykonávajú sa zmeny"
 
 #: src/Utils/PkUtils.vala:50
 msgid "Requesting data"
-msgstr ""
+msgstr "Požadujú sa údaje"
 
 #: src/Utils/PkUtils.vala:52
 msgid "Finished"
-msgstr ""
+msgstr "Dokončené"
 
 #: src/Utils/PkUtils.vala:54
 msgid "Cancelling"
-msgstr ""
+msgstr "Ruší sa"
 
 #: src/Utils/PkUtils.vala:56
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Sťahujú sa informácie o repozitároch"
 
 #: src/Utils/PkUtils.vala:58
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Sťahuje sa zoznam balíčkov"
 
 #: src/Utils/PkUtils.vala:60
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Sťahujú sa zoznamy súborov"
 
 #: src/Utils/PkUtils.vala:62
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Sťahujú sa zoznamy zmien"
 
 #: src/Utils/PkUtils.vala:64
 msgid "Downloading groups"
-msgstr ""
+msgstr "Sťahujú sa skupiny"
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading update information"
-msgstr ""
+msgstr "Sťahujú sa informácie o aktualizáciách"
 
 #: src/Utils/PkUtils.vala:68
 msgid "Repackaging files"
-msgstr ""
+msgstr "Prebaľujú sa súbory"
 
 #: src/Utils/PkUtils.vala:70
 msgid "Loading cache"
-msgstr ""
+msgstr "Načítava sa vyrovnávacia pamäť"
 
 #: src/Utils/PkUtils.vala:72
 msgid "Scanning applications"
-msgstr ""
+msgstr "Skenujú sa aplikácie"
 
 #: src/Utils/PkUtils.vala:74
 msgid "Generating package lists"
-msgstr ""
+msgstr "Generujú sa zoznamy balíčkov"
 
 #: src/Utils/PkUtils.vala:76
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Čaká sa na zámok správcu balíčkov"
 
 #: src/Utils/PkUtils.vala:78
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Čaká sa na autentifikáciu"
 
 #: src/Utils/PkUtils.vala:80
 msgid "Updating running applications"
-msgstr ""
+msgstr "Aktualizujú sa bežiace aplikácie"
 
 #: src/Utils/PkUtils.vala:82
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Kontrolujú sa práve používané aplikácie"
 
 #: src/Utils/PkUtils.vala:84
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Kontrolujú sa práve používané knižnice"
 
 #: src/Utils/PkUtils.vala:86
 msgid "Copying files"
-msgstr ""
+msgstr "Kopírujú sa súbory"
 
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
-msgstr ""
+msgstr "Inštaluje sa"
