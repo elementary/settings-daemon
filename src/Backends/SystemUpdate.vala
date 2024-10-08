@@ -124,7 +124,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 return;
             }
 
-            if (notify || NetworkMonitor.get_default ().network_metered) {
+            if (notify || (NetworkMonitor.get_default ().network_metered && settings.get_boolean ("automatic-updates"))) {
                 var notification = new Notification (_("Update available"));
                 notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
