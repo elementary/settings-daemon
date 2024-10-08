@@ -119,7 +119,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             update_state (AVAILABLE);
 
-            if (!force && settings.get_boolean ("automatic-updates")) {
+            if (!force && !NetworkMonitor.get_default ().network_metered && settings.get_boolean ("automatic-updates")) {
                 update.begin ();
                 return;
             }
