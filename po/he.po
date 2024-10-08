@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 17:47+0000\n"
-"PO-Revision-Date: 2024-07-28 20:16+0000\n"
+"POT-Creation-Date: 2024-08-19 18:56+0000\n"
+"PO-Revision-Date: 2024-08-20 11:26+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/he/>\n"
@@ -45,46 +45,50 @@ msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
-msgstr "elementary בע״מ."
+msgstr "elementary בע״מ"
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "New features:"
 msgstr "יכולות חדשות:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Handle operating system updates, including automatic updates"
-msgstr "טיפול בעדכוני מערכת, כולל עדכונים אוטומטיים"
-
-#: data/settings-daemon.metainfo.xml.in:40
-msgid "Handle driver installation"
-msgstr "טיפול בהתקנת מנהלי התקנים"
+msgid "Option to restart or shutdown without installing updates"
+msgstr "אפשרות להפעיל מחדש או לכבות מבלי להתקין עדכונים"
 
 #: data/settings-daemon.metainfo.xml.in:41
-msgid "Move the AccentColorManager from the window manager to here"
-msgstr "העברת AccentColorManager (מנהל צבע משנה) ממנהל החלונות לכאו"
-
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:91
-#: data/settings-daemon.metainfo.xml.in:104
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:107
 msgid "Improvements:"
 msgstr "שיפורים:"
 
-#: data/settings-daemon.metainfo.xml.in:45
-#: data/settings-daemon.metainfo.xml.in:73
-#: data/settings-daemon.metainfo.xml.in:93
-#: data/settings-daemon.metainfo.xml.in:107
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:61
+#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:109
 msgid "Updated translations"
 msgstr "התרגומים עודכנו"
 
-#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:55
+msgid "Handle operating system updates, including automatic updates"
+msgstr "טיפול בעדכוני מערכת, כולל עדכונים אוטומטיים"
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Handle driver installation"
+msgstr "טיפול בהתקנת מנהלי התקנים"
+
+#: data/settings-daemon.metainfo.xml.in:57
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr "העברת AccentColorManager (מנהל צבע משנה) ממנהל החלונות לכאו"
+
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Provide accent colors on the settings portal"
 msgstr "אספקת צבעים משניים בשער ההגדרות"
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -92,25 +96,17 @@ msgstr ""
 "סנכרון גופנים, מקלדת, תאורת לילה ואת חלק מהגדרות הנגישות מול מסך הכניסה "
 "והנעילה"
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:103
 msgid "Add First day of the week setting"
 msgstr "הוספת הגדרת יום ראשון בשבוע"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:104
 msgid "Add left-handed mouse click setting"
 msgstr "הוספת הגדרת לחיצה שמאלית בעכבר"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:105
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "לא לטפל בפריטים שבהורדות אם זה גם הבית"
-
-#: data/settings-daemon.metainfo.xml.in:102
-msgid "Provide the Settings portal"
-msgstr "אספקת שער ההגדרות"
-
-#: data/settings-daemon.metainfo.xml.in:106
-msgid "Remove unused dark style gsettings schema"
-msgstr "הסרת סכמות gsettings של סגנון כהה שאינן בשימוש"
 
 #: src/Application.vala:165
 msgid "Firmware Update Available"
@@ -125,31 +121,31 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] "עדכון אחד זמין לחומרה שלך"
 msgstr[1] "%u עדכונים זמינים לחומרה שלך"
 
-#: src/Backends/SystemUpdate.vala:117
+#: src/Backends/SystemUpdate.vala:128
 msgid "Update available"
 msgstr "יש עדכון"
 
-#: src/Backends/SystemUpdate.vala:121
+#: src/Backends/SystemUpdate.vala:132
 msgid "A system security update is available"
 msgstr "יש עדכון אבטחה למערכת"
 
-#: src/Backends/SystemUpdate.vala:125
+#: src/Backends/SystemUpdate.vala:136
 msgid "A system update is available"
 msgstr "יש עדכון למערכת"
 
-#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "צריך הפעלה מחדש"
 
-#: src/Backends/SystemUpdate.vala:158
+#: src/Backends/SystemUpdate.vala:167
 msgid "Please restart your system to finalize updates"
 msgstr "נא להפעיל את המערכת מחדש כדי להשלים את העדכונים"
 
-#: src/Backends/SystemUpdate.vala:180
+#: src/Backends/SystemUpdate.vala:189
 msgid "System updates couldn't be installed"
 msgstr "לא ניתן להתקין את עדכוני המערכת שלך"
 
-#: src/Backends/SystemUpdate.vala:181
+#: src/Backends/SystemUpdate.vala:190
 msgid "An error occurred while trying to update your system"
 msgstr "אירעה שגיאה במהלך ניסיון עדכון המערכת שלך"
 
@@ -317,6 +313,12 @@ msgstr "הקבצים מועתקים"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "מתקין"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "אספקת שער ההגדרות"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "הסרת סכמות gsettings של סגנון כהה שאינן בשימוש"
 
 #~ msgid "Initial release"
 #~ msgstr "מהדורה ראשונית"

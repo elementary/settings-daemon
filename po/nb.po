@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-25 17:47+0000\n"
+"POT-Creation-Date: 2024-08-19 18:56+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
@@ -51,43 +51,48 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "New features:"
 msgstr "Nye funksjoner:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Handle operating system updates, including automatic updates"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:40
-msgid "Handle driver installation"
-msgstr ""
+#, fuzzy
+msgid "Option to restart or shutdown without installing updates"
+msgstr "Start systemet på ny for å fullføre oppgraderingene"
 
 #: data/settings-daemon.metainfo.xml.in:41
-msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:91
-#: data/settings-daemon.metainfo.xml.in:104
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:107
 msgid "Improvements:"
 msgstr "Forbedringer:"
 
-#: data/settings-daemon.metainfo.xml.in:45
-#: data/settings-daemon.metainfo.xml.in:73
-#: data/settings-daemon.metainfo.xml.in:93
-#: data/settings-daemon.metainfo.xml.in:107
+#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:61
+#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:109
 msgid "Updated translations"
 msgstr "Oppdaterte oversettelser"
 
-#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:55
+msgid "Handle operating system updates, including automatic updates"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:56
+msgid "Handle driver installation"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:57
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:84
 msgid "Provide accent colors on the settings portal"
 msgstr "Aksentfarger tilbudt i innstillingsportalen"
 
-#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
 #, fuzzy
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
@@ -96,27 +101,18 @@ msgstr ""
 "Synkroniser skrift, mus, tastatur, nattlys, og noen "
 "tilgjengelighetsinnstillinger i «Innlogging og lås»."
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:103
 msgid "Add First day of the week setting"
 msgstr "Tillagt innstilling for ukestartsdag"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:104
 msgid "Add left-handed mouse click setting"
 msgstr "Innstilling for venstrehendt museklikk"
 
-#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:105
 #, fuzzy
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Ikke behold nedlastninger som også finnes i hjemmemappen"
-
-#: data/settings-daemon.metainfo.xml.in:102
-msgid "Provide the Settings portal"
-msgstr "Tilby innstillingsportal"
-
-#: data/settings-daemon.metainfo.xml.in:106
-#, fuzzy
-msgid "Remove unused dark style gsettings schema"
-msgstr "Fjern ubrukt mørk stil for gsettings-forvaltning"
 
 #: src/Application.vala:165
 #, fuzzy
@@ -132,37 +128,37 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u oppgradering tilgjengelig for din maskinvare"
 msgstr[1] "%u oppgraderinger tilgjengelig for din maskinvare"
 
-#: src/Backends/SystemUpdate.vala:117
+#: src/Backends/SystemUpdate.vala:128
 #, fuzzy
 msgid "Update available"
 msgstr "Fastvareoppgradering tilgjengelig"
 
-#: src/Backends/SystemUpdate.vala:121
+#: src/Backends/SystemUpdate.vala:132
 #, fuzzy
 msgid "A system security update is available"
 msgstr "Fastvareoppgradering tilgjengelig"
 
-#: src/Backends/SystemUpdate.vala:125
+#: src/Backends/SystemUpdate.vala:136
 #, fuzzy
 msgid "A system update is available"
 msgstr "Fastvareoppgradering tilgjengelig"
 
-#: src/Backends/SystemUpdate.vala:157 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
 #, fuzzy
 msgid "Restart required"
 msgstr "Omstart kreves"
 
-#: src/Backends/SystemUpdate.vala:158
+#: src/Backends/SystemUpdate.vala:167
 #, fuzzy
 msgid "Please restart your system to finalize updates"
 msgstr "Start systemet på ny for å fullføre oppgraderingene"
 
-#: src/Backends/SystemUpdate.vala:180
+#: src/Backends/SystemUpdate.vala:189
 #, fuzzy
 msgid "System updates couldn't be installed"
 msgstr "Kunne ikke installere systemoppgraderinger"
 
-#: src/Backends/SystemUpdate.vala:181
+#: src/Backends/SystemUpdate.vala:190
 #, fuzzy
 msgid "An error occurred while trying to update your system"
 msgstr "En feil inntraff i forbindelse med oppgradering av systemet ditt"
@@ -341,6 +337,13 @@ msgstr "Kopierer filer …"
 #: src/Utils/PkUtils.vala:89
 msgid "Installing"
 msgstr "Installerer …"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Tilby innstillingsportal"
+
+#, fuzzy
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Fjern ubrukt mørk stil for gsettings-forvaltning"
 
 #~ msgid "Initial release"
 #~ msgstr "Første utgave"

@@ -72,6 +72,17 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (CHECKING);
 
         try {
+            var prepared = Pk.offline_get_prepared_ids ().length > 0;
+
+            if (prepared) {
+                update_state (RESTART_REQUIRED);
+                return;
+            }
+        } catch (Error e) {
+            warning ("Failed to get offline prepared ids: %s", e.message);
+        }
+
+        try {
             yield task.refresh_cache_async (force, null, progress_callback);
         } catch (Error e) {
             warning ("Failed to refresh cache: %s", e.message);
@@ -151,8 +162,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 check_for_updates.begin (true, false);
                 return;
             }
-
-            Pk.offline_trigger (REBOOT);
 
             var notification = new Notification (_("Restart required"));
             notification.set_body (_("Please restart your system to finalize updates"));
