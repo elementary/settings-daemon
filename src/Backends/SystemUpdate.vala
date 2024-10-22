@@ -123,12 +123,15 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             update_state (AVAILABLE);
 
-            if (!force && settings.get_boolean ("automatic-updates")) {
+            var metered_network = NetworkMonitor.get_default ().network_metered;
+            var auto_updates = settings.get_boolean ("automatic-updates");
+
+            if (!force && !metered_network && auto_updates) {
                 update.begin ();
                 return;
             }
 
-            if (notify) {
+            if (notify || (metered_network && auto_updates)) {
                 var notification = new Notification (_("Update available"));
                 notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
