@@ -65,6 +65,10 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     }
 
     public async void check_for_updates (bool force, bool notify) throws DBusError, IOError {
+        if (SettingsDaemon.Utils.is_running_in_demo_mode () && !force) {
+            return;
+        }
+
         if (current_state.state != UP_TO_DATE && current_state.state != AVAILABLE && !force) {
             return;
         }

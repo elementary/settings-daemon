@@ -11,6 +11,7 @@ sources = files(
     'Backends/PrefersColorSchemeSettings.vala',
     'Backends/SystemUpdate.vala',
     'Utils/PkUtils.vala',
+    'Utils/SessionUtils.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
 
