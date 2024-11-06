@@ -17,6 +17,10 @@ pk_dep = dependency('packagekit-glib2')
 i18n = import('i18n')
 gettext_name = meson.project_name()
 
+if fwupd_dep.version().version_compare('>=2.0.0')
+    add_project_arguments('--define', 'HAS_FWUPD_2_0', language: 'vala')
+endif
+
 add_project_arguments(
     '-DGETTEXT_PACKAGE="@0@"'.format(gettext_name),
     language:'c'
