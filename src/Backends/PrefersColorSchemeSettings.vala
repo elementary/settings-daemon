@@ -61,11 +61,78 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     }
 
     private void start_timer () {
-        if (time_id == 0) {
-            var time = new TimeoutSource (1000);
-            time.set_callback (time_callback);
-            time_id = time.attach (null);
+        var schedule = color_settings.get_string ("prefer-dark-schedule");
+        if (schedule == "disabled") {
+            return;
         }
+
+        var now = new DateTime.now_local ();
+        double from, to;
+        if (schedule == "sunset-to-sunrise") {
+            if (sunrise >= 0 && sunset >= 0) {
+                from = sunset;
+                to = sunrise;
+            } else {
+                // fallback times (6AM and 8PM) for when an invalid result was returned
+                // from the calculation (i.e. probably wasn't able to get a location)
+                from = 20.0;
+                to = 6.0;
+            }
+        } else {
+            from = color_settings.get_double ("prefer-dark-schedule-from");
+            to = color_settings.get_double ("prefer-dark-schedule-to");
+        }
+
+        var now_hours = date_time_double (now);
+        var diff_from = (uint) ((from - now_hours) * 60 * 60);
+        var diff_to = (uint) ((to - now_hours) * 60 * 60);
+
+        if (diff_from == 0) {
+            set_color_scheme (Granite.Settings.ColorScheme.DARK);
+        } else if (diff_to == 0) {
+            set_color_scheme (Granite.Settings.ColorScheme.NO_PREFERENCE);
+        } else if (diff_from > 0 && diff_to < 0) { // dark mode is enabled for example from 20 to 8 and it's still day.
+            Timeout.add_seconds (diff_from, () => {
+                if (color_settings.get_string ("prefer-dark-schedule") == "disable") {
+                    critical ("Tried to change color scheme despite schedule being disabled. Something went wrong during the timeouts.");
+                }
+
+                set_color_scheme (Granite.Settings.ColorScheme.DARK);
+                start_timer ();
+
+                return Source.REMOVE;
+            });
+        } else if (diff_from < 0 && diff_to > 0) {  // dark mode is enabled for example from 8 to 20 and it's still day.
+            Timeout.add_seconds (diff_from, () => {
+                if (color_settings.get_string ("prefer-dark-schedule") == "disable") {
+                    critical ("Tried to change color scheme despite schedule being disabled. Something went wrong during the timeouts.");
+                }
+
+                set_color_scheme (Granite.Settings.ColorScheme.NO_PREFERENCE);
+                start_timer ();
+
+                return Source.REMOVE;
+            });
+        } else if (diff_from < 0 && diff_to < 0 && diff_to < diff_from) {
+            Timeout.add_seconds (diff_from, () => {
+                if (color_settings.get_string ("prefer-dark-schedule") == "disable") {
+                    critical ("Tried to change color scheme despite schedule being disabled. Something went wrong during the timeouts.");
+                }
+
+                set_color_scheme (Granite.Settings.ColorScheme.DARK);
+                start_timer ();
+
+                return Source.REMOVE;
+            });
+        } else if (diff_to > 0) { // in between 'from' and 'to'
+
+        }
+
+        //  if (time_id == 0) {
+        //      var time = new TimeoutSource (1000);
+        //      time.set_callback (time_callback);
+        //      time_id = time.attach (null);
+        //  }
     }
 
     private void stop_timer () {
@@ -90,44 +157,15 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         }
     }
 
-    private bool time_callback () {
-        var schedule = color_settings.get_string ("prefer-dark-schedule");
-
-        var now = new DateTime.now_local ();
-        double from, to;
-        if (schedule == "sunset-to-sunrise") {
-            if (sunrise >= 0 && sunset >= 0) {
-                from = sunset;
-                to = sunrise;
-            } else {
-                // fallback times (6AM and 8PM) for when an invalid result was returned
-                // from the calculation (i.e. probably wasn't able to get a location)
-                from = 20.0;
-                to = 6.0;
-            }
-        } else if (schedule == "manual") {
-            from = color_settings.get_double ("prefer-dark-schedule-from");
-            to = color_settings.get_double ("prefer-dark-schedule-to");
-        } else {
-            return true;
-        }
-
-        var is_in = is_in_time_window (date_time_double (now), from, to);
-        var new_color_scheme = Granite.Settings.ColorScheme.NO_PREFERENCE;
-        if (is_in) {
-            new_color_scheme = Granite.Settings.ColorScheme.DARK;
-        }
-
-        if (new_color_scheme == accounts_service.prefers_color_scheme) {
-            return true;
+    private void set_color_scheme (Granite.Settings.ColorScheme new_color_scheme) {
+        if (accounts_service.prefers_color_scheme == new_color_scheme) {
+            return;
         }
 
         accounts_service.prefers_color_scheme = new_color_scheme;
 
         var mutter_settings = new GLib.Settings ("org.gnome.desktop.interface");
         mutter_settings.set_enum ("color-scheme", new_color_scheme);
-
-        return true;
     }
 
     private void on_location_updated (double latitude, double longitude) {
@@ -141,17 +179,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         }
     }
 
-    public static bool is_in_time_window (double time_double, double from, double to) {
-        // PM to AM
-        if (from > to) {
-            return time_double < to ? time_double <= from : time_double >= from;
-        }
-
-        // AM to AM, PM to PM, AM to PM
-        return (time_double >= from && time_double <= to);
-    }
-
-    public static double date_time_double (DateTime date_time) {
+    private double date_time_double (DateTime date_time) {
         double time_double = 0;
         time_double += date_time.get_hour ();
         time_double += (double) date_time.get_minute () / 60;
