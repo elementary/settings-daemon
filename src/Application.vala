@@ -137,7 +137,11 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
             var devices = client.get_devices ();
 
             foreach (unowned var device in devices) {
+#if HAS_FWUPD_2_0
+                if (!device.has_flag (Fwupd.DeviceFlags.UPDATABLE)) {
+#else
                 if (!device.has_flag (Fwupd.DEVICE_FLAG_UPDATABLE)) {
+#endif
                     continue;
                 }
 
