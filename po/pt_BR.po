@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-19 18:56+0000\n"
+"POT-Creation-Date: 2024-12-10 18:00+0000\n"
 "PO-Revision-Date: 2024-09-02 00:57+0000\n"
 "Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
@@ -49,48 +49,55 @@ msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
 #: data/settings-daemon.metainfo.xml.in:53
-#: data/settings-daemon.metainfo.xml.in:82
-#: data/settings-daemon.metainfo.xml.in:101
+#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:98
+#: data/settings-daemon.metainfo.xml.in:117
 msgid "New features:"
 msgstr "Novos recursos:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Option to restart or shutdown without installing updates"
-msgstr "Opção para reiniciar ou desligar sem instalar atualizações"
+msgid "Don't automatically download updates on a metered network"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:59
-#: data/settings-daemon.metainfo.xml.in:87
-#: data/settings-daemon.metainfo.xml.in:107
+#: data/settings-daemon.metainfo.xml.in:57
+#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:103
+#: data/settings-daemon.metainfo.xml.in:123
 msgid "Improvements:"
 msgstr "Melhorias:"
 
 #: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:61
-#: data/settings-daemon.metainfo.xml.in:89
-#: data/settings-daemon.metainfo.xml.in:109
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:77
+#: data/settings-daemon.metainfo.xml.in:105
+#: data/settings-daemon.metainfo.xml.in:125
 msgid "Updated translations"
 msgstr "Traduções atualizadas"
 
 #: data/settings-daemon.metainfo.xml.in:55
+msgid "Option to restart or shutdown without installing updates"
+msgstr "Opção para reiniciar ou desligar sem instalar atualizações"
+
+#: data/settings-daemon.metainfo.xml.in:71
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "Gerenciar atualizações do sistema operacional, incluindo atualizações "
 "automáticas"
 
-#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
 msgid "Handle driver installation"
 msgstr "Gerenciar instalação de driver"
 
-#: data/settings-daemon.metainfo.xml.in:57
+#: data/settings-daemon.metainfo.xml.in:73
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Move o AccentColorManager do gerenciador de janelas para aqui"
 
-#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:100
 msgid "Provide accent colors on the settings portal"
 msgstr "Fornece as cores de destaque nas configurações"
 
-#: data/settings-daemon.metainfo.xml.in:85
+#: data/settings-daemon.metainfo.xml.in:101
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -98,56 +105,56 @@ msgstr ""
 "Sincroniza fonte, mouse, teclado, luz noturna e algumas configurações de "
 "acessibilidade para o Login &amp; Tela de bloqueio"
 
-#: data/settings-daemon.metainfo.xml.in:103
+#: data/settings-daemon.metainfo.xml.in:119
 msgid "Add First day of the week setting"
 msgstr "Adiciona configuração do primeiro dia da semana"
 
-#: data/settings-daemon.metainfo.xml.in:104
+#: data/settings-daemon.metainfo.xml.in:120
 msgid "Add left-handed mouse click setting"
 msgstr "Adiciona configuração de clique com o mouse canhoto"
 
-#: data/settings-daemon.metainfo.xml.in:105
+#: data/settings-daemon.metainfo.xml.in:121
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Não faça a limpeza de Downloads se também for a Home"
 
-#: src/Application.vala:165
+#: src/Application.vala:169
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Atualização de firmware disponível"
 msgstr[1] "Atualizações de firmware disponíveis"
 
-#: src/Application.vala:167
+#: src/Application.vala:171
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u atualização está disponível para seu hardware"
 msgstr[1] "%u atualizações estão disponíveis para seu hardware"
 
-#: src/Backends/SystemUpdate.vala:128
+#: src/Backends/SystemUpdate.vala:135
 msgid "Update available"
 msgstr "Atualização disponível"
 
-#: src/Backends/SystemUpdate.vala:132
+#: src/Backends/SystemUpdate.vala:139
 msgid "A system security update is available"
 msgstr "Uma atualização de segurança do sistema está disponível"
 
-#: src/Backends/SystemUpdate.vala:136
+#: src/Backends/SystemUpdate.vala:143
 msgid "A system update is available"
 msgstr "Uma atualização do sistema está disponível"
 
-#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:173 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Reinicialização necessária"
 
-#: src/Backends/SystemUpdate.vala:167
+#: src/Backends/SystemUpdate.vala:174
 msgid "Please restart your system to finalize updates"
 msgstr "Reinicie seu sistema para finalizar atualizações"
 
-#: src/Backends/SystemUpdate.vala:189
+#: src/Backends/SystemUpdate.vala:196
 msgid "System updates couldn't be installed"
 msgstr "As atualizações do sistema não puderam ser instaladas"
 
-#: src/Backends/SystemUpdate.vala:190
+#: src/Backends/SystemUpdate.vala:197
 msgid "An error occurred while trying to update your system"
 msgstr "Ocorreu um erro durante a tentativa de atualizar seu sistema"
 
