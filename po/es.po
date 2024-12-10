@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-10 18:00+0000\n"
-"PO-Revision-Date: 2024-08-22 01:16+0000\n"
+"PO-Revision-Date: 2024-12-11 18:16+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
-"Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/es/>\n"
+"Language-Team: Spanish <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.8.4\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -59,6 +59,8 @@ msgstr "Nuevas características:"
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Don't automatically download updates on a metered network"
 msgstr ""
+"Ya no se descargarán actualizaciones de forma automática una red de conexión "
+"medida"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:57
