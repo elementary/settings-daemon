@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-10 18:00+0000\n"
-"PO-Revision-Date: 2024-08-20 11:26+0000\n"
+"PO-Revision-Date: 2024-12-12 05:36+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.8.4\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -57,7 +57,7 @@ msgstr "新機能:"
 
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Don't automatically download updates on a metered network"
-msgstr ""
+msgstr "従量課金ネットワークではアップデートを自動的にダウンロードしないように修正"
 
 #: data/settings-daemon.metainfo.xml.in:41
 #: data/settings-daemon.metainfo.xml.in:57
