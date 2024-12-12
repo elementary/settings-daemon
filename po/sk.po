@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-19 18:56+0000\n"
+"POT-Creation-Date: 2024-12-10 18:00+0000\n"
 "PO-Revision-Date: 2024-10-05 19:16+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
-"Language-Team: Slovak <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/sk/>\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,48 +49,55 @@ msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
 #: data/settings-daemon.metainfo.xml.in:53
-#: data/settings-daemon.metainfo.xml.in:82
-#: data/settings-daemon.metainfo.xml.in:101
+#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:98
+#: data/settings-daemon.metainfo.xml.in:117
 msgid "New features:"
 msgstr "Nové funkcie:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Option to restart or shutdown without installing updates"
-msgstr "Možnosť reštartu alebo vypnutia bez inštalácie aktualizácií"
+msgid "Don't automatically download updates on a metered network"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:59
-#: data/settings-daemon.metainfo.xml.in:87
-#: data/settings-daemon.metainfo.xml.in:107
+#: data/settings-daemon.metainfo.xml.in:57
+#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:103
+#: data/settings-daemon.metainfo.xml.in:123
 msgid "Improvements:"
 msgstr "Vylepšenia:"
 
 #: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:61
-#: data/settings-daemon.metainfo.xml.in:89
-#: data/settings-daemon.metainfo.xml.in:109
+#: data/settings-daemon.metainfo.xml.in:59
+#: data/settings-daemon.metainfo.xml.in:77
+#: data/settings-daemon.metainfo.xml.in:105
+#: data/settings-daemon.metainfo.xml.in:125
 msgid "Updated translations"
 msgstr "Aktualizované preklady"
 
 #: data/settings-daemon.metainfo.xml.in:55
+msgid "Option to restart or shutdown without installing updates"
+msgstr "Možnosť reštartu alebo vypnutia bez inštalácie aktualizácií"
+
+#: data/settings-daemon.metainfo.xml.in:71
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "Spracovávať aktualizácie operačného systému vrátane automatických "
 "aktualizácií"
 
-#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
 msgid "Handle driver installation"
 msgstr "Spracovávať inštaláciu ovládačov"
 
-#: data/settings-daemon.metainfo.xml.in:57
+#: data/settings-daemon.metainfo.xml.in:73
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Presun AccentColorManager sem zo správcu okien"
 
-#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:100
 msgid "Provide accent colors on the settings portal"
 msgstr "Poskytnúť farebné odtiene v portále nastavení"
 
-#: data/settings-daemon.metainfo.xml.in:85
+#: data/settings-daemon.metainfo.xml.in:101
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -98,26 +105,26 @@ msgstr ""
 "Synchronizácia písma, myši, klávesnice, nočného svetla a niektorých "
 "nastavení prístupnosti do Prihlasovacej obrazovky a Obrazovky uzamknutia"
 
-#: data/settings-daemon.metainfo.xml.in:103
+#: data/settings-daemon.metainfo.xml.in:119
 msgid "Add First day of the week setting"
 msgstr "Pridanie nastavenia prvého dňa v týždni"
 
-#: data/settings-daemon.metainfo.xml.in:104
+#: data/settings-daemon.metainfo.xml.in:120
 msgid "Add left-handed mouse click setting"
 msgstr "Pridaná možnosť kliknutí myšou pre ľavákov"
 
-#: data/settings-daemon.metainfo.xml.in:105
+#: data/settings-daemon.metainfo.xml.in:121
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Neupratovať priečinok Stiahnuté pokiaľ je to zároveň priečinok Domov"
 
-#: src/Application.vala:165
+#: src/Application.vala:169
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Dostupná aktualizácia firmvéru"
 msgstr[1] "Dostupné aktualizácie firmvéru"
 msgstr[2] "Dostupné aktualizácie firmvéru"
 
-#: src/Application.vala:167
+#: src/Application.vala:171
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
@@ -125,31 +132,31 @@ msgstr[0] "%u aktualizácia je dostupná pre váš hardvér"
 msgstr[1] "%u aktualizácie sú dostupné pre váš hardvér"
 msgstr[2] "%u aktualizácií je dostupných pre váš hardvér"
 
-#: src/Backends/SystemUpdate.vala:128
+#: src/Backends/SystemUpdate.vala:135
 msgid "Update available"
 msgstr "Dostupná aktualizácia"
 
-#: src/Backends/SystemUpdate.vala:132
+#: src/Backends/SystemUpdate.vala:139
 msgid "A system security update is available"
 msgstr "Je dostupná bezpečnostná aktualizácia systému"
 
-#: src/Backends/SystemUpdate.vala:136
+#: src/Backends/SystemUpdate.vala:143
 msgid "A system update is available"
 msgstr "Je dostupná aktualizácia systému"
 
-#: src/Backends/SystemUpdate.vala:166 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:173 src/Backends/UbuntuDrivers.vala:244
 msgid "Restart required"
 msgstr "Vyžaduje sa reštart"
 
-#: src/Backends/SystemUpdate.vala:167
+#: src/Backends/SystemUpdate.vala:174
 msgid "Please restart your system to finalize updates"
 msgstr "Reštartujte váš systém pre dokončenie aktualizácií"
 
-#: src/Backends/SystemUpdate.vala:189
+#: src/Backends/SystemUpdate.vala:196
 msgid "System updates couldn't be installed"
 msgstr "Aktualizácie systému sa nepodarilo nainštalovať"
 
-#: src/Backends/SystemUpdate.vala:190
+#: src/Backends/SystemUpdate.vala:197
 msgid "An error occurred while trying to update your system"
 msgstr "Pri spúšťaní aktualizácie systému sa vyskytla chyba"
 
