@@ -191,8 +191,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     }
 
     private void progress_callback (Pk.Progress progress, Pk.ProgressType progress_type) {
-        update_state (current_state.state, PkUtils.status_to_title (progress.status),
-            progress.percentage, progress.download_size_remaining);
+        update_state (
+            current_state.state,
+            PkUtils.status_to_title (progress.status),
+            progress.percentage,
+            progress.download_size_remaining
+        );
     }
 
     private void send_error (string message) {
@@ -206,8 +210,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (ERROR, message);
     }
 
-    private void update_state (PkUtils.State state, string message = "",
-        uint percentage = 0, uint64 download_size_remaining = 0) {
+    private void update_state (
+        PkUtils.State state,
+        string message = "",
+        uint percentage = 0,
+        uint64 download_size_remaining = 0
+    ) {
         current_state = {
             state,
             message,
