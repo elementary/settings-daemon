@@ -12,6 +12,7 @@ namespace SettingsDaemon.PkUtils {
         State state;
         string status;
         uint percentage;
+        uint64 download_size_remaining;
     }
 
     public static unowned string status_to_title (Pk.Status status) {

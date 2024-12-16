@@ -28,6 +28,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         current_state = {
             UP_TO_DATE,
             "",
+            0,
             0
         };
 
@@ -261,7 +262,8 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
     }
 
     private void progress_callback (Pk.Progress progress, Pk.ProgressType progress_type) {
-        update_state (current_state.state, PkUtils.status_to_title (progress.status));
+        update_state (current_state.state, PkUtils.status_to_title (progress.status),
+            progress.percentage, progress.download_size_remaining);
     }
 
     private void send_error (string message) {
@@ -275,11 +277,13 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
         update_state (ERROR, message);
     }
 
-    private void update_state (PkUtils.State state, string message = "") {
+    private void update_state (PkUtils.State state, string message = "",
+        uint percentage = 0, uint64 download_size_remaining = 0) {
         current_state = {
             state,
             message,
-            0
+            percentage,
+            download_size_remaining
         };
 
         state_changed ();
