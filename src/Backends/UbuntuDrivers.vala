@@ -27,7 +27,8 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
     construct {
         current_state = {
             UP_TO_DATE,
-            ""
+            "",
+            0
         };
 
         available_drivers = new HashTable<string, GenericArray<string>> (str_hash, str_equal);
@@ -277,7 +278,8 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
     private void update_state (PkUtils.State state, string message = "") {
         current_state = {
             state,
-            message
+            message,
+            0
         };
 
         state_changed ();

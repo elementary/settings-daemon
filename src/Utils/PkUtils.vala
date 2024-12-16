@@ -11,6 +11,7 @@ namespace SettingsDaemon.PkUtils {
     public struct CurrentState {
         State state;
         string status;
+        uint percentage;
     }
 
     public static unowned string status_to_title (Pk.Status status) {

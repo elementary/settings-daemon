@@ -29,7 +29,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     construct {
         current_state = {
             UP_TO_DATE,
-            ""
+            "",
+            0
         };
 
         update_details = {
@@ -189,7 +190,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     }
 
     private void progress_callback (Pk.Progress progress, Pk.ProgressType progress_type) {
-        update_state (current_state.state, PkUtils.status_to_title (progress.status));
+        update_state (current_state.state, PkUtils.status_to_title (progress.status), progress.percentage);
     }
 
     private void send_error (string message) {
@@ -203,10 +204,11 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (ERROR, message);
     }
 
-    private void update_state (PkUtils.State state, string message = "") {
+    private void update_state (PkUtils.State state, string message = "", uint percentage = 0) {
         current_state = {
             state,
-            message
+            message,
+            percentage
         };
 
         state_changed ();
