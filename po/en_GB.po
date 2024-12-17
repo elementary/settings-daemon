@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 18:00+0000\n"
+"POT-Creation-Date: 2024-12-17 19:13+0000\n"
 "PO-Revision-Date: 2024-12-11 18:16+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
@@ -48,54 +48,59 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:53
-#: data/settings-daemon.metainfo.xml.in:69
-#: data/settings-daemon.metainfo.xml.in:98
-#: data/settings-daemon.metainfo.xml.in:117
-msgid "New features:"
-msgstr "New features:"
-
-#: data/settings-daemon.metainfo.xml.in:39
-msgid "Don't automatically download updates on a metered network"
-msgstr "Don't automatically download updates on a metered network"
-
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:57
-#: data/settings-daemon.metainfo.xml.in:75
-#: data/settings-daemon.metainfo.xml.in:103
-#: data/settings-daemon.metainfo.xml.in:123
+#: data/settings-daemon.metainfo.xml.in:50
+#: data/settings-daemon.metainfo.xml.in:66
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:112
+#: data/settings-daemon.metainfo.xml.in:132
 msgid "Improvements:"
 msgstr "Improvements:"
 
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:59
-#: data/settings-daemon.metainfo.xml.in:77
-#: data/settings-daemon.metainfo.xml.in:105
-#: data/settings-daemon.metainfo.xml.in:125
+#: data/settings-daemon.metainfo.xml.in:39
+msgid "Progress indicators were added to the system update"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:46
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:78
+#: data/settings-daemon.metainfo.xml.in:107
+#: data/settings-daemon.metainfo.xml.in:126
+msgid "New features:"
+msgstr "New features:"
+
+#: data/settings-daemon.metainfo.xml.in:48
+msgid "Don't automatically download updates on a metered network"
+msgstr "Don't automatically download updates on a metered network"
+
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:86
+#: data/settings-daemon.metainfo.xml.in:114
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Updated translations"
 msgstr "Updated translations"
 
-#: data/settings-daemon.metainfo.xml.in:55
+#: data/settings-daemon.metainfo.xml.in:64
 msgid "Option to restart or shutdown without installing updates"
 msgstr "Option to restart or shutdown without installing updates"
 
-#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:80
 msgid "Handle operating system updates, including automatic updates"
 msgstr "Handle operating system updates, including automatic updates"
 
-#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:81
 msgid "Handle driver installation"
 msgstr "Handle driver installation"
 
-#: data/settings-daemon.metainfo.xml.in:73
+#: data/settings-daemon.metainfo.xml.in:82
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Move the AccentColorManager from the window manager to here"
 
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:109
 msgid "Provide accent colors on the settings portal"
 msgstr "Provide accent colours on the settings portal"
 
-#: data/settings-daemon.metainfo.xml.in:101
+#: data/settings-daemon.metainfo.xml.in:110
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -103,15 +108,15 @@ msgstr ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 
-#: data/settings-daemon.metainfo.xml.in:119
+#: data/settings-daemon.metainfo.xml.in:128
 msgid "Add First day of the week setting"
 msgstr "Add First day of the week setting"
 
-#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:129
 msgid "Add left-handed mouse click setting"
 msgstr "Add left-handed mouse click setting"
 
-#: data/settings-daemon.metainfo.xml.in:121
+#: data/settings-daemon.metainfo.xml.in:130
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Don't Housekeep Downloads if it's also Home"
 
@@ -128,196 +133,196 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u update is available for your hardware"
 msgstr[1] "%u updates are available for your hardware"
 
-#: src/Backends/SystemUpdate.vala:135
+#: src/Backends/SystemUpdate.vala:137
 msgid "Update available"
 msgstr "Update available"
 
-#: src/Backends/SystemUpdate.vala:139
+#: src/Backends/SystemUpdate.vala:141
 msgid "A system security update is available"
 msgstr "A system security update is available"
 
-#: src/Backends/SystemUpdate.vala:143
+#: src/Backends/SystemUpdate.vala:145
 msgid "A system update is available"
 msgstr "A system update is available"
 
-#: src/Backends/SystemUpdate.vala:173 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:175 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
 msgstr "Restart required"
 
-#: src/Backends/SystemUpdate.vala:174
+#: src/Backends/SystemUpdate.vala:176
 msgid "Please restart your system to finalize updates"
 msgstr "Please restart your system to finalise updates"
 
-#: src/Backends/SystemUpdate.vala:196
+#: src/Backends/SystemUpdate.vala:203
 msgid "System updates couldn't be installed"
 msgstr "System updates couldn't be installed"
 
-#: src/Backends/SystemUpdate.vala:197
+#: src/Backends/SystemUpdate.vala:204
 msgid "An error occurred while trying to update your system"
 msgstr "An error occurred while trying to update your system"
 
-#: src/Backends/UbuntuDrivers.vala:169
+#: src/Backends/UbuntuDrivers.vala:171
 msgid "Driver Available"
 msgid_plural "Drivers Available"
 msgstr[0] "Driver Available"
 msgstr[1] "Drivers Available"
 
-#: src/Backends/UbuntuDrivers.vala:171
+#: src/Backends/UbuntuDrivers.vala:173
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
 msgstr[0] "%u driver is available for your hardware"
 msgstr[1] "%u drivers are available for your hardware"
 
-#: src/Backends/UbuntuDrivers.vala:245
+#: src/Backends/UbuntuDrivers.vala:247
 msgid "Please restart your system to finalize driver installation"
 msgstr "Please restart your system to finalise driver installation"
 
-#: src/Backends/UbuntuDrivers.vala:267
+#: src/Backends/UbuntuDrivers.vala:274
 msgid "A driver couldn't be installed"
 msgstr "A driver couldn't be installed"
 
-#: src/Backends/UbuntuDrivers.vala:268
+#: src/Backends/UbuntuDrivers.vala:275
 msgid "An error occurred while trying to install a driver"
 msgstr "An error occurred while trying to install a driver"
 
-#: src/Utils/PkUtils.vala:20
+#: src/Utils/PkUtils.vala:22
 msgid "Starting"
 msgstr "Starting"
 
-#: src/Utils/PkUtils.vala:22
+#: src/Utils/PkUtils.vala:24
 msgid "Waiting"
 msgstr "Waiting"
 
-#: src/Utils/PkUtils.vala:24
+#: src/Utils/PkUtils.vala:26
 msgid "Running"
 msgstr "Running"
 
-#: src/Utils/PkUtils.vala:26
+#: src/Utils/PkUtils.vala:28
 msgid "Querying"
 msgstr "Querying"
 
-#: src/Utils/PkUtils.vala:28
+#: src/Utils/PkUtils.vala:30
 msgid "Getting information"
 msgstr "Getting information"
 
-#: src/Utils/PkUtils.vala:30
+#: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
 msgstr "Removing packages"
 
-#: src/Utils/PkUtils.vala:32
+#: src/Utils/PkUtils.vala:34
 msgid "Downloading"
 msgstr "Downloading"
 
-#: src/Utils/PkUtils.vala:34
+#: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
 msgstr "Refreshing software list"
 
-#: src/Utils/PkUtils.vala:36
+#: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
 msgstr "Installing updates"
 
-#: src/Utils/PkUtils.vala:38
+#: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
 msgstr "Cleaning up packages"
 
-#: src/Utils/PkUtils.vala:40
+#: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
 msgstr "Obsoleting packages"
 
-#: src/Utils/PkUtils.vala:42
+#: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
 msgstr "Resolving dependencies"
 
-#: src/Utils/PkUtils.vala:44
+#: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
 msgstr "Checking signatures"
 
-#: src/Utils/PkUtils.vala:46
+#: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
 msgstr "Testing changes"
 
-#: src/Utils/PkUtils.vala:48
+#: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
 msgstr "Committing changes"
 
-#: src/Utils/PkUtils.vala:50
+#: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
 msgstr "Requesting data"
 
-#: src/Utils/PkUtils.vala:52
+#: src/Utils/PkUtils.vala:54
 msgid "Finished"
 msgstr "Finished"
 
-#: src/Utils/PkUtils.vala:54
+#: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
 msgstr "Cancelling"
 
-#: src/Utils/PkUtils.vala:56
+#: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
 msgstr "Downloading repository information"
 
-#: src/Utils/PkUtils.vala:58
+#: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
 msgstr "Downloading list of packages"
 
-#: src/Utils/PkUtils.vala:60
+#: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
 msgstr "Downloading file lists"
 
-#: src/Utils/PkUtils.vala:62
+#: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
 msgstr "Downloading lists of changes"
 
-#: src/Utils/PkUtils.vala:64
+#: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
 msgstr "Downloading groups"
 
-#: src/Utils/PkUtils.vala:66
+#: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
 msgstr "Downloading update information"
 
-#: src/Utils/PkUtils.vala:68
+#: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
 msgstr "Repackaging files"
 
-#: src/Utils/PkUtils.vala:70
+#: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
 msgstr "Loading cache"
 
-#: src/Utils/PkUtils.vala:72
+#: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
 msgstr "Scanning applications"
 
-#: src/Utils/PkUtils.vala:74
+#: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
 msgstr "Generating package lists"
 
-#: src/Utils/PkUtils.vala:76
+#: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
 msgstr "Waiting for package manager lock"
 
-#: src/Utils/PkUtils.vala:78
+#: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
 msgstr "Waiting for authentication"
 
-#: src/Utils/PkUtils.vala:80
+#: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
 msgstr "Updating running applications"
 
-#: src/Utils/PkUtils.vala:82
+#: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
 msgstr "Checking applications in use"
 
-#: src/Utils/PkUtils.vala:84
+#: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
 msgstr "Checking libraries in use"
 
-#: src/Utils/PkUtils.vala:86
+#: src/Utils/PkUtils.vala:88
 msgid "Copying files"
 msgstr "Copying files"
 
-#: src/Utils/PkUtils.vala:89
+#: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Installing"
 

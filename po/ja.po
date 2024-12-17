@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 18:00+0000\n"
+"POT-Creation-Date: 2024-12-17 19:13+0000\n"
 "PO-Revision-Date: 2024-12-12 05:36+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
@@ -48,58 +48,64 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:53
-#: data/settings-daemon.metainfo.xml.in:69
-#: data/settings-daemon.metainfo.xml.in:98
-#: data/settings-daemon.metainfo.xml.in:117
-msgid "New features:"
-msgstr "新機能:"
-
-#: data/settings-daemon.metainfo.xml.in:39
-msgid "Don't automatically download updates on a metered network"
-msgstr "従量課金ネットワークではアップデートを自動的にダウンロードしないように修正"
-
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:57
-#: data/settings-daemon.metainfo.xml.in:75
-#: data/settings-daemon.metainfo.xml.in:103
-#: data/settings-daemon.metainfo.xml.in:123
+#: data/settings-daemon.metainfo.xml.in:50
+#: data/settings-daemon.metainfo.xml.in:66
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:112
+#: data/settings-daemon.metainfo.xml.in:132
 msgid "Improvements:"
 msgstr "改善点:"
 
-#: data/settings-daemon.metainfo.xml.in:43
-#: data/settings-daemon.metainfo.xml.in:59
-#: data/settings-daemon.metainfo.xml.in:77
-#: data/settings-daemon.metainfo.xml.in:105
-#: data/settings-daemon.metainfo.xml.in:125
+#: data/settings-daemon.metainfo.xml.in:39
+msgid "Progress indicators were added to the system update"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:46
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:78
+#: data/settings-daemon.metainfo.xml.in:107
+#: data/settings-daemon.metainfo.xml.in:126
+msgid "New features:"
+msgstr "新機能:"
+
+#: data/settings-daemon.metainfo.xml.in:48
+msgid "Don't automatically download updates on a metered network"
+msgstr ""
+"従量課金ネットワークではアップデートを自動的にダウンロードしないように修正"
+
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:86
+#: data/settings-daemon.metainfo.xml.in:114
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/settings-daemon.metainfo.xml.in:55
+#: data/settings-daemon.metainfo.xml.in:64
 msgid "Option to restart or shutdown without installing updates"
 msgstr ""
 "アップデートをインストールせずに再起動やシャットダウンができるオプションを追"
 "加"
 
-#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:80
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "オペレーティングシステムのアップデートを扱う機能を追加 (自動アップデート機能"
 "も含む)"
 
-#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:81
 msgid "Handle driver installation"
 msgstr "ドライバーのインストール機能を追加"
 
-#: data/settings-daemon.metainfo.xml.in:73
+#: data/settings-daemon.metainfo.xml.in:82
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "AccentColorManager をウィンドウマネージャーから取り込み"
 
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:109
 msgid "Provide accent colors on the settings portal"
 msgstr "設定ポータルでアクセントカラーの設定を取得できる機能を追加"
 
-#: data/settings-daemon.metainfo.xml.in:101
+#: data/settings-daemon.metainfo.xml.in:110
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -107,15 +113,15 @@ msgstr ""
 "フォント・マウス・キーボード・夜間モード・一部アクセシビリティ設定が、ログイ"
 "ン・ロック画面と同期するように変更"
 
-#: data/settings-daemon.metainfo.xml.in:119
+#: data/settings-daemon.metainfo.xml.in:128
 msgid "Add First day of the week setting"
 msgstr "週の最初の曜日の設定を追加"
 
-#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:129
 msgid "Add left-handed mouse click setting"
 msgstr "利き手に応じたマウスのクリック設定を追加"
 
-#: data/settings-daemon.metainfo.xml.in:121
+#: data/settings-daemon.metainfo.xml.in:130
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 "“ダウンロード”フォルダーがホームフォルダーでもある場合、自動削除しないように"
@@ -132,194 +138,194 @@ msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "お使いのハードウェアに %u 件のアップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:135
+#: src/Backends/SystemUpdate.vala:137
 msgid "Update available"
 msgstr "アップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:139
+#: src/Backends/SystemUpdate.vala:141
 msgid "A system security update is available"
 msgstr "システムセキュリティアップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:143
+#: src/Backends/SystemUpdate.vala:145
 msgid "A system update is available"
 msgstr "システムアップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:173 src/Backends/UbuntuDrivers.vala:244
+#: src/Backends/SystemUpdate.vala:175 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
 msgstr "再起動が必要"
 
-#: src/Backends/SystemUpdate.vala:174
+#: src/Backends/SystemUpdate.vala:176
 msgid "Please restart your system to finalize updates"
 msgstr "アップデートを完了するにはシステムを再起動してください"
 
-#: src/Backends/SystemUpdate.vala:196
+#: src/Backends/SystemUpdate.vala:203
 msgid "System updates couldn't be installed"
 msgstr "システムアップデートをインストールできませんでした"
 
-#: src/Backends/SystemUpdate.vala:197
+#: src/Backends/SystemUpdate.vala:204
 msgid "An error occurred while trying to update your system"
 msgstr "システムアップデート試行中にエラーが発生しました"
 
-#: src/Backends/UbuntuDrivers.vala:169
+#: src/Backends/UbuntuDrivers.vala:171
 msgid "Driver Available"
 msgid_plural "Drivers Available"
 msgstr[0] "ドライバーが利用可能です"
 
-#: src/Backends/UbuntuDrivers.vala:171
+#: src/Backends/UbuntuDrivers.vala:173
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
 msgstr[0] "お使いのハードウェアに %u 個のドライバーが利用可能です"
 
-#: src/Backends/UbuntuDrivers.vala:245
+#: src/Backends/UbuntuDrivers.vala:247
 msgid "Please restart your system to finalize driver installation"
 msgstr "ドライバーのインストールを完了するにはシステムを再起動してください"
 
-#: src/Backends/UbuntuDrivers.vala:267
+#: src/Backends/UbuntuDrivers.vala:274
 msgid "A driver couldn't be installed"
 msgstr "ドライバーをインストールできませんでした"
 
-#: src/Backends/UbuntuDrivers.vala:268
+#: src/Backends/UbuntuDrivers.vala:275
 msgid "An error occurred while trying to install a driver"
 msgstr "ドライバーのインストール試行中にエラーが発生しました"
 
-#: src/Utils/PkUtils.vala:20
+#: src/Utils/PkUtils.vala:22
 msgid "Starting"
 msgstr "開始しています"
 
-#: src/Utils/PkUtils.vala:22
+#: src/Utils/PkUtils.vala:24
 msgid "Waiting"
 msgstr "待機しています"
 
-#: src/Utils/PkUtils.vala:24
+#: src/Utils/PkUtils.vala:26
 msgid "Running"
 msgstr "実行しています"
 
-#: src/Utils/PkUtils.vala:26
+#: src/Utils/PkUtils.vala:28
 msgid "Querying"
 msgstr "問い合わせています"
 
-#: src/Utils/PkUtils.vala:28
+#: src/Utils/PkUtils.vala:30
 msgid "Getting information"
 msgstr "情報を取得しています"
 
-#: src/Utils/PkUtils.vala:30
+#: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
 msgstr "パッケージを削除しています"
 
-#: src/Utils/PkUtils.vala:32
+#: src/Utils/PkUtils.vala:34
 msgid "Downloading"
 msgstr "ダウンロードしています"
 
-#: src/Utils/PkUtils.vala:34
+#: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
 msgstr "ソフトウェアの一覧を更新しています"
 
-#: src/Utils/PkUtils.vala:36
+#: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
 msgstr "アップデートをインストールしています"
 
-#: src/Utils/PkUtils.vala:38
+#: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
 msgstr "パッケージをクリーンアップしています"
 
-#: src/Utils/PkUtils.vala:40
+#: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
 msgstr "古いパッケージを取り除いています"
 
-#: src/Utils/PkUtils.vala:42
+#: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
 msgstr "依存関係を解決しています"
 
-#: src/Utils/PkUtils.vala:44
+#: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
 msgstr "署名を確認しています"
 
-#: src/Utils/PkUtils.vala:46
+#: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
 msgstr "変更をテストしています"
 
-#: src/Utils/PkUtils.vala:48
+#: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
 msgstr "変更を適用しています"
 
-#: src/Utils/PkUtils.vala:50
+#: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
 msgstr "データを要求しています"
 
-#: src/Utils/PkUtils.vala:52
+#: src/Utils/PkUtils.vala:54
 msgid "Finished"
 msgstr "完了しました"
 
-#: src/Utils/PkUtils.vala:54
+#: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
 msgstr "キャンセルしています"
 
-#: src/Utils/PkUtils.vala:56
+#: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
 msgstr "リポジトリの情報をダウンロードしています"
 
-#: src/Utils/PkUtils.vala:58
+#: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
 msgstr "パッケージの一覧をダウンロードしています"
 
-#: src/Utils/PkUtils.vala:60
+#: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
 msgstr "ファイルの一覧をダウンロードしています"
 
-#: src/Utils/PkUtils.vala:62
+#: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
 msgstr "変更の一覧をダウンロードしています"
 
-#: src/Utils/PkUtils.vala:64
+#: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
 msgstr "グループをダウンロードしています"
 
-#: src/Utils/PkUtils.vala:66
+#: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
 msgstr "アップデート情報をダウンロードしています"
 
-#: src/Utils/PkUtils.vala:68
+#: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
 msgstr "ファイルを再パッケージしています"
 
-#: src/Utils/PkUtils.vala:70
+#: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
 msgstr "キャッシュを読み込んでいます"
 
-#: src/Utils/PkUtils.vala:72
+#: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
 msgstr "アプリケーションをスキャンしています"
 
-#: src/Utils/PkUtils.vala:74
+#: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
 msgstr "パッケージリストを生成しています"
 
-#: src/Utils/PkUtils.vala:76
+#: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
 msgstr "パッケージマネージャーのロックを待機しています"
 
-#: src/Utils/PkUtils.vala:78
+#: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
 msgstr "アプリが認証されるのを待機しています"
 
-#: src/Utils/PkUtils.vala:80
+#: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
 msgstr "実行中のアプリケーションをアップデートしています"
 
-#: src/Utils/PkUtils.vala:82
+#: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
 msgstr "使用中のアプリケーションを確認しています"
 
-#: src/Utils/PkUtils.vala:84
+#: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
 msgstr "使用中のライブラリを確認しています"
 
-#: src/Utils/PkUtils.vala:86
+#: src/Utils/PkUtils.vala:88
 msgid "Copying files"
 msgstr "ファイルをコピーしています"
 
-#: src/Utils/PkUtils.vala:89
+#: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "インストールしています"
 
