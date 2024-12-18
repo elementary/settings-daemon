@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-17 19:13+0000\n"
-"PO-Revision-Date: 2024-12-11 18:16+0000\n"
+"PO-Revision-Date: 2024-12-19 00:16+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/ca/>\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +58,7 @@ msgstr "Millores:"
 
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Progress indicators were added to the system update"
-msgstr ""
+msgstr "S'han afegit indicadors de progrés a l'actualització del sistema."
 
 #: data/settings-daemon.metainfo.xml.in:46
 #: data/settings-daemon.metainfo.xml.in:62
