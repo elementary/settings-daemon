@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-17 19:13+0000\n"
-"PO-Revision-Date: 2024-08-22 01:16+0000\n"
+"PO-Revision-Date: 2024-12-19 00:16+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/hu/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.8.4\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -58,7 +58,7 @@ msgstr "Fejlesztések:"
 
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Progress indicators were added to the system update"
-msgstr ""
+msgstr "Hozzáadásra került egy haladási indikátor a rendszerfrissítésekhez"
 
 #: data/settings-daemon.metainfo.xml.in:46
 #: data/settings-daemon.metainfo.xml.in:62
@@ -70,7 +70,7 @@ msgstr "Új funkciók:"
 
 #: data/settings-daemon.metainfo.xml.in:48
 msgid "Don't automatically download updates on a metered network"
-msgstr ""
+msgstr "Ne töltse le automatikusan a frissítéseket mért hálózaton"
 
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:68
