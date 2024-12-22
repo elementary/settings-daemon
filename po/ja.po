@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-17 19:13+0000\n"
-"PO-Revision-Date: 2024-12-12 05:36+0000\n"
+"PO-Revision-Date: 2024-12-22 20:56+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ja/>\n"
@@ -58,7 +58,7 @@ msgstr "改善点:"
 
 #: data/settings-daemon.metainfo.xml.in:39
 msgid "Progress indicators were added to the system update"
-msgstr ""
+msgstr "システムアップデートにプログレスバーを追加"
 
 #: data/settings-daemon.metainfo.xml.in:46
 #: data/settings-daemon.metainfo.xml.in:62
@@ -152,7 +152,7 @@ msgstr "システムアップデートが利用可能です"
 
 #: src/Backends/SystemUpdate.vala:175 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
-msgstr "再起動が必要"
+msgstr "再起動が必要です"
 
 #: src/Backends/SystemUpdate.vala:176
 msgid "Please restart your system to finalize updates"
