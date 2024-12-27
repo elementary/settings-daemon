@@ -233,4 +233,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     public async UpdateDetails get_update_details () throws DBusError, IOError {
         return update_details;
     }
+
+    public async int64 get_last_refresh_time () throws DBusError, IOError {
+        return settings.get_int64 ("last-refresh-time");
+    }
 }
