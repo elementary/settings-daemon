@@ -21,11 +21,11 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     private PkUtils.CurrentState current_state;
     private UpdateDetails update_details;
-    private int64 last_refresh_time;
 
     private Pk.Task task;
     private Pk.PackageSack? available_updates = null;
     private GLib.Cancellable cancellable;
+    private int64 last_refresh_time;
 
     construct {
         current_state = {
@@ -45,9 +45,9 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             only_download = true
         };
 
-        last_refresh_time = settings.get_int64 ("last-refresh-time");
-
         cancellable = new GLib.Cancellable ();
+
+        last_refresh_time = settings.get_int64 ("last-refresh-time");
 
         try {
             var last_offline_results = Pk.offline_get_results ();
