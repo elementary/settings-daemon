@@ -25,7 +25,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     private Pk.Task task;
     private Pk.PackageSack? available_updates = null;
     private GLib.Cancellable cancellable;
-    private int64 last_refresh_time;
 
     construct {
         current_state = {
@@ -46,8 +45,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         };
 
         cancellable = new GLib.Cancellable ();
-
-        last_refresh_time = settings.get_int64 ("last-refresh-time");
 
         try {
             var last_offline_results = Pk.offline_get_results ();
@@ -100,7 +97,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         try {
             available_updates = (yield task.get_updates_async (Pk.Filter.NONE, null, progress_callback)).get_package_sack ();
 
-            set_last_refresh_time (new DateTime.now_utc ().to_unix ());
+            settings.set_int64 ("last-refresh-time", new DateTime.now_utc ().to_unix ());
 
             if (available_updates == null || available_updates.get_size () == 0) {
                 update_state (UP_TO_DATE);
@@ -237,12 +234,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         return update_details;
     }
 
-    private void set_last_refresh_time (int64 time) {
-        last_refresh_time = time;
-        settings.set_int64 ("last-refresh-time", last_refresh_time);
-    }
-
     public async int64 get_last_refresh_time () throws DBusError, IOError {
-        return last_refresh_time;
+        return settings.get_int64 ("last-refresh-time");
     }
 }
