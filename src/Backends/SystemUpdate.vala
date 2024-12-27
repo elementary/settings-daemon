@@ -100,8 +100,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         try {
             available_updates = (yield task.get_updates_async (Pk.Filter.NONE, null, progress_callback)).get_package_sack ();
 
-            last_refresh_time = new DateTime.now_utc ().to_unix ();
-            settings.set_int64 ("last-refresh-time", last_refresh_time);
+            set_last_refresh_time (new DateTime.now_utc ().to_unix ());
 
             if (available_updates == null || available_updates.get_size () == 0) {
                 update_state (UP_TO_DATE);
@@ -236,6 +235,11 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     public async UpdateDetails get_update_details () throws DBusError, IOError {
         return update_details;
+    }
+
+    private void set_last_refresh_time (int64 time) {
+        last_refresh_time = time;
+        settings.set_int64 ("last-refresh-time", last_refresh_time);
     }
 
     public async int64 get_last_refresh_time () throws DBusError, IOError {
