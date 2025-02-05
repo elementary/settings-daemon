@@ -15,6 +15,8 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     private const string NOTIFICATION_ID = "system-update";
 
+    private const int DELAY_INITIAL_CHECK_SECONDS = 60;
+
     public signal void state_changed ();
 
     private static Settings settings = new GLib.Settings ("io.elementary.settings-daemon.system-update");
@@ -58,7 +60,10 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             warning ("Couldn't determine last offline results: %s", e.message);
         }
 
-        check_for_updates.begin (false, true);
+        Timeout.add_seconds (DELAY_INITIAL_CHECK_SECONDS, () => {
+            check_for_updates.begin (true, true);
+            return Source.REMOVE;
+        });
 
         Timeout.add_seconds ((uint) settings.get_int64 ("refresh-interval"), () => {
             check_for_updates.begin (false, true);
