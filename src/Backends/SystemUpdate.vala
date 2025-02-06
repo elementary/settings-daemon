@@ -109,6 +109,10 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             bool security_updates = false;
 
             foreach (var package in available_updates.get_array ()) {
+                if (package.get_info () == Pk.Info.BLOCKED) {
+                    // Skip packages blocked typically due to phasing or being held back.
+                    continue;
+                }
                 package_names += package.get_name ();
                 package_info += package.get_info ();
 
