@@ -9,7 +9,7 @@
 public class SettingsDaemon.Backends.SystemUpdate : Object {
     public struct UpdateDetails {
         string[] packages;
-        int size;
+        uint64 size;
         Pk.Info[] info;
     }
 
@@ -41,6 +41,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         };
 
         task = new Pk.Task () {
+            details_with_deps_size = true,
             only_download = true
         };
 
@@ -106,6 +107,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             string[] package_names = {};
             Pk.Info[] package_info = {};
+            string[] package_ids = {};
             bool security_updates = false;
 
             foreach (var package in available_updates.get_array ()) {
@@ -119,11 +121,20 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 if (package.get_info () == SECURITY) {
                     security_updates = true;
                 }
+
+                package_ids += package.get_id ();
+            }
+
+            uint64 package_total_size = 0;
+            var results = task.get_details_sync (package_ids, null, progress_callback);
+            var details = results.get_details_array ();
+            foreach (var detail in details) {
+                package_total_size += detail.get_size ();
             }
 
             update_details = {
                 package_names,
-                0, //FIXME: Is there a way to get update size from PackageKit
+                package_total_size,
                 package_info
             };
 
