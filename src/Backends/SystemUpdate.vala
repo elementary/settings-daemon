@@ -126,7 +126,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
             }
 
             uint64 package_total_size = 0;
-            var results = task.get_details_sync (package_ids, null, progress_callback);
+            var results = yield task.get_details_async (package_ids, null, progress_callback);
             var details = results.get_details_array ();
             foreach (var detail in details) {
                 package_total_size += detail.get_size ();
