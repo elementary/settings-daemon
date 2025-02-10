@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 19:13+0000\n"
+"POT-Creation-Date: 2025-02-10 21:42+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: English (Canada) <https://l10n.elementary.io/projects/desktop/"
@@ -54,11 +54,11 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:50
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:84
-#: data/settings-daemon.metainfo.xml.in:112
-#: data/settings-daemon.metainfo.xml.in:132
+#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:118
+#: data/settings-daemon.metainfo.xml.in:138
 msgid "Improvements:"
 msgstr "Improvements:"
 
@@ -66,61 +66,65 @@ msgstr "Improvements:"
 msgid "Progress indicators were added to the system update"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:62
-#: data/settings-daemon.metainfo.xml.in:78
-#: data/settings-daemon.metainfo.xml.in:107
-#: data/settings-daemon.metainfo.xml.in:126
-msgid "New features:"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:48
-msgid "Don't automatically download updates on a metered network"
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Get correct total size for system updates"
 msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:86
-#: data/settings-daemon.metainfo.xml.in:114
-#: data/settings-daemon.metainfo.xml.in:134
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:113
+#: data/settings-daemon.metainfo.xml.in:132
+msgid "New features:"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Don't automatically download updates on a metered network"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:140
 msgid "Updated translations"
 msgstr "Updated translations"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:70
 msgid "Option to restart or shutdown without installing updates"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:80
+#: data/settings-daemon.metainfo.xml.in:86
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:87
 msgid "Handle driver installation"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:88
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:109
+#: data/settings-daemon.metainfo.xml.in:115
 msgid "Provide accent colors on the settings portal"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:110
+#: data/settings-daemon.metainfo.xml.in:116
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Add First day of the week setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:129
+#: data/settings-daemon.metainfo.xml.in:135
 msgid "Add left-handed mouse click setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:130
+#: data/settings-daemon.metainfo.xml.in:136
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 
@@ -137,31 +141,31 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Backends/SystemUpdate.vala:137
+#: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:141
+#: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:145
+#: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:175 src/Backends/UbuntuDrivers.vala:246
+#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:176
+#: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:203
+#: src/Backends/SystemUpdate.vala:218
 msgid "System updates couldn't be installed"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:204
+#: src/Backends/SystemUpdate.vala:219
 msgid "An error occurred while trying to update your system"
 msgstr ""
 
