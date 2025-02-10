@@ -32,13 +32,18 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
-    <release version="8.1.2" date="2024-12-17" urgency="medium">
+    <release version="8.2.0" date="2024-12-17" urgency="medium">
       <description>
         <p>Improvements:</p>
         <ul>
           <li>Progress indicators were added to the system update</li>
         </ul>
       </description>
+      <issues>
+        <issue url="https://github.com/elementary/switchboard-plug-about/issues/342">SystemUpdate: Share last refresh time via DBus</issue>
+        <issue url="https://github.com/elementary/settings-daemon/issues/101">Update fails when it contains kept back packages</issue>
+        <issue url="https://github.com/elementary/settings-daemon/issues/116">AppCenter installs phased updates even if they are held back</issue>
+      </issues>
     </release>
     
     <release version="8.1.1" date="2024-12-12" urgency="medium">
