@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 19:13+0000\n"
+"POT-Creation-Date: 2025-02-10 21:42+0000\n"
 "PO-Revision-Date: 2024-12-22 20:56+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
@@ -48,11 +48,11 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:50
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:84
-#: data/settings-daemon.metainfo.xml.in:112
-#: data/settings-daemon.metainfo.xml.in:132
+#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:118
+#: data/settings-daemon.metainfo.xml.in:138
 msgid "Improvements:"
 msgstr "改善点:"
 
@@ -60,52 +60,56 @@ msgstr "改善点:"
 msgid "Progress indicators were added to the system update"
 msgstr "システムアップデートにプログレスバーを追加"
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:62
-#: data/settings-daemon.metainfo.xml.in:78
-#: data/settings-daemon.metainfo.xml.in:107
-#: data/settings-daemon.metainfo.xml.in:126
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Get correct total size for system updates"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:113
+#: data/settings-daemon.metainfo.xml.in:132
 msgid "New features:"
 msgstr "新機能:"
 
-#: data/settings-daemon.metainfo.xml.in:48
+#: data/settings-daemon.metainfo.xml.in:54
 msgid "Don't automatically download updates on a metered network"
 msgstr ""
 "従量課金ネットワークではアップデートを自動的にダウンロードしないように修正"
 
-#: data/settings-daemon.metainfo.xml.in:52
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:86
-#: data/settings-daemon.metainfo.xml.in:114
-#: data/settings-daemon.metainfo.xml.in:134
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:140
 msgid "Updated translations"
 msgstr "翻訳の更新"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:70
 msgid "Option to restart or shutdown without installing updates"
 msgstr ""
 "アップデートをインストールせずに再起動やシャットダウンができるオプションを追"
 "加"
 
-#: data/settings-daemon.metainfo.xml.in:80
+#: data/settings-daemon.metainfo.xml.in:86
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "オペレーティングシステムのアップデートを扱う機能を追加 (自動アップデート機能"
 "も含む)"
 
-#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:87
 msgid "Handle driver installation"
 msgstr "ドライバーのインストール機能を追加"
 
-#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:88
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "AccentColorManager をウィンドウマネージャーから取り込み"
 
-#: data/settings-daemon.metainfo.xml.in:109
+#: data/settings-daemon.metainfo.xml.in:115
 msgid "Provide accent colors on the settings portal"
 msgstr "設定ポータルでアクセントカラーの設定を取得できる機能を追加"
 
-#: data/settings-daemon.metainfo.xml.in:110
+#: data/settings-daemon.metainfo.xml.in:116
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -113,15 +117,15 @@ msgstr ""
 "フォント・マウス・キーボード・夜間モード・一部アクセシビリティ設定が、ログイ"
 "ン・ロック画面と同期するように変更"
 
-#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Add First day of the week setting"
 msgstr "週の最初の曜日の設定を追加"
 
-#: data/settings-daemon.metainfo.xml.in:129
+#: data/settings-daemon.metainfo.xml.in:135
 msgid "Add left-handed mouse click setting"
 msgstr "利き手に応じたマウスのクリック設定を追加"
 
-#: data/settings-daemon.metainfo.xml.in:130
+#: data/settings-daemon.metainfo.xml.in:136
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 "“ダウンロード”フォルダーがホームフォルダーでもある場合、自動削除しないように"
@@ -138,31 +142,31 @@ msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "お使いのハードウェアに %u 件のアップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:137
+#: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
 msgstr "アップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:141
+#: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
 msgstr "システムセキュリティアップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:145
+#: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
 msgstr "システムアップデートが利用可能です"
 
-#: src/Backends/SystemUpdate.vala:175 src/Backends/UbuntuDrivers.vala:246
+#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
 msgstr "再起動が必要です"
 
-#: src/Backends/SystemUpdate.vala:176
+#: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
 msgstr "アップデートを完了するにはシステムを再起動してください"
 
-#: src/Backends/SystemUpdate.vala:203
+#: src/Backends/SystemUpdate.vala:218
 msgid "System updates couldn't be installed"
 msgstr "システムアップデートをインストールできませんでした"
 
-#: src/Backends/SystemUpdate.vala:204
+#: src/Backends/SystemUpdate.vala:219
 msgid "An error occurred while trying to update your system"
 msgstr "システムアップデート試行中にエラーが発生しました"
 

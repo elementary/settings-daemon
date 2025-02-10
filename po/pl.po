@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-17 19:13+0000\n"
+"POT-Creation-Date: 2025-02-10 21:42+0000\n"
 "PO-Revision-Date: 2024-12-24 18:16+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/pl/>\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,11 +49,11 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:50
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:84
-#: data/settings-daemon.metainfo.xml.in:112
-#: data/settings-daemon.metainfo.xml.in:132
+#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:118
+#: data/settings-daemon.metainfo.xml.in:138
 msgid "Improvements:"
 msgstr "Ulepszenia:"
 
@@ -61,51 +61,55 @@ msgstr "Ulepszenia:"
 msgid "Progress indicators were added to the system update"
 msgstr "Indykatory postępu zostały dodane do aktualizacji systemu"
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:62
-#: data/settings-daemon.metainfo.xml.in:78
-#: data/settings-daemon.metainfo.xml.in:107
-#: data/settings-daemon.metainfo.xml.in:126
-msgid "New features:"
-msgstr "Nowe funkcje:"
-
-#: data/settings-daemon.metainfo.xml.in:48
-msgid "Don't automatically download updates on a metered network"
-msgstr "Automatyczne pobieranie jest wyłączone w sieciach mierzonych"
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Get correct total size for system updates"
+msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:86
-#: data/settings-daemon.metainfo.xml.in:114
-#: data/settings-daemon.metainfo.xml.in:134
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:113
+#: data/settings-daemon.metainfo.xml.in:132
+msgid "New features:"
+msgstr "Nowe funkcje:"
+
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Don't automatically download updates on a metered network"
+msgstr "Automatyczne pobieranie jest wyłączone w sieciach mierzonych"
+
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:140
 msgid "Updated translations"
 msgstr "Zaktualizowano tłumaczenia"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:70
 msgid "Option to restart or shutdown without installing updates"
 msgstr ""
 "Możliwość restartowania oraz wyłączania komputera bez instalowania "
 "aktualizacji"
 
-#: data/settings-daemon.metainfo.xml.in:80
+#: data/settings-daemon.metainfo.xml.in:86
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "Obługuj aktualizacje systemu operacyjnego, włączając w to automatyczne "
 "aktualizacje"
 
-#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:87
 msgid "Handle driver installation"
 msgstr "Obsługuj instalacje sterowników"
 
-#: data/settings-daemon.metainfo.xml.in:82
+#: data/settings-daemon.metainfo.xml.in:88
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Przeniesiono AccentColorManager z menadżera okien tutaj"
 
-#: data/settings-daemon.metainfo.xml.in:109
+#: data/settings-daemon.metainfo.xml.in:115
 msgid "Provide accent colors on the settings portal"
 msgstr "Dodano kolory akcentu dla portalu ustawień"
 
-#: data/settings-daemon.metainfo.xml.in:110
+#: data/settings-daemon.metainfo.xml.in:116
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -113,15 +117,15 @@ msgstr ""
 "Ustawienia fontów, myszki, klawiatury, światła nocnego i niektórych opcji "
 "dostępności są teraz synchronizowane z ekranem logowania i zablokowania"
 
-#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Add First day of the week setting"
 msgstr "Dodano ustawienia pierwszego dnia tygodnia"
 
-#: data/settings-daemon.metainfo.xml.in:129
+#: data/settings-daemon.metainfo.xml.in:135
 msgid "Add left-handed mouse click setting"
 msgstr "Dodano ustawienia obsługi myszki lewą ręką"
 
-#: data/settings-daemon.metainfo.xml.in:130
+#: data/settings-daemon.metainfo.xml.in:136
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Nie sprzątaj folderu Pobrane jeśli jest taki sam jak folder domowy"
 
@@ -140,31 +144,31 @@ msgstr[0] "%u aktualizacja dostępna dla twojego urządzenia"
 msgstr[1] "%u aktualizacje dostępne dla twojego urządzenia"
 msgstr[2] "%u aktualizacji dostępnych dla twojego urządzenia"
 
-#: src/Backends/SystemUpdate.vala:137
+#: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
 msgstr "Dostępna aktualizacja"
 
-#: src/Backends/SystemUpdate.vala:141
+#: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
 msgstr "Dostępna jest aktualizacja bezpieczeństwa systemu"
 
-#: src/Backends/SystemUpdate.vala:145
+#: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
 msgstr "Dostępna jest aktualizacja systemu"
 
-#: src/Backends/SystemUpdate.vala:175 src/Backends/UbuntuDrivers.vala:246
+#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
 msgstr "Wymagane ponowne uruchomienie"
 
-#: src/Backends/SystemUpdate.vala:176
+#: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
 msgstr "Proszę ponownie uruchomić komputer by zakończyć aktualizację"
 
-#: src/Backends/SystemUpdate.vala:203
+#: src/Backends/SystemUpdate.vala:218
 msgid "System updates couldn't be installed"
 msgstr "Aktualizacje systemowe nie mogły zostać zainstalowane"
 
-#: src/Backends/SystemUpdate.vala:204
+#: src/Backends/SystemUpdate.vala:219
 msgid "An error occurred while trying to update your system"
 msgstr "Podczas aktualizacji systemu wystąpił błąd"
 
