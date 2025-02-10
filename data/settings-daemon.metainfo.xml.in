@@ -37,6 +37,7 @@
         <p>Improvements:</p>
         <ul>
           <li>Progress indicators were added to the system update</li>
+          <li>Get correct total size for system updates</li>
         </ul>
       </description>
       <issues>
