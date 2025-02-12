@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-10 21:42+0000\n"
-"PO-Revision-Date: 2025-02-07 16:16+0000\n"
+"PO-Revision-Date: 2025-02-13 10:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/fr/>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:40
 msgid "Get correct total size for system updates"
-msgstr ""
+msgstr "Obtention de la valeur totale correcte pour les mises à jour du système"
 
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:68
