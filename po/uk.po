@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-10 21:42+0000\n"
-"PO-Revision-Date: 2024-12-19 00:16+0000\n"
+"PO-Revision-Date: 2025-02-14 00:32+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/uk/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -63,7 +63,7 @@ msgstr "До оновлення системи додано індикатори
 
 #: data/settings-daemon.metainfo.xml.in:40
 msgid "Get correct total size for system updates"
-msgstr ""
+msgstr "Отримання правильного загального розміру для оновлення системи"
 
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:68
