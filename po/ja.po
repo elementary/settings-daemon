@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-10 21:42+0000\n"
-"PO-Revision-Date: 2024-12-22 20:56+0000\n"
+"PO-Revision-Date: 2025-03-01 16:01+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -62,7 +62,7 @@ msgstr "システムアップデートにプログレスバーを追加"
 
 #: data/settings-daemon.metainfo.xml.in:40
 msgid "Get correct total size for system updates"
-msgstr ""
+msgstr "システムアップデートの正しい合計サイズを取得するように修正"
 
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:68
