@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-10 21:42+0000\n"
-"PO-Revision-Date: 2024-12-19 00:16+0000\n"
+"PO-Revision-Date: 2025-03-02 10:28+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/he/>\n"
+"Language-Team: Hebrew <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.8.4\n"
+"X-Generator: Weblate 5.9.2\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -62,7 +62,7 @@ msgstr "נוספו מחווני התקדמות לעדכון המערכת"
 
 #: data/settings-daemon.metainfo.xml.in:40
 msgid "Get correct total size for system updates"
-msgstr ""
+msgstr "קבלת הגדלים הכוללים הנכונים לעדכוני מערכת"
 
 #: data/settings-daemon.metainfo.xml.in:52
 #: data/settings-daemon.metainfo.xml.in:68
