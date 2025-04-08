@@ -13,13 +13,13 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
     private Backends.KeyboardSettings keyboard_settings;
     private Backends.MouseSettings mouse_settings;
-
     private Backends.InterfaceSettings interface_settings;
     private Backends.NightLightSettings night_light_settings;
     private Backends.PrefersColorSchemeSettings prefers_color_scheme_settings;
     private Backends.AccentColorManager accent_color_manager;
 
     private Backends.Housekeeping housekeeping;
+    private Backends.PowerProfilesSync power_profiles_sync;
 
     private Backends.ScheduleManager schedule_manager;
 
@@ -59,6 +59,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         base.startup ();
 
         housekeeping = new Backends.Housekeeping ();
+        power_profiles_sync = new Backends.PowerProfilesSync ();
 
         var check_firmware_updates_action = new GLib.SimpleAction ("check-firmware-updates", null);
         check_firmware_updates_action.activate.connect (check_firmware_updates);
@@ -83,6 +84,10 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
         connection.register_object (object_path, schedule_manager);
         connection.register_object (object_path, new Backends.SystemUpdate ());
+
+#if UBUNTU_DRIVERS
+        connection.register_object (object_path, new Backends.UbuntuDrivers ());
+#endif
 
         return true;
     }
@@ -140,7 +145,11 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
             var devices = client.get_devices ();
 
             foreach (unowned var device in devices) {
+#if HAS_FWUPD_2_0
+                if (!device.has_flag (Fwupd.DeviceFlags.UPDATABLE)) {
+#else
                 if (!device.has_flag (Fwupd.DEVICE_FLAG_UPDATABLE)) {
+#endif
                     continue;
                 }
 

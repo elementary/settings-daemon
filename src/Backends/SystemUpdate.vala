@@ -7,23 +7,9 @@
 
 [DBus (name="io.elementary.settings_daemon.SystemUpdate")]
 public class SettingsDaemon.Backends.SystemUpdate : Object {
-    public enum State {
-        UP_TO_DATE,
-        CHECKING,
-        AVAILABLE,
-        DOWNLOADING,
-        RESTART_REQUIRED,
-        ERROR
-    }
-
-    public struct CurrentState {
-        State state;
-        string status;
-    }
-
     public struct UpdateDetails {
         string[] packages;
-        int size;
+        uint64 size;
         Pk.Info[] info;
     }
 
@@ -33,7 +19,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     private static Settings settings = new GLib.Settings ("io.elementary.settings-daemon.system-update");
 
-    private CurrentState current_state;
+    private PkUtils.CurrentState current_state;
     private UpdateDetails update_details;
 
     private Pk.Task task;
@@ -43,7 +29,9 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     construct {
         current_state = {
             UP_TO_DATE,
-            ""
+            "",
+            0,
+            0
         };
 
         update_details = {
@@ -53,6 +41,7 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         };
 
         task = new Pk.Task () {
+            details_with_deps_size = true,
             only_download = true
         };
 
@@ -79,11 +68,26 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     }
 
     public async void check_for_updates (bool force, bool notify) throws DBusError, IOError {
+        if (SettingsDaemon.Utils.is_running_in_demo_mode () && !force) {
+            return;
+        }
+
         if (current_state.state != UP_TO_DATE && current_state.state != AVAILABLE && !force) {
             return;
         }
 
         update_state (CHECKING);
+
+        try {
+            var prepared = Pk.offline_get_prepared_ids ().length > 0;
+
+            if (prepared) {
+                update_state (RESTART_REQUIRED);
+                return;
+            }
+        } catch (Error e) {
+            warning ("Failed to get offline prepared ids: %s", e.message);
+        }
 
         try {
             yield task.refresh_cache_async (force, null, progress_callback);
@@ -103,31 +107,48 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
             string[] package_names = {};
             Pk.Info[] package_info = {};
+            string[] package_ids = {};
             bool security_updates = false;
 
             foreach (var package in available_updates.get_array ()) {
+                if (package.get_info () == Pk.Info.BLOCKED) {
+                    // Skip packages blocked typically due to phasing or being held back.
+                    continue;
+                }
                 package_names += package.get_name ();
                 package_info += package.get_info ();
 
                 if (package.get_info () == SECURITY) {
                     security_updates = true;
                 }
+
+                package_ids += package.get_id ();
+            }
+
+            uint64 package_total_size = 0;
+            var results = yield task.get_details_async (package_ids, null, progress_callback);
+            var details = results.get_details_array ();
+            foreach (var detail in details) {
+                package_total_size += detail.get_size ();
             }
 
             update_details = {
                 package_names,
-                0, //FIXME: Is there a way to get update size from PackageKit
+                package_total_size,
                 package_info
             };
 
             update_state (AVAILABLE);
 
-            if (!force && settings.get_boolean ("automatic-updates")) {
+            var metered_network = NetworkMonitor.get_default ().network_metered;
+            var auto_updates = settings.get_boolean ("automatic-updates");
+
+            if (!force && !metered_network && auto_updates) {
                 update.begin ();
                 return;
             }
 
-            if (notify) {
+            if (notify || (metered_network && auto_updates)) {
                 var notification = new Notification (_("Update available"));
                 notification.set_default_action (Application.ACTION_PREFIX + Application.SHOW_UPDATES_ACTION);
 
@@ -166,8 +187,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
                 return;
             }
 
-            Pk.offline_trigger (REBOOT);
-
             var notification = new Notification (_("Restart required"));
             notification.set_body (_("Please restart your system to finalize updates"));
             notification.set_icon (new ThemedIcon ("system-reboot"));
@@ -187,7 +206,12 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
     }
 
     private void progress_callback (Pk.Progress progress, Pk.ProgressType progress_type) {
-        update_state (current_state.state, status_to_title (progress.status));
+        update_state (
+            current_state.state,
+            PkUtils.status_to_title (progress.status),
+            progress.percentage,
+            progress.download_size_remaining
+        );
     }
 
     private void send_error (string message) {
@@ -201,97 +225,31 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         update_state (ERROR, message);
     }
 
-    private void update_state (State state, string message = "") {
+    private void update_state (
+        PkUtils.State state,
+        string message = "",
+        uint percentage = 0,
+        uint64 download_size_remaining = 0
+    ) {
         current_state = {
             state,
-            message
+            message,
+            percentage,
+            download_size_remaining
         };
 
         state_changed ();
     }
 
-    private unowned string status_to_title (Pk.Status status) {
-        // From https://github.com/elementary/appcenter/blob/master/src/Core/ChangeInformation.vala#L51
-        switch (status) {
-            case Pk.Status.SETUP:
-                return _("Starting");
-            case Pk.Status.WAIT:
-                return _("Waiting");
-            case Pk.Status.RUNNING:
-                return _("Running");
-            case Pk.Status.QUERY:
-                return _("Querying");
-            case Pk.Status.INFO:
-                return _("Getting information");
-            case Pk.Status.REMOVE:
-                return _("Removing packages");
-            case Pk.Status.DOWNLOAD:
-                return _("Downloading");
-            case Pk.Status.REFRESH_CACHE:
-                return _("Refreshing software list");
-            case Pk.Status.UPDATE:
-                return _("Installing updates");
-            case Pk.Status.CLEANUP:
-                return _("Cleaning up packages");
-            case Pk.Status.OBSOLETE:
-                return _("Obsoleting packages");
-            case Pk.Status.DEP_RESOLVE:
-                return _("Resolving dependencies");
-            case Pk.Status.SIG_CHECK:
-                return _("Checking signatures");
-            case Pk.Status.TEST_COMMIT:
-                return _("Testing changes");
-            case Pk.Status.COMMIT:
-                return _("Committing changes");
-            case Pk.Status.REQUEST:
-                return _("Requesting data");
-            case Pk.Status.FINISHED:
-                return _("Finished");
-            case Pk.Status.CANCEL:
-                return _("Cancelling");
-            case Pk.Status.DOWNLOAD_REPOSITORY:
-                return _("Downloading repository information");
-            case Pk.Status.DOWNLOAD_PACKAGELIST:
-                return _("Downloading list of packages");
-            case Pk.Status.DOWNLOAD_FILELIST:
-                return _("Downloading file lists");
-            case Pk.Status.DOWNLOAD_CHANGELOG:
-                return _("Downloading lists of changes");
-            case Pk.Status.DOWNLOAD_GROUP:
-                return _("Downloading groups");
-            case Pk.Status.DOWNLOAD_UPDATEINFO:
-                return _("Downloading update information");
-            case Pk.Status.REPACKAGING:
-                return _("Repackaging files");
-            case Pk.Status.LOADING_CACHE:
-                return _("Loading cache");
-            case Pk.Status.SCAN_APPLICATIONS:
-                return _("Scanning applications");
-            case Pk.Status.GENERATE_PACKAGE_LIST:
-                return _("Generating package lists");
-            case Pk.Status.WAITING_FOR_LOCK:
-                return _("Waiting for package manager lock");
-            case Pk.Status.WAITING_FOR_AUTH:
-                return _("Waiting for authentication");
-            case Pk.Status.SCAN_PROCESS_LIST:
-                return _("Updating running applications");
-            case Pk.Status.CHECK_EXECUTABLE_FILES:
-                return _("Checking applications in use");
-            case Pk.Status.CHECK_LIBRARIES:
-                return _("Checking libraries in use");
-            case Pk.Status.COPY_FILES:
-                return _("Copying files");
-            case Pk.Status.INSTALL:
-            default:
-                return _("Installing");
-        }
-    }
-
-    public async CurrentState get_current_state () throws DBusError, IOError {
+    public async PkUtils.CurrentState get_current_state () throws DBusError, IOError {
         return current_state;
     }
 
     public async UpdateDetails get_update_details () throws DBusError, IOError {
         return update_details;
+    }
+
+    public async int64 get_last_refresh_time () throws DBusError, IOError {
+        return settings.get_int64 ("last-refresh-time");
     }
 }

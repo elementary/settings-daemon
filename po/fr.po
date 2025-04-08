@@ -7,17 +7,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2023-08-01 16:35+0000\n"
+"POT-Creation-Date: 2025-02-10 21:42+0000\n"
+"PO-Revision-Date: 2025-02-13 10:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
-"Language-Team: French <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/fr/>\n"
+"Language-Team: French <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.9.2\n"
+
+#: data/autostart.desktop:4
+msgid "System Settings"
+msgstr "Paramètres du système"
+
+#: data/autostart.desktop:5
+msgid "System Settings background tasks"
+msgstr "Tâches en arrière-plan des paramètres du système"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -35,21 +43,71 @@ msgstr ""
 "Synchronise les paramètres avec greeter et gère les tâches en arrière-plan "
 "telles que la mise en place du thème sombre ou le nettoyage automatique."
 
-#: data/settings-daemon.metainfo.xml.in:28
+#: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:37
+#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:118
+#: data/settings-daemon.metainfo.xml.in:138
+msgid "Improvements:"
+msgstr "Améliorations :"
+
+#: data/settings-daemon.metainfo.xml.in:39
+msgid "Progress indicators were added to the system update"
+msgstr ""
+"Des indicateurs de progression ont été ajoutés à la mise à jour du système"
+
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Get correct total size for system updates"
+msgstr "Obtention de la valeur totale correcte pour les mises à jour du système"
+
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:113
+#: data/settings-daemon.metainfo.xml.in:132
 msgid "New features:"
 msgstr "Nouvelles fonctionnalités :"
 
-#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Don't automatically download updates on a metered network"
+msgstr ""
+"Ne pas télécharger automatiquement les mises à jour sur un réseau limité"
+
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:140
+msgid "Updated translations"
+msgstr "Mise à jour des traductions"
+
+#: data/settings-daemon.metainfo.xml.in:70
+msgid "Option to restart or shutdown without installing updates"
+msgstr "Option pour redémarrer ou arrêter sans installer les mises à jour"
+
+#: data/settings-daemon.metainfo.xml.in:86
+msgid "Handle operating system updates, including automatic updates"
+msgstr ""
+"Gère les mises à jour du système, y compris les mises à jour automatiques"
+
+#: data/settings-daemon.metainfo.xml.in:87
+msgid "Handle driver installation"
+msgstr "Gère l'installation des pilotes"
+
+#: data/settings-daemon.metainfo.xml.in:88
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr "Déplacement de AccentColorManager du gestionnaire de fenêtres vers ici"
+
+#: data/settings-daemon.metainfo.xml.in:115
 msgid "Provide accent colors on the settings portal"
 msgstr "Fournis les couleurs d'accentuation dans le portail des paramètres"
 
-#: data/settings-daemon.metainfo.xml.in:44
+#: data/settings-daemon.metainfo.xml.in:116
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -58,232 +116,232 @@ msgstr ""
 "nuit et de certains paramètres d'accessibilité avec l'écran de connexion et "
 "de verrouillage"
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:79
-msgid "Improvements:"
-msgstr "Améliorations :"
-
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:82
-msgid "Updated translations"
-msgstr "Mise à jour des traductions"
-
-#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Add First day of the week setting"
 msgstr "Ajout du premier jour de la semaine dans les paramètres de semaine"
 
-#: data/settings-daemon.metainfo.xml.in:63
+#: data/settings-daemon.metainfo.xml.in:135
 msgid "Add left-handed mouse click setting"
 msgstr "Ajout d'un paramètre de clic de souris pour gaucher"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:136
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 "Ne pas nettoyer automatiquement le dossier des téléchargements si c'est "
 "aussi le dossier personnel"
 
-#: data/settings-daemon.metainfo.xml.in:77
-msgid "Provide the Settings portal"
-msgstr "Fournis le portail des paramètres"
-
-#: data/settings-daemon.metainfo.xml.in:81
-msgid "Remove unused dark style gsettings schema"
-msgstr "Suppression du schéma gsettings inutilisé du style sombre"
-
-#: data/settings-daemon.metainfo.xml.in:89
-msgid "Initial release"
-msgstr "Version initiale"
-
-#: src/Application.vala:160
+#: src/Application.vala:169
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Mise à jour du micrologiciel disponible"
 msgstr[1] "Mises à jour du micrologiciel disponibles"
 
-#: src/Application.vala:162
+#: src/Application.vala:171
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u mise à jour est disponible pour votre matériel"
 msgstr[1] "%u mises à jour sont disponibles pour votre matériel"
 
-#: src/Backends/SystemUpdate.vala:124
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
+#: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
-msgstr "Mise à jour du micrologiciel disponible"
+msgstr "Mise à jour disponible"
 
-#: src/Backends/SystemUpdate.vala:128
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
+#: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
-msgstr "Mise à jour du micrologiciel disponible"
+msgstr "Une mise à jour de sécurité du système est disponible"
 
-#: src/Backends/SystemUpdate.vala:132
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
+#: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
-msgstr "Mise à jour du micrologiciel disponible"
+msgstr "Une mise à jour du système est disponible"
 
-#: src/Backends/SystemUpdate.vala:166
+#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
-msgstr ""
+msgstr "Redémarrage nécessaire"
 
-#: src/Backends/SystemUpdate.vala:167
+#: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:189
-msgid "System updates couldn't be installed"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:190
-msgid "An error occurred while trying to update your system"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:212
-msgid "Starting"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:214
-msgid "Waiting"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:216
-msgid "Running"
-msgstr ""
+msgstr "Veuillez redémarrer votre système pour terminer les mises à jour"
 
 #: src/Backends/SystemUpdate.vala:218
+msgid "System updates couldn't be installed"
+msgstr "Les mises à jour du système n'ont pas pu être installées"
+
+#: src/Backends/SystemUpdate.vala:219
+msgid "An error occurred while trying to update your system"
+msgstr "Une erreur s'est produite lors de la mise à jour de votre système"
+
+#: src/Backends/UbuntuDrivers.vala:171
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Pilote disponible"
+msgstr[1] "Pilotes disponible"
+
+#: src/Backends/UbuntuDrivers.vala:173
+#, c-format
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "%u pilote est disponible pour votre matériel"
+msgstr[1] "%u pilotes sont disponibles pour votre matériel"
+
+#: src/Backends/UbuntuDrivers.vala:247
+msgid "Please restart your system to finalize driver installation"
+msgstr ""
+"Veuillez redémarrer votre système pour terminer l'installation des pilotes"
+
+#: src/Backends/UbuntuDrivers.vala:274
+msgid "A driver couldn't be installed"
+msgstr "Un pilote n'a pas pu être installé"
+
+#: src/Backends/UbuntuDrivers.vala:275
+msgid "An error occurred while trying to install a driver"
+msgstr "Une erreur s'est produite lors de l'installation d'un pilote"
+
+#: src/Utils/PkUtils.vala:22
+msgid "Starting"
+msgstr "Démarrage"
+
+#: src/Utils/PkUtils.vala:24
+msgid "Waiting"
+msgstr "En attente"
+
+#: src/Utils/PkUtils.vala:26
+msgid "Running"
+msgstr "En cours"
+
+#: src/Utils/PkUtils.vala:28
 msgid "Querying"
-msgstr ""
+msgstr "Interrogation"
 
-#: src/Backends/SystemUpdate.vala:220
+#: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr ""
+msgstr "Récupération des informations"
 
-#: src/Backends/SystemUpdate.vala:222
+#: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr ""
+msgstr "Suppression des paquets"
 
-#: src/Backends/SystemUpdate.vala:224
+#: src/Utils/PkUtils.vala:34
 msgid "Downloading"
-msgstr ""
+msgstr "Téléchargement"
 
-#: src/Backends/SystemUpdate.vala:226
+#: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Mise à jour de la liste des logiciels"
 
-#: src/Backends/SystemUpdate.vala:228
+#: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr ""
+msgstr "Installation des mises à jour"
 
-#: src/Backends/SystemUpdate.vala:230
+#: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Nettoyage des paquets"
 
-#: src/Backends/SystemUpdate.vala:232
+#: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "Mise en obsolescence des paquets"
 
-#: src/Backends/SystemUpdate.vala:234
+#: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Résolution des dépendances"
 
-#: src/Backends/SystemUpdate.vala:236
+#: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr ""
+msgstr "Vérification des signatures"
 
-#: src/Backends/SystemUpdate.vala:238
+#: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr ""
+msgstr "Vérification des modifications"
 
-#: src/Backends/SystemUpdate.vala:240
+#: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
-msgstr ""
+msgstr "Validation des modifications"
 
-#: src/Backends/SystemUpdate.vala:242
+#: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
-msgstr ""
+msgstr "Interrogation des données"
 
-#: src/Backends/SystemUpdate.vala:244
+#: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr ""
+msgstr "Terminé"
 
-#: src/Backends/SystemUpdate.vala:246
+#: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "Annulation"
 
-#: src/Backends/SystemUpdate.vala:248
+#: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Téléchargement des informations du dépôt"
 
-#: src/Backends/SystemUpdate.vala:250
+#: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Téléchargement de la liste des paquets"
 
-#: src/Backends/SystemUpdate.vala:252
+#: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Téléchargement de la liste des fichiers"
 
-#: src/Backends/SystemUpdate.vala:254
+#: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Téléchargement de la liste des modifications"
 
-#: src/Backends/SystemUpdate.vala:256
+#: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr ""
+msgstr "Téléchargement des groupes"
 
-#: src/Backends/SystemUpdate.vala:258
+#: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "Téléchargement des informations de mise à jour"
 
-#: src/Backends/SystemUpdate.vala:260
+#: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr ""
+msgstr "Enpaquetage des fichiers"
 
-#: src/Backends/SystemUpdate.vala:262
+#: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
-msgstr ""
+msgstr "Chargement du cache"
 
-#: src/Backends/SystemUpdate.vala:264
+#: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
-msgstr ""
+msgstr "Analyse des applications"
 
-#: src/Backends/SystemUpdate.vala:266
+#: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr ""
+msgstr "Génération de la liste des paquets"
 
-#: src/Backends/SystemUpdate.vala:268
+#: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "En attente du verrou du gestionnaire de paquets"
 
-#: src/Backends/SystemUpdate.vala:270
+#: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "En attente d'authentification"
 
-#: src/Backends/SystemUpdate.vala:272
-#, fuzzy
-#| msgid "Updated translations"
+#: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr "Mise à jour des traductions"
+msgstr "Mise à jour des applications en cours d'exécution"
 
-#: src/Backends/SystemUpdate.vala:274
+#: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Vérification des applications en cours d'utilisation"
 
-#: src/Backends/SystemUpdate.vala:276
+#: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Vérification des bibliothèques en cours d'utilisation"
 
-#: src/Backends/SystemUpdate.vala:278
+#: src/Utils/PkUtils.vala:88
 msgid "Copying files"
-msgstr ""
+msgstr "Copie des fichiers"
 
-#: src/Backends/SystemUpdate.vala:281
+#: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "Installation"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Fournis le portail des paramètres"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Suppression du schéma gsettings inutilisé du style sombre"
+
+#~ msgid "Initial release"
+#~ msgstr "Version initiale"

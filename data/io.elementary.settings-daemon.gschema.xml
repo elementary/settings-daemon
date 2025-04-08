@@ -40,6 +40,16 @@
       <summary>Whether the Screenshots folder should be automatically cleaned up.</summary>
       <description></description>
     </key>
+    <key type="b" name="cleanup-temp-folder">
+      <default>false</default>
+      <summary>Whether the Temp folder should be automatically cleaned up.</summary>
+      <description></description>
+    </key>
+    <key type="b" name="cleanup-trash-folder">
+      <default>false</default>
+      <summary>Whether the Trash folder should be automatically cleaned up.</summary>
+      <description></description>
+    </key>
     <key type="i" name="old-files-age">
       <default>30</default>
       <summary>How many days to keep an old file before it is cleaned up.</summary>
@@ -94,6 +104,19 @@
       <default>86400</default>
       <summary>How often to check for updates</summary>
       <description>How often to check for updates in seconds.</description>
+    </key>
+  </schema>
+
+  <schema path="/io/elementary/settings-daemon/power/" id="io.elementary.settings-daemon.power">
+    <key type="s" name="profile-plugged-in">
+      <default>"balanced"</default>
+      <summary>Power profile to use when plugged in</summary>
+      <description></description>
+    </key>
+    <key type="s" name="profile-on-good-battery">
+      <default>"balanced"</default>
+      <summary>Power profile to use on battery</summary>
+      <description></description>
     </key>
   </schema>
 </schemalist>

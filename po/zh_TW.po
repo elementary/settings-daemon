@@ -7,262 +7,318 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2021-07-15 16:16-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2025-02-10 21:42+0000\n"
+"PO-Revision-Date: 2025-03-17 11:05+0000\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Chinese (Traditional Han script) <https://"
+"l10n.elementaryos.org/projects/desktop/settings-daemon/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10.2\n"
+
+#: data/autostart.desktop:4
+msgid "System Settings"
+msgstr "系統設定值"
+
+#: data/autostart.desktop:5
+msgid "System Settings background tasks"
+msgstr "系統設定值的背景工作"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
-msgstr ""
+msgstr "設定值伺服程式"
 
 #: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
-msgstr ""
+msgstr "管理設定值和背景工作"
 
 #: data/settings-daemon.metainfo.xml.in:13
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
-msgstr ""
+msgstr "將設定值同步到 greeter 並管理背景工作，像是深色風格排程和定期清理。"
 
-#: data/settings-daemon.metainfo.xml.in:28
+#: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:37
+#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:118
+#: data/settings-daemon.metainfo.xml.in:138
+msgid "Improvements:"
+msgstr "改善項目："
+
+#: data/settings-daemon.metainfo.xml.in:39
+msgid "Progress indicators were added to the system update"
+msgstr "在系統更新處加入進度指示器"
+
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Get correct total size for system updates"
+msgstr "為系統更新取得正確的總計大小"
+
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:113
+#: data/settings-daemon.metainfo.xml.in:132
 msgid "New features:"
-msgstr ""
+msgstr "新功能："
 
-#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Don't automatically download updates on a metered network"
+msgstr "不要在使用計量網路時自動下載更新"
+
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:140
+msgid "Updated translations"
+msgstr "更新翻譯"
+
+#: data/settings-daemon.metainfo.xml.in:70
+msgid "Option to restart or shutdown without installing updates"
+msgstr "新增不安裝更新只重新啟動或關機的選項"
+
+#: data/settings-daemon.metainfo.xml.in:86
+msgid "Handle operating system updates, including automatic updates"
+msgstr "處理作業系統更新，包含自動更新"
+
+#: data/settings-daemon.metainfo.xml.in:87
+msgid "Handle driver installation"
+msgstr "處理驅動程式安裝"
+
+#: data/settings-daemon.metainfo.xml.in:88
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr "將 AccentColorManager（強調色管理員）從視窗管理員移到這裡"
+
+#: data/settings-daemon.metainfo.xml.in:115
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "讓設定值桌面入口提供強調色資訊給應用程式"
 
-#: data/settings-daemon.metainfo.xml.in:44
+#: data/settings-daemon.metainfo.xml.in:116
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
+"將字型、滑鼠、鍵盤、夜光，‘以及一些無障礙使用設定值同步到登入與鎖定畫面"
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:79
-msgid "Improvements:"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:82
-msgid "Updated translations"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "新增調整每週的第一天的選項"
 
-#: data/settings-daemon.metainfo.xml.in:63
+#: data/settings-daemon.metainfo.xml.in:135
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "新增管用左手滑鼠點擊的設定"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:136
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
+msgstr "「下載」資料夾同時也是家目錄的時候不要自動清理"
 
-#: data/settings-daemon.metainfo.xml.in:77
-msgid "Provide the Settings portal"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:81
-msgid "Remove unused dark style gsettings schema"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:89
-msgid "Initial release"
-msgstr ""
-
-#: src/Application.vala:160
+#: src/Application.vala:169
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "有可用的韌體更新"
 
-#: src/Application.vala:162
+#: src/Application.vala:171
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "您的硬體有 %u 個可用的更新"
 
-#: src/Backends/SystemUpdate.vala:124
+#: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
-msgstr ""
+msgstr "有可用的更新"
 
-#: src/Backends/SystemUpdate.vala:128
+#: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
-msgstr ""
+msgstr "有可用的系統安全性更新"
 
-#: src/Backends/SystemUpdate.vala:132
+#: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
-msgstr ""
+msgstr "有可用的系統更新"
 
-#: src/Backends/SystemUpdate.vala:166
+#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
-msgstr ""
+msgstr "需要重新啟動"
 
-#: src/Backends/SystemUpdate.vala:167
+#: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:189
-msgid "System updates couldn't be installed"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:190
-msgid "An error occurred while trying to update your system"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:212
-msgid "Starting"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:214
-msgid "Waiting"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:216
-msgid "Running"
-msgstr ""
+msgstr "請重新啟動您的系統來完成更新"
 
 #: src/Backends/SystemUpdate.vala:218
+msgid "System updates couldn't be installed"
+msgstr "未能安裝系統更新"
+
+#: src/Backends/SystemUpdate.vala:219
+msgid "An error occurred while trying to update your system"
+msgstr "嘗試更新您的系統時發生錯誤"
+
+#: src/Backends/UbuntuDrivers.vala:171
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "有可用的驅動程式"
+
+#: src/Backends/UbuntuDrivers.vala:173
+#, c-format
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "您的硬體有 %u 個可用的驅動程式"
+
+#: src/Backends/UbuntuDrivers.vala:247
+msgid "Please restart your system to finalize driver installation"
+msgstr "請重新啟動您的系統來完成安裝驅動程式"
+
+#: src/Backends/UbuntuDrivers.vala:274
+msgid "A driver couldn't be installed"
+msgstr "未能安裝驅動程式"
+
+#: src/Backends/UbuntuDrivers.vala:275
+msgid "An error occurred while trying to install a driver"
+msgstr "嘗試安裝驅動程式時發生錯誤"
+
+#: src/Utils/PkUtils.vala:22
+msgid "Starting"
+msgstr "啟動中"
+
+#: src/Utils/PkUtils.vala:24
+msgid "Waiting"
+msgstr "等待中"
+
+#: src/Utils/PkUtils.vala:26
+msgid "Running"
+msgstr "執行中"
+
+#: src/Utils/PkUtils.vala:28
 msgid "Querying"
-msgstr ""
+msgstr "查詢中"
 
-#: src/Backends/SystemUpdate.vala:220
+#: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr ""
+msgstr "正在取得資訊"
 
-#: src/Backends/SystemUpdate.vala:222
+#: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr ""
+msgstr "正在移除套件"
 
-#: src/Backends/SystemUpdate.vala:224
+#: src/Utils/PkUtils.vala:34
 msgid "Downloading"
-msgstr ""
+msgstr "下載中"
 
-#: src/Backends/SystemUpdate.vala:226
+#: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr ""
+msgstr "正在重新整理軟體列表"
 
-#: src/Backends/SystemUpdate.vala:228
+#: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr ""
+msgstr "正在安裝更新"
 
-#: src/Backends/SystemUpdate.vala:230
+#: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "正在清理套件"
 
-#: src/Backends/SystemUpdate.vala:232
+#: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "正在廢棄套件"
 
-#: src/Backends/SystemUpdate.vala:234
+#: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "正在解決依賴關係"
 
-#: src/Backends/SystemUpdate.vala:236
+#: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr ""
+msgstr "正在檢查簽名"
 
-#: src/Backends/SystemUpdate.vala:238
+#: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr ""
+msgstr "正在測試變更"
 
-#: src/Backends/SystemUpdate.vala:240
+#: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
-msgstr ""
+msgstr "正在提交變更"
 
-#: src/Backends/SystemUpdate.vala:242
+#: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
-msgstr ""
+msgstr "正在請求資料"
 
-#: src/Backends/SystemUpdate.vala:244
+#: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr ""
+msgstr "已完成"
 
-#: src/Backends/SystemUpdate.vala:246
+#: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "正在取消"
 
-#: src/Backends/SystemUpdate.vala:248
+#: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
-msgstr ""
+msgstr "正在下載軟體庫資料"
 
-#: src/Backends/SystemUpdate.vala:250
+#: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "正在下載套件清單"
 
-#: src/Backends/SystemUpdate.vala:252
+#: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr ""
+msgstr "正在下載檔案清單"
 
-#: src/Backends/SystemUpdate.vala:254
+#: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "正在下載變更清單"
 
-#: src/Backends/SystemUpdate.vala:256
+#: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr ""
+msgstr "正在下載群組"
 
-#: src/Backends/SystemUpdate.vala:258
+#: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "正在下載更新資訊"
 
-#: src/Backends/SystemUpdate.vala:260
+#: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr ""
+msgstr "正在重新包裝檔案"
 
-#: src/Backends/SystemUpdate.vala:262
+#: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
-msgstr ""
+msgstr "正在載入快取"
 
-#: src/Backends/SystemUpdate.vala:264
+#: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
-msgstr ""
+msgstr "正在掃描應用程式"
 
-#: src/Backends/SystemUpdate.vala:266
+#: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr ""
+msgstr "正在產生套件清單"
 
-#: src/Backends/SystemUpdate.vala:268
+#: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "正在等待套件管理員鎖定"
 
-#: src/Backends/SystemUpdate.vala:270
+#: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "正在等待認證"
 
-#: src/Backends/SystemUpdate.vala:272
+#: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr ""
+msgstr "正在更新執行中的應用程式"
 
-#: src/Backends/SystemUpdate.vala:274
+#: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr ""
+msgstr "正在檢查使用中的應用程式"
 
-#: src/Backends/SystemUpdate.vala:276
+#: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "正在檢查使用中的函式庫"
 
-#: src/Backends/SystemUpdate.vala:278
+#: src/Utils/PkUtils.vala:88
 msgid "Copying files"
-msgstr ""
+msgstr "正在複製檔案"
 
-#: src/Backends/SystemUpdate.vala:281
+#: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "安裝中"

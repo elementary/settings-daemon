@@ -7,14 +7,24 @@ sources = files(
     'Backends/KeyboardSettings.vala',
     'Backends/MouseSettings.vala',
     'Backends/NightLightSettings.vala',
+    'Backends/PowerProfilesSync.vala',
     'Backends/PrefersColorSchemeSettings.vala',
     'Backends' / 'ScheduleManager' / 'DaylightSchedule.vala',
     'Backends' / 'ScheduleManager' / 'ManualSchedule.vala',
     'Backends' / 'ScheduleManager' / 'Schedule.vala',
     'Backends' / 'ScheduleManager' / 'ScheduleManager.vala',
     'Backends/SystemUpdate.vala',
+    'Utils/PkUtils.vala',
+    'Utils/SessionUtils.vala',
     'Utils/SunriseSunsetCalculator.vala',
 )
+
+args = []
+
+if get_option('ubuntu_drivers')
+    sources += files('Backends/UbuntuDrivers.vala')
+    args += '--define=UBUNTU_DRIVERS'
+endif
 
 executable(
     meson.project_name(),
@@ -31,5 +41,6 @@ executable(
         m_dep,
         pk_dep
     ],
+    vala_args: args,
     install: true,
 )

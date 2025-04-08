@@ -7,17 +7,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2023-08-02 18:08+0000\n"
+"POT-Creation-Date: 2025-02-10 21:42+0000\n"
+"PO-Revision-Date: 2025-02-16 03:16+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/nl/>\n"
+"Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/"
+"settings-daemon/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.9.2\n"
+
+#: data/autostart.desktop:4
+msgid "System Settings"
+msgstr "Systeeminstellingen"
+
+#: data/autostart.desktop:5
+msgid "System Settings background tasks"
+msgstr "Systeeminstellingen achtergrondtaken"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -35,21 +43,70 @@ msgstr ""
 "Synchroniseert instellingen met de greeter en beheert achtergrondtaken zoals "
 "het inplannen van de donkere modus en opschonen."
 
-#: data/settings-daemon.metainfo.xml.in:28
+#: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:37
+#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:118
+#: data/settings-daemon.metainfo.xml.in:138
+msgid "Improvements:"
+msgstr "Verbeteringen:"
+
+#: data/settings-daemon.metainfo.xml.in:39
+msgid "Progress indicators were added to the system update"
+msgstr "Voortgangsindicatoren zijn toegevoegd aan de systeemupdate"
+
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Get correct total size for system updates"
+msgstr "Verkrijg de correcte totale grootte voor systeemupdates"
+
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:113
+#: data/settings-daemon.metainfo.xml.in:132
 msgid "New features:"
 msgstr "Nieuwe functies:"
 
-#: data/settings-daemon.metainfo.xml.in:43
-msgid "Provide accent colors on the settings portal"
-msgstr ""
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Don't automatically download updates on a metered network"
+msgstr "Download niet automatisch updates op een bemeterd netwerk"
 
-#: data/settings-daemon.metainfo.xml.in:44
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:140
+msgid "Updated translations"
+msgstr "Bijgewerkte vertalingen"
+
+#: data/settings-daemon.metainfo.xml.in:70
+msgid "Option to restart or shutdown without installing updates"
+msgstr ""
+"Optie om het systeem opnieuw op te starten of af te sluiten zonder updates "
+"te installeren"
+
+#: data/settings-daemon.metainfo.xml.in:86
+msgid "Handle operating system updates, including automatic updates"
+msgstr "Hanteer besturingssyteem updates, inclusief automatische updates"
+
+#: data/settings-daemon.metainfo.xml.in:87
+msgid "Handle driver installation"
+msgstr "Hanteer stuurprogramma installatie"
+
+#: data/settings-daemon.metainfo.xml.in:88
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr "Verplaats de AccentColorManager van de window manager naar hier"
+
+#: data/settings-daemon.metainfo.xml.in:115
+msgid "Provide accent colors on the settings portal"
+msgstr "Bied accentkleuren op het instellingenportaal"
+
+#: data/settings-daemon.metainfo.xml.in:116
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -57,230 +114,230 @@ msgstr ""
 "Synchroniseer lettertype, muis, toetsenbord, nachtlicht, en sommige "
 "toegankelijkheidsinstellingen naar het login &amp; vergrendelingsscherm"
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:79
-msgid "Improvements:"
-msgstr "Verbeteringen:"
-
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:82
-msgid "Updated translations"
-msgstr "Geüpdatete vertalingen"
-
-#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Add First day of the week setting"
 msgstr "Voeg eerste dag van de week instelling toe"
 
-#: data/settings-daemon.metainfo.xml.in:63
+#: data/settings-daemon.metainfo.xml.in:135
 msgid "Add left-handed mouse click setting"
 msgstr "Voeg linkshandige muisklik instelling toe"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:136
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Schoon Downloads niet op als het ook Thuis is"
 
-#: data/settings-daemon.metainfo.xml.in:77
-msgid "Provide the Settings portal"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:81
-msgid "Remove unused dark style gsettings schema"
-msgstr "Verwijder ongebruikt donkere stijl gsettings schema"
-
-#: data/settings-daemon.metainfo.xml.in:89
-msgid "Initial release"
-msgstr "Eerste release"
-
-#: src/Application.vala:160
+#: src/Application.vala:169
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Firmware update beschikbaar"
 msgstr[1] "Firmware updates beschikbaar"
 
-#: src/Application.vala:162
+#: src/Application.vala:171
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u update is beschikbaar voor uw hardware"
 msgstr[1] "%u updates zijn beschikbaar voor uw hardware"
 
-#: src/Backends/SystemUpdate.vala:124
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
+#: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
-msgstr "Firmware update beschikbaar"
+msgstr "Update beschikbaar"
 
-#: src/Backends/SystemUpdate.vala:128
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
+#: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
-msgstr "Firmware update beschikbaar"
+msgstr "Een systeembeveiligingsupdate is beschikbaar"
 
-#: src/Backends/SystemUpdate.vala:132
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
+#: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
-msgstr "Firmware update beschikbaar"
+msgstr "Een systeemupdate is beschikbaar"
 
-#: src/Backends/SystemUpdate.vala:166
+#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
-msgstr ""
+msgstr "Herstart vereist"
 
-#: src/Backends/SystemUpdate.vala:167
+#: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:189
-msgid "System updates couldn't be installed"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:190
-msgid "An error occurred while trying to update your system"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:212
-msgid "Starting"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:214
-msgid "Waiting"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:216
-msgid "Running"
-msgstr ""
+msgstr "Herstart uw systeem op de updates te voltooien"
 
 #: src/Backends/SystemUpdate.vala:218
+msgid "System updates couldn't be installed"
+msgstr "Systeemupdates konden niet worden geïnstalleerd"
+
+#: src/Backends/SystemUpdate.vala:219
+msgid "An error occurred while trying to update your system"
+msgstr ""
+"Een fout is opgetreden tijdens het installeren van updates op je systeem"
+
+#: src/Backends/UbuntuDrivers.vala:171
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Stuurprogramma beschikbaar"
+msgstr[1] "Stuurprogramma's beschikbaar"
+
+#: src/Backends/UbuntuDrivers.vala:173
+#, c-format
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "%u stuurprogramma is beschikbaar voor uw hardware"
+msgstr[1] "%u stuurprogramma's zijn beschikbaar voor uw hardware"
+
+#: src/Backends/UbuntuDrivers.vala:247
+msgid "Please restart your system to finalize driver installation"
+msgstr "Herstart uw systeem om de stuurprogrammainstallatie te voltooien"
+
+#: src/Backends/UbuntuDrivers.vala:274
+msgid "A driver couldn't be installed"
+msgstr "Een stuurprogramma kon niet worden geïnstalleerd"
+
+#: src/Backends/UbuntuDrivers.vala:275
+msgid "An error occurred while trying to install a driver"
+msgstr "Een fout is opgetreden tijdens het installeren van een stuurprogramma"
+
+#: src/Utils/PkUtils.vala:22
+msgid "Starting"
+msgstr "Starten"
+
+#: src/Utils/PkUtils.vala:24
+msgid "Waiting"
+msgstr "Wacht"
+
+#: src/Utils/PkUtils.vala:26
+msgid "Running"
+msgstr "Lopen"
+
+#: src/Utils/PkUtils.vala:28
 msgid "Querying"
-msgstr ""
+msgstr "Opvragen"
 
-#: src/Backends/SystemUpdate.vala:220
+#: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr ""
+msgstr "Informatie verkrijgen"
 
-#: src/Backends/SystemUpdate.vala:222
+#: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr ""
+msgstr "Pakketten verwijderen"
 
-#: src/Backends/SystemUpdate.vala:224
+#: src/Utils/PkUtils.vala:34
 msgid "Downloading"
-msgstr ""
+msgstr "Downloaden"
 
-#: src/Backends/SystemUpdate.vala:226
+#: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Softwarelijst verversen"
 
-#: src/Backends/SystemUpdate.vala:228
+#: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr ""
+msgstr "Updates installeren"
 
-#: src/Backends/SystemUpdate.vala:230
+#: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Pakketten opschonen"
 
-#: src/Backends/SystemUpdate.vala:232
+#: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "Pakketten afschaffen"
 
-#: src/Backends/SystemUpdate.vala:234
+#: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Afhankelijkheden oplossen"
 
-#: src/Backends/SystemUpdate.vala:236
+#: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr ""
+msgstr "Handtekeningen checken"
 
-#: src/Backends/SystemUpdate.vala:238
+#: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr ""
+msgstr "Veranderingen testen"
 
-#: src/Backends/SystemUpdate.vala:240
+#: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
-msgstr ""
+msgstr "Veranderingen doorvoeren"
 
-#: src/Backends/SystemUpdate.vala:242
+#: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
-msgstr ""
+msgstr "Data opvragen"
 
-#: src/Backends/SystemUpdate.vala:244
+#: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr ""
+msgstr "Voltooid"
 
-#: src/Backends/SystemUpdate.vala:246
+#: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "Annuleer"
 
-#: src/Backends/SystemUpdate.vala:248
+#: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Archiefinformatie downloaden"
 
-#: src/Backends/SystemUpdate.vala:250
+#: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Lijst met pakketten downloaden"
 
-#: src/Backends/SystemUpdate.vala:252
+#: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Bestandlijsten downloaden"
 
-#: src/Backends/SystemUpdate.vala:254
+#: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Lijsten met veranderingen downloaden"
 
-#: src/Backends/SystemUpdate.vala:256
+#: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr ""
+msgstr "Groepen downloaden"
 
-#: src/Backends/SystemUpdate.vala:258
+#: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "Update-informatie downloaden"
 
-#: src/Backends/SystemUpdate.vala:260
+#: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr ""
+msgstr "Bestanden herverpakken"
 
-#: src/Backends/SystemUpdate.vala:262
+#: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
-msgstr ""
+msgstr "Cache laden"
 
-#: src/Backends/SystemUpdate.vala:264
+#: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
-msgstr ""
+msgstr "Applicaties scannen"
 
-#: src/Backends/SystemUpdate.vala:266
+#: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr ""
+msgstr "Pakketlijsten genereren"
 
-#: src/Backends/SystemUpdate.vala:268
+#: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Wachten voor pakketbeheerder slot"
 
-#: src/Backends/SystemUpdate.vala:270
+#: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Wachten op authenticatie"
 
-#: src/Backends/SystemUpdate.vala:272
-#, fuzzy
-#| msgid "Updated translations"
+#: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr "Geüpdatete vertalingen"
+msgstr "Werk draaiende applicaties bij"
 
-#: src/Backends/SystemUpdate.vala:274
+#: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Controleer applicaties in gebruik"
 
-#: src/Backends/SystemUpdate.vala:276
+#: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Controleer bibliotheken in gebruik"
 
-#: src/Backends/SystemUpdate.vala:278
+#: src/Utils/PkUtils.vala:88
 msgid "Copying files"
-msgstr ""
+msgstr "Bestanden kopiëren"
 
-#: src/Backends/SystemUpdate.vala:281
+#: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "Installeren"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Bied het instellingen-portaal aan"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Verwijder ongebruikt donkere stijl gsettings schema"
+
+#~ msgid "Initial release"
+#~ msgstr "Eerste release"

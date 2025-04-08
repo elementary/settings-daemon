@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2021-08-06 17:09+0000\n"
+"POT-Creation-Date: 2025-02-10 21:42+0000\n"
+"PO-Revision-Date: 2024-12-02 15:16+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/desktop/settings-"
 "daemon/fi/>\n"
@@ -17,7 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#: data/autostart.desktop:4
+msgid "System Settings"
+msgstr "Järjestelmän asetukset"
+
+#: data/autostart.desktop:5
+#, fuzzy
+#| msgid "Manage settings and background tasks"
+msgid "System Settings background tasks"
+msgstr "Hallitse asetuksia ja taustalla suoritettavia tehtäviä"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -33,239 +43,287 @@ msgid ""
 "dark style and housekeeping."
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:28
+#: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:75
-msgid "New features:"
+#: data/settings-daemon.metainfo.xml.in:37
+#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:118
+#: data/settings-daemon.metainfo.xml.in:138
+msgid "Improvements:"
+msgstr "Parannukset:"
+
+#: data/settings-daemon.metainfo.xml.in:39
+msgid "Progress indicators were added to the system update"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Get correct total size for system updates"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:113
+#: data/settings-daemon.metainfo.xml.in:132
+msgid "New features:"
+msgstr "Uudet ominaisuudet:"
+
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Don't automatically download updates on a metered network"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:140
+msgid "Updated translations"
+msgstr "Päivitetyt kielikäännökset"
+
+#: data/settings-daemon.metainfo.xml.in:70
+msgid "Option to restart or shutdown without installing updates"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:86
+msgid "Handle operating system updates, including automatic updates"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:87
+msgid "Handle driver installation"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:88
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:115
 msgid "Provide accent colors on the settings portal"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:44
+#: data/settings-daemon.metainfo.xml.in:116
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:79
-msgid "Improvements:"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:82
-msgid "Updated translations"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Add First day of the week setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:63
+#: data/settings-daemon.metainfo.xml.in:135
 msgid "Add left-handed mouse click setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:136
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:77
-msgid "Provide the Settings portal"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:81
-msgid "Remove unused dark style gsettings schema"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:89
-msgid "Initial release"
-msgstr ""
-
-#: src/Application.vala:160
+#: src/Application.vala:169
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Laiteohjelmistopäivitys saatavilla"
+msgstr[1] "Laiteohjelmistopäivityksiä saatavilla"
 
-#: src/Application.vala:162
+#: src/Application.vala:171
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%u päivitys on saatavilla laitteistollesi"
+msgstr[1] "%u päivitystä on saatavilla laitteistollesi"
 
-#: src/Backends/SystemUpdate.vala:124
+#: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
-msgstr ""
+msgstr "Päivitys saatavilla"
 
-#: src/Backends/SystemUpdate.vala:128
+#: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
-msgstr ""
+msgstr "Järjestelmän tietoturvapäivitys on saatavilla"
 
-#: src/Backends/SystemUpdate.vala:132
+#: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
-msgstr ""
+msgstr "Järjestelmäpäivitys on saatavilla"
 
-#: src/Backends/SystemUpdate.vala:166
+#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
-msgstr ""
+msgstr "Uudelleenkäynnistys vaaditaan"
 
-#: src/Backends/SystemUpdate.vala:167
+#: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:189
-msgid "System updates couldn't be installed"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:190
-msgid "An error occurred while trying to update your system"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:212
-msgid "Starting"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:214
-msgid "Waiting"
-msgstr ""
-
-#: src/Backends/SystemUpdate.vala:216
-msgid "Running"
-msgstr ""
+msgstr "Viimeistele päivitykset käynnistämällä järjestelmä uudelleen"
 
 #: src/Backends/SystemUpdate.vala:218
+msgid "System updates couldn't be installed"
+msgstr "Järjestelmäpäivityksiä ei voitu asentaa"
+
+#: src/Backends/SystemUpdate.vala:219
+msgid "An error occurred while trying to update your system"
+msgstr "Järjestelmää päivittäessä tapahtui virhe"
+
+#: src/Backends/UbuntuDrivers.vala:171
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Ajuri saatavilla"
+msgstr[1] "Ajureita saatavilla"
+
+#: src/Backends/UbuntuDrivers.vala:173
+#, c-format
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "%u ajuri on saatavilla laitteistollesi"
+msgstr[1] "%u ajuria on saatavilla laitteistollesi"
+
+#: src/Backends/UbuntuDrivers.vala:247
+msgid "Please restart your system to finalize driver installation"
+msgstr "Viimeistele ajurin asennus käynnistämällä järjestelmä uudelleen"
+
+#: src/Backends/UbuntuDrivers.vala:274
+msgid "A driver couldn't be installed"
+msgstr "Ajuria ei voitu asentaa"
+
+#: src/Backends/UbuntuDrivers.vala:275
+msgid "An error occurred while trying to install a driver"
+msgstr "Ajuria asentaessa tapahtui virhe"
+
+#: src/Utils/PkUtils.vala:22
+msgid "Starting"
+msgstr "Aloitetaan"
+
+#: src/Utils/PkUtils.vala:24
+msgid "Waiting"
+msgstr "Odotetaan"
+
+#: src/Utils/PkUtils.vala:26
+msgid "Running"
+msgstr "Suoritetaan"
+
+#: src/Utils/PkUtils.vala:28
 msgid "Querying"
-msgstr ""
+msgstr "Kysellään"
 
-#: src/Backends/SystemUpdate.vala:220
+#: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr ""
+msgstr "Haetaan tietoa"
 
-#: src/Backends/SystemUpdate.vala:222
+#: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr ""
+msgstr "Poistetaan paketteja"
 
-#: src/Backends/SystemUpdate.vala:224
+#: src/Utils/PkUtils.vala:34
 msgid "Downloading"
-msgstr ""
+msgstr "Ladataan"
 
-#: src/Backends/SystemUpdate.vala:226
+#: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Päivitetään ohjelmistoluetteloa"
 
-#: src/Backends/SystemUpdate.vala:228
+#: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr ""
+msgstr "Asennetaan päivityksiä"
 
-#: src/Backends/SystemUpdate.vala:230
+#: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Siivotaan paketteja"
 
-#: src/Backends/SystemUpdate.vala:232
+#: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:234
+#: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Selvitetään riippuvuuksia"
 
-#: src/Backends/SystemUpdate.vala:236
+#: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr ""
+msgstr "Tarkistetaan allekirjoituksia"
 
-#: src/Backends/SystemUpdate.vala:238
+#: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr ""
+msgstr "Testataan muutoksia"
 
-#: src/Backends/SystemUpdate.vala:240
+#: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:242
+#: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:244
+#: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr ""
+msgstr "Valmis"
 
-#: src/Backends/SystemUpdate.vala:246
+#: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "Perutaan"
 
-#: src/Backends/SystemUpdate.vala:248
+#: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Ladataan ohjelmistovaraston tietoja"
 
-#: src/Backends/SystemUpdate.vala:250
+#: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Ladataan pakettiluetteloa"
 
-#: src/Backends/SystemUpdate.vala:252
+#: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Ladataan tiedostoluetteloita"
 
-#: src/Backends/SystemUpdate.vala:254
+#: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Ladataan muutosluetteloa"
 
-#: src/Backends/SystemUpdate.vala:256
+#: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr ""
+msgstr "Ladataan ryhmiä"
 
-#: src/Backends/SystemUpdate.vala:258
+#: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "Ladataan päivitystietoja"
 
-#: src/Backends/SystemUpdate.vala:260
+#: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr ""
+msgstr "Paketoidaan uudelleen tiedostoja"
 
-#: src/Backends/SystemUpdate.vala:262
+#: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
-msgstr ""
+msgstr "Ladataan välimuistia"
 
-#: src/Backends/SystemUpdate.vala:264
+#: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:266
+#: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr ""
+msgstr "Luodaan pakettiluetteloa"
 
-#: src/Backends/SystemUpdate.vala:268
+#: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Odotetaan pakettihallinnan lukkoa"
 
-#: src/Backends/SystemUpdate.vala:270
+#: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Odotetaan tunnistautumista"
 
-#: src/Backends/SystemUpdate.vala:272
+#: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr ""
+msgstr "Päivitetään käynnissä olevia sovelluksia"
 
-#: src/Backends/SystemUpdate.vala:274
+#: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Tarkistetaan käytössä olevia sovelluksia"
 
-#: src/Backends/SystemUpdate.vala:276
+#: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Tarkistetaan käytössä olevia kirjastoja"
 
-#: src/Backends/SystemUpdate.vala:278
+#: src/Utils/PkUtils.vala:88
 msgid "Copying files"
-msgstr ""
+msgstr "Kopioidaan tiedostoja"
 
-#: src/Backends/SystemUpdate.vala:281
+#: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "Asennetaan"

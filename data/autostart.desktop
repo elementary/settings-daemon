@@ -10,5 +10,6 @@ NoDisplay=true
 StartupNotify=true
 X-GNOME-AutoRestart=true
 X-GNOME-Autostart-Notify=true
-X-GNOME-Autostart-Phase=Initialization
+X-GNOME-Autostart-Phase=Panel
+X-GNOME-UsesNotifications=true
 OnlyShowIn=Pantheon

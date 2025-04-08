@@ -1,6 +1,6 @@
 project('io.elementary.settings-daemon',
     'c', 'vala',
-    version: '1.3.1',
+    version: '8.2.0',
     license: 'GPL3',
     meson_version: '>=0.59.0'
 )
@@ -16,6 +16,10 @@ gexiv2_dep = dependency('gexiv2')
 pk_dep = dependency('packagekit-glib2')
 i18n = import('i18n')
 gettext_name = meson.project_name()
+
+if fwupd_dep.version().version_compare('>=2.0.0')
+    add_project_arguments('--define', 'HAS_FWUPD_2_0', language: 'vala')
+endif
 
 add_project_arguments(
     '-DGETTEXT_PACKAGE="@0@"'.format(gettext_name),
@@ -54,4 +58,7 @@ subdir('po')
 subdir('src')
 subdir('settings-portal')
 
-gnome.post_install(glib_compile_schemas: true, gtk_update_icon_cache: true, update_desktop_database: true)
+gnome.post_install(
+    glib_compile_schemas: true,
+    update_desktop_database: true
+)

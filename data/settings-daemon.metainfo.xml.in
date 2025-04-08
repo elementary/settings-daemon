@@ -25,11 +25,83 @@
   <url type="homepage">https://elementary.io</url>
   <url type="translate">https://l10n.elementary.io/projects/desktop</url>
 
-  <developer_name>elementary, Inc.</developer_name>
+  <developer id="org.elementaryos">
+    <name>elementary, Inc.</name>
+  </developer>
   <project_group>elementary</project_group>
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
+    <release version="8.2.0" date="2025-02-10" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Progress indicators were added to the system update</li>
+          <li>Get correct total size for system updates</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/switchboard-plug-about/issues/342">SystemUpdate: Share last refresh time via DBus</issue>
+        <issue url="https://github.com/elementary/settings-daemon/issues/101">Update fails when it contains kept back packages</issue>
+        <issue url="https://github.com/elementary/settings-daemon/issues/116">AppCenter installs phased updates even if they are held back</issue>
+      </issues>
+    </release>
+    
+    <release version="8.1.1" date="2024-12-12" urgency="medium">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Don't automatically download updates on a metered network</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/settings-daemon/issues/160">System Settings (About) is missing from notifications apps list</issue>
+      </issues>
+    </release>
+
+    <release version="8.1.0" date="2024-08-19" urgency="medium">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Option to restart or shutdown without installing updates</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/gala/issues/956">Legacy decorations should follow dark style</issue>
+      </issues>
+    </release>
+
+    <release version="8.0.0" date="2024-07-25" urgency="medium">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Handle operating system updates, including automatic updates</li>
+          <li>Handle driver installation</li>
+          <li>Move the AccentColorManager from the window manager to here</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/settings-daemon/issues/90">Automatically retract restart notification after restart</issue>
+        <issue url="https://github.com/elementary/settings-daemon/issues/115">Alter notification when updates are security-related</issue>
+        <issue url="https://github.com/elementary/settings-daemon/issues/52">Allow apt updates to be automatically installed</issue>
+        <issue url="https://github.com/elementary/switchboard-plug-power/issues/227">Power profile chosen should be dependent on battery or plugged in mode</issue>
+        <issue url="https://github.com/elementary/settings-daemon/issues/61">Use SystemD for Housekeeping</issue>
+        <issue url="https://github.com/elementary/settings-daemon/issues/148">Doesn't start with session under Wayland</issue>
+      </issues>
+    </release>
+
     <release version="1.3.1" date="2023-07-24" urgency="medium">
       <issues>
         <issue url="https://github.com/elementary/settings-daemon/issues/76">Auto switch to dark theme stopped working</issue>
@@ -70,24 +142,7 @@
       </description>
     </release>
 
-    <release version="1.1.0" date="2021-10-21" urgency="medium">
-      <description>
-        <p>New features:</p>
-        <ul>
-          <li>Provide the Settings portal</li>
-        </ul>
-        <p>Improvements:</p>
-        <ul>
-          <li>Remove unused dark style gsettings schema</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-
-    <release version="1.0.0" date="2021-07-15" urgency="medium">
-      <description>
-        <p>Initial release</p>
-      </description>
-    </release>
+    <release version="1.1.0" date="2021-10-21" />
+    <release version="1.0.0" date="2021-07-15" />
   </releases>
 </component>

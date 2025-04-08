@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-28 22:41+0000\n"
-"PO-Revision-Date: 2024-01-29 04:55+0000\n"
-"Last-Translator: lenemter <lenemter@gmail.com>\n"
+"POT-Creation-Date: 2025-02-10 21:42+0000\n"
+"PO-Revision-Date: 2025-02-12 01:16+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/"
 "settings-daemon/ru/>\n"
 "Language: ru\n"
@@ -18,7 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.9.2\n"
+
+#: data/autostart.desktop:4
+msgid "System Settings"
+msgstr "Параметры системы"
+
+#: data/autostart.desktop:5
+msgid "System Settings background tasks"
+msgstr "Фоновые задачи параметров системы"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -36,21 +44,69 @@ msgstr ""
 "Синхронизирует настройки для экрана приветствия и управляет фоновыми "
 "задачами, такими как планирование тёмного режима и домоводства."
 
-#: data/settings-daemon.metainfo.xml.in:28
+#: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings-daemon.metainfo.xml.in:41
-#: data/settings-daemon.metainfo.xml.in:60
-#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:37
+#: data/settings-daemon.metainfo.xml.in:56
+#: data/settings-daemon.metainfo.xml.in:72
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:118
+#: data/settings-daemon.metainfo.xml.in:138
+msgid "Improvements:"
+msgstr "Улучшения:"
+
+#: data/settings-daemon.metainfo.xml.in:39
+msgid "Progress indicators were added to the system update"
+msgstr "Добавлены индикаторы прогресса обновления системы"
+
+#: data/settings-daemon.metainfo.xml.in:40
+msgid "Get correct total size for system updates"
+msgstr "Корректный общий размер системных обновлений"
+
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:68
+#: data/settings-daemon.metainfo.xml.in:84
+#: data/settings-daemon.metainfo.xml.in:113
+#: data/settings-daemon.metainfo.xml.in:132
 msgid "New features:"
 msgstr "Новые возможности:"
 
-#: data/settings-daemon.metainfo.xml.in:43
+#: data/settings-daemon.metainfo.xml.in:54
+msgid "Don't automatically download updates on a metered network"
+msgstr ""
+"Обновления больше не загружаются автоматически при лимитном подключении"
+
+#: data/settings-daemon.metainfo.xml.in:58
+#: data/settings-daemon.metainfo.xml.in:74
+#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:140
+msgid "Updated translations"
+msgstr "Обновлены переводы"
+
+#: data/settings-daemon.metainfo.xml.in:70
+msgid "Option to restart or shutdown without installing updates"
+msgstr "Опция перезагрузки или выключения без установки обновлений"
+
+#: data/settings-daemon.metainfo.xml.in:86
+msgid "Handle operating system updates, including automatic updates"
+msgstr "Управление обновлениями ОС, включая автоматические обновления"
+
+#: data/settings-daemon.metainfo.xml.in:87
+msgid "Handle driver installation"
+msgstr "Управление установкой драйверов"
+
+#: data/settings-daemon.metainfo.xml.in:88
+msgid "Move the AccentColorManager from the window manager to here"
+msgstr "Перенос AccentColorManager сюда из оконного менеджера"
+
+#: data/settings-daemon.metainfo.xml.in:115
 msgid "Provide accent colors on the settings portal"
 msgstr "Доступ к акцентным цветам через портал настроек"
 
-#: data/settings-daemon.metainfo.xml.in:44
+#: data/settings-daemon.metainfo.xml.in:116
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -58,50 +114,26 @@ msgstr ""
 "Синхронизация шрифта, настроек мыши, клавиатуры, ночного света и некоторых "
 "настроек специальных возможностей с Экраном входа и блокировки"
 
-#: data/settings-daemon.metainfo.xml.in:46
-#: data/settings-daemon.metainfo.xml.in:66
-#: data/settings-daemon.metainfo.xml.in:79
-msgid "Improvements:"
-msgstr "Улучшения:"
-
-#: data/settings-daemon.metainfo.xml.in:48
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:82
-msgid "Updated translations"
-msgstr "Обновлены переводы"
-
-#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:134
 msgid "Add First day of the week setting"
 msgstr "Добавлен параметр \"Первый день недели\""
 
-#: data/settings-daemon.metainfo.xml.in:63
+#: data/settings-daemon.metainfo.xml.in:135
 msgid "Add left-handed mouse click setting"
 msgstr "Добавлен параметр для мышей для левшей"
 
-#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:136
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Загрузки теперь не очищаются, если это домашняя директория"
 
-#: data/settings-daemon.metainfo.xml.in:77
-msgid "Provide the Settings portal"
-msgstr "Добавлен портал настроек"
-
-#: data/settings-daemon.metainfo.xml.in:81
-msgid "Remove unused dark style gsettings schema"
-msgstr "Удалена неиспользуемая схема gsettings для тёмного стиля"
-
-#: data/settings-daemon.metainfo.xml.in:89
-msgid "Initial release"
-msgstr "Начальный выпуск"
-
-#: src/Application.vala:160
+#: src/Application.vala:169
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Доступно обновление прошивки"
 msgstr[1] "Доступны обновления прошивки"
 msgstr[2] "Доступны обновления прошивки"
 
-#: src/Application.vala:162
+#: src/Application.vala:171
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
@@ -109,170 +141,206 @@ msgstr[0] "Для вашего оборудования доступно %u об
 msgstr[1] "Для вашего оборудования доступно %u обновления"
 msgstr[2] "Для вашего оборудования доступно %u обновлений"
 
-#: src/Backends/SystemUpdate.vala:124
+#: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
 msgstr "Доступны обновления"
 
-#: src/Backends/SystemUpdate.vala:128
+#: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
 msgstr "Доступны обновления безопасности"
 
-#: src/Backends/SystemUpdate.vala:132
+#: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
 msgstr "Доступны обновления системы"
 
-#: src/Backends/SystemUpdate.vala:166
+#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
 msgstr "Необходима перезагрузка"
 
-#: src/Backends/SystemUpdate.vala:167
+#: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
 msgstr "Перезагрузите систему, чтобы завершить установку обновлений"
 
-#: src/Backends/SystemUpdate.vala:189
+#: src/Backends/SystemUpdate.vala:218
 msgid "System updates couldn't be installed"
 msgstr "Не удалось установить обновления системы"
 
-#: src/Backends/SystemUpdate.vala:190
+#: src/Backends/SystemUpdate.vala:219
 msgid "An error occurred while trying to update your system"
 msgstr "Во время обновления системы произошла ошибка"
 
-#: src/Backends/SystemUpdate.vala:212
+#: src/Backends/UbuntuDrivers.vala:171
+msgid "Driver Available"
+msgid_plural "Drivers Available"
+msgstr[0] "Доступен драйвер"
+msgstr[1] "Доступны драйверы"
+msgstr[2] "Доступны драйверы"
+
+#: src/Backends/UbuntuDrivers.vala:173
+#, c-format
+msgid "%u driver is available for your hardware"
+msgid_plural "%u drivers are available for your hardware"
+msgstr[0] "Для вашего оборудования доступен %u драйвер"
+msgstr[1] "Для вашего оборудования доступно %u драйвера"
+msgstr[2] "Для вашего оборудования доступно %u драйверов"
+
+#: src/Backends/UbuntuDrivers.vala:247
+msgid "Please restart your system to finalize driver installation"
+msgstr "Перезагрузите систему, чтобы завершить установку драйвера"
+
+#: src/Backends/UbuntuDrivers.vala:274
+msgid "A driver couldn't be installed"
+msgstr "Не удалось установить драйвер"
+
+#: src/Backends/UbuntuDrivers.vala:275
+msgid "An error occurred while trying to install a driver"
+msgstr "Во время установки драйвера произошла ошибка"
+
+#: src/Utils/PkUtils.vala:22
 msgid "Starting"
 msgstr "Запуск"
 
-#: src/Backends/SystemUpdate.vala:214
+#: src/Utils/PkUtils.vala:24
 msgid "Waiting"
 msgstr "Ожидание"
 
-#: src/Backends/SystemUpdate.vala:216
+#: src/Utils/PkUtils.vala:26
 msgid "Running"
 msgstr "В процессе"
 
-#: src/Backends/SystemUpdate.vala:218
+#: src/Utils/PkUtils.vala:28
 msgid "Querying"
 msgstr "Получение данных"
 
-#: src/Backends/SystemUpdate.vala:220
+#: src/Utils/PkUtils.vala:30
 msgid "Getting information"
 msgstr "Загрузка информации"
 
-#: src/Backends/SystemUpdate.vala:222
+#: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
 msgstr "Удаление пакетов"
 
-#: src/Backends/SystemUpdate.vala:224
+#: src/Utils/PkUtils.vala:34
 msgid "Downloading"
 msgstr "Загрузка"
 
-#: src/Backends/SystemUpdate.vala:226
+#: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
 msgstr "Обновление списка приложений"
 
-#: src/Backends/SystemUpdate.vala:228
+#: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
 msgstr "Установка обновлений"
 
-#: src/Backends/SystemUpdate.vala:230
+#: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
 msgstr "Очистка пакетов"
 
-#: src/Backends/SystemUpdate.vala:232
+#: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
 msgstr "Удаление пакетов"
 
-#: src/Backends/SystemUpdate.vala:234
+#: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
 msgstr "Разрешение зависимостей"
 
-#: src/Backends/SystemUpdate.vala:236
+#: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
 msgstr "Проверка подписей"
 
-#: src/Backends/SystemUpdate.vala:238
+#: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
 msgstr "Проверка изменений"
 
-#: src/Backends/SystemUpdate.vala:240
+#: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
 msgstr "Подтверждение изменений"
 
-#: src/Backends/SystemUpdate.vala:242
+#: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
 msgstr "Запрос данных"
 
-#: src/Backends/SystemUpdate.vala:244
+#: src/Utils/PkUtils.vala:54
 msgid "Finished"
 msgstr "Завершено"
 
-#: src/Backends/SystemUpdate.vala:246
+#: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
 msgstr "Отмена"
 
-#: src/Backends/SystemUpdate.vala:248
+#: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
 msgstr "Загрузка информации о репозитории"
 
-#: src/Backends/SystemUpdate.vala:250
+#: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
 msgstr "Загрузка списка пакетов"
 
-#: src/Backends/SystemUpdate.vala:252
+#: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
 msgstr "Загрузка списка файлов"
 
-#: src/Backends/SystemUpdate.vala:254
+#: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
 msgstr "Загрузка списка изменений"
 
-#: src/Backends/SystemUpdate.vala:256
+#: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
 msgstr "Загрузка групп"
 
-#: src/Backends/SystemUpdate.vala:258
+#: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
 msgstr "Загрузка информации об обновлении"
 
-#: src/Backends/SystemUpdate.vala:260
+#: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
 msgstr "Перепаковка файлов"
 
-#: src/Backends/SystemUpdate.vala:262
+#: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
 msgstr "Загрузка кэша"
 
-#: src/Backends/SystemUpdate.vala:264
+#: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
 msgstr "Сканирование приложений"
 
-#: src/Backends/SystemUpdate.vala:266
+#: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
 msgstr "Создание списка пакетов"
 
-#: src/Backends/SystemUpdate.vala:268
+#: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
 msgstr "Ожидание блокировки менеджера пакетов"
 
-#: src/Backends/SystemUpdate.vala:270
+#: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
 msgstr "Ожидание аутентификации"
 
-#: src/Backends/SystemUpdate.vala:272
+#: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
 msgstr "Обновление запущенных приложений"
 
-#: src/Backends/SystemUpdate.vala:274
+#: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
 msgstr "Проверка запущенных приложений"
 
-#: src/Backends/SystemUpdate.vala:276
+#: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
 msgstr "Проверка используемых библиотек"
 
-#: src/Backends/SystemUpdate.vala:278
+#: src/Utils/PkUtils.vala:88
 msgid "Copying files"
 msgstr "Копирование файлов"
 
-#: src/Backends/SystemUpdate.vala:281
+#: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Установка"
+
+#~ msgid "Provide the Settings portal"
+#~ msgstr "Добавлен портал настроек"
+
+#~ msgid "Remove unused dark style gsettings schema"
+#~ msgstr "Удалена неиспользуемая схема gsettings для тёмного стиля"
+
+#~ msgid "Initial release"
+#~ msgstr "Начальный выпуск"
