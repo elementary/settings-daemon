@@ -16,34 +16,23 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
 
     construct {
         foreach (var parsed_schedule in (Schedule.Parsed[]) settings.get_value ("schedules")) {
-            create_schedule_internal (parsed_schedule);
+            add_schedule (parsed_schedule);
         }
     }
 
-    private void create_schedule_internal (Schedule.Parsed parsed) {
-        if (parsed.name in schedules) {
-            warning ("Schedule with the same name already exists");
-            return;
-        }
+    private void add_schedule (Schedule.Parsed parsed) {
+        var schedule = new Schedule (parsed);
 
-        switch (parsed.type) {
-            case MANUAL:
-                add_schedule (new ManualSchedule.from_parsed (parsed));
-                break;
-            case DAYLIGHT:
-                add_schedule (new DaylightSchedule.from_parsed (parsed));
-                break;
-            default:
-                break;
-        }
+        schedule.notify["active"].connect ((obj, pspec) => schedule_active_changed ((Schedule) obj));
+        schedule_active_changed (schedule);
 
-        save_schedules ();
+        schedules[schedule.id] = schedule;
     }
 
     public Schedule.Parsed[] list_schedules () throws DBusError, IOError {
         Schedule.Parsed[] parsed_schedules = {};
         foreach (var schedule in schedules.get_values ()) {
-            parsed_schedules += schedule.get_parsed ();
+            parsed_schedules += schedule.parsed;
         }
 
         return parsed_schedules;
@@ -51,10 +40,10 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
 
     public void update_schedule (Schedule.Parsed parsed) throws DBusError, IOError {
         if (parsed.id in schedules) {
-            schedules.remove (parsed.id);
+            schedules[parsed.id].parsed = parsed;
+        } else {
+            add_schedule (parsed);
         }
-
-        create_schedule_internal (parsed);
 
         save_schedules ();
     }
@@ -67,13 +56,6 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
         schedules.remove (id);
 
         save_schedules ();
-    }
-
-    private void add_schedule (Schedule schedule) {
-        schedule.notify["active"].connect (() => schedule_active_changed (schedule));
-        schedule_active_changed (schedule);
-
-        schedules[schedule.id] = schedule;
     }
 
     private void schedule_active_changed (Schedule schedule) {
@@ -108,7 +90,7 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private void save_schedules () {
         Schedule.Parsed[] parsed_schedules = {};
         foreach (var schedule in schedules.get_values ()) {
-            parsed_schedules += schedule.get_parsed ();
+            parsed_schedules += schedule.parsed;
         }
 
         settings.set_value ("schedules", parsed_schedules);

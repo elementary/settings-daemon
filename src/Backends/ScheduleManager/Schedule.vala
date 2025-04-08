@@ -14,26 +14,27 @@ public class SettingsDaemon.Backends.Schedule : Object {
         HashTable<string, Variant> inactive_settings;
     }
 
-    public string id { get; protected set; }
-    public Type schedule_type { get; construct set; }
-    public string name { get; protected set; }
-    public bool enabled { get; protected set; default = true; }
-    public bool active { get; protected set; default = false; }
-    public HashTable<string, Variant> active_settings { get; private set; }
-    public HashTable<string, Variant> inactive_settings { get; private set; } //Inactive settings should usually be !active_settings but can also be e.g. a default wallpaper path
+    public Parsed parsed { get; construct set; }
 
-    public Schedule () {
-        id = Uuid.string_random ();
-        active_settings = new HashTable<string, Variant> (str_hash, str_equal);
-        inactive_settings = new HashTable<string, Variant> (str_hash, str_equal);
+    public string id { get { return parsed.id; } }
+    public Type schedule_type { get { return parsed.type; } }
+    public string name { get { return parsed.name; } }
+    public bool enabled { get { return parsed.enabled; } }
+    public HashTable<string, Variant> args { get { return parsed.args; } }
+    public HashTable<string, Variant> active_settings { get { return parsed.active_settings; } }
+    public HashTable<string, Variant> inactive_settings { get { return parsed.inactive_settings; } } //Inactive settings should usually be !active_settings but can also be e.g. a default wallpaper path
+
+    public bool active { get; protected set; default = false; }
+
+    private TimeTracker time_tracker;
+
+    public Schedule (Parsed parsed) {
+        Object (parsed: parsed);
     }
 
-    public Schedule.from_parsed (Parsed parsed) {
-        id = parsed.id;
-        name = parsed.name;
-        enabled = parsed.enabled;
-        active_settings = parsed.active_settings;
-        inactive_settings = parsed.inactive_settings;
+    construct {
+        time_tracker = new TimeTracker ();
+        Timeout.add (1000, time_callback);
     }
 
     /* Convenience method to add the same boolean inverted to inactive settings */
@@ -42,26 +43,22 @@ public class SettingsDaemon.Backends.Schedule : Object {
         inactive_settings[key] = !val;
     }
 
-    public Parsed get_parsed () {
-        Parsed result = {
-            id,
-            schedule_type,
-            name,
-            enabled,
-            get_private_args (),
-            active_settings,
-            inactive_settings
-        };
-        return result;
-    }
+    private bool time_callback () {
+        bool is_in = false;
+        switch (schedule_type) {
+            case MANUAL:
+                is_in = time_tracker.is_in_time_window_manual (args["from"].get_double (), args["to"].get_double ());
+                break;
 
-    public virtual void update (Schedule.Parsed parsed) {
-        enabled = parsed.enabled;
-        active_settings = parsed.active_settings;
-        inactive_settings = parsed.inactive_settings;
-    }
+            case DAYLIGHT:
+                is_in = time_tracker.is_in_time_window_daylight ();
+                break;
+        }
 
-    protected virtual HashTable<string, Variant> get_private_args () {
-        return new HashTable<string, Variant> (str_hash, str_equal);
+        if (active != is_in) {
+            active = is_in;
+        }
+
+        return Source.CONTINUE;
     }
 }

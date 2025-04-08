@@ -1,30 +1,17 @@
-public class SettingsDaemon.Backends.DaylightSchedule : Schedule {
+[SingleInstance]
+public class SettingsDaemon.Backends.TimeTracker : Object {
+    private GClue.Simple simple;
+
     private double sunrise = 6.0;
     private double sunset = 20.0;
 
-    public DaylightSchedule.from_parsed (Parsed parsed) {
-        base.from_parsed (parsed);
-    }
-
     construct {
-        schedule_type = DAYLIGHT;
         get_location.begin ();
-        Timeout.add (1000, time_callback);
-    }
-
-    private bool time_callback () {
-        var is_in = is_in_time_window ();
-
-        if (active != is_in) {
-            active = is_in;
-        }
-
-        return Source.CONTINUE;
     }
 
     private async void get_location () {
         try {
-            var simple = yield new GClue.Simple (Build.PROJECT_NAME, GClue.AccuracyLevel.CITY, null);
+            simple = yield new GClue.Simple (Build.PROJECT_NAME, GClue.AccuracyLevel.CITY, null);
 
             simple.notify["location"].connect (() => {
                 on_location_updated (simple.location.latitude, simple.location.longitude);
@@ -46,7 +33,7 @@ public class SettingsDaemon.Backends.DaylightSchedule : Schedule {
         }
     }
 
-    private bool is_in_time_window () {
+    public bool is_in_time_window_daylight () {
         var date_time = new DateTime.now_local ();
         double time_double = 0;
         time_double += date_time.get_hour ();
@@ -59,5 +46,20 @@ public class SettingsDaemon.Backends.DaylightSchedule : Schedule {
 
         // AM to AM, PM to PM, AM to PM
         return (time_double >= sunset && time_double <= sunrise);
+    }
+
+    public bool is_in_time_window_manual (double from, double to) {
+        var date_time = new DateTime.now_local ();
+        double time_double = 0;
+        time_double += date_time.get_hour ();
+        time_double += (double) date_time.get_minute () / 60;
+
+        // PM to AM
+        if (from > to) {
+            return time_double < to ? time_double <= from : time_double >= from;
+        }
+
+        // AM to AM, PM to PM, AM to PM
+        return (time_double >= from && time_double <= to);
     }
 }
