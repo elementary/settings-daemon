@@ -1,11 +1,11 @@
 [DBus (name="io.elementary.settings_daemon.ScheduleManager")]
 public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
-    private const string NIGHT_LIGHT = "night-light";
     private const string DARK_MODE = "dark-mode";
     private const string DND = "dnd";
     private const string MONOCHROME = "monochrome";
 
     private static Settings settings = new Settings ("io.elementary.settings-daemon.schedules");
+    private static Settings interface_settings = new Settings ("org.gnome.desktop.interface");
     private static Settings dnd_settings = new Settings ("io.elementary.notifications");
     private static Settings monochrome_settings = new Settings ("io.elementary.desktop.wm.accessibility");
 
@@ -71,13 +71,12 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private void apply_settings (HashTable<string, Variant> settings) {
         foreach (var key in settings.get_keys ()) {
             switch (key) {
-                case NIGHT_LIGHT:
-                    //TODO
-                    break;
                 case DARK_MODE:
+                    var scheme = ((bool) settings[DARK_MODE]) ? Granite.Settings.ColorScheme.DARK : Granite.Settings.ColorScheme.LIGHT;
                     if (pantheon_service != null) {
-                        pantheon_service.prefers_color_scheme = ((bool) settings[DARK_MODE]) ? Granite.Settings.ColorScheme.DARK : Granite.Settings.ColorScheme.LIGHT;
+                        pantheon_service.prefers_color_scheme = scheme;
                     }
+                    interface_settings.set_enum ("color-scheme", scheme);
                     break;
                 case DND:
                     dnd_settings.set_boolean ("do-not-disturb", (bool) settings[DND]);
@@ -86,6 +85,7 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
                     monochrome_settings.set_boolean ("enable-monochrome-filter", (bool) settings[MONOCHROME]);
                     break;
                 default:
+                    warning ("Tried to apply unknown setting: %s", key);
                     break;
             }
         }
