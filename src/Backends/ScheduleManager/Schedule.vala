@@ -14,7 +14,16 @@ public class SettingsDaemon.Backends.Schedule : Object {
         HashTable<string, Variant> inactive_settings;
     }
 
-    public Parsed parsed { get; construct set; }
+    public signal void apply_settings (HashTable<string, Variant> settings);
+
+    private Parsed _parsed;
+    public Parsed parsed {
+        get { return _parsed; }
+        set {
+            _parsed = value;
+            dirty = true;
+        }
+    }
 
     public string id { get { return parsed.id; } }
     public Type schedule_type { get { return parsed.type; } }
@@ -24,9 +33,9 @@ public class SettingsDaemon.Backends.Schedule : Object {
     public HashTable<string, Variant> active_settings { get { return parsed.active_settings; } }
     public HashTable<string, Variant> inactive_settings { get { return parsed.inactive_settings; } } //Inactive settings should usually be !active_settings but can also be e.g. a default wallpaper path
 
-    public bool active { get; protected set; default = false; }
-
     private TimeTracker time_tracker;
+    private bool active = false;
+    private bool dirty = false;
 
     public Schedule (Parsed parsed) {
         Object (parsed: parsed);
@@ -35,12 +44,6 @@ public class SettingsDaemon.Backends.Schedule : Object {
     construct {
         time_tracker = new TimeTracker ();
         Timeout.add (1000, time_callback);
-    }
-
-    /* Convenience method to add the same boolean inverted to inactive settings */
-    public void add_boolean (string key, bool val) {
-        active_settings[key] = val;
-        inactive_settings[key] = !val;
     }
 
     private bool time_callback () {
@@ -57,8 +60,12 @@ public class SettingsDaemon.Backends.Schedule : Object {
                 break;
         }
 
-        if (active != is_in) {
+        if (dirty || active != is_in) {
+            dirty = false;
             active = is_in;
+            if (enabled) {
+                apply_settings (active ? active_settings : inactive_settings);
+            }
         }
 
         return Source.CONTINUE;

@@ -29,8 +29,7 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private void add_schedule (Schedule.Parsed parsed) {
         var schedule = new Schedule (parsed);
 
-        schedule.notify["active"].connect ((obj, pspec) => schedule_active_changed ((Schedule) obj));
-        schedule_active_changed (schedule);
+        schedule.apply_settings.connect (apply_settings);
 
         schedules[schedule.id] = schedule;
         schedules_list.append (schedule);
@@ -69,13 +68,7 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
         save_schedules ();
     }
 
-    private void schedule_active_changed (Schedule schedule) {
-        if (schedule.enabled) {
-            activate_settings (schedule.active ? schedule.active_settings : schedule.inactive_settings);
-        }
-    }
-
-    private void activate_settings (HashTable<string, Variant> settings) {
+    private void apply_settings (HashTable<string, Variant> settings) {
         foreach (var key in settings.get_keys ()) {
             switch (key) {
                 case NIGHT_LIGHT:
