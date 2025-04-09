@@ -47,7 +47,9 @@ public class SettingsDaemon.Backends.Schedule : Object {
         bool is_in = false;
         switch (schedule_type) {
             case MANUAL:
-                is_in = time_tracker.is_in_time_window_manual (args["from"].get_double (), args["to"].get_double ());
+                if ("from" in args && "to" in args) {
+                    is_in = time_tracker.is_in_time_window_manual (args["from"].get_double (), args["to"].get_double ());
+                }
                 break;
 
             case DAYLIGHT:
