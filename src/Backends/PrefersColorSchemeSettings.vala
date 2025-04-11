@@ -22,6 +22,8 @@
 public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     public unowned Pantheon.AccountsService accounts_service { get; construct; }
 
+    private const string COLOR_SCHEME = "color-scheme";
+
     private Settings color_settings;
     private double sunrise = -1.0;
     private double sunset = -1.0;
@@ -42,6 +44,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         }
 
         color_settings.changed["prefer-dark-schedule"].connect (update_timer);
+        color_settings.changed[COLOR_SCHEME].connect (update_color_scheme);
 
         update_timer ();
     }
@@ -118,14 +121,11 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
             new_color_scheme = Granite.Settings.ColorScheme.DARK;
         }
 
-        if (new_color_scheme == accounts_service.prefers_color_scheme) {
+        if (new_color_scheme == color_settings.get_enum (COLOR_SCHEME)) {
             return true;
         }
 
-        accounts_service.prefers_color_scheme = new_color_scheme;
-
-        var mutter_settings = new GLib.Settings ("org.gnome.desktop.interface");
-        mutter_settings.set_enum ("color-scheme", new_color_scheme);
+        color_settings.set_enum (COLOR_SCHEME, new_color_scheme);
 
         return true;
     }
@@ -139,6 +139,15 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
             sunrise = _sunrise;
             sunset = _sunset;
         }
+    }
+
+    private void update_color_scheme () {
+        var color_scheme = color_settings.get_enum (COLOR_SCHEME);
+
+        accounts_service.prefers_color_scheme = color_scheme;
+
+        var mutter_settings = new GLib.Settings ("org.gnome.desktop.interface");
+        mutter_settings.set_enum ("color-scheme", color_scheme);
     }
 
     public static bool is_in_time_window (double time_double, double from, double to) {
