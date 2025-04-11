@@ -23,6 +23,8 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     public unowned Pantheon.AccountsService accounts_service { get; construct; }
 
     private const string COLOR_SCHEME = "color-scheme";
+    private const string DARK_SCHEDULE = "prefer-dark-schedule";
+    private const string DARK_SCHEDULE_SNOOZED = "prefer-dark-schedule-snoozed";
 
     private Settings color_settings;
     private double sunrise = -1.0;
@@ -37,20 +39,20 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     construct {
         color_settings = new Settings ("io.elementary.settings-daemon.prefers-color-scheme");
 
-        var schedule = color_settings.get_string ("prefer-dark-schedule");
+        var schedule = color_settings.get_string (DARK_SCHEDULE);
         if (schedule == "sunset-to-sunrise") {
             var variant = color_settings.get_value ("last-coordinates");
             on_location_updated (variant.get_child_value (0).get_double (), variant.get_child_value (1).get_double ());
         }
 
-        color_settings.changed["prefer-dark-schedule"].connect (update_timer);
+        color_settings.changed[DARK_SCHEDULE].connect (update_timer);
         color_settings.changed[COLOR_SCHEME].connect (update_color_scheme);
 
         update_timer ();
     }
 
     private void update_timer () {
-        var schedule = color_settings.get_string ("prefer-dark-schedule");
+        var schedule = color_settings.get_string (DARK_SCHEDULE);
 
         if (schedule == "sunset-to-sunrise") {
             get_location.begin ();
@@ -59,6 +61,7 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         } else if (schedule == "manual") {
             start_timer ();
         } else {
+            color_settings.set_boolean (DARK_SCHEDULE_SNOOZED, false);
             stop_timer ();
         }
     }
@@ -94,40 +97,22 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     }
 
     private bool time_callback () {
-        var schedule = color_settings.get_string ("prefer-dark-schedule");
-
-        var now = new DateTime.now_local ();
-        double from, to;
-        if (schedule == "sunset-to-sunrise") {
-            if (sunrise >= 0 && sunset >= 0) {
-                from = sunset;
-                to = sunrise;
-            } else {
-                // fallback times (6AM and 8PM) for when an invalid result was returned
-                // from the calculation (i.e. probably wasn't able to get a location)
-                from = 20.0;
-                to = 6.0;
-            }
-        } else if (schedule == "manual") {
-            from = color_settings.get_double ("prefer-dark-schedule-from");
-            to = color_settings.get_double ("prefer-dark-schedule-to");
-        } else {
-            return true;
-        }
-
-        var is_in = is_in_time_window (date_time_double (now), from, to);
         var new_color_scheme = Granite.Settings.ColorScheme.NO_PREFERENCE;
-        if (is_in) {
+        if (is_in_schedule ()) {
             new_color_scheme = Granite.Settings.ColorScheme.DARK;
         }
 
         if (new_color_scheme == color_settings.get_enum (COLOR_SCHEME)) {
+            color_settings.set_boolean (DARK_SCHEDULE_SNOOZED, false);
             return true;
         }
 
-        color_settings.set_enum (COLOR_SCHEME, new_color_scheme);
+        if (!color_settings.get_boolean (DARK_SCHEDULE_SNOOZED)) {
+            color_settings.set_enum (COLOR_SCHEME, new_color_scheme);
+            return true;
+        };
 
-        return true;
+        return GLib.Source.CONTINUE;
     }
 
     private void on_location_updated (double latitude, double longitude) {
@@ -143,11 +128,36 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
 
     private void update_color_scheme () {
         var color_scheme = color_settings.get_enum (COLOR_SCHEME);
+        if (
+            color_scheme == Granite.Settings.ColorScheme.DARK && !is_in_schedule () ||
+            color_scheme != Granite.Settings.ColorScheme.DARK && is_in_schedule ()
+        ) {
+            color_settings.set_boolean (DARK_SCHEDULE_SNOOZED, true);
+        }
 
         accounts_service.prefers_color_scheme = color_scheme;
 
         var mutter_settings = new GLib.Settings ("org.gnome.desktop.interface");
         mutter_settings.set_enum ("color-scheme", color_scheme);
+    }
+
+    private bool is_in_schedule () {
+        var schedule = color_settings.get_string (DARK_SCHEDULE);
+
+        // fallback times (6AM and 8PM) for when an invalid result was returned
+        // from the calculation (i.e. probably wasn't able to get a location)
+        double from = 20.0;
+        double to = 6.0;
+        if (schedule == "sunset-to-sunrise" && sunrise >= 0 && sunset >= 0) {
+            from = sunset;
+            to = sunrise;
+        } else if (schedule == "manual") {
+            from = color_settings.get_double ("prefer-dark-schedule-from");
+            to = color_settings.get_double ("prefer-dark-schedule-to");
+        }
+
+        var now = new DateTime.now_local ();
+        return is_in_time_window (date_time_double (now), from, to);
     }
 
     public static bool is_in_time_window (double time_double, double from, double to) {

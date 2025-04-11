@@ -33,6 +33,11 @@
       <summary>The stop time</summary>
       <description></description>
     </key>
+    <key type="b" name="prefer-dark-schedule-snoozed">
+      <default>false</default>
+      <summary>Snooze Dark Schedule</summary>
+      <description>True if color scheme was changed during the dark mode schedule. Does nothing if set directly.</description>
+    </key>
     <key type="(dd)" name="last-coordinates">
       <default>(91,181)</default>
       <summary>The last detected position</summary>
