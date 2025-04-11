@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
+  <enum id="ColorScheme">
+    <value nick='no-preference' value='0'/>
+    <value nick='prefer-dark' value='1'/>
+    <value nick='prefer-light' value='2'/>
+  </enum>
+
   <enum id="PreferDarkScheduleType">
     <value nick='disabled' value='0'/>
     <value nick='sunset-to-sunrise' value='1'/>
@@ -7,6 +13,11 @@
   </enum>
 
   <schema path="/io/elementary/settings-daemon/prefers-color-scheme/" id="io.elementary.settings-daemon.prefers-color-scheme">
+    <key enum="ColorScheme" name="color-scheme">
+      <default>'no-preference'</default>
+      <summary>Color Scheme</summary>
+      <description>The preferred color scheme for the user interface. Valid values are “no-preference”, “prefer-dark”, “prefer-light”.</description>
+    </key>
     <key enum="PreferDarkScheduleType" name="prefer-dark-schedule">
       <default>'disabled'</default>
       <summary>Algorithm for prefer dark schedule</summary>
