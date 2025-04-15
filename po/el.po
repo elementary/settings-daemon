@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 21:42+0000\n"
+"POT-Creation-Date: 2025-04-15 15:48+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/desktop/settings-"
@@ -46,77 +46,79 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:56
-#: data/settings-daemon.metainfo.xml.in:72
-#: data/settings-daemon.metainfo.xml.in:90
-#: data/settings-daemon.metainfo.xml.in:118
-#: data/settings-daemon.metainfo.xml.in:138
+#: data/settings-daemon.metainfo.xml.in:50
+#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
+#: data/settings-daemon.metainfo.xml.in:103
+#: data/settings-daemon.metainfo.xml.in:131
+#: data/settings-daemon.metainfo.xml.in:151
 msgid "Improvements:"
 msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Progress indicators were added to the system update"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:40
-msgid "Get correct total size for system updates"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:52
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:84
-#: data/settings-daemon.metainfo.xml.in:113
-#: data/settings-daemon.metainfo.xml.in:132
-msgid "New features:"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:54
-msgid "Don't automatically download updates on a metered network"
-msgstr ""
-
-#: data/settings-daemon.metainfo.xml.in:58
-#: data/settings-daemon.metainfo.xml.in:74
-#: data/settings-daemon.metainfo.xml.in:92
-#: data/settings-daemon.metainfo.xml.in:120
-#: data/settings-daemon.metainfo.xml.in:140
+#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:105
+#: data/settings-daemon.metainfo.xml.in:133
+#: data/settings-daemon.metainfo.xml.in:153
 msgid "Updated translations"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:70
+#: data/settings-daemon.metainfo.xml.in:52
+msgid "Progress indicators were added to the system update"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:53
+msgid "Get correct total size for system updates"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:65
+#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:97
+#: data/settings-daemon.metainfo.xml.in:126
+#: data/settings-daemon.metainfo.xml.in:145
+msgid "New features:"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:67
+msgid "Don't automatically download updates on a metered network"
+msgstr ""
+
+#: data/settings-daemon.metainfo.xml.in:83
 msgid "Option to restart or shutdown without installing updates"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:86
+#: data/settings-daemon.metainfo.xml.in:99
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:100
 msgid "Handle driver installation"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:115
+#: data/settings-daemon.metainfo.xml.in:128
 msgid "Provide accent colors on the settings portal"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:116
+#: data/settings-daemon.metainfo.xml.in:129
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:134
+#: data/settings-daemon.metainfo.xml.in:147
 msgid "Add First day of the week setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:135
+#: data/settings-daemon.metainfo.xml.in:148
 msgid "Add left-handed mouse click setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:136
+#: data/settings-daemon.metainfo.xml.in:149
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 
