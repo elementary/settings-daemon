@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 21:42+0000\n"
+"POT-Creation-Date: 2025-04-15 15:48+0000\n"
 "PO-Revision-Date: 2025-03-08 12:45+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
-"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/"
-"settings-daemon/pl/>\n"
+"Language-Team: Polish <https://l10n.elementary.io/projects/desktop/settings-"
+"daemon/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,67 +49,69 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:56
-#: data/settings-daemon.metainfo.xml.in:72
-#: data/settings-daemon.metainfo.xml.in:90
-#: data/settings-daemon.metainfo.xml.in:118
-#: data/settings-daemon.metainfo.xml.in:138
+#: data/settings-daemon.metainfo.xml.in:50
+#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
+#: data/settings-daemon.metainfo.xml.in:103
+#: data/settings-daemon.metainfo.xml.in:131
+#: data/settings-daemon.metainfo.xml.in:151
 msgid "Improvements:"
 msgstr "Ulepszenia:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Progress indicators were added to the system update"
-msgstr "Indykatory postępu zostały dodane do aktualizacji systemu"
-
-#: data/settings-daemon.metainfo.xml.in:40
-msgid "Get correct total size for system updates"
-msgstr "Poprawnie policz sumaryczny rozmiar aktualizacji systemu"
-
-#: data/settings-daemon.metainfo.xml.in:52
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:84
-#: data/settings-daemon.metainfo.xml.in:113
-#: data/settings-daemon.metainfo.xml.in:132
-msgid "New features:"
-msgstr "Nowe funkcje:"
-
-#: data/settings-daemon.metainfo.xml.in:54
-msgid "Don't automatically download updates on a metered network"
-msgstr "Automatyczne pobieranie jest wyłączone w sieciach mierzonych"
-
-#: data/settings-daemon.metainfo.xml.in:58
-#: data/settings-daemon.metainfo.xml.in:74
-#: data/settings-daemon.metainfo.xml.in:92
-#: data/settings-daemon.metainfo.xml.in:120
-#: data/settings-daemon.metainfo.xml.in:140
+#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:105
+#: data/settings-daemon.metainfo.xml.in:133
+#: data/settings-daemon.metainfo.xml.in:153
 msgid "Updated translations"
 msgstr "Zaktualizowano tłumaczenia"
 
-#: data/settings-daemon.metainfo.xml.in:70
+#: data/settings-daemon.metainfo.xml.in:52
+msgid "Progress indicators were added to the system update"
+msgstr "Indykatory postępu zostały dodane do aktualizacji systemu"
+
+#: data/settings-daemon.metainfo.xml.in:53
+msgid "Get correct total size for system updates"
+msgstr "Poprawnie policz sumaryczny rozmiar aktualizacji systemu"
+
+#: data/settings-daemon.metainfo.xml.in:65
+#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:97
+#: data/settings-daemon.metainfo.xml.in:126
+#: data/settings-daemon.metainfo.xml.in:145
+msgid "New features:"
+msgstr "Nowe funkcje:"
+
+#: data/settings-daemon.metainfo.xml.in:67
+msgid "Don't automatically download updates on a metered network"
+msgstr "Automatyczne pobieranie jest wyłączone w sieciach mierzonych"
+
+#: data/settings-daemon.metainfo.xml.in:83
 msgid "Option to restart or shutdown without installing updates"
 msgstr ""
 "Możliwość restartowania oraz wyłączania komputera bez instalowania "
 "aktualizacji"
 
-#: data/settings-daemon.metainfo.xml.in:86
+#: data/settings-daemon.metainfo.xml.in:99
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "Obługuj aktualizacje systemu operacyjnego, włączając w to automatyczne "
 "aktualizacje"
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:100
 msgid "Handle driver installation"
 msgstr "Obsługuj instalacje sterowników"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Przeniesiono AccentColorManager z menadżera okien tutaj"
 
-#: data/settings-daemon.metainfo.xml.in:115
+#: data/settings-daemon.metainfo.xml.in:128
 msgid "Provide accent colors on the settings portal"
 msgstr "Dodano kolory akcentu dla portalu ustawień"
 
-#: data/settings-daemon.metainfo.xml.in:116
+#: data/settings-daemon.metainfo.xml.in:129
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -117,15 +119,15 @@ msgstr ""
 "Ustawienia fontów, myszki, klawiatury, światła nocnego i niektórych opcji "
 "dostępności są teraz synchronizowane z ekranem logowania i zablokowania"
 
-#: data/settings-daemon.metainfo.xml.in:134
+#: data/settings-daemon.metainfo.xml.in:147
 msgid "Add First day of the week setting"
 msgstr "Dodano ustawienia pierwszego dnia tygodnia"
 
-#: data/settings-daemon.metainfo.xml.in:135
+#: data/settings-daemon.metainfo.xml.in:148
 msgid "Add left-handed mouse click setting"
 msgstr "Dodano ustawienia obsługi myszki lewą ręką"
 
-#: data/settings-daemon.metainfo.xml.in:136
+#: data/settings-daemon.metainfo.xml.in:149
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Nie sprzątaj folderu Pobrane jeśli jest taki sam jak folder domowy"
 

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-10 21:42+0000\n"
+"POT-Creation-Date: 2025-04-15 15:48+0000\n"
 "PO-Revision-Date: 2025-03-17 11:05+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese (Traditional Han script) <https://"
-"l10n.elementaryos.org/projects/desktop/settings-daemon/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://l10n.elementaryos."
+"org/projects/desktop/settings-daemon/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,78 +46,80 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:56
-#: data/settings-daemon.metainfo.xml.in:72
-#: data/settings-daemon.metainfo.xml.in:90
-#: data/settings-daemon.metainfo.xml.in:118
-#: data/settings-daemon.metainfo.xml.in:138
+#: data/settings-daemon.metainfo.xml.in:50
+#: data/settings-daemon.metainfo.xml.in:69
+#: data/settings-daemon.metainfo.xml.in:85
+#: data/settings-daemon.metainfo.xml.in:103
+#: data/settings-daemon.metainfo.xml.in:131
+#: data/settings-daemon.metainfo.xml.in:151
 msgid "Improvements:"
 msgstr "改善項目："
 
 #: data/settings-daemon.metainfo.xml.in:39
-msgid "Progress indicators were added to the system update"
-msgstr "在系統更新處加入進度指示器"
-
-#: data/settings-daemon.metainfo.xml.in:40
-msgid "Get correct total size for system updates"
-msgstr "為系統更新取得正確的總計大小"
-
-#: data/settings-daemon.metainfo.xml.in:52
-#: data/settings-daemon.metainfo.xml.in:68
-#: data/settings-daemon.metainfo.xml.in:84
-#: data/settings-daemon.metainfo.xml.in:113
-#: data/settings-daemon.metainfo.xml.in:132
-msgid "New features:"
-msgstr "新功能："
-
-#: data/settings-daemon.metainfo.xml.in:54
-msgid "Don't automatically download updates on a metered network"
-msgstr "不要在使用計量網路時自動下載更新"
-
-#: data/settings-daemon.metainfo.xml.in:58
-#: data/settings-daemon.metainfo.xml.in:74
-#: data/settings-daemon.metainfo.xml.in:92
-#: data/settings-daemon.metainfo.xml.in:120
-#: data/settings-daemon.metainfo.xml.in:140
+#: data/settings-daemon.metainfo.xml.in:71
+#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:105
+#: data/settings-daemon.metainfo.xml.in:133
+#: data/settings-daemon.metainfo.xml.in:153
 msgid "Updated translations"
 msgstr "更新翻譯"
 
-#: data/settings-daemon.metainfo.xml.in:70
+#: data/settings-daemon.metainfo.xml.in:52
+msgid "Progress indicators were added to the system update"
+msgstr "在系統更新處加入進度指示器"
+
+#: data/settings-daemon.metainfo.xml.in:53
+msgid "Get correct total size for system updates"
+msgstr "為系統更新取得正確的總計大小"
+
+#: data/settings-daemon.metainfo.xml.in:65
+#: data/settings-daemon.metainfo.xml.in:81
+#: data/settings-daemon.metainfo.xml.in:97
+#: data/settings-daemon.metainfo.xml.in:126
+#: data/settings-daemon.metainfo.xml.in:145
+msgid "New features:"
+msgstr "新功能："
+
+#: data/settings-daemon.metainfo.xml.in:67
+msgid "Don't automatically download updates on a metered network"
+msgstr "不要在使用計量網路時自動下載更新"
+
+#: data/settings-daemon.metainfo.xml.in:83
 msgid "Option to restart or shutdown without installing updates"
 msgstr "新增不安裝更新只重新啟動或關機的選項"
 
-#: data/settings-daemon.metainfo.xml.in:86
+#: data/settings-daemon.metainfo.xml.in:99
 msgid "Handle operating system updates, including automatic updates"
 msgstr "處理作業系統更新，包含自動更新"
 
-#: data/settings-daemon.metainfo.xml.in:87
+#: data/settings-daemon.metainfo.xml.in:100
 msgid "Handle driver installation"
 msgstr "處理驅動程式安裝"
 
-#: data/settings-daemon.metainfo.xml.in:88
+#: data/settings-daemon.metainfo.xml.in:101
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "將 AccentColorManager（強調色管理員）從視窗管理員移到這裡"
 
-#: data/settings-daemon.metainfo.xml.in:115
+#: data/settings-daemon.metainfo.xml.in:128
 msgid "Provide accent colors on the settings portal"
 msgstr "讓設定值桌面入口提供強調色資訊給應用程式"
 
-#: data/settings-daemon.metainfo.xml.in:116
+#: data/settings-daemon.metainfo.xml.in:129
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
 "將字型、滑鼠、鍵盤、夜光，‘以及一些無障礙使用設定值同步到登入與鎖定畫面"
 
-#: data/settings-daemon.metainfo.xml.in:134
+#: data/settings-daemon.metainfo.xml.in:147
 msgid "Add First day of the week setting"
 msgstr "新增調整每週的第一天的選項"
 
-#: data/settings-daemon.metainfo.xml.in:135
+#: data/settings-daemon.metainfo.xml.in:148
 msgid "Add left-handed mouse click setting"
 msgstr "新增管用左手滑鼠點擊的設定"
 
-#: data/settings-daemon.metainfo.xml.in:136
+#: data/settings-daemon.metainfo.xml.in:149
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "「下載」資料夾同時也是家目錄的時候不要自動清理"
 
