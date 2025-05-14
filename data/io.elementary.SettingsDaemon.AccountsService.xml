@@ -128,7 +128,7 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="Roboto Mono 10"/>
     </property>
 
-    <property name="OrientationLock" type="s" access="readwrite">
+    <property name="OrientationLock" type="b" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
     </property>
 
