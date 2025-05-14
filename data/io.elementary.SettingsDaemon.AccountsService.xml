@@ -132,7 +132,7 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="false"/>
     </property>
 
-    <property name="WingpanelUseTransparency" type="s" access="readwrite">
+    <property name="WingpanelUseTransparency" type="b" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
     </property>
 
