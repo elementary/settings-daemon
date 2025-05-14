@@ -136,7 +136,6 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
     </property>
 
-
     <!-- Prefer dark schedule-->
 
     <property name="PreferDarkSchedule" type="i" access="readwrite">

@@ -37,7 +37,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string PREFER_DARK_SCHEDULE = "prefer-dark-schedule";
     private const string PREFER_DARK_SCHEDULE_FROM = "prefer-dark-schedule-from";
     private const string PREFER_DARK_SCHEDULE_TO = "prefer-dark-schedule-to";
-    
+
     private const string ORIENTATION_LOCK = "orientation-lock";
     private const string USE_TRANSPARENCY = "use-transparency";
 
