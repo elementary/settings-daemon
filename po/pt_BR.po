@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2025-05-15 14:17+0000\n"
+"PO-Revision-Date: 2025-05-16 14:55+0000\n"
 "Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/settings-daemon/pt_BR/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -84,7 +84,7 @@ msgstr "Novos recursos:"
 
 #: data/settings-daemon.metainfo.xml.in:67
 msgid "Don't automatically download updates on a metered network"
-msgstr "Não baixe atualizações automaticamente em uma rede limitada"
+msgstr "Não baixar atualizações automaticamente em uma rede limitada"
 
 #: data/settings-daemon.metainfo.xml.in:83
 msgid "Option to restart or shutdown without installing updates"
