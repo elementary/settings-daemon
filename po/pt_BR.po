@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2025-05-15 14:16+0000\n"
+"PO-Revision-Date: 2025-05-15 14:17+0000\n"
 "Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/settings-daemon/pt_BR/>\n"
@@ -84,7 +84,7 @@ msgstr "Novos recursos:"
 
 #: data/settings-daemon.metainfo.xml.in:67
 msgid "Don't automatically download updates on a metered network"
-msgstr ""
+msgstr "Não baixe atualizações automaticamente em uma rede limitada"
 
 #: data/settings-daemon.metainfo.xml.in:83
 msgid "Option to restart or shutdown without installing updates"
