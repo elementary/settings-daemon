@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2024-09-02 00:57+0000\n"
-"Last-Translator: José Rafael <jrafaeldesantana@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
+"PO-Revision-Date: 2025-05-15 14:16+0000\n"
+"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/settings-daemon/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -68,11 +68,11 @@ msgstr "Traduções atualizadas"
 
 #: data/settings-daemon.metainfo.xml.in:52
 msgid "Progress indicators were added to the system update"
-msgstr ""
+msgstr "Indicadores de progresso foram adicionados à atualização do sistema"
 
 #: data/settings-daemon.metainfo.xml.in:53
 msgid "Get correct total size for system updates"
-msgstr ""
+msgstr "Obtenha o tamanho total correto para atualizações do sistema"
 
 #: data/settings-daemon.metainfo.xml.in:65
 #: data/settings-daemon.metainfo.xml.in:81
