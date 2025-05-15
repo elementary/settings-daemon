@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
 "PO-Revision-Date: 2025-05-15 14:17+0000\n"
-"Last-Translator: Max2020 <alcizmaxpereira@gmail.com>\n"
+"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
 "desktop/settings-daemon/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -72,7 +72,7 @@ msgstr "Indicadores de progresso foram adicionados à atualização do sistema"
 
 #: data/settings-daemon.metainfo.xml.in:53
 msgid "Get correct total size for system updates"
-msgstr "Obtenha o tamanho total correto para atualizações do sistema"
+msgstr "Obtenção do tamanho total correto para atualizações do sistema"
 
 #: data/settings-daemon.metainfo.xml.in:65
 #: data/settings-daemon.metainfo.xml.in:81
