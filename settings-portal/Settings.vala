@@ -31,7 +31,6 @@ public errordomain PortalError {
 
 [DBus (name = "io.elementary.pantheon.AccountsService")]
 private interface Pantheon.AccountsService : Object {
-    public abstract int prefers_color_scheme { owned get; set; }
     public abstract int prefers_accent_color { owned get; set; }
 }
 
@@ -40,18 +39,16 @@ interface FDO.Accounts : Object {
     public abstract string find_user_by_name (string username) throws GLib.Error;
 }
 
-/* Copied from Granite.Settings */
 private class AccountsServiceMonitor : GLib.Object {
     private FDO.Accounts? accounts_service = null;
     private Pantheon.AccountsService? pantheon_act = null;
     private string user_path;
 
-    public int32 color_scheme { get; set; }
     public int32 accent_color { get; set; }
 
     construct {
         setup_user_path ();
-        setup_prefers_color_scheme ();
+        setup_accent_color ();
     }
 
     private void setup_user_path () {
@@ -68,7 +65,7 @@ private class AccountsServiceMonitor : GLib.Object {
         }
     }
 
-    private void setup_prefers_color_scheme () {
+    private void setup_accent_color () {
         try {
             pantheon_act = GLib.Bus.get_proxy_sync (
                 GLib.BusType.SYSTEM,
@@ -77,16 +74,10 @@ private class AccountsServiceMonitor : GLib.Object {
                 GLib.DBusProxyFlags.GET_INVALIDATED_PROPERTIES
             );
 
-            color_scheme = pantheon_act.prefers_color_scheme;
             accent_color = pantheon_act.prefers_accent_color;
 
             ((GLib.DBusProxy) pantheon_act).g_properties_changed.connect ((changed, invalid) => {
-                var value = changed.lookup_value ("PrefersColorScheme", new VariantType ("i"));
-                if (value != null) {
-                    color_scheme = value.get_int32 ();
-                }
-
-                value = changed.lookup_value ("PrefersAccentColor", new VariantType ("i"));
+                var value = changed.lookup_value ("PrefersAccentColor", new VariantType ("i"));
                 if (value != null) {
                     accent_color = value.get_int32 ();
                 }
@@ -105,8 +96,9 @@ public class SettingsDaemon.Settings : GLib.Object {
 
     public signal void setting_changed (string namespace, string key, GLib.Variant value);
 
-    private HashTable<unowned string, GLib.Settings> settings;
+    private HashTable<unowned string, GLib.Settings> supported_settings;
     private AccountsServiceMonitor monitor;
+    private GLib.Settings settings;
 
     private const string[] SUPPORTED_SCHEMAS = {
         "io.elementary.settings-daemon.datetime",
@@ -115,19 +107,21 @@ public class SettingsDaemon.Settings : GLib.Object {
 
     construct {
         monitor = new AccountsServiceMonitor ();
-        monitor.notify["color-scheme"].connect (() => {
-            setting_changed ("org.freedesktop.appearance", "color-scheme", get_color_scheme ());
-        });
         monitor.notify["accent-color"].connect (() => {
             setting_changed ("org.freedesktop.appearance", "accent-color", get_accent_color ());
         });
 
-        settings = new HashTable<unowned string, GLib.Settings> (str_hash, str_equal);
+        settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
+        settings.changed["color-scheme"].connect (() => {
+            setting_changed ("org.freedesktop.appearance", "accent-color", get_color_scheme ());
+        });
+
+        supported_settings = new HashTable<unowned string, GLib.Settings> (str_hash, str_equal);
         foreach (unowned var schema in SUPPORTED_SCHEMAS) {
             if (SettingsSchemaSource.get_default ().lookup (schema, true) != null) {
-                settings[schema] = new GLib.Settings (schema);
-                settings[schema].changed.connect ((key) => {
-                    var @value = settings[schema].get_value (key);
+                supported_settings[schema] = new GLib.Settings (schema);
+                supported_settings[schema].changed.connect ((key) => {
+                    var @value = supported_settings[schema].get_value (key);
                     setting_changed (schema, key, value);
                 });
             } else {
@@ -156,7 +150,7 @@ public class SettingsDaemon.Settings : GLib.Object {
     }
 
     private GLib.Variant get_color_scheme () {
-        return new GLib.Variant.uint32 (monitor.color_scheme);
+        return new GLib.Variant.uint32 (settings.get_enum ("color-scheme"));
     }
 
     private inline GLib.Variant rgb_to_variant (int rgb) {
@@ -206,7 +200,7 @@ public class SettingsDaemon.Settings : GLib.Object {
     public async GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> read_all (string[] namespaces) throws GLib.DBusError, GLib.IOError {
         var ret = new GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> (str_hash, str_equal);
 
-        settings.foreach ((schema, setting) => {
+        supported_settings.foreach ((schema, setting) => {
             if (namespace_matches (schema, namespaces)) {
                 var dict = new GLib.HashTable<string, GLib.Variant> (str_hash, str_equal);
 
@@ -238,7 +232,7 @@ public class SettingsDaemon.Settings : GLib.Object {
             }
         }
 
-        unowned GLib.Settings? setting = settings[namespace];
+        unowned GLib.Settings? setting = supported_settings[namespace];
         if (setting != null && setting.settings_schema.has_key (key)) {
             return setting.get_value (key);
         }
