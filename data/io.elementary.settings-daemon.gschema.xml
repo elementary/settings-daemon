@@ -127,4 +127,18 @@
       <description></description>
     </key>
   </schema>
+
+  <schema path="/io/elementary/settings-daemon/applications/" id="io.elementary.settings-daemon.applications">
+    <key type="a(sisa{sv}as)" name="application-shortcuts">
+      <default>[('System Settings', 0, 'io.elementary.settings.desktop', {}, <![CDATA[['<Super>I']]]>), ('Files', 0, 'io.elementary.files.desktop', {}, <![CDATA[['<Super>E']]]>)]</default>
+      <summary>Application shortcuts</summary>
+      <description>
+        The first argument is display name.
+        The second is a type (0 - launch desktop file, 1 - launch cli).
+        The argument argument is the 'target', desktop file name if type is 0, commandline if it's 1.
+        The forth argument is 'parameters'
+        And the last argument is a list of keyboard shortcuts.
+      </description>
+    </key>
+  </schema>
 </schemalist>
