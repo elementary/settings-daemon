@@ -20,6 +20,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
     private Backends.Housekeeping housekeeping;
     private Backends.PowerProfilesSync power_profiles_sync;
+    private Backends.ApplicationShortcuts application_shortcuts;
 
     private const string FDO_ACCOUNTS_NAME = "org.freedesktop.Accounts";
     private const string FDO_ACCOUNTS_PATH = "/org/freedesktop/Accounts";
@@ -56,6 +57,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
         housekeeping = new Backends.Housekeeping ();
         power_profiles_sync = new Backends.PowerProfilesSync ();
+        application_shortcuts = new Backends.ApplicationShortcuts ();
 
         var check_firmware_updates_action = new GLib.SimpleAction ("check-firmware-updates", null);
         check_firmware_updates_action.activate.connect (check_firmware_updates);
