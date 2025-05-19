@@ -34,10 +34,12 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private const string MONOSPACE_FONT_NAME = "monospace-font-name";
 
     private const string LAST_COORDINATES = "last-coordinates";
-    private const string ORIENTATION_LOCK = "orientation-lock";
     private const string PREFER_DARK_SCHEDULE = "prefer-dark-schedule";
     private const string PREFER_DARK_SCHEDULE_FROM = "prefer-dark-schedule-from";
     private const string PREFER_DARK_SCHEDULE_TO = "prefer-dark-schedule-to";
+
+    private const string ORIENTATION_LOCK = "orientation-lock";
+    private const string USE_TRANSPARENCY = "use-transparency";
 
     public unowned AccountsService accounts_service { get; construct; }
     public unowned DisplayManager.AccountsService display_manager_accounts_service { get; construct; }
@@ -46,6 +48,7 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
     private GLib.Settings background_settings;
     private GLib.Settings settings_daemon_settings;
     private GLib.Settings touchscreen_settings;
+    private GLib.Settings? wingpanel_settings;
 
     public InterfaceSettings (AccountsService accounts_service, DisplayManager.AccountsService display_manager_accounts_service) {
         Object (
@@ -59,6 +62,11 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         background_settings = new GLib.Settings ("org.gnome.desktop.background");
         settings_daemon_settings = new GLib.Settings ("io.elementary.settings-daemon.prefers-color-scheme");
         touchscreen_settings = new GLib.Settings ("org.gnome.settings-daemon.peripherals.touchscreen");
+
+        var wingpanel_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.desktop.wingpanel", true);
+        if (wingpanel_schema != null && wingpanel_schema.has_key (USE_TRANSPARENCY)) {
+            wingpanel_settings = new GLib.Settings ("io.elementary.desktop.wingpanel");
+        }
 
         sync_gsettings_to_accountsservice ();
 
@@ -98,6 +106,10 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         });
 
         touchscreen_settings.changed.connect (sync_gsettings_to_accountsservice);
+
+        if (wingpanel_settings != null) {
+            wingpanel_settings.changed[USE_TRANSPARENCY].connect (sync_gsettings_to_accountsservice);
+        }
     }
 
     private void sync_gsettings_to_accountsservice () {
@@ -135,6 +147,10 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         accounts_service.prefer_dark_schedule_to = settings_daemon_settings.get_double (PREFER_DARK_SCHEDULE_TO);
 
         accounts_service.orientation_lock = touchscreen_settings.get_boolean (ORIENTATION_LOCK);
+
+        if (wingpanel_settings != null) {
+            accounts_service.wingpanel_use_transparency = wingpanel_settings.get_boolean (USE_TRANSPARENCY);
+        }
     }
 
     private void sync_background_to_greeter () {
