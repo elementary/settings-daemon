@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2024-08-07 17:16+0000\n"
+"PO-Revision-Date: 2025-05-26 03:55+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Marathi <https://l10n.elementary.io/projects/desktop/settings-"
-"daemon/mr/>\n"
+"Language-Team: Marathi <https://l10n.elementaryos.org/projects/desktop/"
+"settings-daemon/mr/>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 
 #: data/autostart.desktop:4
 msgid "System Settings"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
-msgstr ""
+msgstr "एलिमेंटरी, Inc ."
 
 #: data/settings-daemon.metainfo.xml.in:37
 #: data/settings-daemon.metainfo.xml.in:50
@@ -62,7 +62,7 @@ msgstr "सुधारणा:"
 #: data/settings-daemon.metainfo.xml.in:133
 #: data/settings-daemon.metainfo.xml.in:153
 msgid "Updated translations"
-msgstr ""
+msgstr "अद्ययावत भाषांतर"
 
 #: data/settings-daemon.metainfo.xml.in:52
 msgid "Progress indicators were added to the system update"
