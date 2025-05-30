@@ -20,8 +20,6 @@
 */
 
 public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
-    public unowned Pantheon.AccountsService accounts_service { get; construct; }
-
     private const string COLOR_SCHEME = "color-scheme";
     private const string DARK_SCHEDULE = "prefer-dark-schedule";
     private const string DARK_SCHEDULE_SNOOZED = "prefer-dark-schedule-snoozed";
@@ -31,10 +29,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
     private double sunset = -1.0;
 
     private uint time_id = 0;
-
-    public PrefersColorSchemeSettings (Pantheon.AccountsService accounts_service) {
-        Object (accounts_service: accounts_service);
-    }
 
     construct {
         color_settings = new Settings ("io.elementary.settings-daemon.prefers-color-scheme");
@@ -134,8 +128,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
         ) {
             color_settings.set_boolean (DARK_SCHEDULE_SNOOZED, true);
         }
-
-        accounts_service.prefers_color_scheme = color_scheme;
 
         var mutter_settings = new GLib.Settings ("org.gnome.desktop.interface");
         mutter_settings.set_enum ("color-scheme", color_scheme);
