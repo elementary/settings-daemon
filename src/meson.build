@@ -2,6 +2,7 @@ sources = files(
     'AccountsService.vala',
     'Application.vala',
     'Backends/AccentColorManager.vala',
+    'Backends/DisplaySettings.vala',
     'Backends/Housekeeping.vala',
     'Backends/InterfaceSettings.vala',
     'Backends/KeyboardSettings.vala',
