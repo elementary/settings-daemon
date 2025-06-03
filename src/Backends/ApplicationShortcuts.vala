@@ -23,8 +23,8 @@ public class SettingsDaemon.Backends.ApplicationShortcuts : Object {
     }
 
     private GLib.Settings application_settings;
-    private ShellKeyGrabber? key_grabber = null;
-    private DesktopIntegration? desktop_integration = null;
+    private ShellKeyGrabber key_grabber;
+    private DesktopIntegration desktop_integration;
     private ulong key_grabber_id = 0;
     private GLib.HashTable<uint, ActionInfo?> saved_action_ids;
 
@@ -51,54 +51,31 @@ public class SettingsDaemon.Backends.ApplicationShortcuts : Object {
             }
         });
 
-        Bus.watch_name (BusType.SESSION,
-            "org.gnome.Shell",
-            BusNameWatcherFlags.NONE,
-            (connection) => {
-                connection.get_proxy.begin<ShellKeyGrabber> (
-                    "org.gnome.Shell", "/org/gnome/Shell", NONE, null,
-                    (obj, res) => {
-                        try {
-                            key_grabber = ((GLib.DBusConnection) obj).get_proxy.end<ShellKeyGrabber> (res);
-                            setup_grabs ();
-                        } catch (Error e) {
-                            critical (e.message);
-                            key_grabber = null;
-                        }
-                    }
-                );
-            },
-            () => {
-                if (key_grabber_id != 0) {
-                    key_grabber.disconnect (key_grabber_id);
-                    key_grabber_id = 0;
+        Bus.get_proxy.begin<ShellKeyGrabber> (
+            BusType.SESSION,
+            "org.gnome.Shell", "/org/gnome/Shell",
+            NONE, null,
+            (obj, res) => {
+                try {
+                    key_grabber = Bus.get_proxy.end<ShellKeyGrabber> (res);
+                } catch (Error e) {
+                    critical (e.message);
+                    key_grabber = null;
                 }
-
-                key_grabber = null;
-                critical ("Lost connection to org.gnome.Shell");
             }
         );
 
-        Bus.watch_name (
+        Bus.get_proxy.begin<DesktopIntegration> (
             BusType.SESSION,
-            "org.pantheon.gala",
-            BusNameWatcherFlags.NONE,
-            (connection) => {
-                connection.get_proxy.begin<DesktopIntegration> (
-                    "org.pantheon.gala", "/org/pantheon/gala/DesktopInterface", NONE, null,
-                    (obj, res) => {
-                        try {
-                            desktop_integration = ((GLib.DBusConnection) obj).get_proxy.end<DesktopIntegration> (res);
-                        } catch (Error e) {
-                            critical (e.message);
-                            desktop_integration = null;
-                        }
-                    }
-                );
-            },
-            () => {
-                desktop_integration = null;
-                critical ("Lost connection to org.pantheon.gala.DesktopIntegration");
+            "org.pantheon.gala", "/org/pantheon/gala/DesktopInterface",
+            NONE, null,
+            (obj, res) => {
+                try {
+                    desktop_integration = Bus.get_proxy.end<DesktopIntegration> (res);
+                } catch (Error e) {
+                    critical (e.message);
+                    desktop_integration = null;
+                }
             }
         );
     }
@@ -219,13 +196,9 @@ public class SettingsDaemon.Backends.ApplicationShortcuts : Object {
 
             case COMMAND_LINE:
                 var commandline = action_info.target;
-                var flags = GLib.AppInfoCreateFlags.NONE;
-                if ("needs-terminal" in action_parameters && action_parameters["needs-terminal"].get_boolean ()) {
-                    flags = GLib.AppInfoCreateFlags.NEEDS_TERMINAL;
-                }
 
                 try {
-                    AppInfo.create_from_commandline (commandline, null, flags).launch (null, context);
+                    AppInfo.create_from_commandline (commandline, null, NONE).launch (null, context);
                 } catch (Error e) {
                     warning ("Couldn't launch %s: %s", commandline, e.message);
                 }
