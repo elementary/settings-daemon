@@ -130,7 +130,7 @@
 
   <schema path="/io/elementary/settings-daemon/applications/" id="io.elementary.settings-daemon.applications">
     <key type="a(isa{sv}as)" name="application-shortcuts">
-      <default>[(0, 'io.elementary.settings.desktop', {}, <![CDATA[['<Super>I']]]>), (0, 'io.elementary.files.desktop', {}, <![CDATA[['<Super>E']]]>)]</default>
+      <default></default>
       <summary>Application shortcuts</summary>
       <description>
         The first argument is a type (0 - launch desktop file, 1 - launch cli).
