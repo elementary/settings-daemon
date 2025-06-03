@@ -23,8 +23,8 @@ public class SettingsDaemon.Backends.ApplicationShortcuts : Object {
     }
 
     private GLib.Settings application_settings;
-    private ShellKeyGrabber key_grabber;
-    private DesktopIntegration desktop_integration;
+    private ShellKeyGrabber? key_grabber;
+    private DesktopIntegration? desktop_integration;
     private ulong key_grabber_id = 0;
     private GLib.HashTable<uint, ActionInfo?> saved_action_ids;
 
