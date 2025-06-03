@@ -58,6 +58,7 @@ public class SettingsDaemon.Backends.ApplicationShortcuts : Object {
             (obj, res) => {
                 try {
                     key_grabber = Bus.get_proxy.end<ShellKeyGrabber> (res);
+                    setup_grabs ();
                 } catch (Error e) {
                     critical (e.message);
                     key_grabber = null;
