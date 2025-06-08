@@ -84,6 +84,10 @@
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
     </property>
 
+    <property name="AccentColor" type="i" access="readwrite">
+      <annotation name="org.freedesktop.Accounts.DefaultValue" value="1"/>
+    </property>
+
     <property name="CursorBlink" type="b" access="readwrite">
       <annotation name="org.freedesktop.Accounts.DefaultValue" value="true"/>
     </property>
