@@ -183,6 +183,8 @@ public class SettingsDaemon.Backends.Housekeeping : Object {
             if (clean_temp) {
                 var temp_dir = Environment.get_tmp_dir ();
                 lines += template.printf (temp_dir, clean_after_days);
+                lines += template.printf ("/var/log", clean_after_days);
+                lines += template.printf ("/var/tmp", clean_after_days);
             }
 
             if (clean_trash) {
