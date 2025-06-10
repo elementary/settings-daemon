@@ -5,7 +5,8 @@
  */
 
 public class SettingsDaemon.Backends.AccentColorManager : Object {
-    public unowned Pantheon.AccountsService accounts_service { get; construct; }
+    public unowned Pantheon.AccountsService pantheon_accounts_service { get; construct; }
+    public unowned AccountsService accounts_service { get; construct; }
 
     private Settings background_settings;
     private Settings interface_settings;
@@ -15,6 +16,7 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
     }
 
     private struct Theme {
+        int index;
         string name;
         string stylesheet;
         Gdk.RGBA color;
@@ -30,56 +32,74 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
     }
 
     private static Theme[] themes = {
-        { "Blue",   "io.elementary.stylesheet.blueberry",  rgba_from_int (0x3689e6) }, // vala-lint=double-spaces
-        { "Mint",   "io.elementary.stylesheet.mint",       rgba_from_int (0x28bca3) }, // vala-lint=double-spaces
-        { "Green",  "io.elementary.stylesheet.lime",       rgba_from_int (0x68b723) }, // vala-lint=double-spaces
-        { "Yellow", "io.elementary.stylesheet.banana",     rgba_from_int (0xf9c440) }, // vala-lint=double-spaces
-        { "Orange", "io.elementary.stylesheet.orange",     rgba_from_int (0xffa154) }, // vala-lint=double-spaces
-        { "Red",    "io.elementary.stylesheet.strawberry", rgba_from_int (0xed5353) }, // vala-lint=double-spaces
-        { "Pink",   "io.elementary.stylesheet.bubblegum",  rgba_from_int (0xde3e80) }, // vala-lint=double-spaces
-        { "Purple", "io.elementary.stylesheet.grape",      rgba_from_int (0xa56de2) }, // vala-lint=double-spaces
-        { "Brown",  "io.elementary.stylesheet.cocoa",      rgba_from_int (0x8a715e) }, // vala-lint=double-spaces
-        { "Gray",   "io.elementary.stylesheet.slate",      rgba_from_int (0x667885) }  // vala-lint=double-spaces
+        { 1,  "Red",    "io.elementary.stylesheet.strawberry", rgba_from_int (0xed5353) }, // vala-lint=double-spaces
+        { 2,  "Orange", "io.elementary.stylesheet.orange",     rgba_from_int (0xffa154) }, // vala-lint=double-spaces
+        { 3,  "Yellow", "io.elementary.stylesheet.banana",     rgba_from_int (0xf9c440) }, // vala-lint=double-spaces
+        { 4,  "Green",  "io.elementary.stylesheet.lime",       rgba_from_int (0x68b723) }, // vala-lint=double-spaces
+        { 5,  "Mint",   "io.elementary.stylesheet.mint",       rgba_from_int (0x28bca3) }, // vala-lint=double-spaces
+        { 6,  "Blue",   "io.elementary.stylesheet.blueberry",  rgba_from_int (0x3689e6) }, // vala-lint=double-spaces
+        { 7,  "Purple", "io.elementary.stylesheet.grape",      rgba_from_int (0xa56de2) }, // vala-lint=double-spaces
+        { 8,  "Pink",   "io.elementary.stylesheet.bubblegum",  rgba_from_int (0xde3e80) }, // vala-lint=double-spaces
+        { 9,  "Brown",  "io.elementary.stylesheet.cocoa",      rgba_from_int (0x8a715e) }, // vala-lint=double-spaces
+        { 10, "Gray",   "io.elementary.stylesheet.slate",      rgba_from_int (0x667885) }  // vala-lint=double-spaces
     };
 
-    public AccentColorManager (Pantheon.AccountsService accounts_service) {
-        Object (accounts_service: accounts_service);
+    public AccentColorManager (Pantheon.AccountsService pantheon_accounts_service, AccountsService accounts_service) {
+        Object (
+            pantheon_accounts_service: pantheon_accounts_service,
+            accounts_service: accounts_service
+        );
     }
 
     construct {
         background_settings = new Settings ("org.gnome.desktop.background");
         interface_settings = new Settings ("org.gnome.desktop.interface");
 
-        ((DBusProxy) accounts_service).g_properties_changed.connect ((props) => {
-            int accent_color;
+        update_accent_color ();
+        if (pantheon_accounts_service.prefers_accent_color == 0) {
+            background_settings.changed["picture-options"].connect (update_accent_color);
+            background_settings.changed["picture-uri"].connect (update_accent_color);
+            background_settings.changed["primary-color"].connect (update_accent_color);
+        }
 
+        ((DBusProxy) pantheon_accounts_service).g_properties_changed.connect ((props) => {
+            int accent_color;
             if (!props.lookup ("PrefersAccentColor", "i", out accent_color)) {
                 return;
             };
 
+            update_accent_color ();
             if (accent_color == 0) {
                 background_settings.changed["picture-options"].connect (update_accent_color);
                 background_settings.changed["picture-uri"].connect (update_accent_color);
                 background_settings.changed["primary-color"].connect (update_accent_color);
-                update_accent_color ();
             } else {
                 background_settings.changed["picture-options"].disconnect (update_accent_color);
                 background_settings.changed["picture-uri"].disconnect (update_accent_color);
                 background_settings.changed["primary-color"].disconnect (update_accent_color);
             }
         });
-
-        if (accounts_service.prefers_accent_color == 0) {
-            background_settings.changed["picture-options"].connect (update_accent_color);
-            background_settings.changed["picture-uri"].connect (update_accent_color);
-            background_settings.changed["primary-color"].connect (update_accent_color);
-            update_accent_color ();
-        }
     }
 
     private void update_accent_color () {
-        var current_stylesheet = interface_settings.get_string ("gtk-theme");
-        debug ("Current stylesheet: %s", current_stylesheet);
+        Theme? new_theme = null;
+        var prefers_accent_color = pantheon_accounts_service.prefers_accent_color;
+        if (prefers_accent_color == 0) {
+            new_theme = get_dynamic_accent_color_theme_name ();
+        } else if (prefers_accent_color < themes.length + 1) {
+            new_theme = themes[prefers_accent_color - 1];
+        } else {
+            critical ("Incorrect accent color in pantheon accounts service");
+            return;
+        }
+
+        interface_settings.set_string ("gtk-theme", new_theme.stylesheet);
+        debug ("New stylesheet: %s", new_theme.stylesheet);
+
+        accounts_service.accent_color = new_theme.index;
+    }
+
+    private Theme get_dynamic_accent_color_theme_name () {
         Theme? new_theme = null;
 
         if (background_settings.get_enum ("picture-options") != BackgroundStyle.NONE) {
@@ -95,10 +115,7 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
             new_theme = get_theme_for_primary_color (primary_color);
         }
 
-        if (new_theme.stylesheet != current_stylesheet) {
-            debug ("New stylesheet: %s", new_theme.stylesheet);
-            interface_settings.set_string ("gtk-theme", new_theme.stylesheet);
-        }
+        return new_theme;
     }
 
     private Theme? get_theme_for_primary_color (string primary_color) {

@@ -35,15 +35,20 @@ private interface Pantheon.AccountsService : Object {
     public abstract int prefers_accent_color { owned get; set; }
 }
 
+[DBus (name = "io.elementary.SettingsDaemon.AccountsService")]
+private interface SettingsDaemon.AccountsService : Object {
+    public abstract int accent_color { get; set; }
+}
+
 [DBus (name = "org.freedesktop.Accounts")]
 interface FDO.Accounts : Object {
     public abstract string find_user_by_name (string username) throws GLib.Error;
 }
 
-/* Copied from Granite.Settings */
 private class AccountsServiceMonitor : GLib.Object {
     private FDO.Accounts? accounts_service = null;
     private Pantheon.AccountsService? pantheon_act = null;
+    private SettingsDaemon.AccountsService? settings_daemon_act = null;
     private string user_path;
 
     public int32 color_scheme { get; set; }
@@ -52,6 +57,7 @@ private class AccountsServiceMonitor : GLib.Object {
     construct {
         setup_user_path ();
         setup_prefers_color_scheme ();
+        setup_prefers_accent_color ();
     }
 
     private void setup_user_path () {
@@ -78,15 +84,31 @@ private class AccountsServiceMonitor : GLib.Object {
             );
 
             color_scheme = pantheon_act.prefers_color_scheme;
-            accent_color = pantheon_act.prefers_accent_color;
 
             ((GLib.DBusProxy) pantheon_act).g_properties_changed.connect ((changed, invalid) => {
                 var value = changed.lookup_value ("PrefersColorScheme", new VariantType ("i"));
                 if (value != null) {
                     color_scheme = value.get_int32 ();
                 }
+            });
+        } catch (Error e) {
+            critical (e.message);
+        }
+    }
 
-                value = changed.lookup_value ("PrefersAccentColor", new VariantType ("i"));
+    private void setup_prefers_accent_color () {
+        try {
+            settings_daemon_act = GLib.Bus.get_proxy_sync (
+                GLib.BusType.SYSTEM,
+                "org.freedesktop.Accounts",
+                user_path,
+                GLib.DBusProxyFlags.GET_INVALIDATED_PROPERTIES
+            );
+
+            accent_color = settings_daemon_act.accent_color;
+
+            ((GLib.DBusProxy) settings_daemon_act).g_properties_changed.connect ((changed, invalid) => {
+                var value = changed.lookup_value ("AccentColor", new VariantType ("i"));
                 if (value != null) {
                     accent_color = value.get_int32 ();
                 }
