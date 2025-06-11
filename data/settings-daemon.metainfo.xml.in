@@ -32,6 +32,18 @@
   <update_contact>contact_at_elementary.io</update_contact>
 
   <releases>
+    <release version="8.3.1" date="2025-06-11" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/settings-daemon/issues/149">Settings portal doesn't work with automatic accent color</issue>
+      </issues>
+    </release>
+
     <release version="8.3.0" date="2025-04-16" urgency="medium">
       <description>
         <p>Improvements:</p>
