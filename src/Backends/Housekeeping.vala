@@ -140,7 +140,7 @@ public class SettingsDaemon.Backends.Housekeeping : Object {
         public int clean_after_days { private get; public construct; }
 
         public bool is_disabled { get {
-            return (!clean_downloads && !clean_screenshots) || clean_after_days < 1;
+            return (!clean_downloads && !clean_screenshots && !clean_temp && !clean_trash) || clean_after_days < 1;
         }}
 
         public CleanupConfig (Settings settings) {
