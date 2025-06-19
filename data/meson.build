@@ -49,7 +49,7 @@ busctl_path = get_option('busctlpath')
 systemd_system_unit_dir = get_option('systemdsystemunitdir')
 systemd_user_unit_dir = get_option('systemduserunitdir')
 
-if systemd_system_unit_dir != 'no' and systemd_systemduserunitdir != 'no'
+if systemd_system_unit_dir != 'no' and systemd_user_unit_dir != 'no'
     systemd = dependency('systemd')
     if systemd_system_unit_dir == ''
         systemd_system_unit_dir = systemd.get_variable('systemdsystemunitdir', pkgconfig_define: ['rootprefix', prefix])
