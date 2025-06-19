@@ -71,4 +71,16 @@ if systemd_system_unit_dir != 'no'
         meson.project_name() + '.check-for-firmware-updates.timer',
         install_dir: systemd_system_unit_dir
     )
+
+    configure_file(
+        input: meson.project_name() + '.system-update.service.in',
+        output: meson.project_name() + '.system-update.service',
+        configuration: service_config,
+        install_dir: systemd_system_unit_dir
+    )
+
+    install_data(
+        meson.project_name() + '.system-update.timer',
+        install_dir: systemd_system_unit_dir
+    )
 endif

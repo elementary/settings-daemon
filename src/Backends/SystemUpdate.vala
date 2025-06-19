@@ -58,13 +58,6 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
         } catch (Error e) {
             warning ("Couldn't determine last offline results: %s", e.message);
         }
-
-        check_for_updates.begin (false, true);
-
-        Timeout.add_seconds ((uint) settings.get_int64 ("refresh-interval"), () => {
-            check_for_updates.begin (false, true);
-            return Source.CONTINUE;
-        });
     }
 
     public async void check_for_updates (bool force, bool notify) throws DBusError, IOError {
