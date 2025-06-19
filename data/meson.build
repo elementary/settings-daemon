@@ -47,11 +47,15 @@ i18n.merge_file(
 
 busctl_path = get_option('busctlpath')
 systemd_system_unit_dir = get_option('systemdsystemunitdir')
+systemd_user_unit_dir = get_option('systemduserunitdir')
 
-if systemd_system_unit_dir != 'no'
+if systemd_system_unit_dir != 'no' and systemd_user_unit_dir != 'no'
     systemd = dependency('systemd')
     if systemd_system_unit_dir == ''
         systemd_system_unit_dir = systemd.get_variable('systemdsystemunitdir', pkgconfig_define: ['rootprefix', prefix])
+    endif
+    if systemd_user_unit_dir == ''
+        systemd_user_unit_dir = systemd.get_variable('systemduserunitdir', pkgconfig_define: ['prefix', prefix])
     endif
     if busctl_path == ''
         busctl_path = systemd.get_variable('prefix') / 'bin' / 'busctl'
@@ -70,5 +74,17 @@ if systemd_system_unit_dir != 'no'
     install_data(
         meson.project_name() + '.check-for-firmware-updates.timer',
         install_dir: systemd_system_unit_dir
+    )
+
+    configure_file(
+        input: meson.project_name() + '.system-update.service.in',
+        output: meson.project_name() + '.system-update.service',
+        configuration: service_config,
+        install_dir: systemd_user_unit_dir
+    )
+
+    install_data(
+        meson.project_name() + '.system-update.timer',
+        install_dir: systemd_user_unit_dir
     )
 endif

@@ -108,11 +108,6 @@
       <summary>When updates were last refreshed</summary>
       <description>When the cache was last refreshed and checked for updates in unix utc.</description>
     </key>
-    <key type="x" name="refresh-interval">
-      <default>86400</default>
-      <summary>How often to check for updates</summary>
-      <description>How often to check for updates in seconds.</description>
-    </key>
   </schema>
 
   <schema path="/io/elementary/settings-daemon/power/" id="io.elementary.settings-daemon.power">
