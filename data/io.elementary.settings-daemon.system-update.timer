@@ -4,6 +4,7 @@ Description=Check for system updates daily
 [Timer]
 OnCalendar=daily
 OnStartupSec=60
+RandomizedDelaySec=60
 Persistent=true
 
 [Install]
