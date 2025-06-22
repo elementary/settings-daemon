@@ -2,7 +2,7 @@ Source: io.elementary.settings-daemon
 Section: x11
 Priority: optional
 Maintainer: elementary, Inc. <builds@elementary.io>
-Build-Depends: debhelper (>= 10.5.1),
+Build-Depends: debhelper-compat (= 12),
                desktop-file-utils,
                libaccountsservice-dev,
                libdbus-1-dev,
