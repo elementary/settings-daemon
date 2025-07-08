@@ -1,3 +1,9 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ * Authored by: Leonhard Kargl <leo.kargl@proton.me>
+ */
+
 [DBus (name="io.elementary.settings_daemon.ScheduleManager")]
 public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private const string DARK_MODE = "dark-mode";

@@ -1,3 +1,9 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2025 elementary, Inc. (https://elementary.io)
+ * Authored by: Leonhard Kargl <leo.kargl@proton.me>
+ */
+
 public class SettingsDaemon.Backends.Schedule : Object {
     public enum Type {
         MANUAL,
