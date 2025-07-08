@@ -11,14 +11,11 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
     private const string MONOCHROME = "monochrome";
 
     private static Settings settings = new Settings ("io.elementary.settings-daemon.schedules");
-    private static Settings interface_settings = new Settings ("org.gnome.desktop.interface");
+    private static Settings color_scheme_settings = new Settings ("io.elementary.settings-daemon.prefers-color-scheme");
     private static Settings dnd_settings = new Settings ("io.elementary.notifications");
     private static Settings monochrome_settings = new Settings ("io.elementary.desktop.wm.accessibility");
 
     public signal void items_changed (uint pos, uint removed, uint added);
-
-    [DBus (visible=false)]
-    public unowned Pantheon.AccountsService? pantheon_service { get; set; }
 
     private HashTable<string, Schedule> schedules = new HashTable<string, Schedule> (str_hash, str_equal);
     private ListStore schedules_list;
@@ -79,10 +76,7 @@ public class SettingsDaemon.Backends.ScheduleManager : GLib.Object {
             switch (key) {
                 case DARK_MODE:
                     var scheme = ((bool) settings[DARK_MODE]) ? Granite.Settings.ColorScheme.DARK : Granite.Settings.ColorScheme.LIGHT;
-                    if (pantheon_service != null) {
-                        pantheon_service.prefers_color_scheme = scheme;
-                    }
-                    interface_settings.set_enum ("color-scheme", scheme);
+                    color_scheme_settings.set_enum ("color-scheme", scheme);
                     break;
                 case DND:
                     dnd_settings.set_boolean ("do-not-disturb", (bool) settings[DND]);

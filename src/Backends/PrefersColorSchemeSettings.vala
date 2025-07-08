@@ -37,12 +37,6 @@ public class SettingsDaemon.Backends.PrefersColorSchemeSettings : Object {
 
     private void update_color_scheme () {
         var color_scheme = color_settings.get_enum (COLOR_SCHEME);
-        if (
-            color_scheme == Granite.Settings.ColorScheme.DARK && !is_in_schedule () ||
-            color_scheme != Granite.Settings.ColorScheme.DARK && is_in_schedule ()
-        ) {
-            color_settings.set_boolean (DARK_SCHEDULE_SNOOZED, true);
-        }
 
         accounts_service.prefers_color_scheme = color_scheme;
 
