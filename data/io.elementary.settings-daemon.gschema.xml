@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
+  <enum id="ColorScheme">
+    <value nick='no-preference' value='0'/>
+    <value nick='prefer-dark' value='1'/>
+    <value nick='prefer-light' value='2'/>
+  </enum>
+
   <enum id="PreferDarkScheduleType">
     <value nick='disabled' value='0'/>
     <value nick='sunset-to-sunrise' value='1'/>
@@ -7,6 +13,11 @@
   </enum>
 
   <schema path="/io/elementary/settings-daemon/prefers-color-scheme/" id="io.elementary.settings-daemon.prefers-color-scheme">
+    <key enum="ColorScheme" name="color-scheme">
+      <default>'no-preference'</default>
+      <summary>Color Scheme</summary>
+      <description>The preferred color scheme for the user interface. Valid values are “no-preference”, “prefer-dark”, “prefer-light”.</description>
+    </key>
     <key enum="PreferDarkScheduleType" name="prefer-dark-schedule">
       <default>'disabled'</default>
       <summary>Algorithm for prefer dark schedule</summary>
@@ -21,6 +32,11 @@
       <default>6.0</default>
       <summary>The stop time</summary>
       <description></description>
+    </key>
+    <key type="b" name="prefer-dark-schedule-snoozed">
+      <default>false</default>
+      <summary>Snooze Dark Schedule</summary>
+      <description>True if color scheme was changed during the dark mode schedule. Does nothing if set directly.</description>
     </key>
     <key type="(dd)" name="last-coordinates">
       <default>(91,181)</default>
@@ -100,11 +116,6 @@
       <summary>When updates were last refreshed</summary>
       <description>When the cache was last refreshed and checked for updates in unix utc.</description>
     </key>
-    <key type="x" name="refresh-interval">
-      <default>86400</default>
-      <summary>How often to check for updates</summary>
-      <description>How often to check for updates in seconds.</description>
-    </key>
   </schema>
 
   <schema path="/io/elementary/settings-daemon/power/" id="io.elementary.settings-daemon.power">
@@ -117,6 +128,19 @@
       <default>"balanced"</default>
       <summary>Power profile to use on battery</summary>
       <description></description>
+    </key>
+  </schema>
+
+  <schema path="/io/elementary/settings-daemon/applications/" id="io.elementary.settings-daemon.applications">
+    <key type="a(isa{sv}as)" name="application-shortcuts">
+      <default>[]</default>
+      <summary>Application shortcuts</summary>
+      <description>
+        The first argument is a type (0 - launch desktop file, 1 - launch cli).
+        The second argument is the 'target', desktop file name if type is 0, commandline if it's 1.
+        The third argument is 'parameters'
+        And the last argument is a list of keyboard shortcuts.
+      </description>
     </key>
   </schema>
 </schemalist>

@@ -19,6 +19,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
     private Backends.Housekeeping housekeeping;
     private Backends.PowerProfilesSync power_profiles_sync;
+    private Backends.ApplicationShortcuts application_shortcuts;
 
     private Backends.ScheduleManager schedule_manager;
 
@@ -59,6 +60,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 
         housekeeping = new Backends.Housekeeping ();
         power_profiles_sync = new Backends.PowerProfilesSync ();
+        application_shortcuts = new Backends.ApplicationShortcuts ();
 
         var check_firmware_updates_action = new GLib.SimpleAction ("check-firmware-updates", null);
         check_firmware_updates_action.activate.connect (check_firmware_updates);
@@ -128,7 +130,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
             pantheon_service = yield connection.get_proxy (FDO_ACCOUNTS_NAME, path, GET_INVALIDATED_PROPERTIES);
 
             schedule_manager.pantheon_service = pantheon_service;
-            accent_color_manager = new Backends.AccentColorManager (pantheon_service);
+            accent_color_manager = new Backends.AccentColorManager (pantheon_service, accounts_service);
         } catch {
             warning ("Unable to get pantheon's AccountsService proxy, color scheme preference may be incorrect");
         }
