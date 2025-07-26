@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2025-07-19 10:55+0000\n"
+"PO-Revision-Date: 2025-07-27 10:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/be/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/autostart.desktop:4
 msgid "System Settings"
-msgstr ""
+msgstr "Налады сістэмы"
 
 #: data/autostart.desktop:5
 msgid "System Settings background tasks"
@@ -54,7 +54,7 @@ msgstr "elementary, Inc."
 #: data/settings-daemon.metainfo.xml.in:131
 #: data/settings-daemon.metainfo.xml.in:151
 msgid "Improvements:"
-msgstr ""
+msgstr "Паляпшэнні:"
 
 #: data/settings-daemon.metainfo.xml.in:39
 #: data/settings-daemon.metainfo.xml.in:71
