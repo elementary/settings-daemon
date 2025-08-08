@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2025-08-03 09:55+0000\n"
+"PO-Revision-Date: 2025-08-09 11:55+0000\n"
 "Last-Translator: JieXu <xujie0739@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://"
 "l10n.elementaryos.org/projects/desktop/settings-daemon/zh_Hans/>\n"
@@ -86,7 +86,7 @@ msgstr "不要在使用受限网络时自动下载更新"
 
 #: data/settings-daemon.metainfo.xml.in:83
 msgid "Option to restart or shutdown without installing updates"
-msgstr ""
+msgstr "新增不安装更新只重新启动或关机的选项"
 
 #: data/settings-daemon.metainfo.xml.in:99
 msgid "Handle operating system updates, including automatic updates"
@@ -98,21 +98,21 @@ msgstr "处理驱动程序安装"
 
 #: data/settings-daemon.metainfo.xml.in:101
 msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
+msgstr "将 AccentColorManager（强调色管理器）从视窗管理器移到这里"
 
 #: data/settings-daemon.metainfo.xml.in:128
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "让设置桌面入口提供强调色信息给应用程序"
 
 #: data/settings-daemon.metainfo.xml.in:129
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
-msgstr ""
+msgstr "将字体、鼠标、键盘、夜光，‘以及一些无障碍使用设置同步到登入与锁定屏幕"
 
 #: data/settings-daemon.metainfo.xml.in:147
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "新增调整每周的第一天的选项"
 
 #: data/settings-daemon.metainfo.xml.in:148
 msgid "Add left-handed mouse click setting"
@@ -135,94 +135,94 @@ msgstr[0] "您的硬件有 %u 个可用的更新"
 
 #: src/Backends/SystemUpdate.vala:152
 msgid "Update available"
-msgstr ""
+msgstr "有可用的更新"
 
 #: src/Backends/SystemUpdate.vala:156
 msgid "A system security update is available"
-msgstr ""
+msgstr "有可用的系统安全性更新"
 
 #: src/Backends/SystemUpdate.vala:160
 msgid "A system update is available"
-msgstr ""
+msgstr "有可用的系统更新"
 
 #: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
-msgstr ""
+msgstr "需要重新启动"
 
 #: src/Backends/SystemUpdate.vala:191
 msgid "Please restart your system to finalize updates"
-msgstr ""
+msgstr "请重新启动您的系统来完成更新"
 
 #: src/Backends/SystemUpdate.vala:218
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "未能安装系统更新"
 
 #: src/Backends/SystemUpdate.vala:219
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "尝试更新您的系统时发生错误"
 
 #: src/Backends/UbuntuDrivers.vala:171
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] ""
+msgstr[0] "有可用的驱动程序"
 
 #: src/Backends/UbuntuDrivers.vala:173
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] ""
+msgstr[0] "您的硬件有 %u 个可用的驱动程序"
 
 #: src/Backends/UbuntuDrivers.vala:247
 msgid "Please restart your system to finalize driver installation"
-msgstr ""
+msgstr "请重新启动您的系统来完成安装驱动程序"
 
 #: src/Backends/UbuntuDrivers.vala:274
 msgid "A driver couldn't be installed"
-msgstr ""
+msgstr "未能安装驱动程序"
 
 #: src/Backends/UbuntuDrivers.vala:275
 msgid "An error occurred while trying to install a driver"
-msgstr ""
+msgstr "尝试安装驱动程序时发生错误"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
-msgstr ""
+msgstr "启动中"
 
 #: src/Utils/PkUtils.vala:24
 msgid "Waiting"
-msgstr ""
+msgstr "等待中"
 
 #: src/Utils/PkUtils.vala:26
 msgid "Running"
-msgstr ""
+msgstr "执行中"
 
 #: src/Utils/PkUtils.vala:28
 msgid "Querying"
-msgstr ""
+msgstr "查询中"
 
 #: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr ""
+msgstr "正在获取信息"
 
 #: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr ""
+msgstr "正在移除软件包"
 
 #: src/Utils/PkUtils.vala:34
 msgid "Downloading"
-msgstr ""
+msgstr "下载中"
 
 #: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr ""
+msgstr "正在刷新软件列表"
 
 #: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr ""
+msgstr "正在安装更新"
 
 #: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "正在清理软件包"
 
 #: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
@@ -230,47 +230,47 @@ msgstr ""
 
 #: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "正在解决依赖关系"
 
 #: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr ""
+msgstr "正在检查签名"
 
 #: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr ""
+msgstr "正在测试变更"
 
 #: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
-msgstr ""
+msgstr "正在提交变更"
 
 #: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
-msgstr ""
+msgstr "正在请求数据"
 
 #: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr ""
+msgstr "已完成"
 
 #: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "取消中"
 
 #: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
-msgstr ""
+msgstr "正在下载软体库信息"
 
 #: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "正在下载软件包列表"
 
 #: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr ""
+msgstr "正在下载文件列表"
 
 #: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "正在下载变更列表"
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
@@ -278,48 +278,48 @@ msgstr ""
 
 #: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "正在下载更新信息"
 
 #: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr ""
+msgstr "正在重新打包文件"
 
 #: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
-msgstr ""
+msgstr "正在载入缓存"
 
 #: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
-msgstr ""
+msgstr "正在扫描应用程序"
 
 #: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr ""
+msgstr "正在生成软件包列表"
 
 #: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "正在等待软件包管理器锁定"
 
 #: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "正在等待认证"
 
 #: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr ""
+msgstr "正在更新运行中的应用程序"
 
 #: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr ""
+msgstr "正在检查使用中的应用程序"
 
 #: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "正在检查使用中的库文件"
 
 #: src/Utils/PkUtils.vala:88
 msgid "Copying files"
-msgstr ""
+msgstr "正在复制文件"
 
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "安装中"
