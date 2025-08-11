@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2025-07-27 10:55+0000\n"
+"PO-Revision-Date: 2025-08-12 17:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/be/>\n"
@@ -26,15 +26,15 @@ msgstr "Налады сістэмы"
 
 #: data/autostart.desktop:5
 msgid "System Settings background tasks"
-msgstr ""
+msgstr "Фонавыя задачы сістэмных налад"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
-msgstr ""
+msgstr "Фонавая служба налад"
 
 #: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
-msgstr ""
+msgstr "Кіраванне наладамі і фанавымі задачамі"
 
 #: data/settings-daemon.metainfo.xml.in:13
 msgid ""
