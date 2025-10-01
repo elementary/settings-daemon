@@ -220,6 +220,9 @@ public class SettingsDaemon.Settings : GLib.Object {
 
             case 10: // Slate
                 return rgb_to_variant (0x667885);
+
+            case 11: // Latte
+                return rgb_to_variant (0xe7c591);
         }
 
         return rgb_to_variant (0);

@@ -41,7 +41,8 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
         { 7,  "Purple", "io.elementary.stylesheet.grape",      rgba_from_int (0xa56de2) }, // vala-lint=double-spaces
         { 8,  "Pink",   "io.elementary.stylesheet.bubblegum",  rgba_from_int (0xde3e80) }, // vala-lint=double-spaces
         { 9,  "Brown",  "io.elementary.stylesheet.cocoa",      rgba_from_int (0x8a715e) }, // vala-lint=double-spaces
-        { 10, "Gray",   "io.elementary.stylesheet.slate",      rgba_from_int (0x667885) }  // vala-lint=double-spaces
+        { 10, "Gray",   "io.elementary.stylesheet.slate",      rgba_from_int (0x667885) },  // vala-lint=double-spaces
+        { 11, "Latte",  "io.elementary.stylesheet.latte",      rgba_from_int (0xe7c591) },  // vala-lint=double-spaces
     };
 
     public AccentColorManager (Pantheon.AccountsService pantheon_accounts_service, AccountsService accounts_service) {
