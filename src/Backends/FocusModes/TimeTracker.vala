@@ -5,7 +5,7 @@
  */
 
 [SingleInstance]
-public class SettingsDaemon.Backends.TimeTracker : Object {
+public class SettingsDaemon.Backends.FocusModes.TimeTracker : Object {
     private GClue.Simple simple;
 
     private double sunrise = 6.0;
