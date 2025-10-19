@@ -15,7 +15,7 @@ public class SettingsDaemon.Backends.FocusModes.Mode : Object {
         string name;
         bool enabled;
         bool active;
-        HashTable<string, Variant> args;
+        HashTable<string, Variant> schedule;
         HashTable<string, Variant> settings;
     }
 
@@ -31,10 +31,6 @@ public class SettingsDaemon.Backends.FocusModes.Mode : Object {
         setting_handlers[DARK_MODE] = new GLibSetting ("io.elementary.settings-daemon.prefers-color-scheme", "color-scheme", "prefer-dark");
         setting_handlers[DND] = new GLibSetting ("io.elementary.notifications", "do-not-disturb", true);
         setting_handlers[MONOCHROME] = new GLibSetting ("io.elementary.desktop.wm.accessibility", "enable-monochrome-filter", true);
-
-        //  setting_handlers[DARK_MODE] = new SettingsDaemon.Backends.Modes.Settings.ColorSchemeSetting ();
-        //  setting_handlers[DND] = new SettingsDaemon.Backends.Modes.Settings.DNDSetting ();
-        //  setting_handlers[MONOCHROME] = new SettingsDaemon.Backends.Modes.Settings.MonochromeSetting ();
     }
 
     private Parsed _parsed;
@@ -42,10 +38,14 @@ public class SettingsDaemon.Backends.FocusModes.Mode : Object {
         get { return _parsed; }
         set {
             if (is_active) {
+                // If we're currently active unapply the old settings and reapply the new ones
                 unapply_settings ();
+                _parsed = value;
+                apply_settings ();
+            } else {
+                _parsed = value;
             }
 
-            _parsed = value;
             check_triggers ();
         }
     }
@@ -53,12 +53,13 @@ public class SettingsDaemon.Backends.FocusModes.Mode : Object {
     public string id { get { return parsed.id; } }
     public string name { get { return parsed.name; } }
     public bool enabled { get { return parsed.enabled; } }
-    private bool active { get { return parsed.active; } set { parsed.active = value; } }
-    public HashTable<string, Variant> args { get { return parsed.args; } }
+    public bool active { get { return parsed.active; } set { _parsed.active = value; } }
+    public HashTable<string, Variant> schedule { get { return parsed.schedule; } }
     public HashTable<string, Variant> settings { get { return parsed.settings; } }
 
     private TimeTracker time_tracker;
     private bool is_active = false;
+    private bool user_override = false;
 
     public Mode (Parsed parsed) {
         Object (parsed: parsed);
@@ -66,54 +67,54 @@ public class SettingsDaemon.Backends.FocusModes.Mode : Object {
 
     construct {
         time_tracker = new TimeTracker ();
+        Timeout.add_seconds (1, () => {
+            check_triggers ();
+            return Source.CONTINUE;
+        });
     }
 
     private void check_triggers () {
-        bool should_activate = active;
-        //  switch (mode_type) {
-        //      case MANUAL:
-        //          if ("from" in args && "to" in args) {
-        //              is_in = time_tracker.is_in_time_window_manual (args["from"].get_double (), args["to"].get_double ());
-        //          }
-        //          break;
+        var is_in = false;
 
-        //      case DAYLIGHT:
-        //          is_in = time_tracker.is_in_time_window_daylight ();
-        //          break;
-        //  }
-
-        if (is_active != should_activate) {
-            active = should_activate;
-
-            if (enabled) {
-                if (should_activate) {
-                    apply_settings ();
-                } else {
-                    unapply_settings ();
-                }
-            }
+        if ("daylight" in schedule) {
+            is_in = time_tracker.is_in_time_window_daylight ();
+        } else if ("manual" in schedule && schedule["manual"].n_children () == 2) {
+            var from_time = schedule["manual"].get_child_value (0).get_double ();
+            var to_time = schedule["manual"].get_child_value (1).get_double ();
+            is_in = time_tracker.is_in_time_window_manual (from_time, to_time);
         }
+
+        if (active != is_active) {
+            // The user toggled the mode manually
+            user_override = true;
+        }
+
+        if (user_override && is_in == active) {
+            // The schedule agrees with the user again so we disable the override and
+            // use the schedule as the source of truth again
+            user_override = false;
+        }
+
+        var should_activate = user_override ? active : is_in;
+
+        if (should_activate && !is_active) {
+            if (!active) {
+                active = true;
+            }
+
+            apply_settings ();
+        } else if (!should_activate && is_active) {
+            if (active) {
+                active = false;
+            }
+
+            unapply_settings ();
+        }
+
+        assert (user_override ^ active == is_in);
+        assert (active == is_active);
     }
 
-    //  private void apply_settings (HashTable<string, Variant> settings) {
-    //      foreach (var key in settings.get_keys ()) {
-    //          switch (key) {
-    //              case DARK_MODE:
-    //                  var scheme = ((bool) settings[DARK_MODE]) ? Granite.Settings.ColorScheme.DARK : Granite.Settings.ColorScheme.LIGHT;
-    //                  color_scheme_settings.set_enum ("color-scheme", scheme);
-    //                  break;
-    //              case DND:
-    //                  dnd_settings.set_boolean ("do-not-disturb", (bool) settings[DND]);
-    //                  break;
-    //              case MONOCHROME:
-    //                  monochrome_settings.set_boolean ("enable-monochrome-filter", (bool) settings[MONOCHROME]);
-    //                  break;
-    //              default:
-    //                  warning ("Tried to apply unknown setting: %s", key);
-    //                  break;
-    //          }
-    //      }
-    //  }
     private void apply_settings () requires (!is_active) {
         is_active = true;
 

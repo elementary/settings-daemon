@@ -9,6 +9,7 @@ public class SettingsDaemon.Backends.FocusModes.Manager : GLib.Object {
     private static Settings settings = new Settings ("io.elementary.settings-daemon.focus-modes");
 
     public signal void items_changed (uint pos, uint removed, uint added);
+    public signal void properties_changed (uint pos);
 
     private HashTable<string, Mode> modes = new HashTable<string, Mode> (str_hash, str_equal);
     private ListStore modes_list;
@@ -54,7 +55,7 @@ public class SettingsDaemon.Backends.FocusModes.Manager : GLib.Object {
 
         uint pos;
         if (modes_list.find (mode, out pos)) {
-            modes_list.items_changed (pos, 1, 1);
+            properties_changed (pos);
         } else {
             warning ("Unknown mode notified");
         }
