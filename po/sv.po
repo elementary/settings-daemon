@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2025-10-22 05:26+0000\n"
+"PO-Revision-Date: 2025-10-23 13:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/sv/>\n"
@@ -132,8 +132,8 @@ msgstr "Sköt inte om nedladdningar om det också är ett hem"
 #: src/Application.vala:169
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] "Uppdatering av firmware tillgänglig"
-msgstr[1] "Uppdateringar av firmware tillgängliga"
+msgstr[0] "Uppdatering av fast programvara tillgänglig"
+msgstr[1] "Uppdateringar av fast programvara tillgängliga"
 
 #: src/Application.vala:171
 #, c-format
@@ -213,7 +213,7 @@ msgstr "Frågeställning"
 
 #: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr "Skaffa information"
+msgstr "Få information"
 
 #: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
@@ -301,7 +301,7 @@ msgstr "Laddar cache"
 
 #: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
-msgstr "Skanning av applikationer"
+msgstr "Söker igenom program"
 
 #: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
@@ -317,11 +317,11 @@ msgstr "Väntar på autentisering"
 
 #: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr "Uppdatering av pågående applikationer"
+msgstr "Uppdaterar körande program"
 
 #: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr "Kontroll av applikationer som används"
+msgstr "Kontrollerar program som används"
 
 #: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
