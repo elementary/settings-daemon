@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2025-10-26 09:55+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/sv/>\n"
@@ -40,8 +40,8 @@ msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
-"Synkroniserar inställningar till greetern och hanterar bakgrundsuppgifter, "
-"som schemaläggning av mörk stil och städning."
+"Synkroniserar inställningar till hälsaren och hanterar bakgrundsuppgifter, "
+"som schemaläggning av mörk stil och hushållning."
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
@@ -68,7 +68,7 @@ msgstr "Uppdaterade översättningar"
 
 #: data/settings-daemon.metainfo.xml.in:52
 msgid "Progress indicators were added to the system update"
-msgstr "Framstegsindikatorer lades till i systemuppdateringen"
+msgstr "Förloppsindikatorer lades till i systemuppdateringen"
 
 #: data/settings-daemon.metainfo.xml.in:53
 msgid "Get correct total size for system updates"
@@ -100,11 +100,11 @@ msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:100
 msgid "Handle driver installation"
-msgstr "Installation av handtagsdrivrutin"
+msgstr "Hantera drivrutinsinstallation"
 
 #: data/settings-daemon.metainfo.xml.in:101
 msgid "Move the AccentColorManager from the window manager to here"
-msgstr "Flytta AccentColorManager från fönsterhanteraren till här"
+msgstr "Flytta AccentColorManager från fönsterhanteraren till hit"
 
 #: data/settings-daemon.metainfo.xml.in:128
 msgid "Provide accent colors on the settings portal"
@@ -115,8 +115,8 @@ msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
-"Synkronisera teckensnitt, mus, tangentbord, nattlampa och vissa "
-"tillgänglighetsinställningar till inloggnings- och låsskärmen"
+"Synkronisera typsnitt, mus, tangentbord, nattljus och vissa "
+"hjälpmedelsinställningar till inloggnings- och låsskärmen"
 
 #: data/settings-daemon.metainfo.xml.in:147
 msgid "Add First day of the week setting"
@@ -169,7 +169,7 @@ msgstr "Systemuppdateringar kunde inte installeras"
 
 #: src/Backends/SystemUpdate.vala:219
 msgid "An error occurred while trying to update your system"
-msgstr "Ett fel inträffade när du försökte uppdatera ditt system"
+msgstr "Ett fel inträffade vid försök att uppdatera ditt system"
 
 #: src/Backends/UbuntuDrivers.vala:171
 msgid "Driver Available"
@@ -194,7 +194,7 @@ msgstr "En drivrutin kunde inte installeras"
 
 #: src/Backends/UbuntuDrivers.vala:275
 msgid "An error occurred while trying to install a driver"
-msgstr "Ett fel inträffade när du försökte installera en drivrutin"
+msgstr "Ett fel inträffade vid försök att installera en drivrutin"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -214,11 +214,11 @@ msgstr "Frågeställning"
 
 #: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr "Få information"
+msgstr "Hämtar information"
 
 #: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr "Ta bort paket"
+msgstr "Tar bort paket"
 
 #: src/Utils/PkUtils.vala:34
 msgid "Downloading"
@@ -226,31 +226,31 @@ msgstr "Hämtar"
 
 #: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr "Uppdatering av programvarulistan"
+msgstr "Uppdaterar programvarulistan"
 
 #: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr "Installera uppdateringar"
+msgstr "Installerar uppdateringar"
 
 #: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr "Rensar upp paket"
+msgstr "Städar upp paket"
 
 #: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
-msgstr "Obsoleta paket"
+msgstr "Föråldrar paket"
 
 #: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr "Lösning av beroenden"
+msgstr "Löser beroenden"
 
 #: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr "Kontroll av signaturer"
+msgstr "Kontrollerar signaturer"
 
 #: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr "Förändringar i testning"
+msgstr "Testar ändringar"
 
 #: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
@@ -258,11 +258,11 @@ msgstr "Genomför ändringar"
 
 #: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
-msgstr "Begäran om uppgifter"
+msgstr "Begär data"
 
 #: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr "Avslutade"
+msgstr "Färdig"
 
 #: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
@@ -274,27 +274,27 @@ msgstr "Hämtar ner arkivinformation"
 
 #: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr "Nedladdning av paketlista"
+msgstr "Hämtar ner paketlista"
 
 #: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr "Nedladdning av fillistor"
+msgstr "Hämtar ner fillistor"
 
 #: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr "Nedladdning av ändringslistor"
+msgstr "Hämtar ner ändringslistor"
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr "Nedladdning av grupper"
+msgstr "Hämtar ner grupper"
 
 #: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr "Nedladdning av uppdateringsinformation"
+msgstr "Hämtar ner uppdateringsinformation"
 
 #: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr "Ompackning av filer"
+msgstr "Packar om filer"
 
 #: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
@@ -306,11 +306,11 @@ msgstr "Söker igenom program"
 
 #: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr "Generera paketlistor"
+msgstr "Genererar paketlistor"
 
 #: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr "Väntar på låsning av pakethanteraren"
+msgstr "Väntar på pakethanterarens lås"
 
 #: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
@@ -326,7 +326,7 @@ msgstr "Kontrollerar program som används"
 
 #: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
-msgstr "Kontroll av bibliotek som används"
+msgstr "Kontrollerar bibliotek som används"
 
 #: src/Utils/PkUtils.vala:88
 msgid "Copying files"
