@@ -1,3 +1,9 @@
+io.elementary.settings-daemon (8.4.0) noble; urgency=medium
+
+  * Release 8.4.0 (#213)
+
+ -- elementary, Inc. <builds@elementary.io>  Mon, 24 Nov 2025 19:01:32 +0000
+
 io.elementary.settings-daemon (8.3.1) noble; urgency=medium
 
   * Release 8.3.1 (#198)
