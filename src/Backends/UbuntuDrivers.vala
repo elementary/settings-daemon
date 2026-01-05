@@ -157,7 +157,10 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
                 }
             }
 
-            available_drivers[driver] = yield update_installed (driver, package_names);
+            GenericArray<string> driver_available_packages = yield update_installed (driver, package_names);
+            if (driver_available_packages.length > 0) {
+                available_drivers[driver] = driver_available_packages;
+            }
         }
 
         if (available_drivers.length == 0) {
@@ -193,8 +196,6 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
 
             bool all_installed = true;
             foreach (var package in packages) {
-                array.add (package.package_id);
-
                 if (!(driver in devices_by_drivers)) {
                     continue;
                 }
@@ -204,6 +205,7 @@ public class SettingsDaemon.Backends.UbuntuDrivers : Object {
                 } else {
                     all_installed = false;
                     devices_by_drivers[driver].available_drivers_with_installed[driver] = false;
+                    array.add (package.package_id);
                 }
             }
         } catch (Error e) {
