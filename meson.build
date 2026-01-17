@@ -32,6 +32,7 @@ libgeoclue_dep = dependency ('libgeoclue-2.0')
 
 prefix = get_option('prefix')
 datadir = prefix / get_option('datadir')
+bindir = prefix / get_option('bindir')
 
 conf_data = configuration_data()
 conf_data.set('PROJECT_NAME', meson.project_name())

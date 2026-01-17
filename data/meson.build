@@ -47,6 +47,7 @@ if systemd_system_unit_dir != 'no' and systemd_user_unit_dir != 'no'
 
     service_config = configuration_data()
     service_config.set('busctl_path', busctl_path)
+    service_config.set('bindir', bindir)
 
     configure_file(
         input: meson.project_name() + '.check-for-firmware-updates.service.in',
@@ -72,8 +73,10 @@ if systemd_system_unit_dir != 'no' and systemd_user_unit_dir != 'no'
         install_dir: systemd_user_unit_dir
     )
 
-    install_data(
-        meson.project_name() + '.service',
+    configure_file(
+        input: meson.project_name() + '.service.in',
+        output: meson.project_name() + '.service',
+        configuration: service_config,
         install_dir: systemd_user_unit_dir
     )
 endif

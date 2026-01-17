@@ -7,6 +7,6 @@ WantedBy=gnome-session-initialized.target
 
 [Service]
 Type=exec
-ExecStart=io.elementary.settings-daemon
+ExecStart=@bindir@/io.elementary.settings-daemon
 Restart=on-failure
 Slice=session.slice
