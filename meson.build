@@ -58,6 +58,5 @@ subdir('src')
 subdir('settings-portal')
 
 gnome.post_install(
-    glib_compile_schemas: true,
-    update_desktop_database: true
+    glib_compile_schemas: true
 )
