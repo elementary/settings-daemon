@@ -1,19 +1,3 @@
-i18n.merge_file(
-    input: 'autostart.desktop',
-    output: meson.project_name() + '.desktop',
-    po_dir: meson.project_source_root() / 'po',
-    type: 'desktop',
-    install: true,
-    install_dir: datadir / 'applications'
-)
-
-fs = import('fs')
-meson.add_install_script(
-    symlink,
-    datadir / 'applications' / meson.project_name() + '.desktop',
-    (fs.is_absolute(sysconfdir) ? sysconfdir : (prefix / sysconfdir)) / 'xdg' / 'autostart' / meson.project_name() + '.desktop',
-)
-
 dbus_dep = dependency('dbus-1')
 dbus_interfaces_dir = dbus_dep.get_variable('interfaces_dir', pkgconfig_define: ['datadir', datadir])
 
@@ -85,6 +69,11 @@ if systemd_system_unit_dir != 'no' and systemd_user_unit_dir != 'no'
 
     install_data(
         meson.project_name() + '.system-update.timer',
+        install_dir: systemd_user_unit_dir
+    )
+
+    install_data(
+        meson.project_name() + '.service',
         install_dir: systemd_user_unit_dir
     )
 endif
