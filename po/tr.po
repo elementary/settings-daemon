@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 15:48+0000\n"
+"POT-Creation-Date: 2026-01-20 14:47+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/desktop/settings-"
@@ -18,16 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.6.2\n"
-
-#: data/autostart.desktop:4
-msgid "System Settings"
-msgstr "Sistem Ayarları"
-
-#: data/autostart.desktop:5
-#, fuzzy
-#| msgid "Manage settings and background tasks"
-msgid "System Settings background tasks"
-msgstr "Ayarları ve arka plan görevlerini yönetin"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -55,119 +45,123 @@ msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
 #: data/settings-daemon.metainfo.xml.in:50
-#: data/settings-daemon.metainfo.xml.in:69
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:103
-#: data/settings-daemon.metainfo.xml.in:131
-#: data/settings-daemon.metainfo.xml.in:151
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:94
+#: data/settings-daemon.metainfo.xml.in:110
+#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:156
+#: data/settings-daemon.metainfo.xml.in:176
 msgid "Improvements:"
 msgstr "İyileştirmeler:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:87
-#: data/settings-daemon.metainfo.xml.in:105
-#: data/settings-daemon.metainfo.xml.in:133
-#: data/settings-daemon.metainfo.xml.in:153
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:96
+#: data/settings-daemon.metainfo.xml.in:112
+#: data/settings-daemon.metainfo.xml.in:130
+#: data/settings-daemon.metainfo.xml.in:158
+#: data/settings-daemon.metainfo.xml.in:178
 msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
-#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:77
 msgid "Progress indicators were added to the system update"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:78
 msgid "Get correct total size for system updates"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:65
-#: data/settings-daemon.metainfo.xml.in:81
-#: data/settings-daemon.metainfo.xml.in:97
-#: data/settings-daemon.metainfo.xml.in:126
-#: data/settings-daemon.metainfo.xml.in:145
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:106
+#: data/settings-daemon.metainfo.xml.in:122
+#: data/settings-daemon.metainfo.xml.in:151
+#: data/settings-daemon.metainfo.xml.in:170
 msgid "New features:"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:67
+#: data/settings-daemon.metainfo.xml.in:92
 msgid "Don't automatically download updates on a metered network"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:83
+#: data/settings-daemon.metainfo.xml.in:108
 msgid "Option to restart or shutdown without installing updates"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:99
+#: data/settings-daemon.metainfo.xml.in:124
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:125
 msgid "Handle driver installation"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:101
+#: data/settings-daemon.metainfo.xml.in:126
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:153
 msgid "Provide accent colors on the settings portal"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:129
+#: data/settings-daemon.metainfo.xml.in:154
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:147
+#: data/settings-daemon.metainfo.xml.in:172
 msgid "Add First day of the week setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:148
+#: data/settings-daemon.metainfo.xml.in:173
 msgid "Add left-handed mouse click setting"
 msgstr ""
 
-#: data/settings-daemon.metainfo.xml.in:149
+#: data/settings-daemon.metainfo.xml.in:174
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Application.vala:171
+#: src/Application.vala:173
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Backends/SystemUpdate.vala:152
+#: src/Backends/SystemUpdate.vala:145
 msgid "Update available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:156
+#: src/Backends/SystemUpdate.vala:149
 msgid "A system security update is available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:160
+#: src/Backends/SystemUpdate.vala:153
 msgid "A system update is available"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
+#: src/Backends/SystemUpdate.vala:183 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:191
+#: src/Backends/SystemUpdate.vala:184
 msgid "Please restart your system to finalize updates"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:218
+#: src/Backends/SystemUpdate.vala:211
 msgid "System updates couldn't be installed"
 msgstr ""
 
-#: src/Backends/SystemUpdate.vala:219
+#: src/Backends/SystemUpdate.vala:212
 msgid "An error occurred while trying to update your system"
 msgstr ""
 
@@ -335,3 +329,11 @@ msgstr ""
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr ""
+
+#~ msgid "System Settings"
+#~ msgstr "Sistem Ayarları"
+
+#, fuzzy
+#~| msgid "Manage settings and background tasks"
+#~ msgid "System Settings background tasks"
+#~ msgstr "Ayarları ve arka plan görevlerini yönetin"
