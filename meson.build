@@ -32,7 +32,7 @@ libgeoclue_dep = dependency ('libgeoclue-2.0')
 
 prefix = get_option('prefix')
 datadir = prefix / get_option('datadir')
-sysconfdir = get_option('sysconfdir')
+bindir = prefix / get_option('bindir')
 
 conf_data = configuration_data()
 conf_data.set('PROJECT_NAME', meson.project_name())
@@ -59,6 +59,5 @@ subdir('src')
 subdir('settings-portal')
 
 gnome.post_install(
-    glib_compile_schemas: true,
-    update_desktop_database: true
+    glib_compile_schemas: true
 )
