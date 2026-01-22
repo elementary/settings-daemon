@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 15:48+0000\n"
+"POT-Creation-Date: 2026-01-20 14:47+0000\n"
 "PO-Revision-Date: 2025-02-13 10:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/desktop/settings-"
@@ -18,14 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.9.2\n"
-
-#: data/autostart.desktop:4
-msgid "System Settings"
-msgstr "Paramètres du système"
-
-#: data/autostart.desktop:5
-msgid "System Settings background tasks"
-msgstr "Tâches en arrière-plan des paramètres du système"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -49,68 +41,72 @@ msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
 #: data/settings-daemon.metainfo.xml.in:50
-#: data/settings-daemon.metainfo.xml.in:69
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:103
-#: data/settings-daemon.metainfo.xml.in:131
-#: data/settings-daemon.metainfo.xml.in:151
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:94
+#: data/settings-daemon.metainfo.xml.in:110
+#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:156
+#: data/settings-daemon.metainfo.xml.in:176
 msgid "Improvements:"
 msgstr "Améliorations :"
 
 #: data/settings-daemon.metainfo.xml.in:39
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:87
-#: data/settings-daemon.metainfo.xml.in:105
-#: data/settings-daemon.metainfo.xml.in:133
-#: data/settings-daemon.metainfo.xml.in:153
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:96
+#: data/settings-daemon.metainfo.xml.in:112
+#: data/settings-daemon.metainfo.xml.in:130
+#: data/settings-daemon.metainfo.xml.in:158
+#: data/settings-daemon.metainfo.xml.in:178
 msgid "Updated translations"
 msgstr "Mise à jour des traductions"
 
-#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:77
 msgid "Progress indicators were added to the system update"
 msgstr ""
 "Des indicateurs de progression ont été ajoutés à la mise à jour du système"
 
-#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:78
 msgid "Get correct total size for system updates"
 msgstr ""
 "Obtention de la valeur totale correcte pour les mises à jour du système"
 
-#: data/settings-daemon.metainfo.xml.in:65
-#: data/settings-daemon.metainfo.xml.in:81
-#: data/settings-daemon.metainfo.xml.in:97
-#: data/settings-daemon.metainfo.xml.in:126
-#: data/settings-daemon.metainfo.xml.in:145
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:106
+#: data/settings-daemon.metainfo.xml.in:122
+#: data/settings-daemon.metainfo.xml.in:151
+#: data/settings-daemon.metainfo.xml.in:170
 msgid "New features:"
 msgstr "Nouvelles fonctionnalités :"
 
-#: data/settings-daemon.metainfo.xml.in:67
+#: data/settings-daemon.metainfo.xml.in:92
 msgid "Don't automatically download updates on a metered network"
 msgstr ""
 "Ne pas télécharger automatiquement les mises à jour sur un réseau limité"
 
-#: data/settings-daemon.metainfo.xml.in:83
+#: data/settings-daemon.metainfo.xml.in:108
 msgid "Option to restart or shutdown without installing updates"
 msgstr "Option pour redémarrer ou arrêter sans installer les mises à jour"
 
-#: data/settings-daemon.metainfo.xml.in:99
+#: data/settings-daemon.metainfo.xml.in:124
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
 "Gère les mises à jour du système, y compris les mises à jour automatiques"
 
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:125
 msgid "Handle driver installation"
 msgstr "Gère l'installation des pilotes"
 
-#: data/settings-daemon.metainfo.xml.in:101
+#: data/settings-daemon.metainfo.xml.in:126
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Déplacement de AccentColorManager du gestionnaire de fenêtres vers ici"
 
-#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:153
 msgid "Provide accent colors on the settings portal"
 msgstr "Fournis les couleurs d'accentuation dans le portail des paramètres"
 
-#: data/settings-daemon.metainfo.xml.in:129
+#: data/settings-daemon.metainfo.xml.in:154
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
@@ -119,58 +115,58 @@ msgstr ""
 "nuit et de certains paramètres d'accessibilité avec l'écran de connexion et "
 "de verrouillage"
 
-#: data/settings-daemon.metainfo.xml.in:147
+#: data/settings-daemon.metainfo.xml.in:172
 msgid "Add First day of the week setting"
 msgstr "Ajout du premier jour de la semaine dans les paramètres de semaine"
 
-#: data/settings-daemon.metainfo.xml.in:148
+#: data/settings-daemon.metainfo.xml.in:173
 msgid "Add left-handed mouse click setting"
 msgstr "Ajout d'un paramètre de clic de souris pour gaucher"
 
-#: data/settings-daemon.metainfo.xml.in:149
+#: data/settings-daemon.metainfo.xml.in:174
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr ""
 "Ne pas nettoyer automatiquement le dossier des téléchargements si c'est "
 "aussi le dossier personnel"
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Mise à jour du micrologiciel disponible"
 msgstr[1] "Mises à jour du micrologiciel disponibles"
 
-#: src/Application.vala:171
+#: src/Application.vala:173
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u mise à jour est disponible pour votre matériel"
 msgstr[1] "%u mises à jour sont disponibles pour votre matériel"
 
-#: src/Backends/SystemUpdate.vala:152
+#: src/Backends/SystemUpdate.vala:145
 msgid "Update available"
 msgstr "Mise à jour disponible"
 
-#: src/Backends/SystemUpdate.vala:156
+#: src/Backends/SystemUpdate.vala:149
 msgid "A system security update is available"
 msgstr "Une mise à jour de sécurité du système est disponible"
 
-#: src/Backends/SystemUpdate.vala:160
+#: src/Backends/SystemUpdate.vala:153
 msgid "A system update is available"
 msgstr "Une mise à jour du système est disponible"
 
-#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
+#: src/Backends/SystemUpdate.vala:183 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
 msgstr "Redémarrage nécessaire"
 
-#: src/Backends/SystemUpdate.vala:191
+#: src/Backends/SystemUpdate.vala:184
 msgid "Please restart your system to finalize updates"
 msgstr "Veuillez redémarrer votre système pour terminer les mises à jour"
 
-#: src/Backends/SystemUpdate.vala:218
+#: src/Backends/SystemUpdate.vala:211
 msgid "System updates couldn't be installed"
 msgstr "Les mises à jour du système n'ont pas pu être installées"
 
-#: src/Backends/SystemUpdate.vala:219
+#: src/Backends/SystemUpdate.vala:212
 msgid "An error occurred while trying to update your system"
 msgstr "Une erreur s'est produite lors de la mise à jour de votre système"
 
@@ -339,6 +335,12 @@ msgstr "Copie des fichiers"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Installation"
+
+#~ msgid "System Settings"
+#~ msgstr "Paramètres du système"
+
+#~ msgid "System Settings background tasks"
+#~ msgstr "Tâches en arrière-plan des paramètres du système"
 
 #~ msgid "Provide the Settings portal"
 #~ msgstr "Fournis le portail des paramètres"
