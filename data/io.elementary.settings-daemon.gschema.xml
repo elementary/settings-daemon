@@ -135,4 +135,17 @@
       </description>
     </key>
   </schema>
+
+  <enum id="ReduceMotionPreference">
+    <value nick='no-preference' value='0'/>
+    <value nick='reduce' value='1'/>
+  </enum>
+
+  <schema path="/io/elementary/settings-daemon/a11y/" id="io.elementary.settings-daemon.a11y">
+    <key enum="ReduceMotionPreference" name="reduced-motion">
+      <default>'no-preference'</default>
+      <summary>Reduce motion effects</summary>
+      <description>If enabled, reduces motion effects for the user interface.</description>
+    </key>
+  </schema>
 </schemalist>
