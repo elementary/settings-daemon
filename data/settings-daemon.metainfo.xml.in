@@ -40,6 +40,7 @@
         </ul>
       </description>
       <issues>
+        <issue url="https://github.com/elementary/settings-daemon/issues/182">Change default selection of updates to be installed automatically</issue>
         <issue url="https://github.com/elementary/settings-daemon/issues/207">"Driver Available" notification on every boot, but no drivers available</issue>
         <issue url="https://github.com/elementary/settings-daemon/issues/217">Gnome-session no longer manages session services</issue>
       </issues>
