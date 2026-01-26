@@ -85,13 +85,15 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
     private void update_accent_color () {
         Theme? new_theme = null;
         var prefers_accent_color = pantheon_accounts_service.prefers_accent_color;
+        if (prefers_accent_color < 0 || prefers_accent_color - 1 >= themes.length) {
+            critical ("Incorrect accent color in pantheon accounts service. color=%d", prefers_accent_color);
+            return;
+        }
+
         if (prefers_accent_color == 0) {
             new_theme = get_dynamic_accent_color_theme_name ();
-        } else if (prefers_accent_color < themes.length + 1) {
-            new_theme = themes[prefers_accent_color - 1];
         } else {
-            critical ("Incorrect accent color in pantheon accounts service");
-            return;
+            new_theme = themes[prefers_accent_color - 1];
         }
 
         interface_settings.set_string ("gtk-theme", new_theme.stylesheet);
