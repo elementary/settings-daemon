@@ -97,6 +97,14 @@
      </key>
   </schema>
 
+  <schema path="/io/elementary/settings-daemon/focus-modes/" id="io.elementary.settings-daemon.focus-modes">
+    <key type="a(ssbba{sv}a{sv})" name="focus-modes">
+      <default>[]</default>
+      <summary>The current focus modes.</summary>
+      <description>a(a{sv}a{sv})</description>
+    </key>
+  </schema>
+
   <schema path="/io/elementary/settings-daemon/system-update/" id="io.elementary.settings-daemon.system-update">
     <key type="b" name="automatic-updates">
       <default>true</default>

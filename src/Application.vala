@@ -22,6 +22,8 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     private Backends.PowerProfilesSync power_profiles_sync;
     private Backends.ApplicationShortcuts application_shortcuts;
 
+    private Backends.FocusModes.Manager focus_modes_manager;
+
     private const string FDO_ACCOUNTS_NAME = "org.freedesktop.Accounts";
     private const string FDO_ACCOUNTS_PATH = "/org/freedesktop/Accounts";
 
@@ -40,6 +42,8 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
         GLib.Intl.textdomain (Build.GETTEXT_PACKAGE);
 
         add_main_option ("version", 'v', NONE, NONE, "Display the version", null);
+
+        focus_modes_manager = new Backends.FocusModes.Manager ();
     }
 
     protected override int handle_local_options (VariantDict options) {
@@ -80,6 +84,7 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     protected override bool dbus_register (DBusConnection connection, string object_path) throws Error {
         base.dbus_register (connection, object_path);
 
+        connection.register_object (object_path, focus_modes_manager);
         connection.register_object (object_path, new Backends.SystemUpdate ());
 
 #if UBUNTU_DRIVERS
