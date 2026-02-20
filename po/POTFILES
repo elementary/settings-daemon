@@ -1,4 +1,3 @@
-data/autostart.desktop
 data/settings-daemon.metainfo.xml.in
 src/Application.vala
 src/Backends/SystemUpdate.vala

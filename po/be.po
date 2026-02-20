@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 15:48+0000\n"
-"PO-Revision-Date: 2025-08-12 17:55+0000\n"
+"POT-Creation-Date: 2026-01-20 14:47+0000\n"
+"PO-Revision-Date: 2025-12-04 05:55+0000\n"
 "Last-Translator: lenify <lenify@tutanota.com>\n"
 "Language-Team: Belarusian <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/be/>\n"
@@ -19,14 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.11.4\n"
-
-#: data/autostart.desktop:4
-msgid "System Settings"
-msgstr "Налады сістэмы"
-
-#: data/autostart.desktop:5
-msgid "System Settings background tasks"
-msgstr "Фонавыя задачы сістэмных налад"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -41,6 +33,8 @@ msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
+"Сінхранізуе налады з экрана вітання і кіруе фонавымі задачамі, напрыклад "
+"расклад цёмнай тэмы і уборкі."
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
@@ -48,162 +42,168 @@ msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
 #: data/settings-daemon.metainfo.xml.in:50
-#: data/settings-daemon.metainfo.xml.in:69
-#: data/settings-daemon.metainfo.xml.in:85
-#: data/settings-daemon.metainfo.xml.in:103
-#: data/settings-daemon.metainfo.xml.in:131
-#: data/settings-daemon.metainfo.xml.in:151
+#: data/settings-daemon.metainfo.xml.in:62
+#: data/settings-daemon.metainfo.xml.in:75
+#: data/settings-daemon.metainfo.xml.in:94
+#: data/settings-daemon.metainfo.xml.in:110
+#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:156
+#: data/settings-daemon.metainfo.xml.in:176
 msgid "Improvements:"
 msgstr "Паляпшэнні:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-#: data/settings-daemon.metainfo.xml.in:71
-#: data/settings-daemon.metainfo.xml.in:87
-#: data/settings-daemon.metainfo.xml.in:105
-#: data/settings-daemon.metainfo.xml.in:133
-#: data/settings-daemon.metainfo.xml.in:153
+#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:96
+#: data/settings-daemon.metainfo.xml.in:112
+#: data/settings-daemon.metainfo.xml.in:130
+#: data/settings-daemon.metainfo.xml.in:158
+#: data/settings-daemon.metainfo.xml.in:178
 msgid "Updated translations"
 msgstr "Абноўлены пераклады"
 
-#: data/settings-daemon.metainfo.xml.in:52
+#: data/settings-daemon.metainfo.xml.in:77
 msgid "Progress indicators were added to the system update"
-msgstr ""
+msgstr "Да абнаўлення сістэмы былі дададзеныя індыкатары ходу выканання"
 
-#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:78
 msgid "Get correct total size for system updates"
-msgstr ""
+msgstr "Атрыманне агульнага памеру для абнаўленняў сістэмы"
 
-#: data/settings-daemon.metainfo.xml.in:65
-#: data/settings-daemon.metainfo.xml.in:81
-#: data/settings-daemon.metainfo.xml.in:97
-#: data/settings-daemon.metainfo.xml.in:126
-#: data/settings-daemon.metainfo.xml.in:145
+#: data/settings-daemon.metainfo.xml.in:90
+#: data/settings-daemon.metainfo.xml.in:106
+#: data/settings-daemon.metainfo.xml.in:122
+#: data/settings-daemon.metainfo.xml.in:151
+#: data/settings-daemon.metainfo.xml.in:170
 msgid "New features:"
-msgstr ""
+msgstr "Новыя функцыі:"
 
-#: data/settings-daemon.metainfo.xml.in:67
+#: data/settings-daemon.metainfo.xml.in:92
 msgid "Don't automatically download updates on a metered network"
-msgstr ""
+msgstr "Не спампоўваць абнаўленні аўтаматычна на абмежаванай сетцы"
 
-#: data/settings-daemon.metainfo.xml.in:83
+#: data/settings-daemon.metainfo.xml.in:108
 msgid "Option to restart or shutdown without installing updates"
-msgstr ""
+msgstr "Опцыя перазагрузкі або выключэння без усталявання абнаўленняў"
 
-#: data/settings-daemon.metainfo.xml.in:99
+#: data/settings-daemon.metainfo.xml.in:124
 msgid "Handle operating system updates, including automatic updates"
-msgstr ""
+msgstr "Кіраванне абнаўленнямі АС, у тым ліку аўтаматычнымі"
 
-#: data/settings-daemon.metainfo.xml.in:100
+#: data/settings-daemon.metainfo.xml.in:125
 msgid "Handle driver installation"
-msgstr ""
+msgstr "Кіраванне драйверамі"
 
-#: data/settings-daemon.metainfo.xml.in:101
+#: data/settings-daemon.metainfo.xml.in:126
 msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
+msgstr "Перанос AccentColorManager з аконнага менеджара сюды"
 
-#: data/settings-daemon.metainfo.xml.in:128
+#: data/settings-daemon.metainfo.xml.in:153
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "Доступ да дамінуючых колераў праз партал налад"
 
-#: data/settings-daemon.metainfo.xml.in:129
+#: data/settings-daemon.metainfo.xml.in:154
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
+"Сінхранізацыя шрыфту, налад мышы, клавіятуры, начнога святла і некаторых "
+"налад спецыяльных магчымасцяў з экранамі ўвахода і блакіроўкі"
 
-#: data/settings-daemon.metainfo.xml.in:147
+#: data/settings-daemon.metainfo.xml.in:172
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "Дадаванне налады для першага дню тыдня"
 
-#: data/settings-daemon.metainfo.xml.in:148
+#: data/settings-daemon.metainfo.xml.in:173
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "Дадаванне налад мышы для ляўшэй"
 
-#: data/settings-daemon.metainfo.xml.in:149
+#: data/settings-daemon.metainfo.xml.in:174
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
-
-#: src/Application.vala:169
-msgid "Firmware Update Available"
-msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr "Не прымяняць уборку да спамповак, калі яны таксама ў дамашняй папцы"
 
 #: src/Application.vala:171
+msgid "Firmware Update Available"
+msgid_plural "Firmware Updates Available"
+msgstr[0] "Даступна абнаўленне ўбудаванага ПЗ"
+msgstr[1] "Даступны абнаўленні ўбудаванага ПЗ"
+msgstr[2] "Даступны абнаўленні ўбудаванага ПЗ"
+
+#: src/Application.vala:173
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Для вашага абсталявання даступна %u абнаўленне"
+msgstr[1] "Для вашага абсталявання даступна %u абнаўленні"
+msgstr[2] "Для вашага абсталявання даступна %u абнаўленняў"
 
-#: src/Backends/SystemUpdate.vala:152
+#: src/Backends/SystemUpdate.vala:145
 msgid "Update available"
-msgstr ""
+msgstr "Даступны абнаўленні"
 
-#: src/Backends/SystemUpdate.vala:156
+#: src/Backends/SystemUpdate.vala:149
 msgid "A system security update is available"
-msgstr ""
+msgstr "Даступна абнаўленне сістэмы бяспекі"
 
-#: src/Backends/SystemUpdate.vala:160
+#: src/Backends/SystemUpdate.vala:153
 msgid "A system update is available"
-msgstr ""
+msgstr "Даступна абнаўленне сістэмы"
 
-#: src/Backends/SystemUpdate.vala:190 src/Backends/UbuntuDrivers.vala:246
+#: src/Backends/SystemUpdate.vala:183 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
-msgstr ""
+msgstr "Патрэбны перазапуск"
 
-#: src/Backends/SystemUpdate.vala:191
+#: src/Backends/SystemUpdate.vala:184
 msgid "Please restart your system to finalize updates"
-msgstr ""
+msgstr "Перазапусціце сістэму, каб завяршыць усталёўку"
 
-#: src/Backends/SystemUpdate.vala:218
+#: src/Backends/SystemUpdate.vala:211
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "Не ўдалося ўсталяваць сістэмныя абнаўленні"
 
-#: src/Backends/SystemUpdate.vala:219
+#: src/Backends/SystemUpdate.vala:212
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "Падчас абнаўлення сістэмы паўстала памылка"
 
 #: src/Backends/UbuntuDrivers.vala:171
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Даступны драйвер"
+msgstr[1] "Даступны драйверы"
+msgstr[2] "Даступны драйверы"
 
 #: src/Backends/UbuntuDrivers.vala:173
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Для вашага абсталявання даступны %u драйвер"
+msgstr[1] "Для вашага абсталявання даступна %u драйвера"
+msgstr[2] "Для вашага абсталявання даступна %u драйвераў"
 
 #: src/Backends/UbuntuDrivers.vala:247
 msgid "Please restart your system to finalize driver installation"
-msgstr ""
+msgstr "Перазапусціце сістэму, каб завяршыць усталёўку драйвераў"
 
 #: src/Backends/UbuntuDrivers.vala:274
 msgid "A driver couldn't be installed"
-msgstr ""
+msgstr "Не ўдалося ўсталяваць драйвер"
 
 #: src/Backends/UbuntuDrivers.vala:275
 msgid "An error occurred while trying to install a driver"
-msgstr ""
+msgstr "Падчас усталявання драйвера паўстала памылка"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
-msgstr ""
+msgstr "Пуск"
 
 #: src/Utils/PkUtils.vala:24
 msgid "Waiting"
-msgstr ""
+msgstr "Чаканне"
 
 #: src/Utils/PkUtils.vala:26
 msgid "Running"
-msgstr ""
+msgstr "Працуе"
 
 #: src/Utils/PkUtils.vala:28
 msgid "Querying"
@@ -211,124 +211,131 @@ msgstr ""
 
 #: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr ""
+msgstr "Атрыманне інфармацыі"
 
 #: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr ""
+msgstr "Выдаленне пакетаў"
 
 #: src/Utils/PkUtils.vala:34
 msgid "Downloading"
-msgstr ""
+msgstr "Спампоўванне"
 
 #: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Абнаўленне спісу ПЗ"
 
 #: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr ""
+msgstr "Усталяванне абнаўленняў"
 
 #: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Ачыстка пакетаў"
 
 #: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "Адзначэнне пакетаў састарэлымі"
 
 #: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Вырашэнне залежнасцяў"
 
 #: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr ""
+msgstr "Праверка подпісаў"
 
 #: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr ""
+msgstr "Тэсціраванне змен"
 
 #: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
-msgstr ""
+msgstr "Выконванне змен"
 
 #: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
-msgstr ""
+msgstr "Запыт даных"
 
 #: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr ""
+msgstr "Завершана"
 
 #: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "Скасаванне"
 
 #: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Спампоўванне інфармармацыі аб рэпазірорыі"
 
 #: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Спампоўванне спіса пакетаў"
 
 #: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Спампоўванне спісаў файлаў"
 
 #: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Спампоўванне спісаў змен"
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr ""
+msgstr "Спампоўванне груп"
 
 #: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "Спампоўванне інфармацыі аб абнаўленнях"
 
 #: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr ""
+msgstr "Перапакаванне файлаў"
 
 #: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
-msgstr ""
+msgstr "Загрузка кэшу"
 
 #: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
-msgstr ""
+msgstr "Сканіраванне праграм"
 
 #: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr ""
+msgstr "Стварэнне спіса пакетаў"
 
 #: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Чаканне блакіроўкі менеджара пакетаў"
 
 #: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Чаканне аўтэнтыфікацыі"
 
 #: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr ""
+msgstr "Абнаўленне запушчаных праграм"
 
 #: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Праверка запушчаных праграм"
 
 #: src/Utils/PkUtils.vala:86
+#, fuzzy
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Праверка бібліятэк у карыстанні"
 
 #: src/Utils/PkUtils.vala:88
 msgid "Copying files"
-msgstr ""
+msgstr "Капіраванне файлаў"
 
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "Усталяванне"
+
+#~ msgid "System Settings"
+#~ msgstr "Налады сістэмы"
+
+#~ msgid "System Settings background tasks"
+#~ msgstr "Фонавыя задачы сістэмных налад"

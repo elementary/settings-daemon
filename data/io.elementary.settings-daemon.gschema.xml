@@ -99,7 +99,7 @@
 
   <schema path="/io/elementary/settings-daemon/system-update/" id="io.elementary.settings-daemon.system-update">
     <key type="b" name="automatic-updates">
-      <default>false</default>
+      <default>true</default>
       <summary>Automatic updates</summary>
       <description>Whether to automatically download updates</description>
     </key>
