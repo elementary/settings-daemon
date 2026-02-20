@@ -121,6 +121,11 @@ private class AccountsServiceMonitor : GLib.Object {
 
 [DBus (name = "org.freedesktop.impl.portal.Settings")]
 public class SettingsDaemon.Settings : GLib.Object {
+    public enum ReduceMotionPreference {
+        NO_PREFERENCE = 0,
+        REDUCE = 1,
+    }
+
     public uint32 version {
         get { return 1; }
     }
@@ -131,6 +136,7 @@ public class SettingsDaemon.Settings : GLib.Object {
     private AccountsServiceMonitor monitor;
 
     private const string[] SUPPORTED_SCHEMAS = {
+        "io.elementary.settings-daemon.a11y",
         "io.elementary.settings-daemon.datetime",
         "org.freedesktop.appearance"
     };
@@ -148,14 +154,20 @@ public class SettingsDaemon.Settings : GLib.Object {
         foreach (unowned var schema in SUPPORTED_SCHEMAS) {
             if (SettingsSchemaSource.get_default ().lookup (schema, true) != null) {
                 settings[schema] = new GLib.Settings (schema);
-                settings[schema].changed.connect ((key) => {
-                    var @value = settings[schema].get_value (key);
-                    setting_changed (schema, key, value);
-                });
+                settings[schema].changed.connect (on_setting_changed);
             } else {
                 warning ("GSettings schema `%s` not found on the system!", schema);
             }
         }
+    }
+
+    private void on_setting_changed (GLib.Settings settings, string key) {
+        if (settings.schema_id == "io.elementary.settings-daemon.a11y" && key == "reduced-motion") {
+            setting_changed ("org.freedesktop.appearance", "reduced-motion", get_reduced_motion ());
+            return;
+        }
+
+        setting_changed (settings.schema_id, key, settings.get_value (key));
     }
 
     private bool namespace_matches (string namespace, string[] patterns) {
@@ -228,6 +240,16 @@ public class SettingsDaemon.Settings : GLib.Object {
         return rgb_to_variant (0);
     }
 
+    private Variant get_reduced_motion () {
+        unowned var setting = settings["io.elementary.settings-daemon.a11y"];
+        if (setting != null && setting.settings_schema.has_key ("reduced-motion")) {
+            var val = (ReduceMotionPreference) setting.get_enum ("reduced-motion");
+            return new Variant.uint32 (val);
+        }
+
+        return new Variant.uint32 (ReduceMotionPreference.NO_PREFERENCE);
+    }
+
     public async GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> read_all (string[] namespaces) throws GLib.DBusError, GLib.IOError {
         var ret = new GLib.HashTable<string, GLib.HashTable<string, GLib.Variant>> (str_hash, str_equal);
 
@@ -235,19 +257,22 @@ public class SettingsDaemon.Settings : GLib.Object {
             if (namespace_matches (schema, namespaces)) {
                 var dict = new GLib.HashTable<string, GLib.Variant> (str_hash, str_equal);
 
-                if (schema == "org.freedesktop.appearance") {
-                    dict.insert ("color-scheme", get_color_scheme ());
-                    dict.insert ("accent-color", get_accent_color ());
-                } else {
-                    var keys = setting.settings_schema.list_keys ();
-                    foreach (unowned var key in keys) {
-                        dict.insert (key, setting.get_value (key));
-                    }
+                var keys = setting.settings_schema.list_keys ();
+                foreach (unowned var key in keys) {
+                    dict.insert (key, setting.get_value (key));
                 }
 
                 ret.insert (schema, dict);
             }
         });
+
+        if (namespace_matches ("org.freedesktop.appearance", namespaces)) {
+            var dict = new GLib.HashTable<string, GLib.Variant> (str_hash, str_equal);
+            dict.insert ("color-scheme", get_color_scheme ());
+            dict.insert ("accent-color", get_accent_color ());
+            dict.insert ("reduced-motion", get_reduced_motion ());
+            ret.insert ("org.freedesktop.appearance", dict);
+        }
 
         return ret;
     }
@@ -260,6 +285,10 @@ public class SettingsDaemon.Settings : GLib.Object {
 
             if (key == "accent-color") {
                 return get_accent_color ();
+            }
+
+            if (key == "reduced-motion") {
+                return get_reduced_motion ();
             }
         }
 
