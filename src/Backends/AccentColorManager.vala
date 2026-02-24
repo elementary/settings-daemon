@@ -24,10 +24,10 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
 
     private static inline Gdk.RGBA rgba_from_int (int color) {
         return {
-            ((color >> 16) & 255) / 255.0,
-            ((color >> 8) & 255) / 255.0,
-            (color & 255) / 255.0,
-            0.0
+            ((color >> 16) & 255) / 255.0f,
+            ((color >> 8) & 255) / 255.0f,
+            (color & 255) / 255.0f,
+            0.0f
         };
     }
 
@@ -177,10 +177,10 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
             for (var i = 0; i < raw_pixels.length / factor; i += step_size) {
                 var offset = i * factor;
                 pixels.append_val ({
-                    raw_pixels[offset] / 255.0,
-                    raw_pixels[offset + 1] / 255.0,
-                    raw_pixels[offset + 2] / 255.0,
-                    0.0
+                    raw_pixels[offset] / 255.0f,
+                    raw_pixels[offset + 1] / 255.0f,
+                    raw_pixels[offset + 2] / 255.0f,
+                    0.0f
                 });
             }
 
