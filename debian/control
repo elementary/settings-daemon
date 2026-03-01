@@ -13,6 +13,7 @@ Build-Depends: debhelper-compat (= 12),
                libgeoclue-2-dev,
                libpackagekit-glib2-dev,
                meson,
+               systemd-dev,
                valac
 Standards-Version: 4.1.1
 
