@@ -13,7 +13,7 @@ You'll need the following dependencies:
 * libgdk-pixbuf2.0-dev
 * libgeoclue-2-dev
 * libgexiv2-dev
-* libgranite-dev
+* libgranite-7-dev
 * libpackagekit-glib2-dev
 * meson
 * valac
