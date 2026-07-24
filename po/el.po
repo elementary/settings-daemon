@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-20 14:47+0000\n"
-"PO-Revision-Date: 2026-07-10 08:09+0000\n"
+"PO-Revision-Date: 2026-07-25 20:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/el/>\n"
@@ -141,7 +141,7 @@ msgstr ""
 
 #: src/Backends/SystemUpdate.vala:153
 msgid "A system update is available"
-msgstr ""
+msgstr "Διατίθεται μια ενημέρωση συστήματος"
 
 #: src/Backends/SystemUpdate.vala:183 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
@@ -254,7 +254,7 @@ msgstr ""
 
 #: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "Ακύρωση"
 
 #: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
@@ -274,11 +274,11 @@ msgstr ""
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr ""
+msgstr "Λήψη ομάδων"
 
 #: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "Λήψη πληροφοριών ενημέρωσης"
 
 #: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
@@ -322,4 +322,4 @@ msgstr "Αντιγραφή αρχείων"
 
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "Εγκατάσταση"
