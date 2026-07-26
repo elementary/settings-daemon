@@ -74,6 +74,11 @@ public class SettingsDaemon.Backends.InterfaceSettings : GLib.Object {
         var wingpanel_power_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.panel.power", true);
         if (wingpanel_power_schema != null && wingpanel_power_schema.has_key (SHOW_PERCENTAGE)) {
             wingpanel_power_settings = new GLib.Settings ("io.elementary.panel.power");
+        } else {
+            wingpanel_power_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.desktop.wingpanel.power", true);
+            if (wingpanel_power_schema != null && wingpanel_power_schema.has_key (SHOW_PERCENTAGE)) {
+                wingpanel_power_settings = new GLib.Settings ("io.elementary.desktop.wingpanel.power");
+            }
         }
 
         sync_gsettings_to_accountsservice ();
