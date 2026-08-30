@@ -162,9 +162,15 @@ public class SettingsDaemon.Settings : GLib.Object {
     }
 
     private void on_setting_changed (GLib.Settings settings, string key) {
-        if (settings.schema_id == "io.elementary.settings-daemon.a11y" && key == "reduced-motion") {
-            setting_changed ("org.freedesktop.appearance", "reduced-motion", get_reduced_motion ());
-            return;
+        if (settings.schema_id == "io.elementary.settings-daemon.a11y") {
+            switch (key) {
+                case "contrast":
+                    setting_changed ("org.freedesktop.appearance", "contrast", get_contrast ());
+                    return;
+                case "reduced-motion":
+                    setting_changed ("org.freedesktop.appearance", "reduced-motion", get_reduced_motion ());
+                    return;
+            }
         }
 
         setting_changed (settings.schema_id, key, settings.get_value (key));
@@ -240,6 +246,16 @@ public class SettingsDaemon.Settings : GLib.Object {
         return rgb_to_variant (0);
     }
 
+    private Variant get_contrast () {
+        unowned var setting = settings["io.elementary.settings-daemon.a11y"];
+        if (setting != null && setting.settings_schema.has_key ("contrast")) {
+            var val = (Gtk.InterfaceContrast) setting.get_enum ("contrast");
+            return new Variant.uint32 (val);
+        }
+
+        return new Variant.uint32 (Gtk.InterfaceContrast.UNSUPPORTED);
+    }
+
     private Variant get_reduced_motion () {
         unowned var setting = settings["io.elementary.settings-daemon.a11y"];
         if (setting != null && setting.settings_schema.has_key ("reduced-motion")) {
@@ -271,6 +287,7 @@ public class SettingsDaemon.Settings : GLib.Object {
             dict.insert ("color-scheme", get_color_scheme ());
             dict.insert ("accent-color", get_accent_color ());
             dict.insert ("reduced-motion", get_reduced_motion ());
+            dict.insert ("contrast", get_contrast ());
             ret.insert ("org.freedesktop.appearance", dict);
         }
 
@@ -279,16 +296,15 @@ public class SettingsDaemon.Settings : GLib.Object {
 
     public async GLib.Variant read (string namespace, string key) throws GLib.DBusError, GLib.Error {
         if (namespace == "org.freedesktop.appearance") {
-            if (key == "color-scheme") {
-                return get_color_scheme ();
-            }
-
-            if (key == "accent-color") {
-                return get_accent_color ();
-            }
-
-            if (key == "reduced-motion") {
-                return get_reduced_motion ();
+            switch (key) {
+                case "color-scheme":
+                    return get_color_scheme ();
+                case "accent-color":
+                    return get_accent_color ();
+                case "reduced-motion":
+                    return get_reduced_motion ();
+                case "contrast":
+                    return get_contrast ();
             }
         }
 

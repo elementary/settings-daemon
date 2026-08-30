@@ -11,6 +11,7 @@ executable(
     dependencies: [
         config_dep,
         glib_dep,
+        gtk_dep,
         gio_dep,
     ],
     install: true,
