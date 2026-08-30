@@ -142,10 +142,10 @@
   </enum>
 
   <enum id="ContrastPreference">
-    <value nick='less' value='0'/>
-    <value nick='more' value='1'/>
-    <value nick='no-preference' value='2'/>
-    <value nick='unsupported' value='3'/>
+    <value nick='unsupported' value='0'/>
+    <value nick='no-preference' value='1'/>
+    <value nick='more' value='2'/>
+    <value nick='less' value='3'/>
   </enum>
 
   <schema path="/io/elementary/settings-daemon/a11y/" id="io.elementary.settings-daemon.a11y">
@@ -155,7 +155,8 @@
       <description>If enabled, reduces motion effects for the user interface.</description>
     </key>
     <key enum="ContrastPreference" name="contrast">
-      <default>'no-preference'</default>
+      <!--'no-preference' changes to Adwaita for some reason-->
+      <default>'unsupported'</default>
       <summary>Contrast</summary>
       <description>Indicates the preferred level of contrast for the user interface.</description>
     </key>
