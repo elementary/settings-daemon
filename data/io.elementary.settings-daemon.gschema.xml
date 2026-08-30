@@ -141,11 +141,23 @@
     <value nick='reduce' value='1'/>
   </enum>
 
+  <enum id="ContrastPreference">
+    <value nick='less' value='0'/>
+    <value nick='more' value='1'/>
+    <value nick='no-preference' value='2'/>
+    <value nick='unsupported' value='3'/>
+  </enum>
+
   <schema path="/io/elementary/settings-daemon/a11y/" id="io.elementary.settings-daemon.a11y">
     <key enum="ReduceMotionPreference" name="reduced-motion">
       <default>'no-preference'</default>
       <summary>Reduce motion effects</summary>
       <description>If enabled, reduces motion effects for the user interface.</description>
+    </key>
+    <key enum="ContrastPreference" name="contrast">
+      <default>'no-preference'</default>
+      <summary>Contrast</summary>
+      <description>Indicates the preferred level of contrast for the user interface.</description>
     </key>
   </schema>
 </schemalist>
