@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-20 14:47+0000\n"
-"PO-Revision-Date: 2024-08-07 17:16+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
-"Language-Team: Indonesian <https://l10n.elementary.io/projects/desktop/"
+"PO-Revision-Date: 2026-09-07 10:02+0000\n"
+"Last-Translator: Chairul Akmal <chairulakmal@protonmail.com>\n"
+"Language-Team: Indonesian <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -33,7 +33,7 @@ msgid ""
 "dark style and housekeeping."
 msgstr ""
 "Menyinkronkan pengaturan ke penyambut dan mengelola tugas latar belakang, "
-"seperti penjadwalan gaya gelap dan tata graha."
+"seperti penjadwalan gaya gelap dan pembersihan."
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
@@ -60,15 +60,15 @@ msgstr "Peningkatan:"
 #: data/settings-daemon.metainfo.xml.in:158
 #: data/settings-daemon.metainfo.xml.in:178
 msgid "Updated translations"
-msgstr "Terjemahan yang diperbarui"
+msgstr "Terjemahan diperbarui"
 
 #: data/settings-daemon.metainfo.xml.in:77
 msgid "Progress indicators were added to the system update"
-msgstr ""
+msgstr "Indikator kemajuan ditambahkan ke pembaruan sistem"
 
 #: data/settings-daemon.metainfo.xml.in:78
 msgid "Get correct total size for system updates"
-msgstr ""
+msgstr "Dapatkan ukuran total yang benar untuk pembaruan sistem"
 
 #: data/settings-daemon.metainfo.xml.in:90
 #: data/settings-daemon.metainfo.xml.in:106
@@ -76,49 +76,51 @@ msgstr ""
 #: data/settings-daemon.metainfo.xml.in:151
 #: data/settings-daemon.metainfo.xml.in:170
 msgid "New features:"
-msgstr ""
+msgstr "Fitur baru:"
 
 #: data/settings-daemon.metainfo.xml.in:92
 msgid "Don't automatically download updates on a metered network"
-msgstr ""
+msgstr "Jangan unduh pembaruan secara otomatis pada jaringan berkuota"
 
 #: data/settings-daemon.metainfo.xml.in:108
 msgid "Option to restart or shutdown without installing updates"
-msgstr ""
+msgstr "Opsi untuk memulai ulang atau mematikan tanpa memasang pembaruan"
 
 #: data/settings-daemon.metainfo.xml.in:124
 msgid "Handle operating system updates, including automatic updates"
-msgstr ""
+msgstr "Tangani pembaruan sistem operasi, termasuk pembaruan otomatis"
 
 #: data/settings-daemon.metainfo.xml.in:125
 msgid "Handle driver installation"
-msgstr ""
+msgstr "Tangani pemasangan driver"
 
 #: data/settings-daemon.metainfo.xml.in:126
 msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
+msgstr "Pindahkan AccentColorManager dari manajer jendela ke sini"
 
 #: data/settings-daemon.metainfo.xml.in:153
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "Sediakan warna aksen pada portal pengaturan"
 
 #: data/settings-daemon.metainfo.xml.in:154
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login &amp; Lock screen"
 msgstr ""
+"Sinkronkan huruf, tetikus, papan ketik, cahaya malam, dan beberapa "
+"pengaturan aksesibilitas ke layar Masuk &amp; Kunci"
 
 #: data/settings-daemon.metainfo.xml.in:172
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "Tambah pengaturan Hari pertama dalam sepekan"
 
 #: data/settings-daemon.metainfo.xml.in:173
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "Tambah pengaturan klik tetikus kidal"
 
 #: data/settings-daemon.metainfo.xml.in:174
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
+msgstr "Jangan Bersihkan Unduhan jika juga merupakan Folder Beranda"
 
 #: src/Application.vala:171
 msgid "Firmware Update Available"
@@ -132,209 +134,195 @@ msgid_plural "%u updates are available for your hardware"
 msgstr[0] "%u pembaruan tersedia untuk perangkat keras Anda"
 
 #: src/Backends/SystemUpdate.vala:145
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
 msgid "Update available"
-msgstr "Pembaruan Firmware Tersedia"
+msgstr "Pembaruan tersedia"
 
 #: src/Backends/SystemUpdate.vala:149
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
 msgid "A system security update is available"
-msgstr "Pembaruan Firmware Tersedia"
+msgstr "Pembaruan keamanan sistem tersedia"
 
 #: src/Backends/SystemUpdate.vala:153
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
 msgid "A system update is available"
-msgstr "Pembaruan Firmware Tersedia"
+msgstr "Pembaruan sistem tersedia"
 
 #: src/Backends/SystemUpdate.vala:183 src/Backends/UbuntuDrivers.vala:246
 msgid "Restart required"
-msgstr ""
+msgstr "Perlu dimulai ulang"
 
 #: src/Backends/SystemUpdate.vala:184
 msgid "Please restart your system to finalize updates"
-msgstr ""
+msgstr "Mulai ulang sistem Anda untuk menyelesaikan pembaruan"
 
 #: src/Backends/SystemUpdate.vala:211
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "Pembaruan sistem tidak dapat dipasang"
 
 #: src/Backends/SystemUpdate.vala:212
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "Terjadi kesalahan saat mencoba memperbarui sistem Anda"
 
 #: src/Backends/UbuntuDrivers.vala:171
-#, fuzzy
-#| msgid "Firmware Update Available"
-#| msgid_plural "Firmware Updates Available"
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] "Pembaruan Firmware Tersedia"
+msgstr[0] "Driver Tersedia"
 
 #: src/Backends/UbuntuDrivers.vala:173
-#, fuzzy, c-format
-#| msgid "%u update is available for your hardware"
-#| msgid_plural "%u updates are available for your hardware"
+#, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] "%u pembaruan tersedia untuk perangkat keras Anda"
+msgstr[0] "%u driver tersedia untuk perangkat keras Anda"
 
 #: src/Backends/UbuntuDrivers.vala:247
 msgid "Please restart your system to finalize driver installation"
-msgstr ""
+msgstr "Mulai ulang sistem Anda untuk menyelesaikan pemasangan driver"
 
 #: src/Backends/UbuntuDrivers.vala:274
 msgid "A driver couldn't be installed"
-msgstr ""
+msgstr "Driver tidak dapat dipasang"
 
 #: src/Backends/UbuntuDrivers.vala:275
 msgid "An error occurred while trying to install a driver"
-msgstr ""
+msgstr "Terjadi kesalahan saat mencoba memasang driver"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
-msgstr ""
+msgstr "Memulai"
 
 #: src/Utils/PkUtils.vala:24
 msgid "Waiting"
-msgstr ""
+msgstr "Menunggu"
 
 #: src/Utils/PkUtils.vala:26
 msgid "Running"
-msgstr ""
+msgstr "Berjalan"
 
 #: src/Utils/PkUtils.vala:28
 msgid "Querying"
-msgstr ""
+msgstr "Membuat kueri"
 
 #: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr ""
+msgstr "Mengambil informasi"
 
 #: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr ""
+msgstr "Menghapus paket"
 
 #: src/Utils/PkUtils.vala:34
 msgid "Downloading"
-msgstr ""
+msgstr "Mengunduh"
 
 #: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Menyegarkan daftar perangkat lunak"
 
 #: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr ""
+msgstr "Memasang pembaruan"
 
 #: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Membersihkan paket"
 
 #: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "Menghapus paket usang"
 
 #: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Menyelesaikan dependensi"
 
 #: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr ""
+msgstr "Memeriksa tanda tangan"
 
 #: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr ""
+msgstr "Menguji perubahan"
 
 #: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
-msgstr ""
+msgstr "Menerapkan perubahan"
 
 #: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
-msgstr ""
+msgstr "Meminta data"
 
 #: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr ""
+msgstr "Selesai"
 
 #: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "Membatalkan"
 
 #: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Mengunduh informasi repositori"
 
 #: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Mengunduh daftar paket"
 
 #: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Mengunduh daftar berkas"
 
 #: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Mengunduh daftar perubahan"
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr ""
+msgstr "Mengunduh grup"
 
 #: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "Mengunduh informasi pembaruan"
 
 #: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr ""
+msgstr "Mengemas ulang berkas"
 
 #: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
-msgstr ""
+msgstr "Memuat singgahan"
 
 #: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
-msgstr ""
+msgstr "Memindai aplikasi"
 
 #: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr ""
+msgstr "Membuat daftar paket"
 
 #: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Menunggu kunci manajer paket"
 
 #: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Menunggu autentikasi"
 
 #: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr ""
+msgstr "Memperbarui aplikasi yang berjalan"
 
 #: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Memeriksa aplikasi yang sedang digunakan"
 
 #: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Memeriksa pustaka yang sedang digunakan"
 
 #: src/Utils/PkUtils.vala:88
 msgid "Copying files"
-msgstr ""
+msgstr "Menyalin berkas"
 
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "Memasang"
 
 #~ msgid "System Settings"
 #~ msgstr "Pengaturan Sistem"
