@@ -73,6 +73,29 @@
     </key>
   </schema>
 
+  <enum id="AccentColor">
+    <value nick='automatic' value='0'/>
+    <value nick='red' value='1'/>
+    <value nick='orange' value='2'/>
+    <value nick='yellow' value='3'/>
+    <value nick='green' value='4'/>
+    <value nick='mint' value='5'/>
+    <value nick='blue' value='6'/>
+    <value nick='purple' value='7'/>
+    <value nick='pink' value='8'/>
+    <value nick='brown' value='9'/>
+    <value nick='gray' value='10'/>
+    <value nick='latte' value='11'/>
+  </enum>
+
+  <schema path="/io/elementary/settings-daemon/interface/" id="io.elementary.settings-daemon.interface">
+    <key enum="AccentColor" name="accent-color">
+      <default>'automatic'</default>
+      <summary>Accent Color</summary>
+      <description>The preferred accent color for the user interface. Valid values are "automatic", "red", "orange", "yellow", "green", "mint", "blue", "purple", "pink", "brown", "gray", "latte".</description>
+    </key>
+  </schema>
+
   <!-- Keep this synchronized with GDateWeekday. -->
   <enum id='week-day'>
     <value nick='monday' value='1'/>
