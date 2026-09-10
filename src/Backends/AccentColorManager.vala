@@ -9,6 +9,7 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
     public unowned AccountsService accounts_service { get; construct; }
 
     private Settings background_settings;
+    private Settings gnome_interface_settings;
     private Settings interface_settings;
 
     private enum BackgroundStyle {
@@ -54,7 +55,8 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
 
     construct {
         background_settings = new Settings ("org.gnome.desktop.background");
-        interface_settings = new Settings ("org.gnome.desktop.interface");
+        gnome_interface_settings = new Settings ("org.gnome.desktop.interface");
+        interface_settings = new Settings ("io.elementary.settings-daemon.interface");
 
         update_accent_color ();
         if (pantheon_accounts_service.prefers_accent_color == 0) {
@@ -80,6 +82,10 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
                 background_settings.changed["primary-color"].disconnect (update_accent_color);
             }
         });
+
+        interface_settings.changed["accent-color"].connect (() => {
+            pantheon_accounts_service.prefers_accent_color = interface_settings.get_enum ("accent-color");
+        });
     }
 
     private void update_accent_color () {
@@ -90,13 +96,15 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
             return;
         }
 
+        interface_settings.set_enum ("accent-color", prefers_accent_color);
+
         if (prefers_accent_color == 0) {
             new_theme = get_dynamic_accent_color_theme_name ();
         } else {
             new_theme = themes[prefers_accent_color - 1];
         }
 
-        interface_settings.set_string ("gtk-theme", new_theme.stylesheet);
+        gnome_interface_settings.set_string ("gtk-theme", new_theme.stylesheet);
         debug ("New stylesheet: %s", new_theme.stylesheet);
 
         accounts_service.accent_color = new_theme.index;
