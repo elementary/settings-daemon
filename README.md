@@ -15,6 +15,7 @@ You'll need the following dependencies:
 * libgexiv2-dev
 * libgranite-7-dev
 * libpackagekit-glib2-dev
+* systemd-dev
 * meson
 * valac
 
