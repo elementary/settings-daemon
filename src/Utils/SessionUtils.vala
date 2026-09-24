@@ -28,7 +28,7 @@ namespace SettingsDaemon.Utils {
             var dis = new DataInputStream (@is);
 
             var line = dis.read_line ();
-            if ("systemd.image" in line) {
+            if ("mount.usr=dissect" in line) {
                 return true;
             }
         } catch (Error e) {
