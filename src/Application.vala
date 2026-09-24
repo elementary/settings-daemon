@@ -80,11 +80,13 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
     protected override bool dbus_register (DBusConnection connection, string object_path) throws Error {
         base.dbus_register (connection, object_path);
 
-        connection.register_object (object_path, new Backends.SystemUpdate ());
+        if (!SettingsDaemon.Utils.is_sysupdate ()) {
+            connection.register_object (object_path, new Backends.SystemUpdate ());
 
 #if UBUNTU_DRIVERS
-        connection.register_object (object_path, new Backends.UbuntuDrivers ());
+            connection.register_object (object_path, new Backends.UbuntuDrivers ());
 #endif
+        }
 
         return true;
     }
