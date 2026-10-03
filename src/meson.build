@@ -1,5 +1,7 @@
 sources = files(
     'AccountsService.vala',
+    'Backends/Audio.vala',
+    'Backends/EchoProcessor.vala',
     'Application.vala',
     'Backends/AccentColorManager.vala',
     'Backends/ApplicationShortcuts.vala',
@@ -30,6 +32,8 @@ executable(
     sources,
     dependencies: [
         config_dep,
+        pulse_dep,
+        pulse_loop_dep,
         fwupd_dep,
         gio_dep,
         glib_dep,
@@ -40,6 +44,6 @@ executable(
         m_dep,
         pk_dep
     ],
-    vala_args: args,
+    vala_args: args + ['--vapidir=' + meson.project_source_root() / 'vapi', '--pkg=libpulse-operation'],
     install: true,
 )
