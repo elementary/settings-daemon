@@ -80,3 +80,14 @@ if systemd_system_unit_dir != 'no' and systemd_user_unit_dir != 'no'
         install_dir: systemd_user_unit_dir
     )
 endif
+
+install_data(
+    'generic-speakers-v1.ini',
+    install_dir: datadir / 'io.elementary.settings-daemon' / 'equalizers' / 'v1',
+)
+
+# Native graph creation requires WirePlumber 0.5.13 or later.
+install_data(
+    '50-elementary-speaker-equalizer.conf',
+    install_dir: datadir / 'wireplumber' / 'wireplumber.conf.d',
+)
