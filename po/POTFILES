@@ -8,3 +8,5 @@ src/Backends/SystemUpdate/SystemUpdateProvider.vala
 src/Utils/PkUtils.vala
 src/Utils/SysupdateJob.vala
 src/Utils/SysupdateTarget.vala
+src/Backends/Audio.vala
+src/Backends/EchoProcessor.vala
