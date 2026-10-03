@@ -10,3 +10,5 @@ src/Utils/SysupdateJob.vala
 src/Utils/SysupdateTarget.vala
 src/Backends/Audio.vala
 src/Backends/EchoProcessor.vala
+src/Backends/SpeakerEqualizer.vala
+src/Backends/speaker-equalizer-profile.c
