@@ -3,3 +3,5 @@ src/Application.vala
 src/Backends/SystemUpdate.vala
 src/Backends/UbuntuDrivers.vala
 src/Utils/PkUtils.vala
+src/Backends/Audio.vala
+src/Backends/EchoProcessor.vala
