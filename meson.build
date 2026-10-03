@@ -9,6 +9,14 @@ gnome = import('gnome')
 
 pulse_dep = dependency('libpulse')
 pulse_loop_dep = dependency('libpulse-mainloop-glib')
+# libWirePlumber owns the native client; its GIR is generated with our metadata.
+wireplumber_dep = dependency('wireplumber-0.5', version: '>=0.5.0')
+wireplumber_vapi = gnome.generate_vapi(
+    'wireplumber-0.5',
+    sources: wireplumber_dep.get_variable(pkgconfig: 'prefix') / 'share/gir-1.0/Wp-0.5.gir',
+    packages: ['gio-2.0'],
+    metadata_dirs: [meson.current_source_dir() / 'vapi'],
+)
 
 fwupd_dep = dependency('fwupd')
 gio_dep = dependency ('gio-2.0')
@@ -36,6 +44,7 @@ libgeoclue_dep = dependency ('libgeoclue-2.0')
 
 prefix = get_option('prefix')
 datadir = prefix / get_option('datadir')
+add_project_arguments('-DEQ_PROFILE_DIR="' + datadir / 'io.elementary.settings-daemon/equalizers/v1' + '"', language: 'c')
 bindir = prefix / get_option('bindir')
 
 conf_data = configuration_data()
