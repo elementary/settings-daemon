@@ -49,7 +49,7 @@ public class SettingsDaemon.Backends.SystemDSystemUpdate : Object {
             return;
         }
 
-        update_state (CHECKING);
+        update_state (CHECKING, _("Checking for updates"));
 
         /* First check if there is an even newer version than anything we have installed */
         string? new_version = null;
@@ -113,10 +113,10 @@ public class SettingsDaemon.Backends.SystemDSystemUpdate : Object {
         current_cancellable.cancel ();
     }
 
-    private void progress_callback (uint percentage) {
+    private void progress_callback (string message, uint percentage) {
         update_state (
             DOWNLOADING,
-            _("Downloading the latest version"),
+            message,
             percentage,
             0
         );

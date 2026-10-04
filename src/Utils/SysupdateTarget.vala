@@ -11,7 +11,7 @@ public class SettingsDaemon.Utils.SysupdateTarget : Object {
         CURRENT,
     }
 
-    public delegate void ProgressCallback (uint percentage);
+    public delegate void ProgressCallback (string message, uint percentage);
 
     public string path { get; construct; }
 
@@ -54,6 +54,8 @@ public class SettingsDaemon.Utils.SysupdateTarget : Object {
      * You can specify what version you want to use with {@link version}.
      */
     public async void update (UpdateVersion version, Cancellable cancellable, ProgressCallback progress_callback) throws Error {
+        progress_callback (_("Preparing update"), 0);
+
         yield ensure_connected ();
 
         /* "" means newest available so we use it when version is UpdateVersion.NEWEST */
@@ -64,6 +66,8 @@ public class SettingsDaemon.Utils.SysupdateTarget : Object {
         }
 
         var manager = yield new SysupdateJobManager (cancellable);
+
+        progress_callback (_("Starting update"), 0);
 
         string used_version;
         uint64 job_id;
