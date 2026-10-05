@@ -6,34 +6,26 @@
  */
 
 public class SettingsDaemon.Utils.SysupdateJob : Object {
-    private Cancellable cancellable;
-    private SysupdateTarget.ProgressCallback progress_callback;
+    public signal void progress_changed (string message, uint progress);
+
     private Sysupdate.Job job;
 
-    /**
-     * Starts observing the given job, calling the progress callback with progess
-     * and cancelling it if the cancellable is triggered.
-     */
-    public async SysupdateJob (ObjectPath job_path, Cancellable cancellable, SysupdateTarget.ProgressCallback progress_callback) throws Error {
-        this.cancellable = cancellable;
-        cancellable.cancelled.connect (cancel_job);
-
-        this.progress_callback = progress_callback;
-
-        this.job = yield Bus.get_proxy (SYSTEM, Sysupdate.BUS_NAME, job_path, NONE, cancellable);
-
+    public async SysupdateJob (ObjectPath job_path) throws Error {
+        job = yield Bus.get_proxy (SYSTEM, Sysupdate.BUS_NAME, job_path, NONE);
         job.g_properties_changed.connect (on_properties_changed);
     }
 
-    private async void cancel_job () requires (job != null) {
-        try {
-            yield job.cancel ();
-        } catch (Error e) {
-            warning ("Failed to cancel job: %s", e.message);
-        }
+    private void on_properties_changed () {
+        progress_changed (_("Downloading new image"), job.progress);
     }
 
-    private void on_properties_changed () {
-        progress_callback (_("Downloading new image"), job.progress);
+    public void cancel () {
+        job.cancel.begin ((obj, res) => {
+            try {
+                job.cancel.end (res);
+            } catch (Error e) {
+                warning ("Failed to cancel job: %s", e.message);
+            }
+        });
     }
 }

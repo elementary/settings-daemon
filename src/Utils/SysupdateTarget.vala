@@ -15,16 +15,10 @@ public class SettingsDaemon.Utils.SysupdateTarget : Object {
 
     public string path { get; construct; }
 
-    private GenericSet<SysupdateJob> jobs;
-
     private Sysupdate.Target? target;
 
     public SysupdateTarget (string path) {
         Object (path: path);
-    }
-
-    construct {
-        jobs = new GenericSet<SysupdateJob> (null, null);
     }
 
     private async void ensure_connected () throws Error {
@@ -74,12 +68,26 @@ public class SettingsDaemon.Utils.SysupdateTarget : Object {
         ObjectPath job_path;
         yield target.update (version_string, 0, out used_version, out job_id, out job_path);
 
-        var job = yield new SysupdateJob (job_path, cancellable, progress_callback);
-        jobs.add (job);
+        var job = yield new SysupdateJob (job_path);
+        job.progress_changed.connect (progress_callback);
 
-        yield manager.wait_for_job (job_path);
+        cancellable.cancelled.connect (job.cancel);
 
-        jobs.remove (job);
+        if (cancellable.is_cancelled ()) {
+            job.cancel ();
+
+            /* Don't return we will get the actual result from wait_for_job
+               (e.g. cancelling takes a while, fails, etc.) */
+        }
+
+        try {
+            yield manager.wait_for_job (job_path);
+        } catch (Error e) {
+            throw e;
+        } finally {
+            job.progress_changed.disconnect (progress_callback);
+            cancellable.cancelled.disconnect (job.cancel);
+        }
     }
 
     /**
