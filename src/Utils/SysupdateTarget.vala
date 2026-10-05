@@ -69,24 +69,14 @@ public class SettingsDaemon.Utils.SysupdateTarget : Object {
         yield target.update (version_string, 0, out used_version, out job_id, out job_path);
 
         var job = yield new SysupdateJob (job_path);
-        job.progress_changed.connect (progress_callback);
-
-        cancellable.cancelled.connect (job.cancel);
-
-        if (cancellable.is_cancelled ()) {
-            job.cancel ();
-
-            /* Don't return we will get the actual result from wait_for_job
-               (e.g. cancelling takes a while, fails, etc.) */
-        }
+        job.start_observing (cancellable, progress_callback);
 
         try {
             yield manager.wait_for_job (job_path);
         } catch (Error e) {
             throw e;
         } finally {
-            job.progress_changed.disconnect (progress_callback);
-            cancellable.cancelled.disconnect (job.cancel);
+            job.stop_observing (cancellable, progress_callback);
         }
     }
 

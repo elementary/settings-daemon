@@ -19,7 +19,7 @@ public class SettingsDaemon.Utils.SysupdateJob : Object {
         progress_changed (_("Downloading new image"), job.progress);
     }
 
-    public void cancel () {
+    private void cancel () {
         job.cancel.begin ((obj, res) => {
             try {
                 job.cancel.end (res);
@@ -27,5 +27,19 @@ public class SettingsDaemon.Utils.SysupdateJob : Object {
                 warning ("Failed to cancel job: %s", e.message);
             }
         });
+    }
+
+    public void start_observing (Cancellable cancellable, SysupdateTarget.ProgressCallback progress_callback) {
+        cancellable.cancelled.connect (cancel);
+        progress_changed.connect (progress_callback);
+
+        if (cancellable.is_cancelled ()) {
+            cancel ();
+        }
+    }
+
+    public void stop_observing (Cancellable cancellable, SysupdateTarget.ProgressCallback progress_callback) {
+        cancellable.cancelled.disconnect (cancel);
+        progress_changed.disconnect (progress_callback);
     }
 }
