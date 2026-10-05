@@ -21,6 +21,8 @@ public class SettingsDaemon.Utils.SysupdateJob : Object {
         this.progress_callback = progress_callback;
 
         this.job = yield Bus.get_proxy (SYSTEM, Sysupdate.BUS_NAME, job_path, NONE, cancellable);
+
+        job.g_properties_changed.connect (on_properties_changed);
     }
 
     private async void cancel_job () requires (job != null) {
@@ -29,5 +31,9 @@ public class SettingsDaemon.Utils.SysupdateJob : Object {
         } catch (Error e) {
             warning ("Failed to cancel job: %s", e.message);
         }
+    }
+
+    private void on_properties_changed () {
+        progress_callback (_("Downloading new image"), job.progress);
     }
 }

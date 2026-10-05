@@ -48,6 +48,8 @@ private interface Sysupdate.Target : DBusProxy {
 
 [DBus (name = "org.freedesktop.sysupdate1.Job")]
 private interface Sysupdate.Job : DBusProxy {
+    public abstract uint progress { get; }
+
     public async void cancel () throws Error {
         yield call ("Cancel", null, ALLOW_INTERACTIVE_AUTHORIZATION, -1);
     }
