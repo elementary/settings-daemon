@@ -50,8 +50,17 @@ public class SettingsDaemon.Utils.SysupdateJobManager : Object {
 
     private void check_status (string object_path) throws Error {
         var status = received_object_paths[object_path];
-        if (status != 0) {
-            throw new IOError.FAILED ("Job failed with status: %d".printf (status));
+
+        if (status == 0) {
+            return;
+        }
+
+        if (status > 0) {
+            throw new IOError.FAILED ("Job failed with exit code: %d".printf (status));
+        }
+
+        if (status < 0) {
+            throw IOError.from_errno (-status);
         }
     }
 }
