@@ -48,17 +48,19 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
         cancellable = new GLib.Cancellable ();
 
-        try {
-            var last_offline_results = Pk.offline_get_results ();
+        GLib.Application.get_default ().startup.connect (() => {
+            try {
+                var last_offline_results = Pk.offline_get_results ();
 
-            if (last_offline_results.get_exit_code () != SUCCESS && last_offline_results.get_error_code () != null) {
-                send_error (last_offline_results.get_error_code ().details);
-            } else {
-                GLib.Application.get_default ().withdraw_notification (NOTIFICATION_ID);
+                if (last_offline_results.get_exit_code () != SUCCESS && last_offline_results.get_error_code () != null) {
+                    send_error (last_offline_results.get_error_code ().details);
+                } else {
+                    GLib.Application.get_default ().withdraw_notification (NOTIFICATION_ID);
+                }
+            } catch (Error e) {
+                warning ("Couldn't determine last offline results: %s", e.message);
             }
-        } catch (Error e) {
-            warning ("Couldn't determine last offline results: %s", e.message);
-        }
+        });
 
         try {
             prepared_update_monitor = Pk.offline_get_prepared_monitor ();
