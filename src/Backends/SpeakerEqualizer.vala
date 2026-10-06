@@ -437,41 +437,69 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
     private float[]? controls (Wp.Iterator? parameters, bool metadata) throws Error {
         uint64 mask = 0;
         var values = new float[48];
-        if (parameters == null) throw new IOError.INVALID_DATA (_("The installed equalizer controls are incomplete."));
+        uint blocks = 0;
+        uint graphs = 0;
+        if (parameters == null) {
+            throw new IOError.INVALID_DATA (_("The installed equalizer controls are incomplete."));
+        }
         Value item;
         while (parameters.next (out item)) {
+            blocks++;
             unowned Wp.SpaPod pod = (Wp.SpaPod) item.get_boxed ();
             var properties = pod.new_iterator ();
+            bool device_properties = false;
             Value entry;
             while (properties.next (out entry)) {
                 unowned Wp.SpaPod property = (Wp.SpaPod) entry.get_boxed ();
                 unowned string key;
                 Wp.SpaPod value;
-                if (!property.get_property (out key, out value)) break;
+                if (!property.get_property (out key, out value)) {
+                    break;
+                }
+                if (!metadata && (key == "volume" || key == "device")) {
+                    device_properties = true;
+                }
                 if (metadata && key == "name") {
                     unowned string name;
-                    if (value.get_string (out name)) control_slot (name, ref mask);
+                    if (value.get_string (out name)) {
+                        control_slot (name, ref mask);
+                    }
                 } else if (!metadata && key == "params" && value.is_struct ()) {
                     var params = value.new_iterator ();
                     Value k, v;
                     while (params.next (out k)) {
                         unowned string name;
-                        if (!params.next (out v))
+                        if (!params.next (out v)) {
                             throw new IOError.INVALID_DATA (_("Equalizer controls are malformed or duplicated."));
-                        if (!((Wp.SpaPod) k.get_boxed ()).get_string (out name))
+                        }
+                        if (!((Wp.SpaPod) k.get_boxed ()).get_string (out name)) {
                             throw new IOError.INVALID_DATA (_("Equalizer controls are malformed or duplicated."));
+                        }
                         int slot = control_slot (name, ref mask);
-                        if (slot >= 0 && (!((Wp.SpaPod) v.get_boxed ()).get_float (out values[slot]) || !values[slot].is_finite ()))
+                        if (slot >= 0 && (!((Wp.SpaPod) v.get_boxed ()).get_float (out values[slot]) || !values[slot].is_finite ())) {
                             throw new IOError.INVALID_DATA (_("Equalizer controls are malformed or duplicated."));
+                        }
                     }
                 }
             }
+            if (!metadata && !device_properties) {
+                graphs++;
+            }
+        }
+        // Audioconvert and ALSA expose their own Props as well as graph controls.
+        // A graph without controls still occupies a slot and must be preserved.
+        if (!metadata && (graphs > 1 || (graphs == 1 && mask == 0))) {
+            throw new IOError.INVALID_DATA (_("Another application is processing this output."));
+        }
+        if (!metadata && blocks == 0) {
+            throw new IOError.INVALID_DATA (_("The output controls are unavailable."));
         }
         if (mask == 0) {
             return null;
         }
-        if (mask != (1UL << 48) - 1)
+        if (mask != (1UL << 48) - 1) {
             throw new IOError.INVALID_DATA (_("The installed equalizer controls are incomplete."));
+        }
         return values;
     }
 
