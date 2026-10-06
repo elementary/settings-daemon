@@ -13,18 +13,20 @@ Root-installed profiles live in `${datadir}/io.elementary.settings-daemon/equali
 Profiles and parent directories must be root-owned, not writable by other users,
 and not symlinks. A declared invalid or missing profile does not fall back.
 
-Vendor policy handles hardware matching, installs a matching neutral graph on
-the physical output, and sets `elementary.eq.profile` to the profile ID. It may
+Vendor policy handles hardware matching and sets `elementary.eq.profile` to
+the root-installed profile ID. It must not pre-install an EQ graph. It may
 use a schema override to enable recommended profiles initially. Stored user
 preferences always win. Other routes keep the same graph layout with independent
 neutral defaults. Reset restores recommendations without changing On/Off.
 
 The graph uses five series biquads `eos_eq_1` through `eos_eq_5`, followed by
-`eos_eq_h` with Mult=1, Add=0 and Control=0. It starts at zero gain. Set
+`eos_eq_h` with Mult=1, Add=0 and Control=0. Graph order 0 and the `eos_eq_`
+control namespace are reserved for the daemon on marked outputs. Set
 `node.cache-params=false`; the daemon validates fresh controls before writing.
-WirePlumber >= 0.5.13 and PipeWire >= 1.4 are required for graph provisioning.
+WirePlumber >= 0.5.13 and PipeWire >= 1.4 are required.
 
-Off restores zero gains and unity; the graph remains attached. There is no
+The daemon attaches the validated profile graph only when EQ is enabled. Off
+removes it without changing the physical output or saved gains. There is no
 automatic attenuation or limiter. Another client's control changes are left
 alone until the user changes a preference and validation succeeds.
 
