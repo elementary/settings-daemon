@@ -13,7 +13,15 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
     private Wp.Node? native_node;
     private string native_name = "";
     private string native_error = "";
-    private int state;
+    private enum NativeState {
+        UNBOUND,
+        WAITING_FOR_AUDIO,
+        AUDITING,
+        CONFIRMED,
+        FAILED
+    }
+
+    private NativeState state;
     private uint native_revision;
     private uint native_idle;
     private uint connect_deadline;
@@ -40,7 +48,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
     private uint generation;
     private uint refresh_id;
     private uint reconnect_id;
-    private Variant? last_request;
+    private Request? last_request;
 
     public SpeakerEqualizer (PulseAudio.Context context) {
         this.context = context;
@@ -51,16 +59,16 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
         stopped = false;
         // A surviving native graph is audited, never overwritten on reconnect.
         may_write = false;
-        if (state != 4) {
-            state = 0;
+        if (state != NativeState.FAILED) {
+            state = NativeState.UNBOUND;
         }
     }
 
     public Audio.EqualizerStatus get_status () {
         return {
-            eligible && profile != null && (state != 0 || pending || querying || error != ""),
+            eligible && profile != null && (state != NativeState.UNBOUND || pending || querying || error != ""),
             querying || pending || native_busy || native_pending,
-            eligible && !querying && !pending && !native_busy && !native_pending && state == 3,
+            eligible && !querying && !pending && !native_busy && !native_pending && state == NativeState.CONFIRMED,
             error != "" ? error : native_error,
             settings_path, node, route,
             profile != null ? profile.frequencies : new double[0],
@@ -72,7 +80,9 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
     }
 
     public void refresh (string? current_echo_master) {
-        if (stopped) return;
+        if (stopped) {
+            return;
+        }
         echo_master = current_echo_master;
         generation++;
         pending = true;
@@ -86,26 +96,32 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
         changed ();
     }
 
-    private void settings_changed () { refresh (echo_master); }
+    private void settings_changed () {
+        refresh (echo_master);
+    }
 
     private void invalidate () {
         eligible = retiring = false;
         last_request = null;
         native_revision++;
         may_write = native_pending = false;
-        state = 0;
+        state = NativeState.UNBOUND;
     }
 
     private void native_failed (string message) {
         may_write = native_pending = false;
-        state = 4;
+        state = NativeState.FAILED;
         native_error = message;
         changed ();
-        if (retiring) refresh (echo_master);
+        if (retiring) {
+            refresh (echo_master);
+        }
     }
 
     private void unbind () {
-        if (native_node == null) return;
+        if (native_node == null) {
+            return;
+        }
         native_node.disconnect (params_handler);
         native_node.disconnect (state_handler);
         native_node = null;
@@ -113,7 +129,9 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
 
     private void close_native () {
         native_revision++;
-        if (connect_deadline != 0) Source.remove (connect_deadline);
+        if (connect_deadline != 0) {
+            Source.remove (connect_deadline);
+        }
         connect_deadline = 0;
         unbind ();
         native_nodes = null;
@@ -126,7 +144,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
 
     private void connection_lost () {
         may_write = false;
-        state = 4;
+        state = NativeState.FAILED;
         native_error = _("The PipeWire equalizer connection failed.");
         native_pending = false;
         close_native ();
@@ -134,7 +152,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
         if (!stopped && reconnect_id == 0) {
             reconnect_id = Timeout.add_seconds (2, () => {
                 reconnect_id = 0;
-                state = 0;
+                state = NativeState.UNBOUND;
                 refresh (echo_master);
                 return Source.REMOVE;
             });
@@ -145,21 +163,33 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
         stopped = true;
         may_write = pending = false;
         generation++;
-        if (refresh_id != 0) Source.remove (refresh_id);
+        if (refresh_id != 0) {
+            Source.remove (refresh_id);
+        }
         refresh_id = 0;
-        if (reconnect_id != 0) Source.remove (reconnect_id);
+        if (reconnect_id != 0) {
+            Source.remove (reconnect_id);
+        }
         reconnect_id = 0;
-        if (settings != null) settings.changed.disconnect (settings_changed);
+        if (settings != null) {
+            settings.changed.disconnect (settings_changed);
+        }
         settings = null;
         close_native ();
-        if (native_idle != 0) Source.remove (native_idle);
+        if (native_idle != 0) {
+            Source.remove (native_idle);
+        }
         native_idle = 0;
         eligible = false;
     }
 
     private async bool wait (PulseAudio.Operation? operation) {
-        if (operation == null) return false;
-        if (operation.get_state () != RUNNING) return operation.get_state () == DONE;
+        if (operation == null) {
+            return false;
+        }
+        if (operation.get_state () != RUNNING) {
+            return operation.get_state () == DONE;
+        }
         bool expired = false;
         var timeout = new TimeoutSource (2000);
         timeout.set_callback (() => {
@@ -193,15 +223,21 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             }
         });
         bool complete = yield wait (op);
-        if (stopped || request != generation) { finish (); return; }
+        if (stopped || request != generation) {
+            finish ();
+            return;
+        }
         if (!complete || !pipewire || selected == null) {
             invalidate ();
             error = _("Speaker equalization requires PipeWire and a supported physical output.");
             close_native ();
-            finish (); return;
+            finish ();
+            return;
         }
-        if (selected == EchoProcessor.SINK_NAME) selected = echo_master;
-        if (retiring && (state == 3 || state == 4) && !native_busy) {
+        if (selected == EchoProcessor.SINK_NAME) {
+            selected = echo_master;
+        }
+        if (retiring && (state == NativeState.CONFIRMED || state == NativeState.FAILED) && !native_busy) {
             node = "";
             close_native ();
             invalidate ();
@@ -209,15 +245,25 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
         // Remove our graph from the old physical output before following
         // another default, including its shared speaker/headphone route.
         bool release = selected != null && node != "" && selected != node;
-        if (node != "") selected = node;
-        if (selected == null) { invalidate (); finish (); return; }
+        if (node != "") {
+            selected = node;
+        }
+        if (selected == null) {
+            invalidate ();
+            finish ();
+            return;
+        }
         string? name = null, serial = null, device = null, profile_id = null, port = null;
         bool physical = false;
         string[] ports = {};
         bool ended = false;
         op = context.get_sink_info_by_name (selected, (c, info, eol) => {
-            if (eol != 0) ended = eol > 0;
-            if (info == null) return;
+            if (eol != 0) {
+                ended = eol > 0;
+            }
+            if (info == null) {
+                return;
+            }
             physical = info.proplist.gets ("device.class") != "filter" &&
                 info.proplist.gets ("node.virtual") != "true" &&
                 info.proplist.gets ("device.master_device") == null &&
@@ -234,7 +280,10 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             }
         });
         complete = yield wait (op);
-        if (stopped || request != generation) { finish (); return; }
+        if (stopped || request != generation) {
+            finish ();
+            return;
+        }
         error = "";
         if (!complete || !ended || !physical || name == null || serial == null || device == null ||
             profile_id == null || port == null) {
@@ -245,7 +294,8 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             }
             invalidate ();
             error = _("No speaker equalizer profile is available for this output.");
-            finish (); return;
+            finish ();
+            return;
         }
         bool valid_profile = false;
         try {
@@ -278,7 +328,9 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             string path = valid_route ?
                 "/io/elementary/settings-daemon/audio/equalizer/%s/".printf (identity) : settings_path;
             if (settings_path != path || settings == null) {
-                if (settings != null) settings.changed.disconnect (settings_changed);
+                if (settings != null) {
+                    settings.changed.disconnect (settings_changed);
+                }
                 settings = new Settings.with_path ("io.elementary.settings-daemon.audio.equalizer", path);
                 settings.changed.connect (settings_changed);
                 settings_path = path;
@@ -318,19 +370,28 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
                     }
                 }
             }
-            var desired = new Variant ("(ssssssbbv)", name, serial, device, profile_id, port,
-                profile.signature, requested, valid_route, stored);
+            var desired = new Request () {
+                node = name,
+                serial = serial,
+                device = device,
+                profile = profile_id,
+                route = port,
+                signature = profile.signature,
+                enabled = requested,
+                valid_route = valid_route,
+                gains = stored
+            };
             ensure_native ();
             // Only changed identity/profile/preferences authorize an attempt.
             // Rediscovery, notifications, idle/resume and reconnect only audit.
-            if (last_request == null || !last_request.equal (desired) || retiring != release) {
+            if (last_request == null || !last_request.matches (desired) || retiring != release) {
                 last_request = desired;
                 target_gains = gains;
                 target_enabled = enabled;
                 native_revision++;
                 retiring = release;
                 may_write = true;
-                state = 0;
+                state = NativeState.UNBOUND;
                 native_error = "";
             }
             queue_native ();
@@ -340,7 +401,9 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
                 invalidate ();
                 node = "";
                 close_native ();
-                if (release) refresh (echo_master);
+                if (release) {
+                    refresh (echo_master);
+                }
             } else {
                 // A corrected preference may equal the last valid request.
                 last_request = null;
@@ -354,12 +417,18 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
     private void finish () {
         querying = false;
         changed ();
-        if (pending && !stopped) refresh (echo_master);
+        if (pending && !stopped) {
+            refresh (echo_master);
+        }
     }
 
     private void ensure_native () {
-        if (core != null && native_name != node) close_native ();
-        if (core != null) return;
+        if (core != null && native_name != node) {
+            close_native ();
+        }
+        if (core != null) {
+            return;
+        }
         Wp.init (Wp.InitFlags.PIPEWIRE | Wp.InitFlags.SPA_TYPES);
         native_name = node;
         core = new Wp.Core (null, null, null);
@@ -378,7 +447,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
         native_nodes.object_removed.connect ((obj) => {
             if (obj == native_node) {
                 unbind ();
-                state = 0;
+                state = NativeState.UNBOUND;
             }
         });
         native_nodes.installed.connect (() => {
@@ -387,11 +456,13 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             if (server_cookie != null && server_cookie != cookie) {
                 native_revision++;
                 may_write = true;
-                state = 0;
+                state = NativeState.UNBOUND;
                 native_error = "";
             }
             server_cookie = cookie;
-            if (connect_deadline != 0) Source.remove (connect_deadline);
+            if (connect_deadline != 0) {
+                Source.remove (connect_deadline);
+            }
             connect_deadline = 0;
             queue_native ();
         });
@@ -401,11 +472,15 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             connection_lost ();
             return Source.REMOVE;
         });
-        if (!core.connect ()) connection_lost ();
+        if (!core.connect ()) {
+            connection_lost ();
+        }
     }
 
     private void queue_native () {
-        if (stopped || last_request == null || state == 4) return;
+        if (stopped || last_request == null || state == NativeState.FAILED) {
+            return;
+        }
         native_pending = true;
         if (!native_busy && native_idle == 0) {
             native_idle = Idle.add (() => {
@@ -422,14 +497,21 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
     }
 
     private int control_slot (string name, ref uint64 mask) throws Error {
-        if (!name.has_prefix ("eos_eq_")) return -1;
+        if (!name.has_prefix ("eos_eq_")) {
+            return -1;
+        }
         string[] ports = { "Freq", "Q", "Gain", "b0", "b1", "b2", "a0", "a1", "a2" };
         int slot = name == "eos_eq_h:Mult" ? 45 : name == "eos_eq_h:Add" ? 46 : name == "eos_eq_h:Control" ? 47 : -1;
-        for (int band = 0; band < 5; band++)
-            for (int port = 0; port < ports.length; port++)
-                if (name == "eos_eq_%d:%s".printf (band + 1, ports[port])) slot = band * 9 + port;
-        if (slot < 0 || (mask & (1UL << slot)) != 0)
+        for (int band = 0; band < 5; band++) {
+            for (int port = 0; port < ports.length; port++) {
+                if (name == "eos_eq_%d:%s".printf (band + 1, ports[port])) {
+                    slot = band * 9 + port;
+                }
+            }
+        }
+        if (slot < 0 || (mask & (1UL << slot)) != 0) {
             throw new IOError.INVALID_DATA (_("Equalizer controls are malformed or duplicated."));
+        }
         mask |= 1UL << slot;
         return slot;
     }
@@ -505,7 +587,9 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
 
     private async void audit_native () {
         native_pending = false;
-        if (core == null || native_nodes == null || last_request == null || state == 4) return;
+        if (core == null || native_nodes == null || last_request == null || state == NativeState.FAILED) {
+            return;
+        }
         native_busy = true;
         uint revision = native_revision;
         var owner = core;
@@ -515,41 +599,60 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
         uint deadline = 0;
         try {
             var count = native_nodes.get_n_objects ();
-            if (count == 0) { state = 0; return; }
-            if (count != 1) throw new IOError.INVALID_DATA (_("The physical output name is not unique."));
+            if (count == 0) {
+                state = NativeState.UNBOUND;
+                return;
+            }
+            if (count != 1) {
+                throw new IOError.INVALID_DATA (_("The physical output name is not unique."));
+            }
             var objects = native_nodes.new_iterator ();
             Value item;
             objects.next (out item);
             var selected = (Wp.Node) item.get_object ();
             var props = selected.get_properties ();
-            if (props.get ("node.name") != desired.get_child_value (0).get_string () ||
-                props.get ("object.serial") != desired.get_child_value (1).get_string () ||
-                props.get ("device.id") != desired.get_child_value (2).get_string () ||
-                props.get ("elementary.eq.profile") != desired.get_child_value (3).get_string () ||
-                props.get ("media.class") != "Audio/Sink" || props.get ("node.virtual") == "true")
+            if (props.get ("node.name") != desired.node ||
+                props.get ("object.serial") != desired.serial ||
+                props.get ("device.id") != desired.device ||
+                props.get ("elementary.eq.profile") != desired.profile ||
+                props.get ("media.class") != "Audio/Sink" || props.get ("node.virtual") == "true") {
                 throw new IOError.INVALID_DATA (_("The physical output or its equalizer profile changed."));
+            }
             if (native_node != selected) {
                 unbind ();
                 native_node = selected;
-                params_handler = selected.params_changed.connect ((id) => { if (id == "Props") queue_native (); });
-                state_handler = selected.state_changed.connect (() => { native_revision++; queue_native (); });
+                params_handler = selected.params_changed.connect ((id) => {
+                    if (id == "Props") {
+                        queue_native ();
+                    }
+                });
+                state_handler = selected.state_changed.connect (() => {
+                    native_revision++;
+                    queue_native ();
+                });
             }
             if (selected.state != Wp.NodeState.RUNNING && target_enabled) {
-                state = 1;
+                state = NativeState.WAITING_FOR_AUDIO;
                 return;
             }
-            state = 2;
+            state = NativeState.AUDITING;
             deadline = Timeout.add (2000, () => {
                 deadline = 0;
                 cancel.cancel ();
-                if (core == owner) connection_lost ();
+                if (core == owner) {
+                    connection_lost ();
+                }
                 return Source.REMOVE;
             });
             var metadata = yield selected.enum_params ("PropInfo", null, cancel);
-            if (!current (revision, owner)) return;
+            if (!current (revision, owner)) {
+                return;
+            }
             var shape = controls (metadata, true);
             var parameters = yield selected.enum_params ("Props", null, cancel);
-            if (!current (revision, owner)) return;
+            if (!current (revision, owner)) {
+                return;
+            }
             var values = controls (parameters, false);
             bool attached = shape != null || values != null;
             if (attached) {
@@ -578,7 +681,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             }
             may_write = false;
             if (matches) {
-                state = 3;
+                state = NativeState.CONFIRMED;
                 native_error = "";
                 if (retiring) {
                     refresh (echo_master);
@@ -600,17 +703,45 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             var setter = new Wp.SpaPodBuilder.object ("Spa:Pod:Object:Param:Props", "Props");
             setter.add_property ("params");
             setter.add_pod (params.end ());
-            if (!selected.set_param ("Props", 0, setter.end ()))
+            if (!selected.set_param ("Props", 0, setter.end ())) {
                 throw new IOError.FAILED (_("PipeWire rejected the equalizer controls."));
+            }
             yield owner.sync (cancel);
-            if (current (revision, owner)) native_pending = true; // Fresh read-only confirmation, including after idle.
+            // Confirm the write with a fresh enumeration, including after idle.
+            if (current (revision, owner)) {
+                native_pending = true;
+            }
         } catch (Error e) {
-            if (current (revision, owner)) native_failed (e.message);
+            if (current (revision, owner)) {
+                native_failed (e.message);
+            }
         } finally {
-            if (deadline != 0) Source.remove (deadline);
+            if (deadline != 0) {
+                Source.remove (deadline);
+            }
             native_busy = false;
-            if (native_pending) queue_native ();
+            if (native_pending) {
+                queue_native ();
+            }
             changed ();
+        }
+    }
+
+    private class Request : Object {
+        public string node;
+        public string serial;
+        public string device;
+        public string profile;
+        public string route;
+        public string signature;
+        public bool enabled;
+        public bool valid_route;
+        public Variant gains;
+
+        public bool matches (Request other) {
+            return node == other.node && serial == other.serial && device == other.device &&
+                profile == other.profile && route == other.route && signature == other.signature &&
+                enabled == other.enabled && valid_route == other.valid_route && gains.equal (other.gains);
         }
     }
 
