@@ -161,7 +161,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
 
     public void stop () {
         stopped = true;
-        may_write = pending = false;
+        may_write = pending = native_pending = false;
         generation++;
         if (refresh_id != 0) {
             Source.remove (refresh_id);
