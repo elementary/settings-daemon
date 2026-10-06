@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the shipped graph at unity gain with native SPA filters."""
+"""Render the five-band profile layout with native SPA filters."""
 import array
 import configparser
 import itertools
@@ -22,12 +22,15 @@ frequencies, qs = values('Frequencies'), values('Q')
 minimum, maximum = values('MinimumGains'), values('MaximumGains')
 assert p['Node'] == '*' and not values('DefaultGains')
 rules = json.loads((base.parent/'data/50-elementary-speaker-equalizer.conf').read_text())
-graph = rules['node.filter-graph.rules'][0]['actions']['create-filter-graph'][0]
+assert 'node.filter-graph.rules' not in rules
 labels = {'low-shelf': 'bq_lowshelf', 'peak': 'bq_peaking', 'high-shelf': 'bq_highshelf'}
-for i, node in enumerate(graph['nodes'][:5]):
-    assert node['name'] == f'eos_eq_{i+1}' and node['label'] == labels[types[i]]
-    assert node['control'] == dict(Freq=frequencies[i], Q=qs[i], Gain=0.)
-assert graph['nodes'][-1]['control'] == dict(Mult=1., Add=0., Control=0.)
+graph = dict(nodes=[dict(type='builtin', name=f'eos_eq_{i+1}', label=labels[kind],
+    control=dict(Freq=frequency, Q=q, Gain=0.))
+    for i, (kind, frequency, q) in enumerate(zip(types, frequencies, qs))],
+    links=[dict(output=f'eos_eq_{i}:Out', input=f'eos_eq_{i+1}:In') for i in range(1,5)])
+graph['nodes'].append(dict(type='builtin', name='eos_eq_h', label='linear',
+    control=dict(Mult=1., Add=0., Control=0.)))
+graph['links'].append(dict(output='eos_eq_5:Out', input='eos_eq_h:In'))
 
 # Reuse the native SPA fixture; no reimplementation of its DSP arithmetic.
 peaks, transient_overshoots, rendered = [], 0, 0

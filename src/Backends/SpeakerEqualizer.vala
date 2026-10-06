@@ -8,6 +8,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
     public signal void changed ();
     private PulseAudio.Context context;
     private Wp.Core? core;
+    private uint32? server_cookie;
     private Wp.ObjectManager? native_nodes;
     private Wp.Node? native_node;
     private string native_name = "";
@@ -23,6 +24,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
     private bool native_pending;
     private bool may_write;
     private double[] target_gains;
+    private bool target_enabled;
     private Settings? settings;
     private Profile? profile;
     private string settings_path = "";
@@ -204,8 +206,8 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             close_native ();
             invalidate ();
         }
-        // Neutralize the old physical graph before following another default.
-        // Until then, its shared speaker/headphone route still needs bypass.
+        // Remove our graph from the old physical output before following
+        // another default, including its shared speaker/headphone route.
         bool release = selected != null && node != "" && selected != node;
         if (node != "") selected = node;
         if (selected == null) { invalidate (); finish (); return; }
@@ -324,6 +326,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             if (last_request == null || !last_request.equal (desired) || retiring != release) {
                 last_request = desired;
                 target_gains = gains;
+                target_enabled = enabled;
                 native_revision++;
                 retiring = release;
                 may_write = true;
@@ -379,6 +382,15 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             }
         });
         native_nodes.installed.connect (() => {
+            uint32 cookie = core.get_remote_cookie ();
+            // Object serials can repeat in a new server; its graphs cannot survive.
+            if (server_cookie != null && server_cookie != cookie) {
+                native_revision++;
+                may_write = true;
+                state = 0;
+                native_error = "";
+            }
+            server_cookie = cookie;
             if (connect_deadline != 0) Source.remove (connect_deadline);
             connect_deadline = 0;
             queue_native ();
@@ -494,7 +506,7 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
                 params_handler = selected.params_changed.connect ((id) => { if (id == "Props") queue_native (); });
                 state_handler = selected.state_changed.connect (() => { native_revision++; queue_native (); });
             }
-            if (selected.state != Wp.NodeState.RUNNING && !retiring) {
+            if (selected.state != Wp.NodeState.RUNNING && target_enabled) {
                 state = 1;
                 return;
             }
@@ -511,28 +523,31 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             var parameters = yield selected.enum_params ("Props", null, cancel);
             if (!current (revision, owner)) return;
             var values = controls (parameters, false);
-            if (retiring && selected.state != Wp.NodeState.RUNNING && shape == null && values == null) {
-                // An uninitialized graph has no controls to neutralize.
-                may_write = false;
-                state = 3;
-                native_error = "";
-                refresh (echo_master);
-                return;
+            bool attached = shape != null || values != null;
+            if (attached) {
+                if (shape == null || values == null) {
+                    throw new IOError.INVALID_DATA (_("The installed equalizer controls are incomplete."));
+                }
+                for (int i = 0; i < 5; i++) {
+                    if (Math.fabs (values[i * 9] - installed.frequencies[i]) > 0.01 ||
+                        Math.fabs (values[i * 9 + 1] - installed.q[i]) > 0.0001) {
+                        throw new IOError.INVALID_DATA (_("The equalizer does not match its installed profile."));
+                    }
+                }
+                if (values[46] != 0 || values[47] != 0) {
+                    throw new IOError.INVALID_DATA (_("The equalizer headroom control changed."));
+                }
             }
-            if (shape == null || values == null) {
-                throw new IOError.INVALID_DATA (_("The installed equalizer controls are incomplete."));
+            bool matches = attached == target_enabled;
+            if (matches && attached) {
+                matches = Math.fabs (values[45] - 1) <= 0.00001;
+                for (int i = 0; i < 5; i++) {
+                    matches &= Math.fabs (values[i * 9 + 2] - target_gains[i]) <= 0.001;
+                }
             }
-            for (int i = 0; i < 5; i++) {
-                if (Math.fabs (values[i * 9] - installed.frequencies[i]) > 0.01 ||
-                    Math.fabs (values[i * 9 + 1] - installed.q[i]) > 0.0001)
-                    throw new IOError.INVALID_DATA (_("The equalizer does not match its installed profile."));
-            }
-            if (values[46] != 0 || values[47] != 0)
-                throw new IOError.INVALID_DATA (_("The equalizer headroom control changed."));
-            bool matches = Math.fabs (values[45] - 1) <= 0.00001;
-            for (int i = 0; i < 5; i++) matches &= Math.fabs (values[i * 9 + 2] - target_gains[i]) <= 0.001;
-            if (!matches && !may_write)
+            if (!matches && !may_write) {
                 throw new IOError.INVALID_DATA (_("The equalizer controls changed outside Sound settings."));
+            }
             may_write = false;
             if (matches) {
                 state = 3;
@@ -543,12 +558,17 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
                 return;
             }
             var params = new Wp.SpaPodBuilder.@struct ();
-            for (int i = 0; i < 5; i++) {
-                params.add_string ("eos_eq_%d:Gain".printf (i + 1));
-                params.add_float ((float) target_gains[i]);
+            if (attached != target_enabled) {
+                params.add_string ("audioconvert.filter-graph.0");
+                params.add_string (target_enabled ? installed.graph (target_gains) : "");
+            } else {
+                for (int i = 0; i < 5; i++) {
+                    params.add_string ("eos_eq_%d:Gain".printf (i + 1));
+                    params.add_float ((float) target_gains[i]);
+                }
+                params.add_string ("eos_eq_h:Mult");
+                params.add_float (1.0f);
             }
-            params.add_string ("eos_eq_h:Mult");
-            params.add_float (1.0f);
             var setter = new Wp.SpaPodBuilder.object ("Spa:Pod:Object:Param:Props", "Props");
             setter.add_property ("params");
             setter.add_pod (params.end ());
@@ -576,6 +596,23 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
         public double[] defaults;
         public double[] minimum;
         public double[] maximum;
+
+        public string graph (double[] gains) {
+            string[] filters = { "bq_lowshelf", "bq_peaking", "bq_peaking", "bq_peaking", "bq_highshelf" };
+            var graph = new StringBuilder ("{ nodes = [");
+            for (int i = 0; i < 5; i++) {
+                graph.append_printf ("{ type = builtin name = eos_eq_%d label = %s " +
+                    "control = { Freq = %s Q = %s Gain = %s } }",
+                    i + 1, filters[i], frequencies[i].to_string (), q[i].to_string (), gains[i].to_string ());
+            }
+            graph.append ("{ type = builtin name = eos_eq_h label = linear " +
+                "control = { Mult = 1 Add = 0 Control = 0 } } ] links = [");
+            for (int i = 1; i < 5; i++) {
+                graph.append_printf ("{ output = \"eos_eq_%d:Out\" input = \"eos_eq_%d:In\" }", i, i + 1);
+            }
+            graph.append ("{ output = \"eos_eq_5:Out\" input = \"eos_eq_h:In\" } ] }");
+            return graph.str;
+        }
 
         public Profile (string id, string output, string selected_route) throws Error {
             var file = new KeyFile ();
