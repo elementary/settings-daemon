@@ -265,8 +265,9 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
             // Other routes use the same validated graph with neutral defaults.
             string preferences_profile = profile_id;
             if (profile_id != "generic-speakers-v1" && port != selected_profile.route) {
-                selected_profile = new Profile ("generic-speakers-v1", name, port);
-                preferences_profile = "generic-speakers-v1";
+                selected_profile.route = port;
+                selected_profile.defaults = {};
+                preferences_profile = profile_id + "-neutral";
             }
             // Preferences are stable across transient PW IDs, scoped to the
             // installed profile revision, physical node name and selected route.
@@ -608,11 +609,9 @@ internal class SettingsDaemon.Backends.SpeakerEqualizer : Object {
                 minimum.length != 5 || maximum.length != 5) {
                 throw new IOError.INVALID_DATA (_("The equalizer profile is incomplete."));
             }
-            double[] layout_frequencies = { 105, 190, 280, 2800, 8500 };
-            double[] layout_q = { 0.8, 0.75, 1, 1.1, 0.7 };
-            string[] layout_types = { "low-shelf", "low-shelf", "peak", "peak", "high-shelf" };
+            string[] layout_types = { "low-shelf", "peak", "peak", "peak", "high-shelf" };
             for (int i = 0; i < 5; i++) {
-                if (types[i] != layout_types[i] || frequencies[i] != layout_frequencies[i] || q[i] != layout_q[i] ||
+                if (types[i] != layout_types[i] ||
                     !frequencies[i].is_finite () || frequencies[i] < 20 || frequencies[i] > 20000 ||
                     !q[i].is_finite () || q[i] <= 0 || q[i] > 10 ||
                     !minimum[i].is_finite () || !maximum[i].is_finite () ||
