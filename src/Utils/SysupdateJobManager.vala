@@ -29,14 +29,14 @@ public class SettingsDaemon.Utils.SysupdateJobManager : Object {
      * Note that for this to reliably work without races the this has to have been created before
      * the job was started.
      */
-    public async void wait_for_job (string object_path) throws Error {
-        if (object_path in received_object_paths) {
-            check_status (object_path);
+    public async void wait_for_job (SysupdateJob job) throws Error {
+        if (job.path in received_object_paths) {
+            check_status (job);
             return;
         }
 
         var signal_id = manager.job_removed.connect ((job_id, job_path) => {
-            if (job_path == object_path) {
+            if (job_path == job.path) {
                 wait_for_job.callback ();
             }
         });
@@ -45,11 +45,13 @@ public class SettingsDaemon.Utils.SysupdateJobManager : Object {
 
         manager.disconnect (signal_id);
 
-        check_status (object_path);
+        check_status (job);
     }
 
-    private void check_status (string object_path) throws Error {
-        var status = received_object_paths[object_path];
+    private void check_status (SysupdateJob job) throws Error {
+        job.notify_completed ();
+
+        var status = received_object_paths[job.path];
 
         if (status == 0) {
             return;

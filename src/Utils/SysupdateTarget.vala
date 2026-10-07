@@ -68,16 +68,9 @@ public class SettingsDaemon.Utils.SysupdateTarget : Object {
         ObjectPath job_path;
         yield target.update (version_string, 0, out used_version, out job_id, out job_path);
 
-        var job = yield new SysupdateJob (job_path);
-        job.start_observing (cancellable, progress_callback);
+        var job = yield new SysupdateJob (job_path, cancellable, progress_callback);
 
-        try {
-            yield manager.wait_for_job (job_path);
-        } catch (Error e) {
-            throw e;
-        } finally {
-            job.stop_observing (cancellable, progress_callback);
-        }
+        yield manager.wait_for_job (job);
     }
 
     /**
