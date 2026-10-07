@@ -9,7 +9,7 @@ public class SettingsDaemon.Utils.SysupdateJob : Object {
     public ObjectPath path { get; construct; }
 
     private Cancellable cancellable;
-    private SysupdateTarget.ProgressCallback progress_callback;
+    private unowned SysupdateTarget.ProgressCallback progress_callback;
 
     private Sysupdate.Job? job;
 
