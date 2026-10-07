@@ -3,3 +3,7 @@ src/Application.vala
 src/Backends/SystemUpdate.vala
 src/Backends/UbuntuDrivers.vala
 src/Utils/PkUtils.vala
+src/Backends/Audio.vala
+src/Backends/EchoProcessor.vala
+src/Backends/SpeakerEqualizer.vala
+src/Backends/speaker-equalizer-profile.c

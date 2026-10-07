@@ -1,5 +1,14 @@
+equalizer_library = static_library(
+    'speaker-equalizer-profile',
+    'Backends/speaker-equalizer-profile.c',
+    dependencies: [gio_dep],
+)
+
 sources = files(
     'AccountsService.vala',
+    'Backends/Audio.vala',
+    'Backends/SpeakerEqualizer.vala',
+    'Backends/EchoProcessor.vala',
     'Application.vala',
     'Backends/AccentColorManager.vala',
     'Backends/ApplicationShortcuts.vala',
@@ -28,8 +37,13 @@ endif
 executable(
     meson.project_name(),
     sources,
+    link_with: equalizer_library,
     dependencies: [
         config_dep,
+        wireplumber_dep,
+        wireplumber_vapi,
+        pulse_dep,
+        pulse_loop_dep,
         fwupd_dep,
         gio_dep,
         glib_dep,
@@ -40,6 +54,7 @@ executable(
         m_dep,
         pk_dep
     ],
-    vala_args: args,
+    vala_args: args + ['--vapidir=' + meson.project_source_root() / 'vapi',
+        '--vapidir=' + meson.project_build_root(), '--pkg=libpulse-operation', '--pkg=speaker-equalizer-profile'],
     install: true,
 )

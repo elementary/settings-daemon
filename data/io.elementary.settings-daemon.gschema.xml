@@ -183,4 +183,20 @@
       <description>Indicates the preferred level of contrast for the user interface.</description>
     </key>
   </schema>
+  <schema id="io.elementary.settings-daemon.audio" path="/io/elementary/settings-daemon/audio/">
+    <key name="echo-cancellation" type="b">
+      <default>false</default>
+      <summary>Cancel speaker echo in the default microphone</summary>
+    </key>
+  </schema>
+  <schema id="io.elementary.settings-daemon.audio.equalizer">
+    <key name="enabled" type="b">
+      <default>false</default>
+      <summary>Enable the speaker equalizer for this device profile</summary>
+    </key>
+    <key name="gains" type="ad">
+      <default>[0.0, 0.0, 0.0, 0.0, 0.0]</default>
+      <summary>Five saved speaker equalizer gains in decibels</summary>
+    </key>
+  </schema>
 </schemalist>
