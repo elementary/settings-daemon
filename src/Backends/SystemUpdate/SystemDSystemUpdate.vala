@@ -5,17 +5,8 @@
  * Authored by: Leonhard Kargl <leo.kargl@proton.me>
  */
 
-[DBus (name="io.elementary.settings_daemon.SystemUpdate")]
-public class SettingsDaemon.Backends.SystemDSystemUpdate : Object {
-    public struct UpdateDetails {
-        string[] packages;
-        uint64 size;
-        Pk.Info[] info;
-    }
-
+public class SettingsDaemon.Backends.SystemDSystemUpdate : Object, SystemUpdateProvider {
     private const string NOTIFICATION_ID = "system-update";
-
-    public signal void state_changed ();
 
     private PkUtils.CurrentState current_state;
     private UpdateDetails update_details;

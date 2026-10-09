@@ -86,8 +86,6 @@ public sealed class SettingsDaemon.Application : Gtk.Application {
 #if UBUNTU_DRIVERS
             connection.register_object (object_path, new Backends.UbuntuDrivers ());
 #endif
-        } else {
-            connection.register_object (object_path, new Backends.SystemDSystemUpdate ());
         }
 
         return true;
