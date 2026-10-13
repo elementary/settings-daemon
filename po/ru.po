@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 14:47+0000\n"
+"POT-Creation-Date: 2026-10-09 15:25+0000\n"
 "PO-Revision-Date: 2025-02-12 01:16+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/settings-"
@@ -41,97 +41,103 @@ msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
-#: data/settings-daemon.metainfo.xml.in:50
-#: data/settings-daemon.metainfo.xml.in:62
-#: data/settings-daemon.metainfo.xml.in:75
-#: data/settings-daemon.metainfo.xml.in:94
-#: data/settings-daemon.metainfo.xml.in:110
-#: data/settings-daemon.metainfo.xml.in:128
-#: data/settings-daemon.metainfo.xml.in:156
-#: data/settings-daemon.metainfo.xml.in:176
+#: data/settings-daemon.metainfo.xml.in:51
+#: data/settings-daemon.metainfo.xml.in:64
+#: data/settings-daemon.metainfo.xml.in:76
+#: data/settings-daemon.metainfo.xml.in:89
+#: data/settings-daemon.metainfo.xml.in:108
+#: data/settings-daemon.metainfo.xml.in:124
+#: data/settings-daemon.metainfo.xml.in:142
+#: data/settings-daemon.metainfo.xml.in:170
+#: data/settings-daemon.metainfo.xml.in:190
 msgid "Improvements:"
 msgstr "Улучшения:"
 
 #: data/settings-daemon.metainfo.xml.in:39
-#: data/settings-daemon.metainfo.xml.in:52
-#: data/settings-daemon.metainfo.xml.in:64
-#: data/settings-daemon.metainfo.xml.in:96
-#: data/settings-daemon.metainfo.xml.in:112
-#: data/settings-daemon.metainfo.xml.in:130
-#: data/settings-daemon.metainfo.xml.in:158
-#: data/settings-daemon.metainfo.xml.in:178
+#: data/settings-daemon.metainfo.xml.in:53
+#: data/settings-daemon.metainfo.xml.in:66
+#: data/settings-daemon.metainfo.xml.in:78
+#: data/settings-daemon.metainfo.xml.in:110
+#: data/settings-daemon.metainfo.xml.in:126
+#: data/settings-daemon.metainfo.xml.in:144
+#: data/settings-daemon.metainfo.xml.in:172
+#: data/settings-daemon.metainfo.xml.in:192
 msgid "Updated translations"
 msgstr "Обновлены переводы"
 
-#: data/settings-daemon.metainfo.xml.in:77
+#: data/settings-daemon.metainfo.xml.in:91
 msgid "Progress indicators were added to the system update"
 msgstr "Добавлены индикаторы прогресса обновления системы"
 
-#: data/settings-daemon.metainfo.xml.in:78
+#: data/settings-daemon.metainfo.xml.in:92
 msgid "Get correct total size for system updates"
 msgstr "Корректный общий размер системных обновлений"
 
-#: data/settings-daemon.metainfo.xml.in:90
-#: data/settings-daemon.metainfo.xml.in:106
-#: data/settings-daemon.metainfo.xml.in:122
-#: data/settings-daemon.metainfo.xml.in:151
-#: data/settings-daemon.metainfo.xml.in:170
+#: data/settings-daemon.metainfo.xml.in:104
+#: data/settings-daemon.metainfo.xml.in:120
+#: data/settings-daemon.metainfo.xml.in:136
+#: data/settings-daemon.metainfo.xml.in:165
+#: data/settings-daemon.metainfo.xml.in:184
 msgid "New features:"
 msgstr "Новые возможности:"
 
-#: data/settings-daemon.metainfo.xml.in:92
+#: data/settings-daemon.metainfo.xml.in:106
 msgid "Don't automatically download updates on a metered network"
 msgstr ""
 "Обновления больше не загружаются автоматически при лимитном подключении"
 
-#: data/settings-daemon.metainfo.xml.in:108
+#: data/settings-daemon.metainfo.xml.in:122
 msgid "Option to restart or shutdown without installing updates"
 msgstr "Опция перезагрузки или выключения без установки обновлений"
 
-#: data/settings-daemon.metainfo.xml.in:124
+#: data/settings-daemon.metainfo.xml.in:138
 msgid "Handle operating system updates, including automatic updates"
 msgstr "Управление обновлениями ОС, включая автоматические обновления"
 
-#: data/settings-daemon.metainfo.xml.in:125
+#: data/settings-daemon.metainfo.xml.in:139
 msgid "Handle driver installation"
 msgstr "Управление установкой драйверов"
 
-#: data/settings-daemon.metainfo.xml.in:126
+#: data/settings-daemon.metainfo.xml.in:140
 msgid "Move the AccentColorManager from the window manager to here"
 msgstr "Перенос AccentColorManager сюда из оконного менеджера"
 
-#: data/settings-daemon.metainfo.xml.in:153
+#: data/settings-daemon.metainfo.xml.in:167
 msgid "Provide accent colors on the settings portal"
 msgstr "Доступ к акцентным цветам через портал настроек"
 
-#: data/settings-daemon.metainfo.xml.in:154
+#: data/settings-daemon.metainfo.xml.in:168
+#, fuzzy
+#| msgid ""
+#| "Sync font, mouse, keyboard, nightlight, and some accessibility settings "
+#| "to the Login &amp; Lock screen"
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
-"the Login &amp; Lock screen"
+"the Login & Lock screen"
 msgstr ""
 "Синхронизация шрифта, настроек мыши, клавиатуры, ночного света и некоторых "
 "настроек специальных возможностей с Экраном входа и блокировки"
 
-#: data/settings-daemon.metainfo.xml.in:172
+#: data/settings-daemon.metainfo.xml.in:186
 msgid "Add First day of the week setting"
 msgstr "Добавлен параметр \"Первый день недели\""
 
-#: data/settings-daemon.metainfo.xml.in:173
+#: data/settings-daemon.metainfo.xml.in:187
 msgid "Add left-handed mouse click setting"
 msgstr "Добавлен параметр для мышей для левшей"
 
-#: data/settings-daemon.metainfo.xml.in:174
+#: data/settings-daemon.metainfo.xml.in:188
 msgid "Don't Housekeep Downloads if it's also Home"
 msgstr "Загрузки теперь не очищаются, если это домашняя директория"
 
-#: src/Application.vala:171
+#: src/Application.vala:173
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
 msgstr[0] "Доступно обновление прошивки"
 msgstr[1] "Доступны обновления прошивки"
 msgstr[2] "Доступны обновления прошивки"
 
-#: src/Application.vala:173
+#: src/Application.vala:175
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
@@ -139,42 +145,14 @@ msgstr[0] "Для вашего оборудования доступно %u об
 msgstr[1] "Для вашего оборудования доступно %u обновления"
 msgstr[2] "Для вашего оборудования доступно %u обновлений"
 
-#: src/Backends/SystemUpdate.vala:145
-msgid "Update available"
-msgstr "Доступны обновления"
-
-#: src/Backends/SystemUpdate.vala:149
-msgid "A system security update is available"
-msgstr "Доступны обновления безопасности"
-
-#: src/Backends/SystemUpdate.vala:153
-msgid "A system update is available"
-msgstr "Доступны обновления системы"
-
-#: src/Backends/SystemUpdate.vala:183 src/Backends/UbuntuDrivers.vala:246
-msgid "Restart required"
-msgstr "Необходима перезагрузка"
-
-#: src/Backends/SystemUpdate.vala:184
-msgid "Please restart your system to finalize updates"
-msgstr "Перезагрузите систему, чтобы завершить установку обновлений"
-
-#: src/Backends/SystemUpdate.vala:211
-msgid "System updates couldn't be installed"
-msgstr "Не удалось установить обновления системы"
-
-#: src/Backends/SystemUpdate.vala:212
-msgid "An error occurred while trying to update your system"
-msgstr "Во время обновления системы произошла ошибка"
-
-#: src/Backends/UbuntuDrivers.vala:171
+#: src/Backends/UbuntuDrivers.vala:174
 msgid "Driver Available"
 msgid_plural "Drivers Available"
 msgstr[0] "Доступен драйвер"
 msgstr[1] "Доступны драйверы"
 msgstr[2] "Доступны драйверы"
 
-#: src/Backends/UbuntuDrivers.vala:173
+#: src/Backends/UbuntuDrivers.vala:176
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
@@ -182,17 +160,46 @@ msgstr[0] "Для вашего оборудования доступен %u др
 msgstr[1] "Для вашего оборудования доступно %u драйвера"
 msgstr[2] "Для вашего оборудования доступно %u драйверов"
 
-#: src/Backends/UbuntuDrivers.vala:247
+#: src/Backends/UbuntuDrivers.vala:248
+#: src/Backends/SystemUpdate/PackageKit.vala:182
+msgid "Restart required"
+msgstr "Необходима перезагрузка"
+
+#: src/Backends/UbuntuDrivers.vala:249
 msgid "Please restart your system to finalize driver installation"
 msgstr "Перезагрузите систему, чтобы завершить установку драйвера"
 
-#: src/Backends/UbuntuDrivers.vala:274
+#: src/Backends/UbuntuDrivers.vala:276
 msgid "A driver couldn't be installed"
 msgstr "Не удалось установить драйвер"
 
-#: src/Backends/UbuntuDrivers.vala:275
+#: src/Backends/UbuntuDrivers.vala:277
 msgid "An error occurred while trying to install a driver"
 msgstr "Во время установки драйвера произошла ошибка"
+
+#: src/Backends/SystemUpdate/PackageKit.vala:144
+msgid "Update available"
+msgstr "Доступны обновления"
+
+#: src/Backends/SystemUpdate/PackageKit.vala:148
+msgid "A system security update is available"
+msgstr "Доступны обновления безопасности"
+
+#: src/Backends/SystemUpdate/PackageKit.vala:152
+msgid "A system update is available"
+msgstr "Доступны обновления системы"
+
+#: src/Backends/SystemUpdate/PackageKit.vala:183
+msgid "Please restart your system to finalize updates"
+msgstr "Перезагрузите систему, чтобы завершить установку обновлений"
+
+#: src/Backends/SystemUpdate/PackageKit.vala:210
+msgid "System updates couldn't be installed"
+msgstr "Не удалось установить обновления системы"
+
+#: src/Backends/SystemUpdate/PackageKit.vala:211
+msgid "An error occurred while trying to update your system"
+msgstr "Во время обновления системы произошла ошибка"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
