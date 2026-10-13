@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2026-10-13 09:03+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementaryos.org/projects/desktop/"
@@ -189,12 +189,20 @@ msgid "Please restart your system to finalize updates"
 msgstr "Reinicieu el sistema per acabar les actualitzacions."
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr "Les actualitzacions del sistema no s'han pogut instal·lar."
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
 msgstr "Hi ha hagut un error en intentar actualitzar el sistema."
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "Es comproven les signatures"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -335,6 +343,24 @@ msgstr "Es copien fitxers"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "S'instal·la"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "Es baixen les llistes de fitxers"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Preparing update"
+msgstr "S'instal·len les actualitzacions"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Starting update"
+msgstr "S'instal·len les actualitzacions"
 
 #~ msgid "System Settings"
 #~ msgstr "Configuració del sistema"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2025-03-08 12:45+0000\n"
 "Last-Translator: Marcin Serwin <marcin@serwin.dev>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/desktop/settings-"
@@ -197,12 +197,20 @@ msgid "Please restart your system to finalize updates"
 msgstr "Proszę ponownie uruchomić komputer by zakończyć aktualizację"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr "Aktualizacje systemowe nie mogły zostać zainstalowane"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
 msgstr "Podczas aktualizacji systemu wystąpił błąd"
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "Sprawdzanie podpisów"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -343,6 +351,24 @@ msgstr "Kopiowanie plików"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Instalowanie"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "Pobieranie listy plików"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Preparing update"
+msgstr "Instalowanie aktualizacji"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Starting update"
+msgstr "Instalowanie aktualizacji"
 
 #~ msgid "System Settings"
 #~ msgstr "Ustawienia systemu"

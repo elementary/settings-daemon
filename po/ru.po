@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2025-02-12 01:16+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/desktop/settings-"
@@ -194,12 +194,20 @@ msgid "Please restart your system to finalize updates"
 msgstr "Перезагрузите систему, чтобы завершить установку обновлений"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr "Не удалось установить обновления системы"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
 msgstr "Во время обновления системы произошла ошибка"
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "Проверка подписей"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -340,6 +348,24 @@ msgstr "Копирование файлов"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Установка"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "Загрузка списка файлов"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Preparing update"
+msgstr "Установка обновлений"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Starting update"
+msgstr "Установка обновлений"
 
 #~ msgid "System Settings"
 #~ msgstr "Параметры системы"

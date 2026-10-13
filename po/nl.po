@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2025-02-16 03:16+0000\n"
 "Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/desktop/settings-"
@@ -190,13 +190,21 @@ msgid "Please restart your system to finalize updates"
 msgstr "Herstart uw systeem op de updates te voltooien"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr "Systeemupdates konden niet worden geïnstalleerd"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
 msgstr ""
 "Een fout is opgetreden tijdens het installeren van updates op je systeem"
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "Handtekeningen checken"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -337,6 +345,24 @@ msgstr "Bestanden kopiëren"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Installeren"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "Bestandlijsten downloaden"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Preparing update"
+msgstr "Updates installeren"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Starting update"
+msgstr "Updates installeren"
 
 #~ msgid "System Settings"
 #~ msgstr "Systeeminstellingen"

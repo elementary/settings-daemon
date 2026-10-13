@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2024-08-07 17:16+0000\n"
 "Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/desktop/"
@@ -198,14 +198,22 @@ msgid "Please restart your system to finalize updates"
 msgstr "Start systemet på ny for å fullføre oppgraderingene"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 #, fuzzy
 msgid "System updates couldn't be installed"
 msgstr "Kunne ikke installere systemoppgraderinger"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 #, fuzzy
 msgid "An error occurred while trying to update your system"
 msgstr "En feil inntraff i forbindelse med oppgradering av systemet ditt"
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "Sjekker signaturer …"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -352,6 +360,22 @@ msgstr "Kopierer filer …"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Installerer …"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "Laster ned fillister …"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+msgid "Preparing update"
+msgstr "Installerer nye versjoner …"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+msgid "Starting update"
+msgstr "Installerer nye versjoner …"
 
 #~ msgid "System Settings"
 #~ msgstr "Sys.-innstillinger"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2026-09-07 10:02+0000\n"
 "Last-Translator: Chairul Akmal <chairulakmal@protonmail.com>\n"
 "Language-Team: Indonesian <https://l10n.elementaryos.org/projects/desktop/"
@@ -184,12 +184,20 @@ msgid "Please restart your system to finalize updates"
 msgstr "Mulai ulang sistem Anda untuk menyelesaikan pembaruan"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr "Pembaruan sistem tidak dapat dipasang"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
 msgstr "Terjadi kesalahan saat mencoba memperbarui sistem Anda"
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "Memeriksa tanda tangan"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -330,6 +338,24 @@ msgstr "Menyalin berkas"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Memasang"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "Mengunduh daftar berkas"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Preparing update"
+msgstr "Memasang pembaruan"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Starting update"
+msgstr "Memasang pembaruan"
 
 #~ msgid "System Settings"
 #~ msgstr "Pengaturan Sistem"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2024-10-05 19:16+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/desktop/settings-"
@@ -194,12 +194,20 @@ msgid "Please restart your system to finalize updates"
 msgstr "Reštartujte váš systém pre dokončenie aktualizácií"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr "Aktualizácie systému sa nepodarilo nainštalovať"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
 msgstr "Pri spúšťaní aktualizácie systému sa vyskytla chyba"
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "Kontrolujú sa podpisy"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -340,6 +348,24 @@ msgstr "Kopírujú sa súbory"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Inštaluje sa"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "Sťahujú sa zoznamy súborov"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Preparing update"
+msgstr "Inštalujú sa aktualizácie"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Starting update"
+msgstr "Inštalujú sa aktualizácie"
 
 #~ msgid "System Settings"
 #~ msgstr "Nastavenia systému"

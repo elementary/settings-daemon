@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2026-10-03 18:03+0000\n"
 "Last-Translator: Flynn <flynn@users.noreply.l10n.elementaryos.org>\n"
 "Language-Team: Cornish <https://l10n.elementaryos.org/projects/desktop/"
@@ -186,11 +186,17 @@ msgid "Please restart your system to finalize updates"
 msgstr ""
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr ""
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
+msgstr ""
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+msgid "Checking for updates"
 msgstr ""
 
 #: src/Utils/PkUtils.vala:22
@@ -332,3 +338,17 @@ msgstr ""
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr ""
+
+#: src/Utils/SysupdateJob.vala:38
+msgid "Downloading new image"
+msgstr ""
+
+#: src/Utils/SysupdateTarget.vala:51
+msgid "Preparing update"
+msgstr ""
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Settings Daemon"
+msgid "Starting update"
+msgstr "Daemon Settyansow"

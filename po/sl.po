@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2026-01-19 16:55+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://l10n.elementaryos.org/projects/desktop/"
@@ -189,12 +189,20 @@ msgid "Please restart your system to finalize updates"
 msgstr "Prosimo ponovno zaženite sistem za popolno namestitev posodobitev"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr "Sistemskih posodobitev ni bilo mogoče namestiti"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
 msgstr "Prišlo je do napake pri posodobitvi vašega sistema"
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "Preverjanje podpisov"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -335,6 +343,24 @@ msgstr "Kopiranje datotek"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "Namestitev"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "Prenašanje seznama datotek"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Preparing update"
+msgstr "Nameščanje posodobitev"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Starting update"
+msgstr "Nameščanje posodobitev"
 
 #~ msgid "System Settings"
 #~ msgstr "Sistemske nastavitve"

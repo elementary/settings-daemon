@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-09 15:25+0000\n"
+"POT-Creation-Date: 2026-10-13 17:09+0000\n"
 "PO-Revision-Date: 2026-10-11 03:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
@@ -114,8 +114,8 @@ msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login & Lock screen"
 msgstr ""
-"フォント・マウス・キーボード・夜間モード・一部アクセシビリティ設定が、"
-"ログイン・ロック画面と同期するように変更"
+"フォント・マウス・キーボード・夜間モード・一部アクセシビリティ設定が、ログイ"
+"ン・ロック画面と同期するように変更"
 
 #: data/settings-daemon.metainfo.xml.in:186
 msgid "Add First day of the week setting"
@@ -187,12 +187,20 @@ msgid "Please restart your system to finalize updates"
 msgstr "アップデートを完了するにはシステムを再起動してください"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
 msgstr "システムアップデートをインストールできませんでした"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
 msgstr "システムアップデート試行中にエラーが発生しました"
+
+#: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
+#, fuzzy
+#| msgid "Checking signatures"
+msgid "Checking for updates"
+msgstr "署名を確認しています"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -333,6 +341,24 @@ msgstr "ファイルをコピーしています"
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
 msgstr "インストールしています"
+
+#: src/Utils/SysupdateJob.vala:38
+#, fuzzy
+#| msgid "Downloading file lists"
+msgid "Downloading new image"
+msgstr "ファイルの一覧をダウンロードしています"
+
+#: src/Utils/SysupdateTarget.vala:51
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Preparing update"
+msgstr "アップデートをインストールしています"
+
+#: src/Utils/SysupdateTarget.vala:64
+#, fuzzy
+#| msgid "Installing updates"
+msgid "Starting update"
+msgstr "アップデートをインストールしています"
 
 #~ msgid "System Settings"
 #~ msgstr "システム設定"
