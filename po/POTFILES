@@ -2,6 +2,9 @@ data/settings-daemon.metainfo.xml.in
 src/Application.vala
 src/Backends/UbuntuDrivers.vala
 src/Backends/SystemUpdate/PackageKit.vala
+src/Backends/SystemUpdate/SystemDSystemUpdate.vala
 src/Backends/SystemUpdate/SystemUpdate.vala
 src/Backends/SystemUpdate/SystemUpdateProvider.vala
 src/Utils/PkUtils.vala
+src/Utils/SysupdateJob.vala
+src/Utils/SysupdateTarget.vala

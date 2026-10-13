@@ -13,10 +13,11 @@ public class SettingsDaemon.Backends.SystemUpdate : Object {
 
     construct {
         if (SettingsDaemon.Utils.is_sysupdate ()) {
-            return;
+            provider = new SystemDSystemUpdate ();
+        } else {
+            provider = new PackageKit ();
         }
 
-        provider = new PackageKit ();
         provider.state_changed.connect (() => state_changed ());
     }
 

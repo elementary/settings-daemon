@@ -11,13 +11,18 @@ sources = files(
     'Backends/PowerProfilesSync.vala',
     'Backends/PrefersColorSchemeSettings.vala',
     'Backends/SystemUpdate/PackageKit.vala',
+    'Backends/SystemUpdate/SystemDSystemUpdate.vala',
     'Backends/SystemUpdate/SystemUpdate.vala',
     'Backends/SystemUpdate/SystemUpdateProvider.vala',
     'DBus/DesktopIntegration.vala',
     'DBus/ShellKeyGrabber.vala',
+    'DBus/Sysupdate.vala',
     'Utils/PkUtils.vala',
     'Utils/SessionUtils.vala',
     'Utils/SunriseSunsetCalculator.vala',
+    'Utils/SysupdateJob.vala',
+    'Utils/SysupdateJobManager.vala',
+    'Utils/SysupdateTarget.vala',
 )
 
 args = []
