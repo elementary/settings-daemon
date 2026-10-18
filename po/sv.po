@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-13 17:09+0000\n"
-"PO-Revision-Date: 2025-10-30 09:55+0000\n"
+"PO-Revision-Date: 2026-10-18 20:04+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/sv/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.4\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -109,16 +109,12 @@ msgid "Provide accent colors on the settings portal"
 msgstr "Tillhandahålla accentfärger på inställningsportalen"
 
 #: data/settings-daemon.metainfo.xml.in:168
-#, fuzzy
-#| msgid ""
-#| "Sync font, mouse, keyboard, nightlight, and some accessibility settings "
-#| "to the Login &amp; Lock screen"
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login & Lock screen"
 msgstr ""
-"Synkronisera typsnitt, mus, tangentbord, nattljus och vissa "
-"hjälpmedelsinställningar till inloggnings- och låsskärmen"
+"Synkronisera teckensnitt, mus, tangentbord, nattläge och vissa "
+"hjälpmedelsinställningar med inloggnings- och låsskärmen"
 
 #: data/settings-daemon.metainfo.xml.in:186
 msgid "Add First day of the week setting"
@@ -202,10 +198,8 @@ msgid "An error occurred while trying to update your system"
 msgstr "Ett fel inträffade vid försök att uppdatera ditt system"
 
 #: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
-#, fuzzy
-#| msgid "Checking signatures"
 msgid "Checking for updates"
-msgstr "Kontrollerar signaturer"
+msgstr "Söker efter uppdateringar"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -348,22 +342,16 @@ msgid "Installing"
 msgstr "Installerar"
 
 #: src/Utils/SysupdateJob.vala:38
-#, fuzzy
-#| msgid "Downloading file lists"
 msgid "Downloading new image"
-msgstr "Hämtar ner fillistor"
+msgstr "Hämtar en ny systemavbildning"
 
 #: src/Utils/SysupdateTarget.vala:51
-#, fuzzy
-#| msgid "Installing updates"
 msgid "Preparing update"
-msgstr "Installerar uppdateringar"
+msgstr "Förbereder uppdatering"
 
 #: src/Utils/SysupdateTarget.vala:64
-#, fuzzy
-#| msgid "Installing updates"
 msgid "Starting update"
-msgstr "Installerar uppdateringar"
+msgstr "Startar uppdatering"
 
 #~ msgid "System Settings"
 #~ msgstr "Systeminställningar"
