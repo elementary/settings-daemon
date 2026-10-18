@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-13 17:09+0000\n"
-"PO-Revision-Date: 2025-03-17 11:05+0000\n"
+"PO-Revision-Date: 2026-10-18 20:04+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://"
-"l10n.elementaryos.org/projects/desktop/settings-daemon/zh_Hant/>\n"
+"l10n.elementaryos.org/projects/desktop/settings-daemon/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.2\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
@@ -103,15 +103,10 @@ msgid "Provide accent colors on the settings portal"
 msgstr "讓設定值桌面入口提供強調色資訊給應用程式"
 
 #: data/settings-daemon.metainfo.xml.in:168
-#, fuzzy
-#| msgid ""
-#| "Sync font, mouse, keyboard, nightlight, and some accessibility settings "
-#| "to the Login &amp; Lock screen"
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login & Lock screen"
-msgstr ""
-"將字型、滑鼠、鍵盤、夜光，‘以及一些無障礙使用設定值同步到登入與鎖定畫面"
+msgstr "將字型、滑鼠、鍵盤、夜光，以及一些無障礙使用設定值同步到登入與鎖定畫面"
 
 #: data/settings-daemon.metainfo.xml.in:186
 msgid "Add First day of the week setting"
@@ -191,10 +186,8 @@ msgid "An error occurred while trying to update your system"
 msgstr "嘗試更新您的系統時發生錯誤"
 
 #: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
-#, fuzzy
-#| msgid "Checking signatures"
 msgid "Checking for updates"
-msgstr "正在檢查簽名"
+msgstr "正在檢查更新"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -337,22 +330,16 @@ msgid "Installing"
 msgstr "安裝中"
 
 #: src/Utils/SysupdateJob.vala:38
-#, fuzzy
-#| msgid "Downloading file lists"
 msgid "Downloading new image"
-msgstr "正在下載檔案清單"
+msgstr "正在下載新映像檔"
 
 #: src/Utils/SysupdateTarget.vala:51
-#, fuzzy
-#| msgid "Installing updates"
 msgid "Preparing update"
-msgstr "正在安裝更新"
+msgstr "正在準備更新"
 
 #: src/Utils/SysupdateTarget.vala:64
-#, fuzzy
-#| msgid "Installing updates"
 msgid "Starting update"
-msgstr "正在安裝更新"
+msgstr "正在開始更新"
 
 #~ msgid "System Settings"
 #~ msgstr "系統設定值"
