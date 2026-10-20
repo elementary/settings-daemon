@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-13 17:09+0000\n"
-"PO-Revision-Date: 2026-10-11 03:03+0000\n"
+"PO-Revision-Date: 2026-10-20 21:04+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/ja/>\n"
@@ -197,10 +197,8 @@ msgid "An error occurred while trying to update your system"
 msgstr "システムアップデート試行中にエラーが発生しました"
 
 #: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
-#, fuzzy
-#| msgid "Checking signatures"
 msgid "Checking for updates"
-msgstr "署名を確認しています"
+msgstr "アップデートを確認しています"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
@@ -343,22 +341,16 @@ msgid "Installing"
 msgstr "インストールしています"
 
 #: src/Utils/SysupdateJob.vala:38
-#, fuzzy
-#| msgid "Downloading file lists"
 msgid "Downloading new image"
-msgstr "ファイルの一覧をダウンロードしています"
+msgstr "新しいイメージをダウンロードしています"
 
 #: src/Utils/SysupdateTarget.vala:51
-#, fuzzy
-#| msgid "Installing updates"
 msgid "Preparing update"
-msgstr "アップデートをインストールしています"
+msgstr "アップデートを準備しています"
 
 #: src/Utils/SysupdateTarget.vala:64
-#, fuzzy
-#| msgid "Installing updates"
 msgid "Starting update"
-msgstr "アップデートをインストールしています"
+msgstr "アップデートを開始しています"
 
 #~ msgid "System Settings"
 #~ msgstr "システム設定"
