@@ -8,27 +8,32 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-13 17:09+0000\n"
-"PO-Revision-Date: 2021-07-15 16:16-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-11-07 15:06+0000\n"
+"Last-Translator: Davit Yedigaryan <davit.yedigaryan.1993@gmail.com>\n"
+"Language-Team: Armenian <https://l10n.elementaryos.org/projects/desktop/"
+"settings-daemon/hy/>\n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: data/settings-daemon.metainfo.xml.in:10
 msgid "Settings Daemon"
-msgstr ""
+msgstr "Կարգավորումների ֆոնային ծառայություն"
 
 #: data/settings-daemon.metainfo.xml.in:11
 msgid "Manage settings and background tasks"
-msgstr ""
+msgstr "Կառավարել կարգավորումները և ֆոնային առաջադրանքները"
 
 #: data/settings-daemon.metainfo.xml.in:13
 msgid ""
 "Syncs settings to the greeter and manages background tasks, like scheduling "
 "dark style and housekeeping."
 msgstr ""
+"Համաժամեցնում է կարգավորումները մուտքի էկրանի հետ և կառավարում ֆոնային "
+"առաջադրանքները, օրինակ՝ մուգ ոճի ժամանակացույցը և մաքրությունը։"
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
@@ -61,11 +66,11 @@ msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:91
 msgid "Progress indicators were added to the system update"
-msgstr ""
+msgstr "Համակարգի թարմացմանը ավելացվել են առաջընթացի ցուցիչներ"
 
 #: data/settings-daemon.metainfo.xml.in:92
 msgid "Get correct total size for system updates"
-msgstr ""
+msgstr "Ուղղվել է համակարգի թարմացումների ընդհանուր չափի ստացումը"
 
 #: data/settings-daemon.metainfo.xml.in:104
 #: data/settings-daemon.metainfo.xml.in:120
@@ -77,267 +82,271 @@ msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:106
 msgid "Don't automatically download updates on a metered network"
-msgstr ""
+msgstr "Թարմացումները ավտոմատ չեն ներբեռնվում սահմանափակ տրաֆիկով ցանցում"
 
 #: data/settings-daemon.metainfo.xml.in:122
 msgid "Option to restart or shutdown without installing updates"
 msgstr ""
+"Վերագործարկելու կամ անջատելու հնարավորություն առանց թարմացումները տեղադրելու"
 
 #: data/settings-daemon.metainfo.xml.in:138
 msgid "Handle operating system updates, including automatic updates"
 msgstr ""
+"Մշակել օպերացիոն համակարգի թարմացումները, ներառյալ ավտոմատ թարմացումները"
 
 #: data/settings-daemon.metainfo.xml.in:139
 msgid "Handle driver installation"
-msgstr ""
+msgstr "Մշակել սարքավարման ծրագրերի տեղադրումը"
 
 #: data/settings-daemon.metainfo.xml.in:140
 msgid "Move the AccentColorManager from the window manager to here"
-msgstr ""
+msgstr "AccentColorManager-ը պատուհանների կառավարիչից տեղափոխվել է այստեղ"
 
 #: data/settings-daemon.metainfo.xml.in:167
 msgid "Provide accent colors on the settings portal"
-msgstr ""
+msgstr "Շեշտադրման գույները տրամադրվում են կարգավորումների պորտալով"
 
 #: data/settings-daemon.metainfo.xml.in:168
 msgid ""
 "Sync font, mouse, keyboard, nightlight, and some accessibility settings to "
 "the Login & Lock screen"
 msgstr ""
+"Տառատեսակի, մկնիկի, ստեղնաշարի, գիշերային լույսի և մատչելիության որոշ "
+"կարգավորումներ համաժամեցվում են Մուտքի և Կողպման էկրանի հետ"
 
 #: data/settings-daemon.metainfo.xml.in:186
 msgid "Add First day of the week setting"
-msgstr ""
+msgstr "Ավելացվել է շաբաթվա առաջին օրվա կարգավորում"
 
 #: data/settings-daemon.metainfo.xml.in:187
 msgid "Add left-handed mouse click setting"
-msgstr ""
+msgstr "Ավելացվել է ձախլիկ մկնիկի սեղմման կարգավորում"
 
 #: data/settings-daemon.metainfo.xml.in:188
 msgid "Don't Housekeep Downloads if it's also Home"
-msgstr ""
+msgstr "Չմաքրել «Ներբեռնումներ» պանակը, եթե այն նաև Տնային պանակն է"
 
 #: src/Application.vala:173
 msgid "Firmware Update Available"
 msgid_plural "Firmware Updates Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Հասանելի է միկրոծրագրի թարմացում"
+msgstr[1] "Հասանելի է միկրոծրագրի թարմացում"
 
 #: src/Application.vala:175
 #, c-format
 msgid "%u update is available for your hardware"
 msgid_plural "%u updates are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ձեր սարքավորման համար հասանելի է %u թարմացում"
+msgstr[1] "Ձեր սարքավորման համար հասանելի է %u թարմացում"
 
 #: src/Backends/UbuntuDrivers.vala:174
 msgid "Driver Available"
 msgid_plural "Drivers Available"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Սարքավարման ծրագիր հասանելի է"
+msgstr[1] "Սարքավարման ծրագիր հասանելի է"
 
 #: src/Backends/UbuntuDrivers.vala:176
 #, c-format
 msgid "%u driver is available for your hardware"
 msgid_plural "%u drivers are available for your hardware"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ձեր սարքավորման համար հասանելի է %u սարքավարման ծրագիր"
+msgstr[1] "Ձեր սարքավորման համար հասանելի է %u սարքավարման ծրագիր"
 
 #: src/Backends/UbuntuDrivers.vala:248
 #: src/Backends/SystemUpdate/PackageKit.vala:182
 msgid "Restart required"
-msgstr ""
+msgstr "Պահանջվում է վերագործարկում"
 
 #: src/Backends/UbuntuDrivers.vala:249
 msgid "Please restart your system to finalize driver installation"
-msgstr ""
+msgstr "Սարքավարման ծրագրի տեղադրումն ավարտելու համար վերագործարկեք համակարգը"
 
 #: src/Backends/UbuntuDrivers.vala:276
 msgid "A driver couldn't be installed"
-msgstr ""
+msgstr "Սարքավարման ծրագիրը չհաջողվեց տեղադրել"
 
 #: src/Backends/UbuntuDrivers.vala:277
 msgid "An error occurred while trying to install a driver"
-msgstr ""
+msgstr "Սարքավարման ծրագիր տեղադրելիս սխալ տեղի ունեցավ"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:144
 msgid "Update available"
-msgstr ""
+msgstr "Թարմացում հասանելի է"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:148
 msgid "A system security update is available"
-msgstr ""
+msgstr "Հասանելի է համակարգի անվտանգության թարմացում"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:152
 msgid "A system update is available"
-msgstr ""
+msgstr "Հասանելի է համակարգի թարմացում"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:183
 msgid "Please restart your system to finalize updates"
-msgstr ""
+msgstr "Թարմացումներն ավարտելու համար վերագործարկեք համակարգը"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:210
 #: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:117
 msgid "System updates couldn't be installed"
-msgstr ""
+msgstr "Համակարգի թարմացումները չհաջողվեց տեղադրել"
 
 #: src/Backends/SystemUpdate/PackageKit.vala:211
 #: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:118
 msgid "An error occurred while trying to update your system"
-msgstr ""
+msgstr "Համակարգը թարմացնելիս սխալ տեղի ունեցավ"
 
 #: src/Backends/SystemUpdate/SystemDSystemUpdate.vala:43
 msgid "Checking for updates"
-msgstr ""
+msgstr "Թարմացումները ստուգվում են"
 
 #: src/Utils/PkUtils.vala:22
 msgid "Starting"
-msgstr ""
+msgstr "Սկսվում է"
 
 #: src/Utils/PkUtils.vala:24
 msgid "Waiting"
-msgstr ""
+msgstr "Սպասում"
 
 #: src/Utils/PkUtils.vala:26
 msgid "Running"
-msgstr ""
+msgstr "Աշխատում է"
 
 #: src/Utils/PkUtils.vala:28
 msgid "Querying"
-msgstr ""
+msgstr "Հարցում է կատարվում"
 
 #: src/Utils/PkUtils.vala:30
 msgid "Getting information"
-msgstr ""
+msgstr "Տեղեկատվությունը ստացվում է"
 
 #: src/Utils/PkUtils.vala:32
 msgid "Removing packages"
-msgstr ""
+msgstr "Փաթեթները հեռացվում են"
 
 #: src/Utils/PkUtils.vala:34
 msgid "Downloading"
-msgstr ""
+msgstr "Ներբեռնվում է"
 
 #: src/Utils/PkUtils.vala:36
 msgid "Refreshing software list"
-msgstr ""
+msgstr "Ծրագրերի ցանկը թարմացվում է"
 
 #: src/Utils/PkUtils.vala:38
 msgid "Installing updates"
-msgstr ""
+msgstr "Թարմացումները տեղադրվում են"
 
 #: src/Utils/PkUtils.vala:40
 msgid "Cleaning up packages"
-msgstr ""
+msgstr "Փաթեթները մաքրվում են"
 
 #: src/Utils/PkUtils.vala:42
 msgid "Obsoleting packages"
-msgstr ""
+msgstr "Փաթեթները հնացվում են"
 
 #: src/Utils/PkUtils.vala:44
 msgid "Resolving dependencies"
-msgstr ""
+msgstr "Կախվածությունները լուծվում են"
 
 #: src/Utils/PkUtils.vala:46
 msgid "Checking signatures"
-msgstr ""
+msgstr "Ստուգվում են ստորագրությունները"
 
 #: src/Utils/PkUtils.vala:48
 msgid "Testing changes"
-msgstr ""
+msgstr "Փոփոխությունները փորձարկվում են"
 
 #: src/Utils/PkUtils.vala:50
 msgid "Committing changes"
-msgstr ""
+msgstr "Փոփոխությունները կիրառվում են"
 
 #: src/Utils/PkUtils.vala:52
 msgid "Requesting data"
-msgstr ""
+msgstr "Տվյալները հայցվում են"
 
 #: src/Utils/PkUtils.vala:54
 msgid "Finished"
-msgstr ""
+msgstr "Ավարտվեց"
 
 #: src/Utils/PkUtils.vala:56
 msgid "Cancelling"
-msgstr ""
+msgstr "Չեղարկվում է"
 
 #: src/Utils/PkUtils.vala:58
 msgid "Downloading repository information"
-msgstr ""
+msgstr "Պահոցի տեղեկատվությունը ներբեռնվում է"
 
 #: src/Utils/PkUtils.vala:60
 msgid "Downloading list of packages"
-msgstr ""
+msgstr "Փաթեթների ցանկը ներբեռնվում է"
 
 #: src/Utils/PkUtils.vala:62
 msgid "Downloading file lists"
-msgstr ""
+msgstr "Ֆայլերի ցանկերը ներբեռնվում են"
 
 #: src/Utils/PkUtils.vala:64
 msgid "Downloading lists of changes"
-msgstr ""
+msgstr "Փոփոխությունների ցանկերը ներբեռնվում են"
 
 #: src/Utils/PkUtils.vala:66
 msgid "Downloading groups"
-msgstr ""
+msgstr "Խմբերը ներբեռնվում են"
 
 #: src/Utils/PkUtils.vala:68
 msgid "Downloading update information"
-msgstr ""
+msgstr "Թարմացման տեղեկատվությունը ներբեռնվում է"
 
 #: src/Utils/PkUtils.vala:70
 msgid "Repackaging files"
-msgstr ""
+msgstr "Ֆայլերը վերափաթեթավորվում են"
 
 #: src/Utils/PkUtils.vala:72
 msgid "Loading cache"
-msgstr ""
+msgstr "Քեշը բեռնվում է"
 
 #: src/Utils/PkUtils.vala:74
 msgid "Scanning applications"
-msgstr ""
+msgstr "Հավելվածները սկանավորվում են"
 
 #: src/Utils/PkUtils.vala:76
 msgid "Generating package lists"
-msgstr ""
+msgstr "Փաթեթների ցանկերը ստեղծվում են"
 
 #: src/Utils/PkUtils.vala:78
 msgid "Waiting for package manager lock"
-msgstr ""
+msgstr "Սպասվում է փաթեթների կառավարչի կողպման ազատումը"
 
 #: src/Utils/PkUtils.vala:80
 msgid "Waiting for authentication"
-msgstr ""
+msgstr "Սպասվում է նույնականացում"
 
 #: src/Utils/PkUtils.vala:82
 msgid "Updating running applications"
-msgstr ""
+msgstr "Աշխատող հավելվածները թարմացվում են"
 
 #: src/Utils/PkUtils.vala:84
 msgid "Checking applications in use"
-msgstr ""
+msgstr "Ստուգվում են օգտագործվող հավելվածները"
 
 #: src/Utils/PkUtils.vala:86
 msgid "Checking libraries in use"
-msgstr ""
+msgstr "Ստուգվում են օգտագործվող գրադարանները"
 
 #: src/Utils/PkUtils.vala:88
 msgid "Copying files"
-msgstr ""
+msgstr "Ֆայլերը պատճենվում են"
 
 #: src/Utils/PkUtils.vala:91
 msgid "Installing"
-msgstr ""
+msgstr "Տեղադրվում է"
 
 #: src/Utils/SysupdateJob.vala:38
 msgid "Downloading new image"
-msgstr ""
+msgstr "Նոր պատկերը ներբեռնվում է"
 
 #: src/Utils/SysupdateTarget.vala:51
 msgid "Preparing update"
-msgstr ""
+msgstr "Թարմացումը պատրաստվում է"
 
 #: src/Utils/SysupdateTarget.vala:64
 msgid "Starting update"
-msgstr ""
+msgstr "Թարմացումը սկսվում է"
