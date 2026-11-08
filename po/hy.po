@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-13 17:09+0000\n"
-"PO-Revision-Date: 2026-11-07 15:06+0000\n"
+"PO-Revision-Date: 2026-11-09 21:04+0000\n"
 "Last-Translator: Davit Yedigaryan <davit.yedigaryan.1993@gmail.com>\n"
 "Language-Team: Armenian <https://l10n.elementaryos.org/projects/desktop/"
 "settings-daemon/hy/>\n"
@@ -37,7 +37,7 @@ msgstr ""
 
 #: data/settings-daemon.metainfo.xml.in:29
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
 
 #: data/settings-daemon.metainfo.xml.in:37
 #: data/settings-daemon.metainfo.xml.in:51
@@ -50,7 +50,7 @@ msgstr ""
 #: data/settings-daemon.metainfo.xml.in:170
 #: data/settings-daemon.metainfo.xml.in:190
 msgid "Improvements:"
-msgstr ""
+msgstr "Բարելավումներ՝"
 
 #: data/settings-daemon.metainfo.xml.in:39
 #: data/settings-daemon.metainfo.xml.in:53
@@ -62,7 +62,7 @@ msgstr ""
 #: data/settings-daemon.metainfo.xml.in:172
 #: data/settings-daemon.metainfo.xml.in:192
 msgid "Updated translations"
-msgstr ""
+msgstr "Թարմացված թարգմանություններ"
 
 #: data/settings-daemon.metainfo.xml.in:91
 msgid "Progress indicators were added to the system update"
@@ -78,7 +78,7 @@ msgstr "Ուղղվել է համակարգի թարմացումների ընդհ
 #: data/settings-daemon.metainfo.xml.in:165
 #: data/settings-daemon.metainfo.xml.in:184
 msgid "New features:"
-msgstr ""
+msgstr "Նոր հնարավորություններ՝"
 
 #: data/settings-daemon.metainfo.xml.in:106
 msgid "Don't automatically download updates on a metered network"
