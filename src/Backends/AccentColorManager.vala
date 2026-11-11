@@ -104,8 +104,12 @@ public class SettingsDaemon.Backends.AccentColorManager : Object {
             new_theme = themes[prefers_accent_color - 1];
         }
 
-        gnome_interface_settings.set_string ("gtk-theme", new_theme.stylesheet);
-        debug ("New stylesheet: %s", new_theme.stylesheet);
+        var current_theme = gnome_interface_settings.get_string ("gtk-theme");
+
+        if (current_theme.has_prefix ("io.elementary") && current_theme != new_theme.stylesheet) {
+            gnome_interface_settings.set_string ("gtk-theme", new_theme.stylesheet);
+            debug ("New stylesheet: %s", new_theme.stylesheet);
+        }
 
         accounts_service.accent_color = new_theme.index;
     }
